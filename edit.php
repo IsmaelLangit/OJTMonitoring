@@ -55,13 +55,14 @@ include("connect.php");
 			}
 			if(isset($_POST['save'])){
 				$idnum		     = $_POST['idnum'];
-				$name		     = $_POST['name'];
+				$first_name		     = $_POST['first_name'];
+				$last_name		     = $_POST['last_name'];
 				$courseyear	     = $_POST['courseyear'];
 				$date_started	     = $_POST['date_started'];
 				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', coid='$coid', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET first_name='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started', coid='$coid', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -80,10 +81,18 @@ include("connect.php");
 						<input type="text" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
 					</div>
 				</div>
+
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Name</label>
+					<label class="col-sm-3 control-label">First Name</label>
 					<div class="col-sm-4">
-						<input type="text" name="name" value="<?php echo $row ['name']; ?>" class="form-control" placeholder="Name" required>
+						<input type="text" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Last Name</label>
+					<div class="col-sm-4">
+						<input type="text" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
 					</div>
 				</div>
 
@@ -127,7 +136,7 @@ include("connect.php");
 							<select name="coid" class="form-control">
 							<option value="<?php echo $row ['coid']; ?>"><?php echo $row ['coname']; ?></option>";
 					<?php
-						$con = mysqli_query($connect, "SELECT * FROM company");
+						$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
 						while ($row2 = mysqli_fetch_assoc($con)) {
 							if($row ['coid'] != $row2 ['coid'])
 						    echo "<option value='".$row2["coid"]."'>".$row2["coname"]."</option>";
@@ -140,16 +149,13 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Type of OJT</label>
 					<div class="col-sm-2">
-						<select name="typeofojt" class="form-control">
-						<option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>";
 						<?php
-							if ($row ['typeofojt'] = 'In-house') {
-								echo "<option value='Company-based'>Company-based</option>";
+							if ($row ['typeofojt'] == "In-house") {
+								echo "<span class='label label-success'>In-house</span>";
 							} else {
-								echo "<option value='In-house'>In-house</option>";
+								echo "<span class='label label-warning'>Company-based</span>";
 							}
 						?>
-						</select> 
 					</div>
                 </div>
 
@@ -185,7 +191,7 @@ include("connect.php");
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script>
 	$('.date').datepicker({
-		format: 'yyyy-mm-dd',
+		format: 'mm-dd-yyyy',
 	})
 	</script>
 </body>

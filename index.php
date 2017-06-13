@@ -41,7 +41,7 @@ include("connect.php");
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="content">
 			<h2>Students</h2>
 			<hr />
@@ -113,7 +113,7 @@ include("connect.php");
 						<tr>
 							<td>'.$no.'</td>
 							<td>'.$row['idnum'].'</td>
-							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['name'].'</a></td>
+							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['first_name']." ".$row['last_name'].'</a></td>
                             <td>'.$row['courseyear'].'</td>
                             <td>'.$row['date_started'].'</td>
 							<td>'.$row['coname'].'</td>
@@ -138,7 +138,7 @@ include("connect.php");
 							<td>
 
 								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="" onclick="return confirm(\'Are you sure you want to delete '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

@@ -56,14 +56,13 @@ include("connect.php");
 				$email	     = $_POST['email'];
 				$date_started	     = $_POST['date_started'];
 				$coid		 = $_POST['coid'];
-				$typeofojt		 = $_POST['typeofojt'];
 				$status			 = $_POST['status'];
                 
                 
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, coid, typeofojt, status)
-															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started','$coid','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, coid, status)
+															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started','$coid' ,'$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -134,22 +133,12 @@ include("connect.php");
 					<div class="col-sm-3">
 							<select name="coid" class="form-control">
 					<?php
-						$con = mysqli_query($connect, "SELECT * FROM company");
+						$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
 						while ($row = mysqli_fetch_assoc($con)) {
 						    echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
 						}
 						echo "</select>";
 					?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label">OJT type</label>
-					<div class="col-sm-2">
-						<select name="typeofojt" class="form-control">
-                            <option value="In-house">In-house</option>
-							<option value="Company-based">Company-based</option>
-						</select>
 					</div>
 				</div>
 
