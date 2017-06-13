@@ -49,8 +49,11 @@ include("connect.php");
 			<?php
 			if(isset($_POST['add'])){
 				$idnum		     = $_POST['idnum'];
-				$name		     = $_POST['name'];
+				$last_name		     = $_POST['last_name'];
+				$first_name		     = $_POST['first_name'];
 				$courseyear	     = $_POST['courseyear'];
+				$mobile_number	     = $_POST['mobile_number'];
+				$email	     = $_POST['email'];
 				$date_started	     = $_POST['date_started'];
 				$coid		 = $_POST['coid'];
 				$typeofojt		 = $_POST['typeofojt'];
@@ -59,8 +62,8 @@ include("connect.php");
                 
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, name, courseyear, date_started, coid, typeofojt, status)
-															VALUES('$idnum','$name','$courseyear','$date_started','$coid','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, coid, typeofojt, status)
+															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started','$coid','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -79,10 +82,18 @@ include("connect.php");
 						<input type="number" name="idnum" class="form-control" placeholder="ID number..." required>
 					</div>
 				</div>
+
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Name</label>
+					<label class="col-sm-3 control-label">First Name</label>
 					<div class="col-sm-4">
-						<input type="text" name="name" class="form-control" placeholder="Name.." required>
+						<input type="text" name="first_name" class="form-control" placeholder="First name.." required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Last Name</label>
+					<div class="col-sm-4">
+						<input type="text" name="last_name" class="form-control" placeholder="Last name.." required>
 					</div>
 				</div>
 
@@ -95,6 +106,20 @@ include("connect.php");
 							<option value="BSCS-3">BSCS-3</option>
 							<option value="BSCS-4">BSCS-4</option>
 						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Mobile Number</label>
+					<div class="col-sm-4">
+						<input type="text" name="mobile_number" class="form-control" placeholder="Mobile number.." required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Email</label>
+					<div class="col-sm-4">
+						<input type="text" name="email" class="form-control" placeholder="Email.." required>
 					</div>
 				</div>
 
