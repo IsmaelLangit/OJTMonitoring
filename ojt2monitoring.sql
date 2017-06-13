@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2017 at 11:58 PM
+-- Generation Time: Jun 13, 2017 at 03:32 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -23,21 +23,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `companytable`
+-- Table structure for table `company`
 --
 
-CREATE TABLE `companytable` (
-  `cname` varchar(50) NOT NULL,
-  `caddress` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `company` (
+  `coid` int(10) NOT NULL,
+  `coname` varchar(50) NOT NULL,
+  `coaddress` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `companytable`
+-- Dumping data for table `company`
 --
 
-INSERT INTO `companytable` (`cname`, `caddress`) VALUES
-('Sitel', 'Baguio City'),
-('Sitel', 'Baguio City');
+INSERT INTO `company` (`coid`, `coname`, `coaddress`) VALUES
+(1, 'Sitel', 'Baguio City'),
+(2, 'Sitel', 'Baguio City');
 
 -- --------------------------------------------------------
 
@@ -49,8 +50,8 @@ CREATE TABLE `students` (
   `idnum` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
   `courseyear` varchar(20) NOT NULL,
-  `sample1` varchar(50) NOT NULL,
-  `sample2` varchar(50) NOT NULL,
+  `date_started` date NOT NULL,
+  `company_name` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -58,13 +59,29 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`idnum`, `name`, `courseyear`, `sample1`, `sample2`, `status`) VALUES
-('21541810', 'Randy Antero', 'BSIT 3', '2017-05-31', 'Sitel', 'Partial'),
-('2154188', 'Nathaniel Calimlim', 'BSIT 3', '2017-05-29', 'Philippine military academy', 'Complete'),
-('2154187', 'Franchesca Derije', 'BSIT 3', '2017-05-26', 'Tingkersoft', 'Partial'),
-('2154186', 'Kenneth Jaramel', 'BSIT 3', '2017-05-31', 'Sitel', 'Partial'),
-('21541891', 'James Abalos', 'BSIT 3', '2017-05-30', 'MOOG', 'Incomplete');
+INSERT INTO `students` (`idnum`, `name`, `courseyear`, `date_started`, `company_name`, `status`) VALUES
+('2158487', 'Faye Cabalse', 'BSIT-4', '2017-06-16', 'PMA', 'Complete'),
+('2155957', 'Ismael Langit', 'BSIT-4', '2017-06-06', 'Moog', 'Incomplete');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`coid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `coid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
