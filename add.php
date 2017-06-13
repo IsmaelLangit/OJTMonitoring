@@ -107,7 +107,19 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company</label>
 					<div class="col-sm-3">
-						<input type="text" name="company_name" class="form-control" placeholder="Company name..." required>
+							<select name="coname" class="form-control">
+					<?php
+
+						$con = mysqli_query($connect, "SELECT coname FROM company");
+
+						
+						while ($row = mysqli_fetch_assoc($con)) {
+							
+						    echo "<option value=".'$row["coname"]'.">".$row["coname"]."</option>";
+						}
+						echo "</select>";
+
+					?>
 					</div>
 				</div>
 
