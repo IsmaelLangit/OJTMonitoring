@@ -19,10 +19,6 @@ include("connect.php");
 		}
 	</style>
 
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -49,9 +45,7 @@ include("connect.php");
 		<div class="content">
 			<h2>Student &raquo; Add Student</h2>
 			<hr />
-            
-                
-            
+               
 			<?php
 			if(isset($_POST['add'])){
 				$idnum		     = $_POST['idnum'];
@@ -78,12 +72,11 @@ include("connect.php");
 			}
 			?>
 
-
 			<form class="form-horizontal" action="" method="post">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">ID no.</label>
 					<div class="col-sm-2">
-						<input type="text" name="idnum" class="form-control" placeholder="ID number..." required>
+						<input type="number" name="idnum" class="form-control" placeholder="ID number..." required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -92,12 +85,19 @@ include("connect.php");
 						<input type="text" name="name" class="form-control" placeholder="Name.." required>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Course & Year</label>
-					<div class="col-sm-4">
-						<input type="text" name="courseyear" class="form-control" placeholder="Course and Year..." required>
+					<div class="col-sm-2">
+						<select name="courseyear" class="form-control">
+                            <option value="BSIT-3">BSIT-3</option>
+							<option value="BSIT-4">BSIT-4</option>
+							<option value="BSCS-3">BSCS-3</option>
+							<option value="BSCS-4">BSCS-4</option>
+						</select>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Date Started</label>
 					<div class="col-sm-4">

@@ -61,7 +61,7 @@ include("connect.php");
 				$company_name	     = $_POST['company_name'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', company_name='$company_name', status='$status' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', company_name='$company_name', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -86,12 +86,35 @@ include("connect.php");
 						<input type="text" name="name" value="<?php echo $row ['name']; ?>" class="form-control" placeholder="Name" required>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Course & Year</label>
-					<div class="col-sm-4">
-						<input type="text" name="courseyear" value="<?php echo $row ['courseyear']; ?>" class="form-control" placeholder="Course & year" required>
+					<div class="col-sm-2">
+						<select name="courseyear" class="form-control">
+						<option value="<?php echo $row ['courseyear']; ?>"><?php echo $row ['courseyear']; ?></option>";
+						<?php
+							if ($row ['courseyear'] = 'BSIT-3') {
+								echo "<option value='BSIT-4'>BSIT-4</option>";
+								echo "<option value='BSCS-3'>BSCS-3</option>";
+								echo "<option value='BSCS-4'>BSCS-4</option>";
+							} else if (($row ['courseyear'] = 'BSIT-4')) {
+								echo "<option value='BSIT-3'>BSIT-3</option>";
+								echo "<option value='BSCS-3'>BSCS-3</option>";
+								echo "<option value='BSCS-4'>BSCS-4</option>";
+							} else if (($row ['courseyear'] = 'BSCS-3')) {
+								echo "<option value='BSIT-3'>BSIT-3</option>";
+								echo "<option value='BSIT-4'>BSIT-4</option>";
+								echo "<option value='BSCS-4'>BSCS-4</option>";
+							} else if (($row ['courseyear'] = 'BSCS-4')) {
+								echo "<option value='BSIT-3'>BSIT-3</option>";
+								echo "<option value='BSIT-4'>BSIT-4</option>";
+								echo "<option value='BSCS-3'>BSCS-3</option>";
+							}
+						?>
+						</select> 
 					</div>
-				</div>
+                </div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Data Started</label>
 					<div class="col-sm-4">
