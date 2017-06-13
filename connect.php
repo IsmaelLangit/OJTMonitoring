@@ -2,7 +2,7 @@
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
-$db_name = "ojt2monitoring";
+$db_name = "ojtmonitoring";
 
 $connect = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
