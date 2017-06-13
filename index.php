@@ -100,9 +100,9 @@ include("connect.php");
 				</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * FROM students WHERE status='$filter' or typeofojt='$filter' ORDER BY idnum ASC");
+					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY idnum ASC");
 				}else{
-					$sql = mysqli_query($connect, "SELECT * FROM students ORDER BY idnum ASC");
+					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY idnum ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">Nothing to Display</td></tr>';
@@ -116,7 +116,7 @@ include("connect.php");
 							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['name'].'</a></td>
                             <td>'.$row['courseyear'].'</td>
                             <td>'.$row['date_started'].'</td>
-							<td>'.$row['company_name'].'</td>
+							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
 								echo '<span class="label label-success">In-house</span>';

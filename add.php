@@ -52,15 +52,15 @@ include("connect.php");
 				$name		     = $_POST['name'];
 				$courseyear	     = $_POST['courseyear'];
 				$date_started	     = $_POST['date_started'];
-				$company_name		 = $_POST['company_name'];
+				$coid		 = $_POST['coid'];
 				$typeofojt		 = $_POST['typeofojt'];
 				$status			 = $_POST['status'];
                 
                 
-                $con = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum'");
+                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, name, courseyear, date_started, company_name, typeofojt, status)
-															VALUES('$idnum','$name','$courseyear','$date_started','$company_name','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, name, courseyear, date_started, coid, typeofojt, status)
+															VALUES('$idnum','$name','$courseyear','$date_started','$coid','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -107,18 +107,13 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company</label>
 					<div class="col-sm-3">
-							<select name="coname" class="form-control">
+							<select name="coid" class="form-control">
 					<?php
-
-						$con = mysqli_query($connect, "SELECT coname FROM company");
-
-						
+						$con = mysqli_query($connect, "SELECT * FROM company");
 						while ($row = mysqli_fetch_assoc($con)) {
-							
-						    echo "<option value=".'$row["coname"]'.">".$row["coname"]."</option>";
+						    echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
 						}
 						echo "</select>";
-
 					?>
 					</div>
 				</div>
