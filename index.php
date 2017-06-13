@@ -69,7 +69,6 @@ include("connect.php");
 						<option value="0">Filter Students By:</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
 						<option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
-						<option value="Partial" <?php if($filter == 'Partial'){ echo 'selected'; } ?>>Partial</option>
                         <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
 					</select>
 				</div>
@@ -90,7 +89,7 @@ include("connect.php");
 					<th>ID no.</th>
 					<th>Name</th>
                     <th>Course & Year</th>
-                    <th>sample1</th>
+                    <th>Date Started</th>
 					<th>Company</th>
 					<th>Status</th>
                     <th>Tools</th>
@@ -112,14 +111,11 @@ include("connect.php");
 							<td>'.$row['idnum'].'</td>
 							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['name'].'</a></td>
                             <td>'.$row['courseyear'].'</td>
-                            <td>'.$row['sample1'].'</td>
-							<td>'.$row['sample2'].'</td>
+                            <td>'.$row['date_started'].'</td>
+							<td>'.$row['company_name'].'</td>
 							<td>';
 							if($row['status'] == 'Complete'){
 								echo '<span class="label label-success">Complete</span>';
-							}
-                            else if ($row['status'] == 'Partial' ){
-								echo '<span class="label label-info">Partial</span>';
 							}
                             else if ($row['status'] == 'Incomplete' ){
 								echo '<span class="label label-warning">Incomplete</span>';
@@ -129,7 +125,6 @@ include("connect.php");
 							<td>
 
 								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="" title="" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
 								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="" onclick="return confirm(\'Are you sure you want to delete '.$row['name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>

@@ -19,10 +19,6 @@ include("connect.php");
 		}
 	</style>
 	
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -61,11 +57,11 @@ include("connect.php");
 				$idnum		     = $_POST['idnum'];
 				$name		     = $_POST['name'];
 				$courseyear	     = $_POST['courseyear'];
-				$sample1	     = $_POST['sample1'];
-				$sample2	     = $_POST['sample2'];
+				$date_started	     = $_POST['date_started'];
+				$company_name	     = $_POST['company_name'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', sample1='$sample1', sample2='$sample2', status='$status' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', company_name='$company_name', status='$status' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -97,15 +93,15 @@ include("connect.php");
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">sample1</label>
+					<label class="col-sm-3 control-label">Data Started</label>
 					<div class="col-sm-4">
-						<input type="text" name="sample1" value="<?php echo $row ['sample1']; ?>" class="input-group date form-control" date="" data-date-format="sample1" placeholder="sample1" required>
+						<input type="text" name="date_started" value="<?php echo $row ['date_started']; ?>" class="input-group date form-control" date="" data-date-format="date_started" placeholder="date_started" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">sample2</label>
+					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">
-						<input type="text" name="sample2" value="<?php echo $row ['sample2']; ?>" class="form-control" placeholder="sample2" required>
+						<input type="text" name="company_name" value="<?php echo $row ['company_name']; ?>" class="form-control" placeholder="company_name" required>
 					</div>
 				</div>
 
@@ -113,15 +109,18 @@ include("connect.php");
 					<label class="col-sm-3 control-label">Status</label>
 					<div class="col-sm-2">
 						<select name="status" class="form-control">
-							<option value="">- Choose status -</option>
+						<option value="<?php echo $row ['status']; ?>"><?php echo $row ['status']; ?></option>";
+						<?php
+							if ($row ['status'] = 'Incomplete') {
+								echo "<option value='Complete'>Complete</option>";
+							} else {
+								echo "<option value='Incomplete'>Incomplete</option>";
+							}
+						?>
                             <option value="Incomplete">Incomplete</option>
-							<option value="Partial">Partial</option>
 							<option value="Complete">Complete</option>
 						</select> 
 					</div>
-                    <div class="col-sm-3">
-                    <b>Current Status :</b> <span class="label label-info"><?php echo $row['status']; ?></span>
-				    </div>
                 </div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>

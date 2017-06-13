@@ -78,12 +78,12 @@ include("connect.php");
 					<td><?php echo $row['courseyear']; ?></td>
 				</tr>
 				<tr>
-					<th>sample1</th>
-					<td><?php echo $row['sample1']; ?></td>
+					<th>date_started</th>
+					<td><?php echo $row['date_started']; ?></td>
 				</tr>
 				<tr>
-					<th>sample2</th>
-					<td><?php echo $row['sample2']; ?></td>
+					<th>company_name</th>
+					<td><?php echo $row['company_name']; ?></td>
 				</tr>
 
 				<tr>
