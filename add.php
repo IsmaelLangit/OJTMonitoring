@@ -59,13 +59,14 @@ include("connect.php");
 				$courseyear	     = $_POST['courseyear'];
 				$date_started	     = $_POST['date_started'];
 				$company_name		 = $_POST['company_name'];
+				$typeofojt		 = $_POST['typeofojt'];
 				$status			 = $_POST['status'];
                 
                 
                 $con = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, name, courseyear, date_started, company_name, status)
-															VALUES('$idnum','$name','$courseyear','$date_started','$company_name','$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, name, courseyear, date_started, company_name, typeofojt, status)
+															VALUES('$idnum','$name','$courseyear','$date_started','$company_name','$typeofojt' ,'$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -111,6 +112,16 @@ include("connect.php");
 				</div>
 
 				<div class="form-group">
+					<label class="col-sm-3 control-label">OJT type</label>
+					<div class="col-sm-2">
+						<select name="typeofojt" class="form-control">
+                            <option value="In-house">In-house</option>
+							<option value="Company-based">Company-based</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-sm-3 control-label">Status</label>
 					<div class="col-sm-2">
 						<select name="status" class="form-control">
@@ -119,6 +130,7 @@ include("connect.php");
 						</select>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
 					<div class="col-sm-6">

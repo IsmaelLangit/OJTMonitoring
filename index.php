@@ -68,8 +68,11 @@ include("connect.php");
 					<select name="filter" class="form-control" onchange="form.submit()">
 						<option value="0">Filter Students By:</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+						<option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
 						<option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
                         <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
+                        <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
+                        <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
 					</select>
 				</div>
                 <form id="Name" action="#">
@@ -91,12 +94,13 @@ include("connect.php");
                     <th>Course & Year</th>
                     <th>Date Started</th>
 					<th>Company</th>
-					<th>Status</th>
+					<th>OJT Type</th>
+					<th>Requirement Status</th>
                     <th>Tools</th>
 				</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * FROM students WHERE status='$filter' ORDER BY idnum ASC");
+					$sql = mysqli_query($connect, "SELECT * FROM students WHERE status='$filter' or typeofojt='$filter' ORDER BY idnum ASC");
 				}else{
 					$sql = mysqli_query($connect, "SELECT * FROM students ORDER BY idnum ASC");
 				}
@@ -113,6 +117,15 @@ include("connect.php");
                             <td>'.$row['courseyear'].'</td>
                             <td>'.$row['date_started'].'</td>
 							<td>'.$row['company_name'].'</td>
+							<td>';
+							if($row['typeofojt'] == 'In-house'){
+								echo '<span class="label label-success">In-house</span>';
+							}
+                            else if ($row['typeofojt'] == 'Company-based' ){
+								echo '<span class="label label-warning">Company-based</span>';
+							}
+						echo '
+							</td>
 							<td>';
 							if($row['status'] == 'Complete'){
 								echo '<span class="label label-success">Complete</span>';

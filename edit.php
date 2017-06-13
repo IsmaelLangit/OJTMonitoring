@@ -18,7 +18,7 @@ include("connect.php");
 			margin-top: 80px;
 		}
 	</style>
-	
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -106,6 +106,22 @@ include("connect.php");
 				</div>
 
 				<div class="form-group">
+					<label class="col-sm-3 control-label">Type of OJT</label>
+					<div class="col-sm-2">
+						<select name="typeofojt" class="form-control">
+						<option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>";
+						<?php
+							if ($row ['typeofojt'] = 'In-house') {
+								echo "<option value='Company-based'>Company-based</option>";
+							} else {
+								echo "<option value='In-house'>In-house</option>";
+							}
+						?>
+						</select> 
+					</div>
+                </div>
+
+				<div class="form-group">
 					<label class="col-sm-3 control-label">Status</label>
 					<div class="col-sm-2">
 						<select name="status" class="form-control">
@@ -117,11 +133,10 @@ include("connect.php");
 								echo "<option value='Incomplete'>Incomplete</option>";
 							}
 						?>
-                            <option value="Incomplete">Incomplete</option>
-							<option value="Complete">Complete</option>
 						</select> 
 					</div>
                 </div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
 					<div class="col-sm-6">
