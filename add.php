@@ -105,7 +105,7 @@ include("connect.php");
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Company</label>
+					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">
 							<select name="coid" class="form-control">
 					<?php

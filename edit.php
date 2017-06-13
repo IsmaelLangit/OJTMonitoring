@@ -47,7 +47,7 @@ include("connect.php");
 			
 			<?php
 			$idnum = $_GET['idnum'];
-			$sql = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum'");
+			$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
 			if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -58,10 +58,10 @@ include("connect.php");
 				$name		     = $_POST['name'];
 				$courseyear	     = $_POST['courseyear'];
 				$date_started	     = $_POST['date_started'];
-				$company_name	     = $_POST['company_name'];
+				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', company_name='$company_name', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET name='$name', courseyear='$courseyear', date_started='$date_started', coid='$coid', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -124,7 +124,16 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">
-						<input type="text" name="company_name" value="<?php echo $row ['company_name']; ?>" class="form-control" placeholder="company_name" required>
+							<select name="coid" class="form-control">
+							<option value="<?php echo $row ['coid']; ?>"><?php echo $row ['coname']; ?></option>";
+					<?php
+						$con = mysqli_query($connect, "SELECT * FROM company");
+						while ($row2 = mysqli_fetch_assoc($con)) {
+							if($row ['coid'] != $row2 ['coid'])
+						    echo "<option value='".$row2["coid"]."'>".$row2["coname"]."</option>";
+						}
+						echo "</select>";
+					?>
 					</div>
 				</div>
 
