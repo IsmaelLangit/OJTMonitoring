@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 03:32 AM
+-- Generation Time: Jun 13, 2017 at 03:51 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -23,26 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `company`
---
-
-CREATE TABLE `company` (
-  `coid` int(10) NOT NULL,
-  `coname` varchar(50) NOT NULL,
-  `coaddress` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `company`
---
-
-INSERT INTO `company` (`coid`, `coname`, `coaddress`) VALUES
-(1, 'Sitel', 'Baguio City'),
-(2, 'Sitel', 'Baguio City');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `students`
 --
 
@@ -52,36 +32,19 @@ CREATE TABLE `students` (
   `courseyear` varchar(20) NOT NULL,
   `date_started` date NOT NULL,
   `company_name` varchar(50) NOT NULL,
+  `typeofojt` varchar(20) NOT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`idnum`, `name`, `courseyear`, `date_started`, `company_name`, `status`) VALUES
-('2158487', 'Faye Cabalse', 'BSIT-4', '2017-06-16', 'PMA', 'Complete'),
-('2155957', 'Ismael Langit', 'BSIT-4', '2017-06-06', 'Moog', 'Incomplete');
+INSERT INTO `students` (`idnum`, `name`, `courseyear`, `date_started`, `company_name`, `typeofojt`, `status`) VALUES
+('2155958', 'Ismael Langit', 'BSIT-3', '2017-06-08', 'Trend Micro', 'In-house', 'Incomplete'),
+('2156162', 'John Allen Basco', 'BSIT-3', '2017-06-05', 'Texas Instruments', 'Company-based', 'Complete'),
+('2152176', 'Faye Cabalse', 'BSIT-4', '2017-06-20', 'IT/CS Department', 'In-house', 'Complete');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `company`
---
-ALTER TABLE `company`
-  ADD PRIMARY KEY (`coid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `company`
---
-ALTER TABLE `company`
-  MODIFY `coid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
