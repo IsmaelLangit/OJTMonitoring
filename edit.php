@@ -128,6 +128,20 @@ include("connect.php");
 					</div>
                 </div>
 
+                <div class="form-group">
+					<label class="col-sm-3 control-label">Email</label>
+					<div class="col-sm-4">
+						<input type="email" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Mobile No.</label>
+					<div class="col-sm-4">
+						<input type="number" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number" required>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Data Started</label>
 					<div class="col-sm-4">
@@ -182,7 +196,6 @@ include("connect.php");
 
 					</div>
 				</div>
-
 
 
 				<div class="form-group">
