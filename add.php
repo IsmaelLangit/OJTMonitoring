@@ -124,7 +124,7 @@ include("connect.php");
 						</div>
 					</div>
 
-<<<<<<< HEAD
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Date Started</label>
 					<div class="col-sm-4">
@@ -143,7 +143,7 @@ include("connect.php");
 						}
 						echo "</select>";
 					?>
-=======
+
 					<div class="form-group">
 						<label class="col-sm-4 control-label">OJT type</label>
 						<div class="col-sm-8">
@@ -152,10 +152,10 @@ include("connect.php");
 								<option value="Company-based">Company-based</option>
 							</select>
 						</div>
->>>>>>> 184184c1c3a6429794dbccefbc1bf9805ced8bc9
+
 					</div>
 
-<<<<<<< HEAD
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Requirement</label>
 					<div class="col-sm-4">
@@ -167,14 +167,6 @@ include("connect.php");
 				</div>
 
 
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Status</label>
-					<div class="col-sm-2">
-						<select name="status" class="form-control">
-                            <option value="Incomplete">Incomplete</option>
-							<option value="Complete">Complete</option>
-						</select>
-=======
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Status</label>
 						<div class="col-sm-8">
@@ -183,7 +175,6 @@ include("connect.php");
 								<option value="Complete">Complete</option>
 							</select>
 						</div>
->>>>>>> 184184c1c3a6429794dbccefbc1bf9805ced8bc9
 					</div>
 
 					<div class="form-group">
