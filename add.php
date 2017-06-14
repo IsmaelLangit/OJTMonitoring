@@ -62,14 +62,18 @@ include("connect.php");
 				$mobile_number	     = $_POST['mobile_number'];
 				$email	     = $_POST['email'];
 				$date_started	     = $_POST['date_started'];
+				$evaluation	     = $_POST['evaluation'];
+				$endorsement	     = $_POST['endorsement'];
+				$waiver	     = $_POST['waiver'];
+				$moa	     = $_POST['moa'];
 				$coid		 = $_POST['coid'];
 				$status			 = $_POST['status'];
                 
                 
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, coid, status)
-															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started','$coid' ,'$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, evaluation, endorsement, waiver, moa, coid, status)
+															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -92,11 +96,19 @@ include("connect.php");
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Name</label>
+						<label class="col-sm-4 control-label">First Name</label>
 						<div class="col-sm-8">
-							<input type="text" name="name" class="form-control" placeholder="Name.." required>
+							<input type="text" name="first_name" class="form-control" placeholder="First Name.." required>
 						</div>
 					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Last Name</label>
+						<div class="col-sm-8">
+							<input type="text" name="last_name" class="form-control" placeholder="Last Name.." required>
+						</div>
+					</div>
+
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Course & Year</label>
@@ -111,19 +123,18 @@ include("connect.php");
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Date Started</label>
+						<label class="col-sm-4 control-label">Email</label>
 						<div class="col-sm-8">
-							<input type="text" name="date_started" class="input-group date form-control" date="" data-date-format="date_started" placeholder="Date started..." required>
+							<input type="email" name="email" class="form-control" placeholder="Email.." required>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Company</label>
+						<label class="col-sm-4 control-label">Mobile Number</label>
 						<div class="col-sm-8">
-							<input type="text" name="company_name" class="form-control" placeholder="Company name..." required>
+							<input type="number" name="mobile_number" class="form-control" placeholder="Mobile Number.." required>
 						</div>
 					</div>
-
 
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Date Started</label>
@@ -151,7 +162,7 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Requirement</label>
 					<div class="col-sm-8">
-						<input type="checkbox" name="evalution" value="yes">OJT 1 Evaluation <br>
+						<input type="checkbox" name="evaluation" value="yes">OJT 1 Evaluation <br>
 						<input type="checkbox" name="endorsement" value="yes">Endorsement <br>
 						<input type="checkbox" name="waiver" value="yes">Waiver <br>
 						<input type="checkbox" name="moa" value="yes">Memorandum of Agreement <br>

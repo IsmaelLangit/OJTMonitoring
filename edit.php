@@ -142,25 +142,33 @@ include("connect.php");
 						<?php
 						if ($row ['evaluation'] == 'yes') {
 							echo "<input type='checkbox' name='evaluation' value='yes' checked>OJT 1 Evaluation <br>";
-						} else if($row ['evaluation'] == 'no') {
+						} 
+
+						if($row ['evaluation'] == 'no') {
 							echo "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";
 						} 
 
 						if ($row ['endorsement'] == 'yes') {
 							echo "<input type='checkbox' name='endorsement' value='yes' checked>Endorsement <br>";
-						} else if($row ['endorsement'] == 'no') {
+						} 
+
+						if($row ['endorsement'] == 'no') {
 							echo "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>";
 						} 
 
 						if ($row ['waiver'] == 'yes') {
 							echo "<input type='checkbox' name='waiver' value='yes' checked>Waiver <br>";
-						} else if($row ['waiver'] == 'no') {
+						} 
+
+						if($row ['waiver'] == 'no') {
 							echo "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
 						} 
 
 						if ($row ['moa'] == 'yes') {
 							echo "<input type='checkbox' name='moa' value='yes' checked>Memorandum of Agreement <br>";
-						} else if ($row ['moa'] == 'no') {
+						} 
+
+						if ($row ['moa'] == 'no') {
 							echo "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
 						}
 
