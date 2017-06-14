@@ -162,12 +162,33 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Requirement</label>
 					<div class="col-sm-8">
-						<input type="checkbox" name="evaluation" value="yes">OJT 1 Evaluation <br>
-						<input type="checkbox" name="endorsement" value="yes">Endorsement <br>
-						<input type="checkbox" name="waiver" value="yes">Waiver <br>
-						<input type="checkbox" name="moa" value="yes">Memorandum of Agreement <br>
+						<?php
+
+						echo  "<input type='hidden' name='evaluation' value='no'>";
+						echo  "<input type='hidden' name='endorsement' value='no'>";
+						echo  "<input type='hidden' name='waiver' value='no'>";
+						echo  "<input type='hidden' name='moa' value='no'>";
+
+						echo  "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";
+						echo  "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>" ;
+						echo  "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
+						echo  "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";	
+						?>
 					</div>
 				</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label"></label>
+						<div class="col-sm-8">
+						<?php
+							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
+							} else {
+								echo  "<input type='hidden' name='status' value='Complete' checked>";
+							}
+						?>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">&nbsp;</label>
