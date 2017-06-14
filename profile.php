@@ -86,11 +86,11 @@ include("connect.php");
 					<td><?php echo $row['email']; ?></td>
 				</tr>
 				<tr>
-					<th>date_started</th>
+					<th>Date Started</th>
 					<td><?php echo $row['date_started']; ?></td>
 				</tr>
 				<tr>
-					<th>company_name</th>
+					<th>Company Name</th>
 					<td><?php echo $row['coname']; ?></td>
 				</tr>
 

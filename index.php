@@ -105,7 +105,7 @@ include("connect.php");
 	                    <th>Endorsement</th>
 	                    <th>Waiver</th>
 	                    <th>MOA</th>
-						<th>Company</th>
+						<th>Company Name</th>
 						<th>OJT Type</th>
 						<th>Requirement Status</th>
 	                    <th>Tools</th>
