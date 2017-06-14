@@ -1,0 +1,60 @@
+.logoNav{
+	height: 68px !important;
+	margin-top: -10px;
+}
+body{
+	margin-top: 5px;
+	margin-bottom: 80px;
+}
+.footerLogo{
+	height: 100px;
+}
+.titleHeading{
+	color: #0171bc !important;
+	text-transform: uppercase;
+	font-size: 3em;
+}
+section.cta {
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../img/taas.jpg');
+  padding: 125px 0;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+section.cta .cta-content {
+  position: relative;
+  z-index: 1;
+}
+section.cta .cta-content h2 {
+  color: white;
+  font-size: 3em !important;
+}
+@media (min-width: 768px) {
+  section.cta .cta-content h2 {
+    font-size: 80px;
+  }
+}
+section.cta .overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.60);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.margin-top{
+	padding-top: 60px;
+}
+.margin-bottom{
+	padding-bottom: 60px;
+}
+.nothingToDisplay{
+	font-size: 2em;
+	font-style: italic;
+	color: #b20e00;
+}

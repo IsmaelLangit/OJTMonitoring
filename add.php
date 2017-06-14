@@ -126,15 +126,15 @@ include("connect.php");
 
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Date Started</label>
-					<div class="col-sm-4">
+					<label class="col-sm-4 control-label">Date Started</label>
+					<div class="col-sm-8">
 						<input type="text" name="date_started" class="input-group date form-control" date="" data-date-format="date_started" placeholder="Date started..." required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Company Name</label>
-					<div class="col-sm-3">
+					<label class="col-sm-4 control-label">Company Name</label>
+					<div class="col-sm-8">
 							<select name="coid" class="form-control">
 					<?php
 						$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
@@ -143,29 +143,20 @@ include("connect.php");
 						}
 						echo "</select>";
 					?>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label">OJT type</label>
-						<div class="col-sm-8">
-							<select name="typeofojt" class="form-control">
-	                            <option value="In-house">In-house</option>
-								<option value="Company-based">Company-based</option>
-							</select>
-						</div>
-
 					</div>
+				</div>
+
 
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Requirement</label>
-					<div class="col-sm-4">
+					<label class="col-sm-4 control-label">Requirement</label>
+					<div class="col-sm-8">
 						<input type="checkbox" name="evalution" value="yes">OJT 1 Evaluation <br>
 						<input type="checkbox" name="endorsement" value="yes">Endorsement <br>
 						<input type="checkbox" name="waiver" value="yes">Waiver <br>
 						<input type="checkbox" name="moa" value="yes">Memorandum of Agreement <br>
 					</div>
 				</div>
-
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Status</label>
