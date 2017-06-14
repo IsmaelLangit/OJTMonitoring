@@ -59,10 +59,14 @@ include("connect.php");
 				$last_name		     = $_POST['last_name'];
 				$courseyear	     = $_POST['courseyear'];
 				$date_started	     = $_POST['date_started'];
+				$evaluation	     = $_POST['evaluation'];
+				$endorsement	     = $_POST['endorsement'];
+				$waiver	     = $_POST['waiver'];
+				$moa	     = $_POST['moa'];
 				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET first_name='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started', coid='$coid', status='$status',  idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET first_name='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -102,22 +106,22 @@ include("connect.php");
 						<select name="courseyear" class="form-control">
 						<option value="<?php echo $row ['courseyear']; ?>"><?php echo $row ['courseyear']; ?></option>";
 						<?php
-							if ($row ['courseyear'] = 'BSIT-3') {
-								echo "<option value='BSIT-4'>BSIT-4</option>";
-								echo "<option value='BSCS-3'>BSCS-3</option>";
-								echo "<option value='BSCS-4'>BSCS-4</option>";
-							} else if (($row ['courseyear'] = 'BSIT-4')) {
-								echo "<option value='BSIT-3'>BSIT-3</option>";
-								echo "<option value='BSCS-3'>BSCS-3</option>";
-								echo "<option value='BSCS-4'>BSCS-4</option>";
-							} else if (($row ['courseyear'] = 'BSCS-3')) {
-								echo "<option value='BSIT-3'>BSIT-3</option>";
-								echo "<option value='BSIT-4'>BSIT-4</option>";
-								echo "<option value='BSCS-4'>BSCS-4</option>";
-							} else if (($row ['courseyear'] = 'BSCS-4')) {
-								echo "<option value='BSIT-3'>BSIT-3</option>";
-								echo "<option value='BSIT-4'>BSIT-4</option>";
-								echo "<option value='BSCS-3'>BSCS-3</option>";
+							if ($row ['courseyear'] == 'BSIT 3') {
+								echo "<option value='BSIT 4'>BSIT-4</option>";
+								echo "<option value='BSCS 3'>BSCS-3</option>";
+								echo "<option value='BSCS 4'>BSCS-4</option>";
+							} else if ($row ['courseyear'] == 'BSIT 4') {
+								echo "<option value='BSIT 3'>BSIT-3</option>";
+								echo "<option value='BSCS 3'>BSCS-3</option>";
+								echo "<option value='BSCS 4'>BSCS-4</option>";
+							} else if ($row ['courseyear'] == 'BSCS 3') {
+								echo "<option value='BSIT 3'>BSIT-3</option>";
+								echo "<option value='BSIT 4'>BSIT-4</option>";
+								echo "<option value='BSCS 4'>BSCS-4</option>";
+							} else if ($row ['courseyear'] == 'BSCS 4') {
+								echo "<option value='BSIT 3'>BSIT-3</option>";
+								echo "<option value='BSIT 4'>BSIT-4</option>";
+								echo "<option value='BSCS 3'>BSCS-3</option>";
 							}
 						?>
 						</select> 
@@ -130,6 +134,43 @@ include("connect.php");
 						<input type="text" name="date_started" value="<?php echo $row ['date_started']; ?>" class="input-group date form-control" date="" data-date-format="date_started" placeholder="date_started" required>
 					</div>
 				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Requirement</label>
+					<div class="col-sm-4">
+						<?php
+						if ($row ['evaluation'] == 'yes') {
+							echo "<input type='checkbox' name='evaluation' value='yes' checked>OJT 1 Evaluation <br>";
+						} else if($row ['evaluation'] == 'no') {
+							echo "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";
+						} 
+
+						if ($row ['endorsement'] == 'yes') {
+							echo "<input type='checkbox' name='endorsement' value='yes' checked>Endorsement <br>";
+						} else if($row ['endorsement'] == 'no') {
+							echo "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>";
+						} 
+
+						if ($row ['waiver'] == 'yes') {
+							echo "<input type='checkbox' name='waiver' value='yes' checked>Waiver <br>";
+						} else if($row ['waiver'] == 'no') {
+							echo "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
+						} 
+
+						if ($row ['moa'] == 'yes') {
+							echo "<input type='checkbox' name='moa' value='yes' checked>Memorandum of Agreement <br>";
+						} else if ($row ['moa'] == 'no') {
+							echo "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
+						}
+
+						?>
+
+					</div>
+				</div>
+
+
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">

@@ -128,6 +128,7 @@ include("connect.php");
 						<input type="text" name="date_started" class="input-group date form-control" date="" data-date-format="date_started" placeholder="Date started..." required>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">
@@ -141,6 +142,17 @@ include("connect.php");
 					?>
 					</div>
 				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Requirement</label>
+					<div class="col-sm-4">
+						<input type="checkbox" name="evalution" value="yes">OJT 1 Evaluation <br>
+						<input type="checkbox" name="endorsement" value="yes">Endorsement <br>
+						<input type="checkbox" name="waiver" value="yes">Waiver <br>
+						<input type="checkbox" name="moa" value="yes">Memorandum of Agreement <br>
+					</div>
+				</div>
+
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Status</label>
