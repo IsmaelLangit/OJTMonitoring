@@ -99,7 +99,12 @@ include("connect.php");
 						<th>ID Number</th>
 						<th>Name</th>
 	                    <th>Course & Year</th>
-	                    <th>Date Started</th>
+	                    <th>Email</th>
+	                    <th>Mobile No.</th>
+	                    <th>Evaluation</th>
+	                    <th>Endorsement</th>
+	                    <th>Waiver</th>
+	                    <th>MOA</th>
 						<th>Company</th>
 						<th>OJT Type</th>
 						<th>Requirement Status</th>
@@ -122,7 +127,39 @@ include("connect.php");
 							<td>'.$row['idnum'].'</td>
 							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
                             <td>'.$row['courseyear'].'</td>
-                            <td>'.$row['date_started'].'</td>
+                            <td>'.$row['email'].'</td>
+                            <td>'.$row['mobile_number'].'</td>';
+
+							if($row['evaluation'] == 'yes'){
+								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+							}
+                            else if ($row['evaluation'] == 'no' ){
+								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+							}
+
+							if($row['endorsement'] == 'yes'){
+								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+							}
+                            else if ($row['endorsement'] == 'no' ){
+								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+							}
+
+
+							if($row['waiver'] == 'yes'){
+								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+							}
+                            else if ($row['waiver'] == 'no' ){
+								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+							}
+
+							if($row['moa'] == 'yes'){
+								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+							}
+                            else if ($row['moa'] == 'no' ){
+								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+							}
+
+						echo '
 							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
