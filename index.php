@@ -112,7 +112,7 @@ include("connect.php");
 					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">Nothing to Display</td></tr>';
+					echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
@@ -126,10 +126,10 @@ include("connect.php");
 							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
-								echo '<span class="label label-success">In-house</span>';
+								echo '<span class="label label-info">In-house</span>';
 							}
                             else if ($row['typeofojt'] == 'Company-based' ){
-								echo '<span class="label label-warning">Company-based</span>';
+								echo '<span class="label label-primary">Company-based</span>';
 							}
 						echo '
 							</td>
@@ -143,9 +143,12 @@ include("connect.php");
 						echo '
 							</td>
 							<td>
-
-								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+								</a>
+								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</a>
 							</td>
 						</tr>
 						';
