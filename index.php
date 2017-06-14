@@ -49,11 +49,11 @@ include("connect.php");
 			<?php
 			if(isset($_GET['action']) == 'delete'){
 				$idnum = $_GET['idnum'];
-				$cek = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum'");
+				$cek = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum ORDER BY last_name ASC, first_name ASC'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>!!!</div>';
 				}else{
-					$delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum'");
+					$delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
 					if($delete){
 						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data successfully deleted.</div>';
 					}else{
@@ -100,9 +100,9 @@ include("connect.php");
 				</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY idnum ASC");
+					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");
 				}else{
-					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY idnum ASC");
+					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">Nothing to Display</td></tr>';
@@ -113,7 +113,7 @@ include("connect.php");
 						<tr>
 							<td>'.$no.'</td>
 							<td>'.$row['idnum'].'</td>
-							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['first_name']." ".$row['last_name'].'</a></td>
+							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
                             <td>'.$row['courseyear'].'</td>
                             <td>'.$row['date_started'].'</td>
 							<td>'.$row['coname'].'</td>
