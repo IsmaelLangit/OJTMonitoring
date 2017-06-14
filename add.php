@@ -147,7 +147,7 @@ include("connect.php");
 					<label class="col-sm-4 control-label">Company Name</label>
 					<div class="col-sm-8">
 							<select name="coid" class="form-control">
-								<option value=''>No current company</option>
+								<option value='1'>No current company</option>
 								<?php
 									$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
 									while ($row = mysqli_fetch_assoc($con)) {
