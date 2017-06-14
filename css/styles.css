@@ -4,7 +4,7 @@
 }
 body{
 	margin-top: 5px;
-	margin-bottom: 80px;
+
 }
 .footerLogo{
 	height: 100px;
@@ -48,15 +48,70 @@ section.cta .overlay {
   left: 0;
 }
 .margin-top{
-	padding-top: 60px;
+	padding-top: 25px;
 }
 .margin-bottom{
-	padding-bottom: 60px;
+	padding-bottom: 25px;
 }
 .nothingToDisplay{
 	font-size: 2em;
 	font-style: italic;
 	color: #b20e00;
 }
-
-
+.fontGlyphiconOk{
+  color: #01a34a;
+}
+.fontGlyphiconNo{
+  color: #ce1904;
+}
+.space{
+  padding-right: 8px !important;
+}
+.addFont{
+  color: #022b33 !important;
+}
+.detailsHeading{
+  color: #10a57d !important;
+  font-style: italic;
+}
+#return-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.85);
+    width: 60px;
+    height: 60px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 21px;
+    top: 20px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
