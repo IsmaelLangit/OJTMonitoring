@@ -47,7 +47,7 @@ include("connect.php");
 			<?php
 			$idnum = $_GET['idnum'];
 			
-			$sql = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum'");
+			$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
 			if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -71,11 +71,19 @@ include("connect.php");
 				</tr>
 				<tr>
 					<th>Name</th>
-					<td><?php echo $row['name']; ?></td>
+					<td><?php echo $row['first_name'].$row['last_name']; ?></td>
 				</tr>
                 <tr>
 					<th>Course & Year</th>
 					<td><?php echo $row['courseyear']; ?></td>
+				</tr>
+				<tr>
+					<th>Mobile Number</th>
+					<td><?php echo $row['mobile_number']; ?></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><?php echo $row['email']; ?></td>
 				</tr>
 				<tr>
 					<th>date_started</th>
@@ -83,7 +91,7 @@ include("connect.php");
 				</tr>
 				<tr>
 					<th>company_name</th>
-					<td><?php echo $row['company_name']; ?></td>
+					<td><?php echo $row['coname']; ?></td>
 				</tr>
 
 				<tr>
@@ -94,7 +102,7 @@ include("connect.php");
 			
 			<a href="index.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Students</a>
 			<a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Data</a>
-			<a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['name']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Data</a>
+			<a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['first_name'].$row['last_name']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Data</a>
 		</div>
 	</div>
 
