@@ -128,6 +128,20 @@ include("connect.php");
 					</div>
                 </div>
 
+                <div class="form-group">
+					<label class="col-sm-3 control-label">Email</label>
+					<div class="col-sm-4">
+						<input type="email" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Mobile No.</label>
+					<div class="col-sm-4">
+						<input type="number" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number" required>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Data Started</label>
 					<div class="col-sm-4">
@@ -184,7 +198,6 @@ include("connect.php");
 				</div>
 
 
-
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Company Name</label>
 					<div class="col-sm-3">
@@ -218,12 +231,12 @@ include("connect.php");
 					<label class="col-sm-3 control-label">Requirement Status</label>
 					<div class="col-sm-2">
 						<?php
-							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+							if ($row ['evaluation'] == "yes" AND $row ['endorsement'] == "yes" AND $row ['waiver'] == "yes" AND $row ['moa'] == "yes")  {
 								echo "<span class='label label-success'>Complete</span>";
-								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
+								echo  "<input type='hidden' name='status' value='Complete' checked>";
 							} else {
 								echo "<span class='label label-warning'>Incomplete</span>";
-								echo  "<input type='hidden' name='status' value='Complete' checked>";
+								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
 							}
 						?>
 					</div>
