@@ -147,13 +147,14 @@ include("connect.php");
 					<label class="col-sm-4 control-label">Company Name</label>
 					<div class="col-sm-8">
 							<select name="coid" class="form-control">
-					<?php
-						$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
-						while ($row = mysqli_fetch_assoc($con)) {
-						    echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
-						}
-						echo "</select>";
-					?>
+								<option value=''>No current company</option>
+								<?php
+									$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
+									while ($row = mysqli_fetch_assoc($con)) {
+									    echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
+									}
+									echo "</select>";
+								?>
 					</div>
 				</div>
 
