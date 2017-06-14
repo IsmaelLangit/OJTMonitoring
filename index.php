@@ -8,43 +8,50 @@ include("connect.php");
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>OJT MONITORING</title>
+	<title>SCIS OJT Monitoring</title>
 
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Styles -->
 
-	<style>
-		.content {
-			margin-top: 80px;
-		}
-	</style>
+	<link rel="icon" href="img/scisLogo.png">
 
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand visible-xs-block visible-sm-block" href="">OJT MONITORING</a>
-				<a class="navbar-brand hidden-xs hidden-sm" href="">OJT MONITORING</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Students</a></li>
-					<li><a href="add.php">Add Students</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#">Home</a></li>
+	        <li class="active"><a href="index.php">Students</a></li>
+	        <li><a href="add.php">Add Students</a></li> 
+	        <li><a href="#">Company</a></li> 
+	      </ul>
+	    </div>
+	  </div>
 	</nav>
+
 	<div class="container-fluid">
-		<div class="content">
-			<h2>Students</h2>
-			<hr />
+		<section class="cta">
+	        <div class="cta-content">
+	            <div class="container">
+	                <h2 class="text-center">PRACTICUM 2 STUDENTS</h2>
+	            </div>
+	        </div>
+	        <div class="overlay"></div>
+		</section>	
+
+		<div class="col-md-12 margin-top margin-bottom">
 
 			<?php
 			if(isset($_GET['action']) == 'delete'){
@@ -87,17 +94,17 @@ include("connect.php");
 			<br />
 			<div class="table-responsive">
 			<table class="table table-striped table-hover" id="myTable">
-				<tr>
-                    <th>No</th>
-					<th>ID no.</th>
-					<th>Name</th>
-                    <th>Course & Year</th>
-                    <th>Date Started</th>
-					<th>Company</th>
-					<th>OJT Type</th>
-					<th>Requirement Status</th>
-                    <th>Tools</th>
-				</tr>
+				<tr class="info">
+	                    <th>No</th>
+						<th>ID Number</th>
+						<th>Name</th>
+	                    <th>Course & Year</th>
+	                    <th>Date Started</th>
+						<th>Company</th>
+						<th>OJT Type</th>
+						<th>Requirement Status</th>
+	                    <th>Tools</th>
+					</tr>
 				<?php
 				if($filter){
 					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");
@@ -105,7 +112,7 @@ include("connect.php");
 					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">Nothing to Display</td></tr>';
+					echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
@@ -119,10 +126,10 @@ include("connect.php");
 							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
-								echo '<span class="label label-success">In-house</span>';
+								echo '<span class="label label-info">In-house</span>';
 							}
                             else if ($row['typeofojt'] == 'Company-based' ){
-								echo '<span class="label label-warning">Company-based</span>';
+								echo '<span class="label label-primary">Company-based</span>';
 							}
 						echo '
 							</td>
@@ -136,9 +143,12 @@ include("connect.php");
 						echo '
 							</td>
 							<td>
-
-								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+								</a>
+								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</a>
 							</td>
 						</tr>
 						';
@@ -147,18 +157,41 @@ include("connect.php");
 				}
 				?>
 			</table>
-			</div>
-             <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                        </h1>
-                    </div>
-                </div>
+				</div>
 		</div>
-	</div><center>
-	<p>&copy; OJT '17</p
-		</center>
+	</div>
+
+	<footer class="footer-distributed footer">
+		<div class="footer-left">
+			<img class="footerLogo img-responsive" src="img/Picture1.png">
+			<p class="footer-links">
+				<a href="#">Home</a>
+				|
+				<a href="#">Students</a>
+				|
+				<a href="#">Company</a>
+			</p>
+			<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
+		</div>
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>(063) 74 444 8246 to 48</p>
+			</div>
+		</div>
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>Vision of SLU</span>
+				"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+			</p>
+		</div>
+
+	</footer>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
         <script>
