@@ -41,6 +41,8 @@ include("connect.php");
 	  </div>
 	</nav>
 
+	<div id="preloader"></div>
+	
 	<div class="container-fluid">
 
 		<section class="cta">
@@ -254,10 +256,19 @@ include("connect.php");
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/smoothScroll.js"></script>
+	<script src="js/preloader.js"></script>
 	<script>
 	$('.date').datepicker({
 		format: 'yyyy-mm-dd',
 	})
 	</script>
+
+	<script>document.body.className += ' fade-out';</script>
+
+	<script>
+		$(function() {
+		    $('body').removeClass('fade-out');
+		});
+		</script>
 </body>
 </html>

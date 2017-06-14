@@ -35,6 +35,9 @@
 				</div>
 			</div>
 		</nav>
+		
+		<div id="preloader"></div>
+
 		<div class="container-fluid">
 
 			<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -226,6 +229,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/smoothScroll.js"></script>
+		<script src="js/preloader.js"></script>
 		<script>
 			function filterData() {
 			    var input, filter, table, tr, td, i;
@@ -249,6 +253,13 @@
 			 function resetName(){
 			    document.getElementById("Name").reset;
 			}
+		</script>
+		<script>document.body.className += ' fade-out';</script>
+
+		<script>
+		$(function() {
+		    $('body').removeClass('fade-out');
+		});
 		</script>
 	</body>
 </html>

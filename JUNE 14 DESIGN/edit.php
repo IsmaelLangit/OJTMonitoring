@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</nav>
-
+		<div id="preloader"></div>
 		<div class="container-fluid">
 			<section class="cta">
 				<div class="cta-content">
@@ -80,13 +80,13 @@
 						if($update){
 							header("Location: edit.php?idnum=".$idnum."&message=success");
 						}else{
-							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+							echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
 						}
 					}
 					
 					if(isset($_GET['message']) == 'success'){
 						echo '	<div class="alert alert-success" role="alert">
-								  <strong> Success!</strong> You successfully updated the information on this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+								  <strong> Success!</strong> You have successfully updated the information on this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
 								</div>';
 					}
 				?>
@@ -95,7 +95,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">ID Number</label>
 						<div class="col-sm-2">
-							<input type="text" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
+							<input type="text" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID Number." required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -273,10 +273,19 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/bootstrap-datepicker.js"></script>
 		<script src="js/smoothScroll.js"></script>
+		<script src="js/preloader.js"></script>
 		<script>
 			$('.date').datepicker({
 				format: 'mm-dd-yyyy',
 			})
+		</script>
+
+		<script>document.body.className += ' fade-out';</script>
+
+		<script>
+		$(function() {
+		    $('body').removeClass('fade-out');
+		});
 		</script>
 	</body>
 </html>
