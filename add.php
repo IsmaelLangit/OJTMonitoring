@@ -170,16 +170,6 @@ include("connect.php");
 				</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Status</label>
-						<div class="col-sm-8">
-							<select name="status" class="form-control">
-	                            <option value="Incomplete">Incomplete</option>
-								<option value="Complete">Complete</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
 						<label class="col-sm-4 control-label">&nbsp;</label>
 						<div class="col-sm-8">
 							<input type="submit" name="add" class="btn btn-sm btn-success" value="Submit">

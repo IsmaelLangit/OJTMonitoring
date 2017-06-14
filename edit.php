@@ -66,7 +66,7 @@ include("connect.php");
 				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
 				
-				$update = mysqli_query($connect, "UPDATE students SET first_name='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
@@ -140,6 +140,12 @@ include("connect.php");
 					<label class="col-sm-3 control-label">Requirement</label>
 					<div class="col-sm-4">
 						<?php
+
+						echo  "<input type='hidden' name='evaluation' value='no'>";
+						echo  "<input type='hidden' name='endorsement' value='no'>";
+						echo  "<input type='hidden' name='waiver' value='no'>";
+						echo  "<input type='hidden' name='moa' value='no'>";
+
 						if ($row ['evaluation'] == 'yes') {
 							echo "<input type='checkbox' name='evaluation' value='yes' checked>OJT 1 Evaluation <br>";
 						} 
@@ -209,20 +215,19 @@ include("connect.php");
                 </div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Status</label>
+					<label class="col-sm-3 control-label">Requirement Status</label>
 					<div class="col-sm-2">
-						<select name="status" class="form-control">
-						<option value="<?php echo $row ['status']; ?>"><?php echo $row ['status']; ?></option>";
 						<?php
-							if ($row ['status'] = 'Incomplete') {
-								echo "<option value='Complete'>Complete</option>";
+							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+								echo "<span class='label label-success'>Complete</span>";
+								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
 							} else {
-								echo "<option value='Incomplete'>Incomplete</option>";
+								echo "<span class='label label-warning'>Incomplete</span>";
+								echo  "<input type='hidden' name='status' value='Complete' checked>";
 							}
 						?>
-						</select> 
 					</div>
-                </div>
+                </div>>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
