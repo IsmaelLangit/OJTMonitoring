@@ -183,9 +183,9 @@ include("connect.php");
 						<div class="col-sm-8">
 						<?php
 							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
-								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
-							} else {
 								echo  "<input type='hidden' name='status' value='Complete' checked>";
+							} else {
+								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
 							}
 						?>
 						</div>

@@ -173,8 +173,7 @@ include("connect.php");
 							<td>';
 							if($row['status'] == 'Complete'){
 								echo '<span class="label label-success">Complete</span>';
-							}
-                            else if ($row['status'] == 'Incomplete' ){
+							} else if ($row['status'] == 'Incomplete' ){
 								echo '<span class="label label-warning">Incomplete</span>';
 							}
 						echo '

@@ -231,7 +231,7 @@ include("connect.php");
 					<label class="col-sm-3 control-label">Requirement Status</label>
 					<div class="col-sm-2">
 						<?php
-							if ($row ['evaluation'] == "yes" AND $row ['endorsement'] == "yes" AND $row ['waiver'] == "yes" AND $row ['moa'] == "yes")  {
+							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
 								echo "<span class='label label-success'>Complete</span>";
 								echo  "<input type='hidden' name='status' value='Complete' checked>";
 							} else {
