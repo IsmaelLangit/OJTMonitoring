@@ -65,6 +65,12 @@ include("connect.php");
 				$moa	     = $_POST['moa'];
 				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
+
+				if ($evaluation == "yes" && $endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
+					$status = "Complete";
+				} else {
+					$status = "Incomplete";
+				}
 				
 				$update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
@@ -233,10 +239,10 @@ include("connect.php");
 						<?php
 							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
 								echo "<span class='label label-success'>Complete</span>";
-								echo  "<input type='hidden' name='status' value='Complete' checked>";
+								echo  "<input type='hidden' name='status' value='Complete'>";
 							} else {
 								echo "<span class='label label-warning'>Incomplete</span>";
-								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
+								echo  "<input type='hidden' name='status' value='Incomplete'>";
 							}
 						?>
 					</div>
@@ -252,7 +258,7 @@ include("connect.php");
 			</form>
 		</div>
 	</div>
-
+ 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
