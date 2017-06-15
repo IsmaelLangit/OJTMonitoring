@@ -3,53 +3,63 @@ include("connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>OJT MONITORING</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SCIS OJT Monitoring</title>
+		<!-- Styles -->
+		<link rel="icon" href="img/scisLogo.png">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+					</button>
+					<a class="navbar-brand" href="index.php"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.php">Students</a></li>
+						<li><a href="add.php">Add Students</a></li>
+						<li><a href="company.php">Company</a></li>
+						<li><a href="addcompany.php">Add Company</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-	<!-- Bootstrap -->
-	<link rel="icon" href="img/scisLogo.png">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<div id="preloader"></div>
+
+	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+	<div class="container-fluid">
+			<section class="cta">
+				<div class="cta-content">
+					<div class="container">
+						<h2 class="text-center">EDIT <span class="detailsHeading"> 
+						<?php 
+						$idnum = $_GET['idnum'];
+						$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+						$row = mysqli_fetch_assoc($sql);
+						echo $row ['last_name']."'s";
+						?> 
+						</span> DETAILS </h2>
+					</div>
+				</div>
+				<div class="overlay"></div>
+			</section>
+			<div class=" container-fluid margin-top">
 	
-	<style>
-		.content {
-			margin-top: 80px;
-		}
-	</style>
-
-</head>
-<body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span> 
-	      </button>
-	      <a class="navbar-brand" href="#"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav">
-	        <li><a href="index.php">Students</a></li>
-	        <li><a href="add.php">Add Students</a></li> 
-	        <li><a href="company.php">Company</a></li> 
-	        <li><a href="addcompany.php">Add Company</a></li> 
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
-
-
-	<div class="container">
-		<div class="content">
-			<h2>Students &raquo; Edit Data</h2>
-			<hr />
+			
 			
 			<?php
 			$idnum = $_GET['idnum'];
@@ -82,17 +92,19 @@ include("connect.php");
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
-					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+					echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
 				}
 			}
 			
 			if(isset($_GET['message']) == 'success'){
-				echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data Successfully Saved.</div>';
+				echo '<div class="alert alert-success" role="alert">
+								  <strong> Success!</strong> You have successfully updated the information on this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+								</div>';
 			}
 			?>
 			<form class="form-horizontal" action="" method="post">
 				<div class="form-group">
-					<label class="col-sm-3 control-label">ID no.</label>
+					<label class="col-sm-3 control-label">ID Number</label>
 					<div class="col-sm-2">
 						<input type="text" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
 					</div>
@@ -174,35 +186,35 @@ include("connect.php");
 
 
 						if ($row ['endorsement'] == 'yes') {
-							echo "<input type='checkbox' name='endorsement' value='yes' checked>Endorsement <br>";
+							echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Endorsement <br>";
 						} 
 
 						if($row ['endorsement'] == 'no') {
-							echo "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>";
+							echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Endorsement <br>";
 						} 
 
 						if ($row ['waiver'] == 'yes') {
-							echo "<input type='checkbox' name='waiver' value='yes' checked>Waiver <br>";
+							echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Waiver <br>";
 						} 
 
 						if($row ['waiver'] == 'no') {
-							echo "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
+							echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Waiver <br>";
 						} 
 
 						if ($row ['moa'] == 'yes') {
-							echo "<input type='checkbox' name='moa' value='yes' checked>Memorandum of Agreement <br>";
+							echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span>Memorandum of Agreement <br>";
 						} 
 
 						if ($row ['moa'] == 'no') {
-							echo "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
+							echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Memorandum of Agreement <br>";
 						}
 
 						if ($row ['evaluation'] == 'yes') {
-							echo "<input type='checkbox' name='evaluation' value='yes' checked>Evaluation <br>";
+							echo "<input type='checkbox' name='evaluation' value='yes' checked><span class='space'></span>Evaluation <br>";
 						} 
 
 						if($row ['evaluation'] == 'no') {
-							echo "<input type='checkbox' name='evaluation' value='yes'>Evaluation <br>";
+							echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Evaluation <br>";
 						} 
 
 						?>
@@ -232,9 +244,9 @@ include("connect.php");
 					<div class="col-sm-2">
 						<?php
 							if ($row ['typeofojt'] == "In-house") {
-								echo "<span class='label label-success'>In-house</span>";
+								echo "<span class='label label-info'>In-house</span>";
 							} else {
-								echo "<span class='label label-warning'>Company-based</span>";
+								echo "<span class='label label-primary'>Company-based</span>";
 							}
 						?>
 					</div>
@@ -258,47 +270,48 @@ include("connect.php");
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
 					<div class="col-sm-6">
-						<input type="submit" name="save" class="btn btn-sm btn-primary" value="Submit">
-						<a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+						<input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
+							<a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
  
-	<footer class="footer-distributed footer">
-		<div class="footer-left">
-			<img class="footerLogo img-responsive" src="img/Picture1.png">
-			<p class="footer-links">
-				<a href="#">Home</a>
-				|
-				<a href="#">Students</a>
-				|
-				<a href="#">Company</a>
-			</p>
-			<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
-		</div>
-		<div class="footer-center">
-			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+	<footer class="footer-distributed">
+			<div class="footer-left">
+				<img class="footerLogo" src="img/Picture1.png">
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">Students</a>
+					|
+					<a href="#">Company</a>
+				</p>
+				<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
 			</div>
-			<div>
-				<i class="fa fa-phone"></i>
-				<p>(063) 74 444 8246 to 48</p>
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+				</div>
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>(063) 74 444 8246 to 48</p>
+				</div>
 			</div>
-		</div>
-		<div class="footer-right">
-			<p class="footer-company-about">
-				<span>Vision of SLU</span>
-				"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-			</p>
-		</div>
-
-	</footer>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>Vision of SLU</span>
+					"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+				</p>
+			</div>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/smoothScroll.js"></script>
+		<script src="js/preloader.js"></script>
 	<script>
 	$('.date').datepicker({
 		format: 'mm-dd-yyyy',
