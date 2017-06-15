@@ -42,6 +42,10 @@ include("connect.php");
 	  </div>
 	</nav>
 
+	<div id="preloader"></div>
+
+	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
 	<div class="container-fluid">
 
 		<section class="cta">
@@ -91,21 +95,21 @@ include("connect.php");
 					<div class="form-group">
 						<label class="col-sm-4 control-label">ID Number</label>
 						<div class="col-sm-8">
-							<input type="number" name="idnum" class="form-control" placeholder="ID number..." required>
+							<input type="number" name="idnum" class="form-control" placeholder="0000000" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">First Name</label>
 						<div class="col-sm-8">
-							<input type="text" name="first_name" class="form-control" placeholder="First Name.." required>
+							<input type="text" name="first_name" class="form-control" placeholder="First Name" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Last Name</label>
 						<div class="col-sm-8">
-							<input type="text" name="last_name" class="form-control" placeholder="Last Name.." required>
+							<input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
 						</div>
 					</div>
 
@@ -125,14 +129,14 @@ include("connect.php");
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Email</label>
 						<div class="col-sm-8">
-							<input type="email" name="email" class="form-control" placeholder="Email.." required>
+							<input type="email" name="email" class="form-control" placeholder="Email" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Mobile Number</label>
 						<div class="col-sm-8">
-							<input type="number" name="mobile_number" class="form-control" placeholder="Mobile Number.." required>
+							<input type="number" name="mobile_number" class="form-control" placeholder="09000000000" required>
 						</div>
 					</div>
 
@@ -170,10 +174,10 @@ include("connect.php");
 						echo  "<input type='hidden' name='waiver' value='no'>";
 						echo  "<input type='hidden' name='moa' value='no'>";
 
-						echo  "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>" ;
-						echo  "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
-						echo  "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
-						echo  "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";	
+						echo  "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Endorsement <br>" ;
+						echo  "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Waiver <br>";
+						echo  "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Memorandum of Agreement <br>";
+						echo  "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Practicum 1 Evaluation <br>";	
 						?>
 					</div>
 				</div>
@@ -253,6 +257,8 @@ include("connect.php");
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/smoothScroll.js"></script>
+	<script src="js/preloader.js"></script>
 	<script>
 	$('.date').datepicker({
 		format: 'yyyy-mm-dd',
