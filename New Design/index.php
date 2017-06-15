@@ -6,13 +6,14 @@ include("connect.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SCIS OJT Monitoring</title>
+    <title>Students</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
     <link rel="icon" href="img/scisLogo.png">
   </head>
@@ -28,13 +29,13 @@ include("connect.php");
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
                             <span class="fa fa-bars"></span>
                         </button>
-                            <a href="index.html" class="navbar-brand"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
+                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
                         </div>
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.php">Students</a></li>
-                                <li><a href="add.php">Add Students</a></li>
-                                <li><a href="company.php">Company</a></li>
+                                <li class="active"><a href="index.php">List of Students</a></li>
+                                <li><a href="add.php">Add Student</a></li>
+                                <li><a href="company.php">list of Companies</a></li>
                                 <li><a href="addcompany.php">Add Company</a></li>
                             </ul>
                         </div>
@@ -92,7 +93,7 @@ include("connect.php");
 
                         <form id="Name" action="#">
                         <div class="input-group">
-                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID No./Name...">
+                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID Number / Student Name">
                                 <span class="input-group-btn">  
                                     <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
                                 </span>
@@ -252,6 +253,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/preloader.js"></script>
     
   </body>
 </html>
