@@ -111,14 +111,14 @@ include("connect.php");
                 <div class="form-group">
 					<label class="col-sm-3 control-label">Company Head</label>
 					<div class="col-sm-4">
-						<input type="text" name="company_head" value="<?php echo $row ['company_head']; ?>" class="form-control" placeholder="Company head" required>
+						<input type="text" name="company_head" value="<?php echo $row ['company_head']; ?>" class="form-control" placeholder="Company head">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Position</label>
 					<div class="col-sm-4">
-						<input type="text" name="position" value="<?php echo $row ['position']; ?>" class="form-control" placeholder="Position" required>
+						<input type="text" name="position" value="<?php echo $row ['position']; ?>" class="form-control" placeholder="Position">
 					</div>
 				</div
 
