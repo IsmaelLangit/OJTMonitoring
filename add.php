@@ -170,10 +170,10 @@ include("connect.php");
 						echo  "<input type='hidden' name='waiver' value='no'>";
 						echo  "<input type='hidden' name='moa' value='no'>";
 
-						echo  "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";
 						echo  "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>" ;
 						echo  "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
-						echo  "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";	
+						echo  "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
+						echo  "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";	
 						?>
 					</div>
 				</div>

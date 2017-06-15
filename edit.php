@@ -166,13 +166,6 @@ include("connect.php");
 						echo  "<input type='hidden' name='waiver' value='no'>";
 						echo  "<input type='hidden' name='moa' value='no'>";
 
-						if ($row ['evaluation'] == 'yes') {
-							echo "<input type='checkbox' name='evaluation' value='yes' checked>OJT 1 Evaluation <br>";
-						} 
-
-						if($row ['evaluation'] == 'no') {
-							echo "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";
-						} 
 
 						if ($row ['endorsement'] == 'yes') {
 							echo "<input type='checkbox' name='endorsement' value='yes' checked>Endorsement <br>";
@@ -197,6 +190,14 @@ include("connect.php");
 						if ($row ['moa'] == 'no') {
 							echo "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
 						}
+
+						if ($row ['evaluation'] == 'yes') {
+							echo "<input type='checkbox' name='evaluation' value='yes' checked>Evaluation <br>";
+						} 
+
+						if($row ['evaluation'] == 'no') {
+							echo "<input type='checkbox' name='evaluation' value='yes'>Evaluation <br>";
+						} 
 
 						?>
 
