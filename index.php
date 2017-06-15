@@ -105,9 +105,9 @@ include("connect.php");
 	                    <th>Waiver</th>
 	                    <th>MOA</th>
 	                    <th>Evaluation</th>
+	               		<th>Requirement Status</th>
 						<th>Company Name</th>
 						<th>OJT Type</th>
-						<th>Requirement Status</th>
 	                    <th>Tools</th>
 					</tr>
 				<?php
@@ -167,7 +167,7 @@ include("connect.php");
 							} else if ($row['status'] == 'Incomplete' ){
 								echo '<span class="label label-warning">Incomplete</span>';
 						}
-						
+
 						echo '
 							<td>'.$row['coname'].'</td>
 							<td>';
