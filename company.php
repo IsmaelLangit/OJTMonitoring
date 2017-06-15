@@ -13,7 +13,6 @@ include("connect.php");
 	<!-- Styles -->
 
 	<link rel="icon" href="img/scisLogo.png">
-
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
@@ -56,8 +55,9 @@ include("connect.php");
 			<?php
 			if(isset($_GET['action']) == 'delete'){
 				$coid = $_GET['coid'];
-				$cek = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid ORDER BY coname ASC'");
-				if(mysqli_num_rows($cek) == 0){
+				$coname = $_GET['coname'];
+				$con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid OR coname='$coname ORDER BY coname ASC'");
+				if(mysqli_num_rows($con) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
 				}else{
 					$delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid '");
@@ -191,9 +191,11 @@ include("connect.php");
                 tr = table.getElementsByTagName("tr");
 
                 for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                td1 = tr[i].getElementsByTagName("td")[0];
+                td2 = tr[i].getElementsByTagName("td")[1];
+                td3 = tr[i].getElementsByTagName("td")[2];
+                    if (td1 && td2 && td3) {
+                        if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
                             tr[i].style.display = "";
                         } else {
                             tr[i].style.display = "none";

@@ -57,8 +57,8 @@ include("connect.php");
 			<?php
 			if(isset($_GET['action']) == 'delete'){
 				$idnum = $_GET['idnum'];
-				$cek = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum ORDER BY last_name ASC, first_name ASC'");
-				if(mysqli_num_rows($cek) == 0){
+				$con = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum ORDER BY last_name ASC, first_name ASC'");
+				if(mysqli_num_rows($con) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
 				}else{
 					$delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
@@ -74,6 +74,7 @@ include("connect.php");
 			?>
 
 			<form class="form-inline" method="get">
+
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
 						<option value="0">Filter Students By:</option>
@@ -85,15 +86,17 @@ include("connect.php");
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
 					</select>
 				</div>
+
                 <form id="Name" action="#">
                 <div class="input-group">
-                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search Name...">
+                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID No./Name...">
                         <span class="input-group-btn">  
                             <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
                         </span>
                     </div>
-                </form>
+                </form> 
 			</form>
+
 			<br />
 			<div class="table-responsive">
 			<table class="table table-striped table-hover text-center" id="myTable">
@@ -113,6 +116,7 @@ include("connect.php");
 						<th class="text-center">Requirement Status</th>
 	                    <th class="text-center">Tools</th>
 					</tr>
+					
 				<?php
 				if($filter){
 					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");

@@ -98,10 +98,6 @@ include("connect.php");
 						<td><?php echo $row['email']; ?></td>
 					</tr>
 					<tr>
-						<th scope="row" class="info">Date Started</th>
-						<td><?php echo $row['date_started']; ?></td>
-					</tr>
-					<tr>
 						<th scope="row" class="info">Company Name</th>
 						<td><?php echo $row['coname']; ?></td>
 					</tr>
@@ -149,7 +145,7 @@ include("connect.php");
 					"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
 				</p>
 			</div>
-			
+
 		</footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>

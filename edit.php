@@ -64,7 +64,6 @@ include("connect.php");
 				$first_name		     = $_POST['first_name'];
 				$last_name		     = $_POST['last_name'];
 				$courseyear	     = $_POST['courseyear'];
-				$date_started	     = $_POST['date_started'];
 				$evaluation	     = $_POST['evaluation'];
 				$endorsement	     = $_POST['endorsement'];
 				$waiver	     = $_POST['waiver'];
@@ -153,14 +152,6 @@ include("connect.php");
 						<input type="number" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number" required>
 					</div>
 				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Data Started</label>
-					<div class="col-sm-4">
-						<input type="text" name="date_started" value="<?php echo $row ['date_started']; ?>" class="input-group date form-control" date="" data-date-format="date_started" placeholder="date_started" required>
-					</div>
-				</div>
-
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Requirement</label>

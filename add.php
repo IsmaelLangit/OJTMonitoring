@@ -63,7 +63,6 @@ include("connect.php");
 				$courseyear	     = $_POST['courseyear'];
 				$mobile_number	     = $_POST['mobile_number'];
 				$email	     = $_POST['email'];
-				$date_started	     = $_POST['date_started'];
 				$evaluation	     = $_POST['evaluation'];
 				$endorsement	     = $_POST['endorsement'];
 				$waiver	     = $_POST['waiver'];
@@ -74,8 +73,8 @@ include("connect.php");
                 
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum AND last_name = '$last_name' AND first_name = '$first_name' ");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, evaluation, endorsement, waiver, moa, coid, status)
-															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, evaluation, endorsement, waiver, moa, coid, status)
+															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -137,13 +136,6 @@ include("connect.php");
 							<input type="number" name="mobile_number" class="form-control" placeholder="09000000000" required>
 						</div>
 					</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label">Date Started</label>
-					<div class="col-sm-8">
-						<input type="text" name="date_started" class="input-group date form-control" date="" data-date-format="date_started" placeholder="Date started..." required>
-					</div>
-				</div>
 
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Company Name</label>
