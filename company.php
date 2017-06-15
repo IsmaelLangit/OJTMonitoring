@@ -55,7 +55,7 @@ include("connect.php");
 
 			<?php
 			if(isset($_GET['action']) == 'delete'){
-				$idnum = $_GET['idnum'];
+				$coid = $_GET['coid'];
 				$cek = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid ORDER BY coname ASC'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
@@ -125,16 +125,16 @@ include("connect.php");
                             else if ($row['typeofojt'] == 'Company-based' ){
 								echo '<span class="label label-primary">Company-based</span>';
 							}
-						echo '
+			 			echo '
 						<td>'.$row['company_head'].'</td>
 						<td>'.$row['position'].'</td>
 						';
 						echo '
 							<td>
-								<a href="edit.php?idnum='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
+								<a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
 									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 								</a>
-								<a href="index.php?action=delete&idnum='.$row['coid'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')" class="btn btn-danger btn-sm">
+								<a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')" class="btn btn-danger btn-sm">
 									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 								</a>
 							</td>
@@ -191,7 +191,7 @@ include("connect.php");
                 tr = table.getElementsByTagName("tr");
 
                 for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
+                td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
                         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                             tr[i].style.display = "";
