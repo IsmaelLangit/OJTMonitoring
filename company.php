@@ -124,14 +124,14 @@ include("connect.php");
 							if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Private'){
 								echo '<span class="label label-danger">Private</span> <br>';
 								echo '<span class="label label-info">In-house</span>';
-							} else if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Goverment'){
-								echo '<span class="label label-success">Goverment</span> <br>';
+							} else if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Government'){
+								echo '<span class="label label-success">Government</span> <br>';
 								echo '<span class="label label-info">In-house</span>';
 							} else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Private'){
 								echo '<span class="label label-danger">Private</span> <br>';
 								echo '<span class="label label-primary">Company-based</span>';
-							} else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Goverment'){
-								echo '<span class="label label-success">Goverment</span> <br>';
+							} else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Government'){
+								echo '<span class="label label-success">Government</span> <br>';
 								echo '<span class="label label-primary">Company-based</span>';
 							}
 			 			echo '
