@@ -105,9 +105,9 @@ include("connect.php");
 					</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter'_ ORDER BY coname ASC");
+					$sql = mysqli_query($connect, "SELECT * from company WHERE typeofojt='$filter' or typeofcompany = '$filter' ORDER BY coname ASC");
 				}else{
-					$sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC");
+					$sql = mysqli_query($connect, "SELECT * from company ORDER BY coname ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
