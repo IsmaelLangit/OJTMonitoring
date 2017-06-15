@@ -45,7 +45,7 @@ include("connect.php");
 		<section class="cta">
 	        <div class="cta-content">
 	            <div class="container">
-	                <h2 class="text-center">PRACTICUM 2 STUDENTS</h2>
+	                <h2 class="text-center">COMPANY LIST</h2>
 	            </div>
 	        </div>
 	        <div class="overlay"></div>
@@ -56,11 +56,11 @@ include("connect.php");
 			<?php
 			if(isset($_GET['action']) == 'delete'){
 				$idnum = $_GET['idnum'];
-				$cek = mysqli_query($connect, "SELECT * FROM students WHERE idnum='$idnum ORDER BY last_name ASC, first_name ASC'");
+				$cek = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid ORDER BY coname ASC'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
 				}else{
-					$delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
+					$delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid '");
 					if($delete){
 						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data successfully deleted.</div>';
 					}else{
@@ -76,8 +76,6 @@ include("connect.php");
 						<option value="0">Filter Students By:</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
 						<option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
-						<option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
-                        <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
                         <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
 					</select>
@@ -96,25 +94,18 @@ include("connect.php");
 			<table class="table table-striped table-hover" id="myTable">
 				<tr class="info">
 	                    <th>No</th>
-						<th>ID Number</th>
-						<th>Name</th>
-	                    <th>Course & Year</th>
-	                    <th>Email</th>
-	                    <th>Mobile No.</th>
-	                    <th>Evaluation</th>
-	                    <th>Endorsement</th>
-	                    <th>Waiver</th>
-	                    <th>MOA</th>
 						<th>Company Name</th>
-						<th>OJT Type</th>
-						<th>Requirement Status</th>
+						<th>Address</th>
+						<th>Type</th>
+						<th>Company Head</th>
+						<th>Position</th>
 	                    <th>Tools</th>
 					</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");
+					$sql = mysqli_query($connect, "SELECT * from company WHERE typeofojt='$filter' ORDER BY coname ASC");
 				}else{
-					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
+					$sql = mysqli_query($connect, "SELECT * from company ORDER BY coname ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
@@ -124,43 +115,9 @@ include("connect.php");
 						echo '
 						<tr>
 							<td>'.$no.'</td>
-							<td>'.$row['idnum'].'</td>
-							<td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
-                            <td>'.$row['courseyear'].'</td>
-                            <td>'.$row['email'].'</td>
-                            <td>'.$row['mobile_number'].'</td>';
-
-							if($row['evaluation'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
-							}
-                            else if ($row['evaluation'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
-							}
-
-							if($row['endorsement'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
-							}
-                            else if ($row['endorsement'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
-							}
-
-
-							if($row['waiver'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
-							}
-                            else if ($row['waiver'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
-							}
-
-							if($row['moa'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
-							}
-                            else if ($row['moa'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
-							}
-
-						echo '
-							<td>'.$row['coname'].'</td>
+							<td><a href="profile.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['coname'].'</a></td>
+                            <td>'.$row['coaddress'].'</td>';
+                        echo '
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
 								echo '<span class="label label-info">In-house</span>';
@@ -169,20 +126,15 @@ include("connect.php");
 								echo '<span class="label label-primary">Company-based</span>';
 							}
 						echo '
-							</td>
-							<td>';
-							if($row['status'] == 'Complete'){
-								echo '<span class="label label-success">Complete</span>';
-							} else if ($row['status'] == 'Incomplete' ){
-								echo '<span class="label label-warning">Incomplete</span>';
-							}
+						<td>'.$row['company_head'].'</td>
+						<td>'.$row['position'].'</td>
+						';
 						echo '
-							</td>
 							<td>
-								<a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
+								<a href="edit.php?idnum='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
 									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 								</a>
-								<a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm">
+								<a href="index.php?action=delete&idnum='.$row['coid'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')" class="btn btn-danger btn-sm">
 									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 								</a>
 							</td>
