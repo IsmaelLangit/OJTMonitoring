@@ -72,7 +72,7 @@ include("connect.php");
 				$status			 = $_POST['status'];
                 
                 
-                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum AND last_name = '$last_name' AND first_name = '$first_name' ");
                 if(mysqli_num_rows($con) == 0){
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, evaluation, endorsement, waiver, moa, coid, status)
 															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));

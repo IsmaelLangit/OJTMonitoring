@@ -61,7 +61,7 @@ include("connect.php");
 				$position	     = $_POST['position'];
 				$typeofojt	     = $_POST['typeofojt'];
                
-                $con = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
                     $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt)
 															VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt')") or die('Error: ' . mysqli_error($connect));
