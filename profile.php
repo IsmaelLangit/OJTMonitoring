@@ -83,7 +83,7 @@ include("connect.php");
 					</tr>
 					<tr>
 						<th scope="row" class="info">Name</th>
-						<td><?php echo $row['first_name'].$row['last_name']; ?></td>
+						<td><?php echo $row['last_name'].", ", $row['first_name']; ?></td>
 					</tr>
 					<tr>
 						<th scope="row" class="info">Course & Year</th>
