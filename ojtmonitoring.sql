@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 05:49 AM
+-- Generation Time: Jun 15, 2017 at 07:05 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -98,10 +98,10 @@ INSERT INTO `company` (`coid`, `coname`, `coaddress`, `company_head`, `position`
 (55, 'OIC Academic, Government and Community Partnership - Baguio', 'Loakan Road, Baguio City', 'Maria Lourdes Sison', 'Learning Specialist', 'Company-based', 'private'),
 (56, 'Department of Social Welfare and Development - CAR', '#40 North Drive, Baguio City', 'Bonafe Ramos-Boado', 'Training Specialist 1', 'Company-based', 'private'),
 (57, 'Commission on Elections ', 'Gov. Pack Road, Baguio City', 'Atty. John Paul A. Martin', 'Election Officer', 'Company-based', 'private'),
-(58, 'Advanced World Solutions Inc.', 'Unit 3B 3/F Multinational Bancorp Center, 6805 Ayala Avenue, Makati City', 'null', 'null', 'Company-based', 'private'),
+(58, 'Advanced World Solutions Inc.', 'Unit 3B 3/F Multinational Bancorp Center, 6805 Ayala Avenue, Makati City', '', '', 'Company-based', 'private'),
 (59, 'Cambridge University Press', '2/F, 357 Sen. Gil J. Puyat Ave, Makati, 1200 Metro Manila', 'Mr. Ronaldo Manalac', 'Company Head', 'Company-based', 'private'),
 (60, 'PLDT - Mandaluyong', 'Boni Ave., Barangka, Mandaluyong, Metro Manila', 'null', 'null', 'Company-based', 'private'),
-(61, 'Camp John Hay Golf Club', 'Camp John Hay, Loakan Rd, Baguio', 'null', 'null', 'Company-based', 'private'),
+(61, 'Camp John Hay Golf Club', 'Camp John Hay, Loakan Rd, Baguio', '', '', 'Company-based', 'private'),
 (62, 'Zameco II', 'National Highway, Castillejos, 2208 Zambales', 'Engr. Alvin M. Farrales', 'General Manager', 'Company-based', 'private'),
 (63, 'Texas Instruments', 'PEZA Loakan, Baguio City 2600', 'Manie Mendoza', 'Recuritment Manager', 'Company-based', 'private'),
 (64, 'Bureau of Local Government Finance', '#75 Ferguson Road, Baguio City', 'Ma. Florizelda A. Enriquez, CESE', 'Regional Director', 'Company-based', 'private');
@@ -121,20 +121,20 @@ CREATE TABLE `students` (
   `email` varchar(45) DEFAULT NULL,
   `date_started` date NOT NULL DEFAULT '2017-06-05',
   `coid` int(11) DEFAULT '0',
-  `release_endorsement` date DEFAULT NULL,
-  `receive_endorsement` date DEFAULT NULL,
+  `release_endorsement` varchar(20) DEFAULT NULL,
+  `receive_endorsement` varchar(20) DEFAULT NULL,
   `remark_endorsement` varchar(200) DEFAULT NULL,
   `endorsement` varchar(45) DEFAULT 'no',
-  `release_waiver` date NOT NULL,
-  `receive_waiver` date NOT NULL,
+  `release_waiver` varchar(20) NOT NULL,
+  `receive_waiver` varchar(20) NOT NULL,
   `remark_waiver` varchar(200) NOT NULL,
   `waiver` varchar(45) DEFAULT 'no',
-  `release_moa` date NOT NULL,
-  `receive_moa` date NOT NULL,
+  `release_moa` varchar(20) NOT NULL,
+  `receive_moa` varchar(20) NOT NULL,
   `remark_moa` varchar(200) NOT NULL,
   `moa` varchar(45) DEFAULT 'no',
-  `release_evaluation` date NOT NULL,
-  `receive_evaluation` date NOT NULL,
+  `release_evaluation` varchar(20) NOT NULL,
+  `receive_evaluation` varchar(20) NOT NULL,
   `remark_evaluation` varchar(200) NOT NULL,
   `evaluation` varchar(45) DEFAULT 'no',
   `status` varchar(10) NOT NULL DEFAULT 'Incomplete'
