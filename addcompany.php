@@ -89,7 +89,7 @@ include("connect.php");
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Address</label>
 						<div class="col-sm-8">
-							<input type="text" name="address" class="form-control" placeholder="Address.." required>
+							<input type="text" name="coaddress" class="form-control" placeholder="Address.." required>
 						</div>
 					</div>
 
@@ -110,7 +110,7 @@ include("connect.php");
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Type</label>
 						<div class="col-sm-8">
-							<select name="courseyear" class="form-control">
+							<select name="typeofojt" class="form-control">
 	                            <option value="Company-based">Company-based</option>
 								<option value="In-house">In-house</option>
 							</select>
