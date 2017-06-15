@@ -11,7 +11,11 @@ include("connect.php");
 	<title>OJT MONITORING</title>
 
 	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" href="img/scisLogo.png">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	
 	<style>
 		.content {
@@ -94,6 +98,37 @@ include("connect.php");
 			<a href="profilecompany.php?aksi=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Data</a>
 		</div>
 	</div>
+
+	<footer class="footer-distributed footer">
+		<div class="footer-left">
+			<img class="footerLogo img-responsive" src="img/Picture1.png">
+			<p class="footer-links">
+				<a href="#">Home</a>
+				|
+				<a href="#">Students</a>
+				|
+				<a href="#">Company</a>
+			</p>
+			<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
+		</div>
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>(063) 74 444 8246 to 48</p>
+			</div>
+		</div>
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>Vision of SLU</span>
+				"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+			</p>
+		</div>
+
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
