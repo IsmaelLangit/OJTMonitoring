@@ -160,6 +160,15 @@ include("connect.php");
 							}
 
 						echo '
+							</td>
+							<td>';
+							if($row['status'] == 'Complete'){
+								echo '<span class="label label-success">Complete</span>';
+							} else if ($row['status'] == 'Incomplete' ){
+								echo '<span class="label label-warning">Incomplete</span>';
+						}
+						
+						echo '
 							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
@@ -169,14 +178,7 @@ include("connect.php");
 								echo '<span class="label label-primary">Company-based</span>';
 							}
 
-						echo '
-							</td>
-							<td>';
-							if($row['status'] == 'Complete'){
-								echo '<span class="label label-success">Complete</span>';
-							} else if ($row['status'] == 'Incomplete' ){
-								echo '<span class="label label-warning">Incomplete</span>';
-							}
+
 						echo '
 							</td>
 							<td>
