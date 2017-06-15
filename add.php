@@ -188,7 +188,6 @@ include("connect.php");
 					</div>
 				</div>
 
-
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Waiver</label>
 					<div class="col-sm-8">
@@ -197,12 +196,12 @@ include("connect.php");
 						echo  "<input type='hidden' name='waiver' value='no'>";
 
 						echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'>Submitted</label> <br>" ;
-						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
 						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
-						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks...><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks...'><br>" ;
 						?>
 					</div>
-				</div>	
+				</div>
 
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Memorandum of Agreement</label>
@@ -212,9 +211,9 @@ include("connect.php");
 						echo  "<input type='hidden' name='moa' value='no'>";
 
 						echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'>Submitted</label> <br>" ;
-						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
 						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
-						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks...><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks...'><br>" ;
 						?>
 					</div>
 				</div>
@@ -227,12 +226,14 @@ include("connect.php");
 						echo  "<input type='hidden' name='evaluation' value='no'>";
 
 						echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'>Submitted</label> <br>" ;
-						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
 						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
-						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'><br>" ;
 						?>
 					</div>
-				</div>			
+				</div>
+
+
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label"></label>
