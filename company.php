@@ -78,7 +78,7 @@ include("connect.php");
 						<option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
                         <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                        <option value="Goverment" <?php if($filter == 'Goverment'){ echo 'selected'; } ?>>Goverment</option>
+                        <option value="Government" <?php if($filter == 'Government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'Private'){ echo 'selected'; } ?>>Private</option>
 					</select>
 				</div>
