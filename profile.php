@@ -150,6 +150,5 @@ include("connect.php");
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/smoothScroll.js"></script>
-		<script src="js/preloader.js"></script>
 </body>
 </html>

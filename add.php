@@ -42,8 +42,6 @@ include("connect.php");
 	  </div>
 	</nav>
 
-	<div id="preloader"></div>
-
 	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 	<div class="container-fluid">
