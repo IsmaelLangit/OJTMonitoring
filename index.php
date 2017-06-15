@@ -95,22 +95,22 @@ include("connect.php");
 			</form>
 			<br />
 			<div class="table-responsive">
-			<table class="table table-striped table-hover" id="myTable">
+			<table class="table table-striped table-hover text-center" id="myTable">
 				<tr class="info">
-	                    <th>No</th>
-						<th>ID Number</th>
-						<th>Name</th>
-	                    <th>Course & Year</th>
-	                    <th>Email</th>
-	                    <th>Mobile No.</th>
-	                    <th>Endorsement</th>
-	                    <th>Waiver</th>
-	                    <th>MOA</th>
-	                    <th>Evaluation</th>
-						<th>Company Name</th>
-						<th>OJT Type</th>
-						<th>Requirement Status</th>
-	                    <th>Tools</th>
+	                    <th class="text-center">No</th>
+						<th class="text-center">ID Number</th>
+						<th class="text-center">Name</th>
+	                    <th class="text-center">Course & Year</th>
+	                    <th class="text-center">Email</th>
+	                    <th class="text-center">Mobile No.</th>
+	                    <th class="text-center">Endorsement</th>
+	                    <th class="text-center">Waiver</th>
+	                    <th class="text-center">MOA</th>
+	                    <th class="text-center">Evaluation</th>
+						<th class="text-center">Company Name</th>
+						<th class="text-center">OJT Type</th>
+						<th class="text-center">Requirement Status</th>
+	                    <th class="text-center">Tools</th>
 					</tr>
 				<?php
 				if($filter){
