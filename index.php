@@ -111,12 +111,12 @@ include("connect.php");
 	                    <th class="text-center">Waiver</th>
 	                    <th class="text-center">MOA</th>
 	                    <th class="text-center">Evaluation</th>
+	                    <th class="text-center">Requirement Status</th>
 						<th class="text-center">Company Name</th>
 						<th class="text-center">OJT Type</th>
-						<th class="text-center">Requirement Status</th>
 	                    <th class="text-center">Tools</th>
 					</tr>
-					
+
 				<?php
 				if($filter){
 					$sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");

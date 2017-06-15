@@ -169,7 +169,7 @@ include("connect.php");
 						echo  "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Endorsement <br>" ;
 						echo  "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Waiver <br>";
 						echo  "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Memorandum of Agreement <br>";
-						echo  "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Practicum 1 Evaluation <br>";	
+						echo  "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Evaluation <br>";	
 						?>
 					</div>
 				</div>
