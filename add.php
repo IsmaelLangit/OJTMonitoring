@@ -15,6 +15,7 @@ include("connect.php");
 	<link rel="icon" href="img/scisLogo.png">
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -63,18 +64,36 @@ include("connect.php");
 				$courseyear	     = $_POST['courseyear'];
 				$mobile_number	     = $_POST['mobile_number'];
 				$email	     = $_POST['email'];
-				$evaluation	     = $_POST['evaluation'];
+
 				$endorsement	     = $_POST['endorsement'];
+				$release_endorsement	     = $_POST['release_endorsement'];
+				$receive_endorsement	     = $_POST['receive_endorsement'];
+				$remark_endorsement	     = $_POST['remark_endorsement'];
+
 				$waiver	     = $_POST['waiver'];
+				$release_waiver	     = $_POST['release_waiver'];
+				$receive_waiver	     = $_POST['receive_waiver'];
+				$remark_waiver     = $_POST['remark_waiver'];
+
+			
+
 				$moa	     = $_POST['moa'];
+				$release_moa	     = $_POST['release_moa'];
+				$receive_moa	     = $_POST['receive_moa'];
+				$remark_moa     = $_POST['remark_moa'];
+
+				$evaluation	     = $_POST['evaluation'];
+				$release_evaluation	     = $_POST['release_evaluation'];
+				$receive_evaluation	     = $_POST['receive_evaluation'];
+				$remark_evaluation     = $_POST['remark_evaluation'];
+
 				$coid		 = $_POST['coid'];
 				$status			 = $_POST['status'];
                 
-                
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, evaluation, endorsement, waiver, moa, coid, status)
-															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver,  release_moa, receive_moa, remark_moa, moa,  release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
+															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_moa', '$receive_moa', '$remark_moa', '$moa', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student has been Successfully Added !</div>';
 						}else{
@@ -155,22 +174,65 @@ include("connect.php");
 
 
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Requirement</label>
+					<label class="col-sm-4 control-label">Endorsement</label>
+					<div class="col-sm-8">
+						<?php
+
+						echo  "<input type='hidden' name='endorsement' value='no'>";
+
+						echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'>Submitted</label> <br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
+						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks...'><br>" ;
+						?>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Waiver</label>
+					<div class="col-sm-8">
+						<?php
+
+						echo  "<input type='hidden' name='waiver' value='no'>";
+
+						echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'>Submitted</label> <br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks...><br>" ;
+						?>
+					</div>
+				</div>	
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Memorandum of Agreement</label>
+					<div class="col-sm-8">
+						<?php
+
+						echo  "<input type='hidden' name='moa' value='no'>";
+
+						echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'>Submitted</label> <br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks...><br>" ;
+						?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Evaluation</label>
 					<div class="col-sm-8">
 						<?php
 
 						echo  "<input type='hidden' name='evaluation' value='no'>";
-						echo  "<input type='hidden' name='endorsement' value='no'>";
-						echo  "<input type='hidden' name='waiver' value='no'>";
-						echo  "<input type='hidden' name='moa' value='no'>";
 
-						echo  "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Endorsement <br>" ;
-						echo  "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Waiver <br>";
-						echo  "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Memorandum of Agreement <br>";
-						echo  "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Evaluation <br>";	
+						echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'>Submitted</label> <br>" ;
+						echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+						echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...><br>" ;
 						?>
 					</div>
-				</div>
+				</div>			
 
 					<div class="form-group">
 						<label class="col-sm-4 control-label"></label>
@@ -248,5 +310,11 @@ include("connect.php");
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/smoothScroll.js"></script>
 	<script src="js/preloader.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+	$('.date').datepicker({
+		format: 'yyyy-mm-dd',
+	})
+	</script>
 </body>
 </html>
