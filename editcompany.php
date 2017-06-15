@@ -22,23 +22,24 @@ include("connect.php");
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand visible-xs-block visible-sm-block" href="">OJT MONITORING</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="company.php">Companies</a></li>
-					<li><a href="add.php">Add new Company</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li><a href="index.php">Students</a></li>
+	        <li><a href="add.php">Add Students</a></li> 
+	        <li><a href="company.php">Company</a></li> 
+	        <li><a href="addcompany.php">Add Company</a></li> 
+	      </ul>
+	    </div>
+	  </div>
 	</nav>
 	<div class="container">
 		<div class="content">

@@ -33,10 +33,10 @@ include("connect.php");
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
-	        <li><a href="#">Home</a></li>
 	        <li><a href="index.php">Students</a></li>
 	        <li class="active"><a href="add.php">Add Students</a></li> 
-	        <li><a href="#">Company</a></li> 
+	        <li><a href="company.php">Company</a></li> 
+	        <li><a href="addcompany.php">Add Company</a></li> 
 	      </ul>
 	    </div>
 	  </div>
