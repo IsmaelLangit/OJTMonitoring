@@ -101,10 +101,10 @@ include("connect.php");
 	                    <th>Course & Year</th>
 	                    <th>Email</th>
 	                    <th>Mobile No.</th>
-	                    <th>Evaluation</th>
 	                    <th>Endorsement</th>
 	                    <th>Waiver</th>
 	                    <th>MOA</th>
+	                    <th>Evaluation</th>
 						<th>Company Name</th>
 						<th>OJT Type</th>
 						<th>Requirement Status</th>
@@ -130,13 +130,6 @@ include("connect.php");
                             <td>'.$row['email'].'</td>
                             <td>'.$row['mobile_number'].'</td>';
 
-							if($row['evaluation'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
-							}
-                            else if ($row['evaluation'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
-							}
-
 							if($row['endorsement'] == 'yes'){
 								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
 							}
@@ -159,6 +152,13 @@ include("connect.php");
 								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
 							}
 
+							if($row['evaluation'] == 'yes'){
+								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+							}
+                            else if ($row['evaluation'] == 'no' ){
+								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+							}
+
 						echo '
 							<td>'.$row['coname'].'</td>
 							<td>';
@@ -168,6 +168,7 @@ include("connect.php");
                             else if ($row['typeofojt'] == 'Company-based' ){
 								echo '<span class="label label-primary">Company-based</span>';
 							}
+
 						echo '
 							</td>
 							<td>';
