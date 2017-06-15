@@ -66,7 +66,7 @@ include("connect.php");
 				$coid	     = $_POST['coid'];
 				$status			 = $_POST['status'];
 
-				if ($evaluation == "yes" && $endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
+				if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
 					$status = "Complete";
 				} else {
 					$status = "Incomplete";
@@ -238,7 +238,7 @@ include("connect.php");
 					<label class="col-sm-3 control-label">Requirement Status</label>
 					<div class="col-sm-2">
 						<?php
-							if ($row ['evaluation'] == "yes" && $row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+							if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
 								echo "<span class='label label-success'>Complete</span>";
 								echo  "<input type='hidden' name='status' value='Complete'>";
 							} else {

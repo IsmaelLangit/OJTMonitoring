@@ -71,7 +71,7 @@ include("connect.php");
 				</tr>
 				<tr>
 					<th>Name</th>
-					<td><?php echo $row['first_name'].$row['last_name']; ?></td>
+					<td><?php echo $row['first_name'].", ".$row['last_name']; ?></td>
 				</tr>
                 <tr>
 					<th>Course & Year</th>
