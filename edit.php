@@ -37,8 +37,6 @@ include("connect.php");
 			</div>
 		</nav>
 
-	<div id="preloader"></div>
-
 	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 	<div class="container-fluid">
@@ -87,7 +85,7 @@ include("connect.php");
 					$status = "Incomplete";
 				}
 				
-				$update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', date_started='$date_started',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+				$update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear',evaluation='$evaluation',endorsement='$endorsement', waiver ='$waiver', moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?idnum=".$idnum."&message=success");
 				}else{
