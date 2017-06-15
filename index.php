@@ -4,21 +4,17 @@ include("connect.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SCIS OJT Monitoring</title>
-
-	<!-- Styles -->
-
-	<link rel="icon" href="img/scisLogo.png">
-
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-</head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SCIS OJT Monitoring</title>
+		<!-- Styles -->
+		<link rel="icon" href="img/scisLogo.png">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/footer-distributed-with-address-and-phones.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	</head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
@@ -41,17 +37,22 @@ include("connect.php");
 	  </div>
 	</nav>
 
+	<div id="preloader"></div>
 	<div class="container-fluid">
-		<section class="cta">
-	        <div class="cta-content">
-	            <div class="container">
-	                <h2 class="text-center">PRACTICUM 2 STUDENTS</h2>
-	            </div>
-	        </div>
-	        <div class="overlay"></div>
-		</section>	
 
-		<div class="col-md-12 margin-top margin-bottom">
+	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+	
+		<section class="cta">
+				<div class="cta-content">
+					<div class="container">
+						<h2 class="text-center">PRACTICUM 2 <span class="detailsHeading">STUDENTS</span></h2>
+					</div>
+				</div>
+				<div class="overlay"></div>
+			</section>
+
+		<div class="col-md-12 margin-top">
 
 			<?php
 			if(isset($_GET['action']) == 'delete'){
@@ -62,7 +63,9 @@ include("connect.php");
 				}else{
 					$delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
 					if($delete){
-						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data successfully deleted.</div>';
+						echo '<div class="alert alert-danger alert-dismissable">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the student!
+								</div>';
 					}else{
 						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
 					}
@@ -86,29 +89,29 @@ include("connect.php");
                 <div class="input-group">
                         <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search Name...">
                         <span class="input-group-btn">  
-                            <button class="btn btn-default" type="button" onclick="resetName()" value="reset">Reset</button>
+                            <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
                         </span>
                     </div>
                 </form>
 			</form>
 			<br />
 			<div class="table-responsive">
-			<table class="table table-striped table-hover" id="myTable">
+			<table class="table table-striped table-hover text-center" id="myTable">
 				<tr class="info">
-	                    <th>No</th>
-						<th>ID Number</th>
-						<th>Name</th>
-	                    <th>Course & Year</th>
-	                    <th>Email</th>
-	                    <th>Mobile No.</th>
-	                    <th>Endorsement</th>
-	                    <th>Waiver</th>
-	                    <th>MOA</th>
-	                    <th>Evaluation</th>
-	               		<th>Requirement Status</th>
-						<th>Company Name</th>
-						<th>OJT Type</th>
-	                    <th>Tools</th>
+	                    <th class="text-center">No</th>
+						<th class="text-center">ID Number</th>
+						<th class="text-center">Name</th>
+	                    <th class="text-center">Course & Year</th>
+	                    <th class="text-center">Email</th>
+	                    <th class="text-center">Mobile No.</th>
+	                    <th class="text-center">Endorsement</th>
+	                    <th class="text-center">Waiver</th>
+	                    <th class="text-center">MOA</th>
+	                    <th class="text-center">Evaluation</th>
+						<th class="text-center">Company Name</th>
+						<th class="text-center">OJT Type</th>
+						<th class="text-center">Requirement Status</th>
+	                    <th class="text-center">Tools</th>
 					</tr>
 				<?php
 				if($filter){
@@ -131,32 +134,32 @@ include("connect.php");
                             <td>'.$row['mobile_number'].'</td>';
 
 							if($row['endorsement'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
 							}
                             else if ($row['endorsement'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
 							}
 
 
 							if($row['waiver'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
 							}
                             else if ($row['waiver'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
 							}
 
 							if($row['moa'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
 							}
                             else if ($row['moa'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
 							}
 
 							if($row['evaluation'] == 'yes'){
-								echo '<td><span class="glyphicon glyphicon-ok"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
 							}
                             else if ($row['evaluation'] == 'no' ){
-								echo '<td><span class="glyphicon glyphicon-remove"></span></td>';
+								echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
 							}
 
 						echo '
@@ -201,38 +204,38 @@ include("connect.php");
 	</div>
 
 	<footer class="footer-distributed footer">
-		<div class="footer-left">
-			<img class="footerLogo img-responsive" src="img/Picture1.png">
-			<p class="footer-links">
-				<a href="#">Home</a>
-				|
-				<a href="#">Students</a>
-				|
-				<a href="#">Company</a>
-			</p>
-			<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
-		</div>
-		<div class="footer-center">
-			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+			<div class="footer-left">
+				<img class="footerLogo img-responsive" src="img/Picture1.png">
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">Students</a>
+					|
+					<a href="#">Company</a>
+				</p>
+				<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
 			</div>
-			<div>
-				<i class="fa fa-phone"></i>
-				<p>(063) 74 444 8246 to 48</p>
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+				</div>
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>(063) 74 444 8246 to 48</p>
+				</div>
 			</div>
-		</div>
-		<div class="footer-right">
-			<p class="footer-company-about">
-				<span>Vision of SLU</span>
-				"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-			</p>
-		</div>
-
-	</footer>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>Vision of SLU</span>
+					"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+				</p>
+			</div>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/smoothScroll.js"></script>
+		<script src="js/preloader.js"></script>
         <script>
             function filterData() {
                 var input, filter, table, tr, td, i;
