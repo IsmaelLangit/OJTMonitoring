@@ -105,9 +105,9 @@ include("connect.php");
 					</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * from company WHERE typeofojt='$filter' or typeofcompany = '$filter' ORDER BY coname ASC");
+					$sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter'_ ORDER BY coname ASC");
 				}else{
-					$sql = mysqli_query($connect, "SELECT * from company ORDER BY coname ASC");
+					$sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
@@ -203,7 +203,7 @@ include("connect.php");
                 td1 = tr[i].getElementsByTagName("td")[0];
                 td2 = tr[i].getElementsByTagName("td")[1];
                 td3 = tr[i].getElementsByTagName("td")[2];
-                    if (td1 && td2 && td3) {
+                    if (td2) {
                         if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
                             tr[i].style.display = "";
                         } else {

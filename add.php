@@ -98,11 +98,9 @@ include("connect.php");
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student has been Successfully Added !</div>';
 						}else{
 					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
-				        }
-					
+				        }	
+					}     
 				}
-                
-			}
 			?>
 
 			<div class="col-md-7">
