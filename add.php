@@ -42,6 +42,8 @@ include("connect.php");
 	  </div>
 	</nav>
 
+	<div id="preloader"></div>
+
 	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 	<div class="container-fluid">
@@ -71,12 +73,12 @@ include("connect.php");
 				$status			 = $_POST['status'];
                 
                 
-                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum AND last_name = '$last_name' AND first_name = '$first_name' ");
+                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                 if(mysqli_num_rows($con) == 0){
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, evaluation, endorsement, waiver, moa, coid, status)
 															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
-							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
+							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student has been Successfully Added !</div>';
 						}else{
 					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
 				        }
@@ -201,39 +203,54 @@ include("connect.php");
 			
 	</div>
 
-	<footer class="footer-distributed footer">
-		<div class="footer-left">
-			<img class="footerLogo img-responsive" src="img/Picture1.png">
-			<p class="footer-links">
-				<a href="#">Home</a>
-				|
-				<a href="#">Students</a>
-				|
-				<a href="#">Company</a>
-			</p>
-			<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
-		</div>
-		<div class="footer-center">
-			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
-			</div>
-			<div>
-				<i class="fa fa-phone"></i>
-				<p>(063) 74 444 8246 to 48</p>
-			</div>
-		</div>
-		<div class="footer-right">
-			<p class="footer-company-about">
-				<span>Vision of SLU</span>
-				"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-			</p>
-		</div>
+	<footer class="footer-distributed">
 
-	</footer>
+			<div class="footer-left">
+
+				<img class="footerLogo" src="img/Picture1.png">
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">Students</a>
+					|
+					<a href="#">Company</a>
+				</p>
+
+				<p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>(063) 74 444 8246 to 48</p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>Vision of SLU</span>
+					"We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+				</p>
+
+			</div>
+
+		</footer>
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/smoothScroll.js"></script>
+	<script src="js/preloader.js"></script>
 	<script>
 	$('.date').datepicker({
 		format: 'yyyy-mm-dd',
