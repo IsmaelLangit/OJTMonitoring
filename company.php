@@ -76,8 +76,10 @@ include("connect.php");
 						<option value="0">Filter Students By:</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
 						<option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
-                        <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
+                        <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
+                        <option value="Goverment" <?php if($filter == 'Goverment'){ echo 'selected'; } ?>>Goverment</option>
+                        <option value="Private" <?php if($filter == 'Private'){ echo 'selected'; } ?>>Private</option>
 					</select>
 				</div>
                 <form id="Name" action="#">
@@ -103,7 +105,7 @@ include("connect.php");
 					</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($connect, "SELECT * from company WHERE typeofojt='$filter' ORDER BY coname ASC");
+					$sql = mysqli_query($connect, "SELECT * from company WHERE typeofojt='$filter' or typeofcompany = '$filter' ORDER BY coname ASC");
 				}else{
 					$sql = mysqli_query($connect, "SELECT * from company ORDER BY coname ASC");
 				}
