@@ -47,7 +47,7 @@ include("connect.php");
 		<section class="cta">
 	        <div class="cta-content">
 	            <div class="container">
-	                <h2 class="text-center">ADD A PRACTICUM 2 STUDENT</h2>
+	                <h2 class="text-center">ADD A COMPANY</h2>
 	            </div>
 	        </div>
 	        <div class="overlay"></div>
@@ -55,25 +55,16 @@ include("connect.php");
                
 			<?php
 			if(isset($_POST['add'])){
-				$idnum		     = $_POST['idnum'];
-				$last_name		     = $_POST['last_name'];
-				$first_name		     = $_POST['first_name'];
-				$courseyear	     = $_POST['courseyear'];
-				$mobile_number	     = $_POST['mobile_number'];
-				$email	     = $_POST['email'];
-				$date_started	     = $_POST['date_started'];
-				$evaluation	     = $_POST['evaluation'];
-				$endorsement	     = $_POST['endorsement'];
-				$waiver	     = $_POST['waiver'];
-				$moa	     = $_POST['moa'];
-				$coid		 = $_POST['coid'];
-				$status			 = $_POST['status'];
-                
-                
-                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+				$coname		     = $_POST['coname'];
+				$coaddress		     = $_POST['coaddress'];
+				$company_head	     = $_POST['company_head'];
+				$position	     = $_POST['position'];
+				$typeofojt	     = $_POST['typeofojt'];
+               
+                $con = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, date_started, evaluation, endorsement, waiver, moa, coid, status)
-															VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email','$date_started', '$evaluation', '$endorsement', '$waiver', '$moa','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt)
+															VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
 						}else{
@@ -89,105 +80,40 @@ include("connect.php");
 			<form class="form-horizontal margin-top margin-bottom" action="" method="post">
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">ID Number</label>
+						<label class="col-sm-4 control-label">Company Name</label>
 						<div class="col-sm-8">
-							<input type="number" name="idnum" class="form-control" placeholder="ID number..." required>
+							<input type="text" name="coname" class="form-control" placeholder="Company name..." required>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">First Name</label>
+						<label class="col-sm-4 control-label">Address</label>
 						<div class="col-sm-8">
-							<input type="text" name="first_name" class="form-control" placeholder="First Name.." required>
+							<input type="text" name="address" class="form-control" placeholder="Address.." required>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Last Name</label>
+						<label class="col-sm-4 control-label">Company Head</label>
 						<div class="col-sm-8">
-							<input type="text" name="last_name" class="form-control" placeholder="Last Name.." required>
+							<input type="text" name="company_head" class="form-control" placeholder="Company head.." required>
 						</div>
 					</div>
 
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Position</label>
+						<div class="col-sm-8">
+							<input type="text" name="position" class="form-control" placeholder="Position.." required>
+						</div>
+					</div>
 
 					<div class="form-group">
-						<label class="col-sm-4 control-label">Course & Year</label>
+						<label class="col-sm-4 control-label">Type</label>
 						<div class="col-sm-8">
 							<select name="courseyear" class="form-control">
-	                            <option value="BSIT 3">BSIT-3</option>
-								<option value="BSIT 4">BSIT-4</option>
-								<option value="BSCS 3">BSCS-3</option>
-								<option value="BSCS 4">BSCS-4</option>
+	                            <option value="Company-based">Company-based</option>
+								<option value="In-house">In-house</option>
 							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label">Email</label>
-						<div class="col-sm-8">
-							<input type="email" name="email" class="form-control" placeholder="Email.." required>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label">Mobile Number</label>
-						<div class="col-sm-8">
-							<input type="number" name="mobile_number" class="form-control" placeholder="Mobile Number.." required>
-						</div>
-					</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label">Date Started</label>
-					<div class="col-sm-8">
-						<input type="text" name="date_started" class="input-group date form-control" date="" data-date-format="date_started" placeholder="Date started..." required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label">Company Name</label>
-					<div class="col-sm-8">
-							<select name="coid" class="form-control">
-								<option value='1'>No current company</option>
-								<?php
-									$con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
-									while ($row = mysqli_fetch_assoc($con)) {
-									    echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
-									}
-									echo "</select>";
-								?>
-					</div>
-				</div>
-
-
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label">Requirement</label>
-					<div class="col-sm-8">
-						<?php
-
-						echo  "<input type='hidden' name='evaluation' value='no'>";
-						echo  "<input type='hidden' name='endorsement' value='no'>";
-						echo  "<input type='hidden' name='waiver' value='no'>";
-						echo  "<input type='hidden' name='moa' value='no'>";
-
-						echo  "<input type='checkbox' name='endorsement' value='yes'>Endorsement <br>" ;
-						echo  "<input type='checkbox' name='waiver' value='yes'>Waiver <br>";
-						echo  "<input type='checkbox' name='moa' value='yes'>Memorandum of Agreement <br>";
-						echo  "<input type='checkbox' name='evaluation' value='yes'>OJT 1 Evaluation <br>";	
-						?>
-					</div>
-				</div>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label"></label>
-						<div class="col-sm-8">
-						<?php
-							if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
-								echo  "<input type='hidden' name='status' value='Complete' checked>";
-							} else {
-								echo  "<input type='hidden' name='status' value='Incomplete' checked>";
-							}
-						?>
 						</div>
 					</div>
 

@@ -97,6 +97,7 @@ include("connect.php");
 			<div class="table-responsive">
 			<table class="table table-striped table-hover text-center" id="myTable">
 				<tr class="info">
+<<<<<<< HEAD
 	                    <th class="text-center">No</th>
 						<th class="text-center">ID Number</th>
 						<th class="text-center">Name</th>
@@ -111,6 +112,22 @@ include("connect.php");
 						<th class="text-center">OJT Type</th>
 						<th class="text-center">Requirement Status</th>
 	                    <th class="text-center">Tools</th>
+=======
+	                    <th>No</th>
+						<th>ID Number</th>
+						<th>Name</th>
+	                    <th>Course & Year</th>
+	                    <th>Email</th>
+	                    <th>Mobile No.</th>
+	                    <th>Endorsement</th>
+	                    <th>Waiver</th>
+	                    <th>MOA</th>
+	                    <th>Evaluation</th>
+	               		<th>Requirement Status</th>
+						<th>Company Name</th>
+						<th>OJT Type</th>
+	                    <th>Tools</th>
+>>>>>>> eed6741dce411a9600b705abe32b6d4a8b423d2b
 					</tr>
 				<?php
 				if($filter){
@@ -162,6 +179,15 @@ include("connect.php");
 							}
 
 						echo '
+							</td>
+							<td>';
+							if($row['status'] == 'Complete'){
+								echo '<span class="label label-success">Complete</span>';
+							} else if ($row['status'] == 'Incomplete' ){
+								echo '<span class="label label-warning">Incomplete</span>';
+						}
+
+						echo '
 							<td>'.$row['coname'].'</td>
 							<td>';
 							if($row['typeofojt'] == 'In-house'){
@@ -171,14 +197,7 @@ include("connect.php");
 								echo '<span class="label label-primary">Company-based</span>';
 							}
 
-						echo '
-							</td>
-							<td>';
-							if($row['status'] == 'Complete'){
-								echo '<span class="label label-success">Complete</span>';
-							} else if ($row['status'] == 'Incomplete' ){
-								echo '<span class="label label-warning">Incomplete</span>';
-							}
+
 						echo '
 							</td>
 							<td>

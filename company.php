@@ -115,7 +115,7 @@ include("connect.php");
 						echo '
 						<tr>
 							<td>'.$no.'</td>
-							<td><a href="profile.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['coname'].'</a></td>
+							<td><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['coname'].'</a></td>
                             <td>'.$row['coaddress'].'</td>';
                         echo '
 							<td>';
