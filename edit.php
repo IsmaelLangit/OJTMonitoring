@@ -207,7 +207,7 @@ include("connect.php");
                           ?>
                             <input type="text" class="form-control" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class="form-control" placeholder="Date release">
                             <input type="text" class="form-control" name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>" class="form-control" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Date release">
+                            <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
 
@@ -228,7 +228,7 @@ include("connect.php");
                           ?>
                             <input type="text" class="form-control" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class="form-control" placeholder="Date release">
                             <input type="text" class="form-control" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class="form-control" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Date release">
+                            <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
 
@@ -249,7 +249,7 @@ include("connect.php");
                           ?>
                             <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" placeholder="Date release">
                             <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Date release">
+                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
 
@@ -270,7 +270,7 @@ include("connect.php");
                           ?>
                             <input type="text" class="form-control" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class="form-control" placeholder="Date release">
                             <input type="text" class="form-control" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class="form-control" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Date release">
+                            <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
 
