@@ -130,29 +130,35 @@ include("connect.php");
             
             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="col-md-9">
+                    <div class="col-md-9 well">
                 
-                <form class="form-horizontal margin-top margin-bottom well" action="" method="post">
+                <form class="form-horizontal margin-top margin-bottom" action="" method="post">
 
                 <h2 class="head-title black titleFont">Basic Information</h2>
                 <hr class="style-four">
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">ID Number</label>
-                        <div class="col-sm-2">
-                            <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="0000000" required>
+                        <div class="container">
+                            <label class="col-sm-3 control-label">ID Number</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="0000000" required>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">First Name</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
+                        <div class="container">
+                            <label class="col-sm-2 control-label">First Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Last Name</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
+                        <div class="container">
+                            <label class="col-sm-2 control-label">Last Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
