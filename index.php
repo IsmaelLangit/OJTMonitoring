@@ -130,7 +130,7 @@ include("connect.php");
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
                                     }
                                     if(mysqli_num_rows($sql) == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                                     }else{
                                         $no = 1;
                                         while($row = mysqli_fetch_assoc($sql)){
@@ -354,11 +354,11 @@ include("connect.php");
             </div>
             <div class="footer-center">
                 <div>
-                    <i class="fa fa-map-marker"></i>
+                    <i class="glyphicon glyphicon-globe"></i>
                     <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
                 </div>
                 <div>
-                    <i class="fa fa-phone"></i>
+                    <i class="glyphicon glyphicon-earphone"></i>
                     <p>(063) 74 444 8246 to 48</p>
                 </div>
             </div>

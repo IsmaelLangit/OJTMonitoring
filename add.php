@@ -339,11 +339,11 @@ include("connect.php");
             </div>
             <div class="footer-center">
                 <div>
-                    <i class="fa fa-map-marker"></i>
+                    <i class="glyphicon glyphicon-globe"></i>
                     <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
                 </div>
                 <div>
-                    <i class="fa fa-phone"></i>
+                    <i class="glyphicon glyphicon-earphone"></i>
                     <p>(063) 74 444 8246 to 48</p>
                 </div>
             </div>
