@@ -44,7 +44,7 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeIn delay-05s " >
+                <div class="wrapper wow fadeInUp delay-05s " >
                     <h2 class="top-title">Edit</h2>
                     <h2 class="title">
                         <?php 
@@ -62,7 +62,7 @@ include("connect.php");
     <!--/ header-->
     <!---->
     <section class="section-padding">
-        <div class="container-fluid wow fadeIn delay-20s">
+        <div class="container-fluid">
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
@@ -129,41 +129,52 @@ include("connect.php");
             ?>
             
             <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="col-md-9 well">
+                <div class="row">
+                    <div class="col-md-9">
+                        
+                        <form class="form-horizontal margin-top margin-bottom well" action="" method="post">
+
+                        <h2 class="head-title black titleFont">Basic Information</h2>
+                        <hr class="style-four">
                 
-                <form class="form-horizontal margin-top margin-bottom" action="" method="post">
+                <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">ID Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <h2 class="head-title black titleFont">Basic Information</h2>
-                <hr class="style-four">
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="container">
-                            <label class="col-sm-3 control-label">ID Number</label>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="0000000" required>
-                            </div>
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="container">
-                            <label class="col-sm-2 control-label">First Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="container">
-                            <label class="col-sm-2 control-label">Last Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
                         <label class="col-sm-3 control-label">Course & Year</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <select name="courseyear" class="form-control">
                                 <option value="<?php echo $row ['courseyear']; ?>"><?php echo $row ['courseyear']; ?></option>
                                 ";
@@ -189,65 +200,92 @@ include("connect.php");
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
                         <label class="col-sm-3 control-label">Email</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-8">
                             <input type="email" class="form-control" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Mobile No.</label>
-                        <div class="col-sm-4">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">Mobile Number</label>
+                        <div class="col-sm-8">
                             <input type="number" class="form-control" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number" required>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Endorsement</label>
-                        <div class="col-sm-4">
+            <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
+            <hr class="style-four">
+
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label subLabel">Endorsement</label>
+                        <div class="col-sm-8">
                             <?php
-                                echo  "<input type='hidden' name='endorsement' value='no'>";
-                                
-                                
-                                if ($row ['endorsement'] == 'yes') {
-                                    echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Submitted <br>";
-                                } 
-                                
-                                if($row ['endorsement'] == 'no') {
-                                    echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Submitted <br>";
-                                }   
-                          ?>
-                            <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <input type="text" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
+                                    echo  "<input type='hidden' name='endorsement' value='no'>";
+                                    
+                                    
+                                    if ($row ['endorsement'] == 'yes') {
+                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    } 
+                                    
+                                    if($row ['endorsement'] == 'no') {
+                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Submitted <br>";
+                                    }   
+                              ?>
+                                <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                                <br>
+                                <input type="text" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>" placeholder="Date release">
+                                <br>
+                                <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Waiver</label>
-                        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label subLabel">Waiver</label>
+                        <div class="col-sm-8">
                             <?php
-                                echo  "<input type='hidden' name='waiver' value='no'>";
-                                
-                                
-                                if ($row ['waiver'] == 'yes') {
-                                    echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Submitted <br>";
-                                } 
-                                
-                                if($row ['waiver'] == 'no') {
-                                    echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Submitted <br>";
-                                }   
-                          ?>
-                            <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>"class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
+                                    echo  "<input type='hidden' name='waiver' value='no'>";
+                                    
+                                    
+                                    if ($row ['waiver'] == 'yes') {
+                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    } 
+                                    
+                                    if($row ['waiver'] == 'no') {
+                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Submitted <br>";
+                                    }   
+                              ?>
+                                <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                                <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>"class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                                <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Memorandum of Agreement</label>
-                        <div class="col-sm-4">
-                            <?php
+            <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label subLabel">Memorandum of Agreement</label>
+                    <div class="col-sm-8">
+                        <?php
                                 echo  "<input type='hidden' name='moa' value='no'>";
                                 
                                 
@@ -262,13 +300,17 @@ include("connect.php");
                             <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
                             <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
                             <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Remarks">
-                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Evaluation</label>
-                        <div class="col-sm-4">
-                            <?php
+        <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label subLabel">Evaluation</label>
+                    <div class="col-sm-8">
+                        <?php
                                 echo  "<input type='hidden' name='evaluation' value='no'>";
                                 
                                 
@@ -283,14 +325,19 @@ include("connect.php");
                             <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
                             <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
                             <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Remarks">
-                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="form-group">
+        <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
                         <label class="col-sm-3 control-label">Company Name</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-8">
                             <select name="coid" class="form-control">
-                            <option value="<?php echo $row ['coid']; ?>"><?php echo $row ['coname']; ?></option>
+                            <option value="<?php echo $row ['coid']; ?>">
+                            <?php echo $row ['coname']; ?></option>
                             ";
                             <?php
                                 $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
@@ -302,22 +349,32 @@ include("connect.php");
                                 ?>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Type of OJT</label>
-                        <div class="col-sm-2">
-                            <?php
+                </div>
+            </div>
+
+            <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label">Type of OJT</label>
+                    <div class="col-sm-8">
+                        <?php
                                 if ($row ['typeofojt'] == "In-house") {
                                     echo "<span class='label label-info'>In-house</span>";
                                 } else {
                                     echo "<span class='label label-primary'>Company-based</span>";
                                 }
-                                ?>
-                        </div>
+                        ?>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Requirement Status</label>
-                        <div class="col-sm-2">
-                            <?php
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label">Requirement Status</label>
+                    <div class="col-sm-8">
+                        <?php
                                 if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
                                     echo "<span class='label label-success'>Complete</span>";
                                     echo  "<input type='hidden' name='status' value='Complete'>";
@@ -325,22 +382,31 @@ include("connect.php");
                                     echo "<span class='label label-warning'>Incomplete</span>";
                                     echo  "<input type='hidden' name='status' value='Incomplete'>";
                                 }
-                                ?>
-                        </div>
+                        ?>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">&nbsp;</label>
-                        <div class="col-sm-6">
-                            <input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
-                            <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
-                        </div>
-                    </div>
-                </form>
+                </div>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label">&nbsp;</label>
+                    <div class="col-sm-8">
+                        <input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
+                        <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <img class="text-center center-block img-responsive addPicture" src="img/edit.png">
-            </div>
+        </div>
+
+        </div>
+        
+        <div class="col-md-3">
+            <img class="img-responsive text-center center-block addPicture" src="img/edit.png">
+        </div>
+    </div>
+</div>
             
         </div> <!--End of Container Fluid-->
     </section>
