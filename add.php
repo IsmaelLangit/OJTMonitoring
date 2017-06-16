@@ -45,7 +45,7 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeInUp delay-05s " >
+                <div class="wrapper wow fadeIn delay-05s " >
                     <h2 class="top-title">Student</h2>
                     <h3 class="title">Addition</h3>
                 </div>

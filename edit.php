@@ -44,7 +44,7 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeInUp delay-05s " >
+                <div class="wrapper wow fadeIn delay-05s " >
                     <h2 class="top-title">Edit</h2>
                     <h2 class="title">
                         <?php 
@@ -62,7 +62,7 @@ include("connect.php");
     <!--/ header-->
     <!---->
     <section class="section-padding">
-        <div class="container-fluid">
+        <div class="container-fluid wow fadeIn delay-20s">
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 

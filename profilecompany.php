@@ -44,7 +44,7 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container-fluid text-center">
-                <div class="wrapper wow fadeInUp delay-05s " >
+                <div class="wrapper wow fadeIn delay-05s " >
                     <h2 class="companytitle">
                         <?php 
                             $coid = $_GET['coid'];
