@@ -195,7 +195,7 @@ include("connect.php");
                                                 }
                                     
                                                 if($row['moa'] == 'yes'){
-<<<<<<< HEAD
+
                                                     echo '  <td>
                                                                 <a href="" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
@@ -206,10 +206,7 @@ include("connect.php");
                                                                     <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
                                                                 </a>
                                                             </td>';
-=======
-                                                    echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
-                                                    
->>>>>>> 7071ab998aca62f1aff1d5757baf852a4053b2c3
+
                                                 }
                                                             else if ($row['moa'] == 'no' ){
                                                     echo '  <td>
