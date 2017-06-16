@@ -85,6 +85,8 @@ include("connect.php");
             }
             ?>
 
+
+
             <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th scope="row" class="info">ID Number</th>

@@ -106,7 +106,7 @@ include("connect.php");
                 
                 <div class="padding-top">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover text-center" id="myTable">
+                            <table class="table table-fixed table-striped table-hover text-center" id="myTable">
                                 <tr class="info">
                                     <th class="text-center">No</th>
                                     <th class="text-center">ID Number</th>

@@ -121,26 +121,36 @@ include("connect.php");
                         <hr class="style-four">
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">ID Number</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">ID Number</label>
+                                    <div class="col-sm-2">
                                     <input type="number" name="idnum" class="form-control" placeholder="0000000" required>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">First Name</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">First Name</label>
+                                    <div class="col-sm-9">
                                     <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Last Name</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-9">
                                     <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Course & Year</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">Course & Year</label>
+                                    <div class="col-sm-2">
                                     <select name="courseyear" class="form-control">
                                         <option value="BSIT 3">BSIT-3</option>
                                         <option value="BSIT 4">BSIT-4</option>
@@ -148,23 +158,32 @@ include("connect.php");
                                         <option value="BSCS 4">BSCS-4</option>
                                     </select>
                                 </div>
+                                </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Email</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-9">
                                     <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Mobile Number</label>
-                                <div class="col-sm-8">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">Mobile Number</label>
+                                    <div class="col-sm-9">
                                     <input type="number" name="mobile_number" class="form-control" placeholder="09000000000" required>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Company Name</label>
-                                <div class="col-sm-8">
-                                    <select name="coid" class="form-control">
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">Company Name</label>
+                                    <div class="col-sm-9">
+                                    <select name="coid" class="form-control touch">
                                     <option value='1'>No current company</option>
                                     <?php
                                         $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
@@ -173,6 +192,7 @@ include("connect.php");
                                         }
                                         echo "</select>";
                                         ?>
+                                    </div>
                                 </div>
                             </div>
 
@@ -180,79 +200,91 @@ include("connect.php");
                         <hr class="style-four">
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label subLabel">Endorsement</label>
-                                <div class="col-sm-8">
-                                    <?php
-                                        echo  "<input type='hidden' name='endorsement' value='no'>";
-                                        
-                                        echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_endorsement'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks...'><br>" ;
-                                        ?>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label subLabel">Endorsement</label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                            echo  "<input type='hidden' name='endorsement' value='no'>";
+                                            
+                                            echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_endorsement'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label subLabel">Waiver</label>
-                                <div class="col-sm-8">
-                                    <?php
-                                        echo  "<input type='hidden' name='waiver' value='no'>";
-                                        
-                                        echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='release_waiver'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks...'><br>" ;
-                                        ?>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label subLabel">Waiver</label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                            echo  "<input type='hidden' name='waiver' value='no'>";
+                                            
+                                            echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='release_waiver'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label subLabel">Memorandum of Agreement</label>
-                                <div class="col-sm-8">
-                                    <?php
-                                        echo  "<input type='hidden' name='moa' value='no'>";
-                                        
-                                        echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='release_moa'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks...'><br>" ;
-                                        ?>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label subLabel">Memorandum of Agreement</label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                            echo  "<input type='hidden' name='moa' value='no'>";
+                                            
+                                            echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='release_moa'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label subLabel">Evaluation</label>
-                                <div class="col-sm-8">
-                                    <?php
-                                        echo  "<input type='hidden' name='evaluation' value='no'>";
-                                        
-                                        echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='release_evaluation'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'><br>" ;
-                                        ?>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label subLabel">Evaluation</label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                            echo  "<input type='hidden' name='evaluation' value='no'>";
+                                            
+                                            echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='release_evaluation'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'><br>" ;
+                                            ?>
+                                </div>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label class="col-sm-4 control-label"></label>
-                                <div class="col-sm-8">
-                                    <?php
-                                        if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
-                                            echo  "<input type='hidden' name='status' value='Complete' checked>";
-                                        } else {
-                                            echo  "<input type='hidden' name='status' value='Incomplete' checked>";
-                                        }
-                                        ?>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                            if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+                                                echo  "<input type='hidden' name='status' value='Complete' checked>";
+                                            } else {
+                                                echo  "<input type='hidden' name='status' value='Incomplete' checked>";
+                                            }
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">&nbsp;</label>
-                                <div class="col-sm-8">
-                                    <input type="submit" name="add" class="btn btn-sm btn-success" value="Submit">
-                                    <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                <div class="container">
+                                    <label class="col-sm-2 control-label">&nbsp;</label>
+                                    <div class="col-sm-9">
+                                        <input type="submit" name="add" class="btn btn-sm btn-success" value="Add Student">
+                                        <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                    </div>
                                 </div>
                             </div>
                         </form>

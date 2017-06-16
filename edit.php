@@ -128,13 +128,19 @@ include("connect.php");
             }
             ?>
             
-            <div class="col-md-8 well">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-md-9">
                 
-                <form class="form-horizontal" action="" method="post">
+                <form class="form-horizontal margin-top margin-bottom well" action="" method="post">
+
+                <h2 class="head-title black titleFont">Basic Information</h2>
+                <hr class="style-four">
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label">ID Number</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
+                            <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="0000000" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -327,7 +333,7 @@ include("connect.php");
 
             </div>
             <div class="col-md-4">
-                <img class="text-center center-block img-responsive" src="img/edit.png">
+                <img class="text-center center-block img-responsive addPicture" src="img/edit.png">
             </div>
             
         </div> <!--End of Container Fluid-->
