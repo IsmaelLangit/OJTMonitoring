@@ -44,7 +44,7 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeIn delay-05s " >
+                <div class="wrapper wow fadeIn">
                     <h2 class="top-title">List of Practicum 2</h2>
                     <h3 class="title">Students</h3>
                 </div>
@@ -79,7 +79,7 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-11">
                         <form class="form-inline" method="get">
 
                         <div class="form-group">
@@ -107,8 +107,8 @@ include("connect.php");
                     </form>
                     </div>
 
-                    <div class="col-md-6">
-                        <a class="btn btn-success pull-right" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+                    <div class="col-md-1">
+                        <a class="btn btn-success" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                     </div>
                 </div>
             </div>
@@ -415,6 +415,7 @@ include("connect.php");
                 document.getElementById("Name").reset;
             }
     </script>
+
     
   </body>
 </html>
