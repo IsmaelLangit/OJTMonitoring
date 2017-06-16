@@ -15,7 +15,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
-    <link rel="icon" href="img/scisLogo.png">
+    <link rel="icon" href="img/Logo.png">
   </head>
   <body>
     <!--header-->
@@ -29,7 +29,7 @@ include("connect.php");
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
                             <span class="fa fa-bars"></span>
                         </button>
-                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/Picture1.png"></a>
+                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
@@ -275,13 +275,11 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/Picture1.png">
+                <img class="footerLogo img-responsive" src="img/NewLogo.png">
                 <p class="footer-links">
-                    <a href="#">Home</a>
+                    <a href="index.php">Students</a>
                     |
-                    <a href="#">Students</a>
-                    |
-                    <a href="#">Company</a>
+                    <a href="company.php">Company</a>
                 </p>
                 <p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
             </div>
