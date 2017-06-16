@@ -262,10 +262,28 @@ include("connect.php");
                                                                 <h4 class="modal-title">'.$row['first_name'].'</h4>
                                                               </div>
                                                               <div class="modal-body">
-                                                                <p>Some text in the modal.</p>
+                                                                <h2 class="titleRequirements">Letter of Endorsement</h2>
+                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <br>
+                                                                <h2 class="titleRequirements">OJT Waiver</h2>
+                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <br>
+                                                                <h2 class="titleRequirements">Memorandum of Agreement</h2>
+                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <br>
+                                                                <h2 class="titleRequirements">Evaluation</h2>
+                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
                                                               </div>
                                                               <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                                                               </div>
                                                             </div>
 

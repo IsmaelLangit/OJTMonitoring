@@ -338,3 +338,11 @@ hr.style-four {
 .addPicture{
     height: 200px;
 }
+span.dateRequirement{
+    color: #0277cc !important;
+}
+h2.titleRequirements{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
