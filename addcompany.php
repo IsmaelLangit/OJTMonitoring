@@ -85,49 +85,60 @@ include("connect.php");
             ?>
 
             <div class="container">
-                <div class="col-md-12">
+                <div class="row">
                     <div class="col-md-9 ">
+
                         <form class="form-horizontal well" action="" method="post">
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">Company Name</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" name="coname" class="form-control" placeholder="Company name..." required>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Company Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="coname" class="form-control" placeholder="Company name..." required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">Address</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" name="coaddress" class="form-control" placeholder="Address.." required>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Address</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="coaddress" class="form-control" placeholder="Address.." required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">Company Head</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" name="company_head" class="form-control" placeholder="Company head.." required>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Company Head</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="company_head" class="form-control" placeholder="Company head.." required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">Position</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" name="position" class="form-control" placeholder="Position.." required>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Position</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="position" class="form-control" placeholder="Position.." required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">Type</label>
-                                    <div class="col-sm-5">
-                                        <select name="typeofojt" class="form-control">
-                                            <option value="Company-based">Company-based</option>
-                                            <option value="In-house">In-house</option>
-                                        </select>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Type</label>
+                                        <div class="col-sm-6">
+                                            <select name="typeofojt" class="form-control">
+                                                <option value="Company-based">Company-Based</option>
+                                                <option value="In-house">In-House</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
