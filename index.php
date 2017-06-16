@@ -250,9 +250,13 @@ include("connect.php");
                                                 </td>
                                                 <td>';
                                                 if($row['status'] == 'Complete'){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#myModal" class="label label-success btn btn-sm">Complete</span>
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm">Complete</span>';
+                                                } else if ($row['status'] == 'Incomplete' ){
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm">Incomplete</span>';
+                                                }
 
-                                                        <div id="myModal" class="modal fade" role="dialog">
+                                        echo '
+                                             <div id='.$row['idnum'].' class="modal fade" role="dialog">
                                                           <div class="modal-dialog">
 
                                                             <!-- Modal content-->
@@ -289,49 +293,9 @@ include("connect.php");
 
                                                           </div>
                                                         </div>
-                                                    ';
-                                                } else if ($row['status'] == 'Incomplete' ){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#myModal" class="label label-warning btn btn-sm">Incomplete</span>
+                                            ';
 
-                                                        <div id="myModal" class="modal fade" role="dialog">
-                                                          <div class="modal-dialog">
-
-                                                              <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                              <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                <h4 class="modal-title">'.$row['first_name'].'</h4>
-                                                              </div>
-                                                              <div class="modal-body">
-                                                                <h2 class="titleRequirements">Letter of Endorsement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_endorsement'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">OJT Waiver</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_waiver'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_waiver'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_waiver'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">Memorandum of Agreement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_moa'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_moa'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_moa'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">Evaluation</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_evaluation'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_evaluation'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_evaluation'].'</span></p>
-                                                              </div>
-                                                              <div class="modal-footer">
-                                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                                              </div>
-                                                            </div>
-
-                                                          </div>
-                                                        </div>
-                                                    ';
-                                            }
+                                           
                                     
                                             echo '
                                                 <td>'.$row['coname'].'</td>
