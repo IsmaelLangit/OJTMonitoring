@@ -144,10 +144,12 @@ include("connect.php");
                             </div>
                             <div class="form-group">
                                 <div class="container">
-                                    <label class="col-sm-2 control-label">&nbsp;</label>
-                                    <div class="col-sm-5">
-                                        <input type="submit" name="add" class="btn btn-sm btn-success" value="Add Company Information">
-                                        <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                        <div class="col-sm-6">
+                                            <input type="submit" name="add" class="btn btn-sm btn-success" value="Add">
+                                            <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
