@@ -79,7 +79,7 @@ include("connect.php");
             <form class="form-inline" method="get">
                 <div class="form-group">
                     <select name="filter" class="form-control" onchange="form.submit()">
-                        <option value="0">Filter Students By:</option>
+                        <option value="0">Filter Companies By:</option>
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
@@ -115,7 +115,7 @@ include("connect.php");
                     </tr>
                     <?php
                         if($filter){
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter'_ ORDER BY coname ASC");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC");
                         }else{
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC");
                         }
