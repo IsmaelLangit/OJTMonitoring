@@ -143,42 +143,158 @@ include("connect.php");
                                                             <td>'.$row['mobile_number'].'</td>';
                                     
                                                 if($row['endorsement'] == 'yes'){
-                                                    echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_endorsement'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_endorsement'].' 
+                                                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
+                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                                </a>
+                                                            </td>';
+
                                                 }
                                                             else if ($row['endorsement'] == 'no' ){
-                                                    echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_endorsement'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_endorsement'].' 
+                                                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
+                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                     
                                     
                                                 if($row['waiver'] == 'yes'){
-                                                    echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_waiver'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_waiver'].' 
+                                                                    <br> Remarks: '.$row ['remark_waiver'].' " >
+                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                                             else if ($row['waiver'] == 'no' ){
-                                                    echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_waiver'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_waiver'].' 
+                                                                    <br> Remarks: '.$row ['remark_waiver'].' " >
+                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                     
                                                 if($row['moa'] == 'yes'){
-                                                    echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
-                                                    
+
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_moa'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_moa'].' 
+                                                                    <br> Remarks: '.$row ['remark_moa'].' " >
+                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                                </a>
+                                                            </td>';
+
                                                 }
                                                             else if ($row['moa'] == 'no' ){
-                                                    echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_moa'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_moa'].' 
+                                                                    <br> Remarks: '.$row ['remark_moa'].' " >
+                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                     
                                                 if($row['evaluation'] == 'yes'){
-                                                    echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_evaluation'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_evaluation'].' 
+                                                                    <br> Remarks: '.$row ['remark_evaluation'].' " >
+                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                                             else if ($row['evaluation'] == 'no' ){
-                                                    echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
+                                                    echo '  <td>
+                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                title=" 
+                                                                    Date Released: '.$row ['release_evaluation'].' 
+                                                                    <br> 
+                                                                    Date Received: '.$row ['receive_evaluation'].' 
+                                                                    <br> Remarks: '.$row ['remark_evaluation'].' " >
+                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                                </a>
+                                                            </td>';
                                                 }
                                     
                                             echo '
                                                 </td>
                                                 <td>';
                                                 if($row['status'] == 'Complete'){
-                                                    echo '<span class="label label-success">Complete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#myModal" class="label label-success btn btn-sm">Complete</span>
+
+                                                        <div id="myModal" class="modal fade" role="dialog">
+                                                          <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">'.$row['first_name'].'</h4>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                <p>Some text in the modal.</p>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                              </div>
+                                                            </div>
+
+                                                          </div>
+                                                        </div>
+                                                    ';
                                                 } else if ($row['status'] == 'Incomplete' ){
-                                                    echo '<span class="label label-warning">Incomplete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#myModal" class="label label-warning btn btn-sm">Incomplete</span>
+
+                                                        <div id="myModal" class="modal fade" role="dialog">
+                                                          <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">'.$row['first_name'].'</h4>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                <p>Some text in the modal.</p>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                              </div>
+                                                            </div>
+
+                                                          </div>
+                                                        </div>
+                                                    ';
                                             }
                                     
                                             echo '
@@ -252,6 +368,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/preloader.js"></script>
+    <script src="js/tooltip.js"></script>
     <script>
         function filterData() {
                 var input, filter, table, tr, td, i;
