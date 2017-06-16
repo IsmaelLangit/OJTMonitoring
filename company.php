@@ -67,7 +67,9 @@ include("connect.php");
                 }else{
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid '");
                     if($delete){
-                        echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data successfully deleted.</div>';
+                        echo '<div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
+                                </div>';
                     }else{
                         echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
                     }
