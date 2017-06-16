@@ -88,6 +88,7 @@ include("connect.php");
                                 <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
                                 <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                                 <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
+                                 <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
                             </select>
                         </div>
 
@@ -124,7 +125,7 @@ include("connect.php");
                                 </tr>
                                 <?php
                                     if($filter){
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or coname='$filter' ORDER BY last_name ASC, first_name ASC");
                                     }else{
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
                                     }
