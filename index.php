@@ -159,6 +159,7 @@ include("connect.php");
                                     
                                                 if($row['moa'] == 'yes'){
                                                     echo '<td><span class="glyphicon glyphicon-ok fontGlyphiconOk"></span></td>';
+                                                    
                                                 }
                                                             else if ($row['moa'] == 'no' ){
                                                     echo '<td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></span></td>';
