@@ -225,6 +225,7 @@ include("connect.php");
                 </div>
             </div>
 
+            <br>
             <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
             <hr class="style-four">
 
@@ -273,7 +274,9 @@ include("connect.php");
                                     }   
                               ?>
                                 <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                                <br>
                                 <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>"class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                                <br>
                                 <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
                         </div>
                     </div>
@@ -298,7 +301,9 @@ include("connect.php");
                                 }   
                           ?>
                             <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                            <br>
                             <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                            <br>
                             <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Remarks">
                     </div>
                 </div>
@@ -323,7 +328,9 @@ include("connect.php");
                                 }   
                           ?>
                             <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                            <br>
                             <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
+                            <br>
                             <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Remarks">
                     </div>
                 </div>

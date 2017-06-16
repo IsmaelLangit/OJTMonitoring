@@ -211,6 +211,7 @@ include("connect.php");
                             </div>
                         </div>
 
+                    <br>
                     <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
                     <hr class="style-four">
 

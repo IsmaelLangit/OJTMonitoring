@@ -363,3 +363,8 @@ h2.titleRequirements{
 .touch{
     cursor: pointer;
 }
+h4.modal-title{
+    text-transform: uppercase !important;
+    letter-spacing: 2px;
+    color: #ce1919;
+}
