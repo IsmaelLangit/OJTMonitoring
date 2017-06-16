@@ -52,7 +52,7 @@ include("connect.php");
                             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
                             echo $row ['last_name']."'s";
-                            ?> 
+                        ?> 
                     </h2>
                     <h3 class="top-title">Details</h3>
                 </div>
