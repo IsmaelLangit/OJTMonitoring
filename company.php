@@ -205,9 +205,32 @@ include("connect.php");
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
-    <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/preloader.js"></script>
+    <script>
+    function filterData() {
+                var input, filter, table, tr, td, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+
+                for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }       
+                }
+            }
+            
+             function resetName(){
+                document.getElementById("Name").reset;
+            }
+    </script>
 
 
     <script>
