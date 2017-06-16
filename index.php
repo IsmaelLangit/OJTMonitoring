@@ -263,24 +263,24 @@ include("connect.php");
                                                               </div>
                                                               <div class="modal-body">
                                                                 <h2 class="titleRequirements">Letter of Endorsement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_endorsement'].'</span></p>
                                                                 <br>
                                                                 <h2 class="titleRequirements">OJT Waiver</h2>
-                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_waiver'].'</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_waiver'].'</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_waiver'].'</span></p>
                                                                 <br>
                                                                 <h2 class="titleRequirements">Memorandum of Agreement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_moa'].'</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_moa'].'</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_moa'].'</span></p>
                                                                 <br>
                                                                 <h2 class="titleRequirements">Evaluation</h2>
-                                                                <p>Date Released: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">June 5, 2017</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">June 5, 2017</span></p>
+                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_evaluation'].'</span></p>
+                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_evaluation'].'</span></p>
+                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_evaluation'].'</span></p>
                                                               </div>
                                                               <div class="modal-footer">
                                                                 <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
