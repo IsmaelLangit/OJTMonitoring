@@ -99,7 +99,9 @@ include("connect.php");
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver,  release_moa, receive_moa, remark_moa, moa,  release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
                                                             VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_moa', '$receive_moa', '$remark_moa', '$moa', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
-                            echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student has been Successfully Added !</div>';
+                            echo '<div class="alert alert-success" role="alert">
+                                  <strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                </div>';
                         }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
                         }
@@ -184,8 +186,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='endorsement' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_endorsement'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks...'><br>" ;
                                         ?>
                                 </div>
@@ -198,8 +200,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='waiver' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control' date='' data-date-format='release_waiver''><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control' date='' data-date-format='release_waiver'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks...'><br>" ;
                                         ?>
                                 </div>
@@ -212,8 +214,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='moa' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='release_endorsement''><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control' date='' data-date-format='release_moa'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks...'><br>" ;
                                         ?>
                                 </div>
@@ -226,8 +228,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='evaluation' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='release_evaluation''><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started''><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control' date='' data-date-format='release_evaluation'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control' date='' data-date-format='date_started'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'><br>" ;
                                         ?>
                                 </div>

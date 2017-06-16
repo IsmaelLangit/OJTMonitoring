@@ -72,7 +72,9 @@ include("connect.php");
                     $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt)
                                                             VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
-                            echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Student Successfully Added !</div>';
+                            echo '<div class="alert alert-success" role="alert">
+                                  <strong> Success!</strong> You have successfully added this company  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
+                                </div>';
                         }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
                         }

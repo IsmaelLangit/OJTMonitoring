@@ -48,10 +48,10 @@ include("connect.php");
                     <h2 class="top-title">Edit</h2>
                     <h2 class="title">
                         <?php 
-                            $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                            $coid = $_GET['coid'];
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
-                            echo $row ['last_name']."'s";
+                            echo $row ['coname']."'s";
                             ?> 
                     </h2>
                     <h3 class="top-title">Details</h3>
