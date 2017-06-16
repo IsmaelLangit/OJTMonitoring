@@ -61,8 +61,7 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $coname = $_GET['coname'];
-                $con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid OR coname='$coname ORDER BY coname ASC'");
+                $con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid ORDER BY coname ASC'");
                 if(mysqli_num_rows($con) == 0){
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
                 }else{
