@@ -67,8 +67,6 @@ include("connect.php");
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 
-            <div class="col-md-8 well">
-
             <?php
             $coid = $_GET['coid'];
             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
@@ -99,24 +97,57 @@ include("connect.php");
                                 </div>';
             }
             ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 ">
 
-            <form class="form-horizontal" action="" method="post">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Name</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="coname" value="<?php echo $row ['coname']; ?>" class="form-control" placeholder="Company Name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Address</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="coaddress" value="<?php echo $row ['coaddress']; ?>" class="form-control" placeholder="Company address" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Type</label>
-                    <div class="col-sm-2">
-                        <select name="typeofojt" class="form-control">
+                        <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Company Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="coname" value="<?php echo $row ['coname']; ?>" class="form-control" placeholder="Company Name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Address</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="coaddress" value="<?php echo $row ['coaddress']; ?>" class="form-control" placeholder="Company address" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Company Head</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="company_head" value="<?php echo $row ['company_head']; ?>" class="form-control" placeholder="Company head">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Position</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="position" value="<?php echo $row ['position']; ?>" class="form-control" placeholder="Position">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Type</label>
+                                        <div class="col-sm-6">
+                                            <select name="typeofojt" class="form-control">
                             <option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>
                             ";
                             <?php
@@ -138,33 +169,28 @@ include("connect.php");
                                     echo "<option value='Government'>Government</option>";
                                 }
                                 ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Head</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="company_head" value="<?php echo $row ['company_head']; ?>" class="form-control" placeholder="Company head">
-                    </div>
-                </div>
-                <div class="form-group">
-                <label class="col-sm-3 control-label">Position</label>
-                <div class="col-sm-4">
-                    <input type="text" name="position" value="<?php echo $row ['position']; ?>" class="form-control" placeholder="Position">
-                </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">&nbsp;</label>
-                    <div class="col-sm-6">
-                        <input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
+                        </select>                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                        <div class="col-sm-6">
+                                            <input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
                         <a href="company.php" class="btn btn-sm btn-danger">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive center-block addPicture" src="img/edit.png">
                     </div>
                 </div>
-            </form>
-        </div>
-
-            <div class="col-md-4">
-                <img class="text-center center-block img-responsive" src="img/edit.png">
             </div>
             
         </div> <!--End of Container Fluid-->
