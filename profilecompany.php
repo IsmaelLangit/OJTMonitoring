@@ -43,9 +43,9 @@ include("connect.php");
                 </div>
             </nav>
             <!--/ nav-->
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="wrapper wow fadeInUp delay-05s " >
-                    <h2 class="title">
+                    <h2 class="companytitle">
                         <?php 
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
@@ -53,7 +53,7 @@ include("connect.php");
                             echo $row ['coname']."'s";
                             ?> 
                     </h2>
-                    <h3 class="top-title">Profile</h3>
+                    <h2 class="top-title">Profile</h3>
                 </div>
             </div>
         </div>
