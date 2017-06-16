@@ -115,7 +115,7 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-9">
                         
-                        <form class="form-horizontal margin-top margin-bottom well" action="" method="post">
+                        <form class="form-horizontal padding-top padding-bottom well" action="" method="post">
 
                         <h2 class="head-title black titleFont">Basic Information</h2>
                         <hr class="style-four">

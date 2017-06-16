@@ -88,7 +88,7 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-9 ">
 
-                        <form class="form-horizontal well" action="" method="post">
+                        <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">
