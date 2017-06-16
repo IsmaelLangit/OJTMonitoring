@@ -132,10 +132,10 @@ include("connect.php");
                             <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
                             ";
                             <?php
-                                if ($row ['typeofcompany'] == 'Goverment') {
+                                if ($row ['typeofcompany'] == 'Government') {
                                     echo "<option value='Private'>Private</option>";
                                 } else if ($row ['typeofcompany'] == 'Private') {
-                                    echo "<option value='Goverment'>Goverment</option>";
+                                    echo "<option value='Government'>Government</option>";
                                 }
                                 ?>
                         </select>
