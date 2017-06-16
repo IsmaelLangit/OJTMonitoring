@@ -77,7 +77,11 @@ include("connect.php");
             }
             ?>
 
-            <form class="form-inline" method="get">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+
+                    <form class="form-inline" method="get">
                 <div class="form-group">
                     <select name="filter" class="form-control" onchange="form.submit()">
                         <option value="0">Filter Companies By:</option>
@@ -101,6 +105,15 @@ include("connect.php");
 
             </form>
 
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-success pull-right" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
+                    </div>
+                </div>
+            </div>
+
+            
+
             <br>
 
             <div class="table-responsive">
@@ -112,7 +125,7 @@ include("connect.php");
                         <th>Type</th>
                         <th>Company Head</th>
                         <th>Position</th>
-                        <th>Tools</th>
+                        <th>Action</th>
                     </tr>
                     <?php
                         if($filter){

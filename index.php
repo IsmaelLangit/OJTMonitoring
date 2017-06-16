@@ -77,7 +77,10 @@ include("connect.php");
             }
             ?>
 
-                    <form class="form-inline" method="get">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form-inline" method="get">
 
                         <div class="form-group">
                             <select name="filter" class="form-control" onchange="form.submit()">
@@ -102,6 +105,15 @@ include("connect.php");
                         </form> 
 
                     </form>
+                    </div>
+
+                    <div class="col-md-6">
+                        <a class="btn btn-success pull-right" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+                    </div>
+                </div>
+            </div>
+
+                    
 
                 
                 <div class="padding-top">
@@ -121,7 +133,7 @@ include("connect.php");
                                     <th class="text-center">Requirement Status</th>
                                     <th class="text-center">Company Name</th>
                                     <th class="text-center">OJT Type</th>
-                                    <th class="text-center">Tools</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                                 <?php
                                     if($filter){
