@@ -263,9 +263,18 @@ include("connect.php");
                                                             <div class="modal-content">
                                                               <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                <h4 class="modal-title">'.$row['first_name'].'</h4>
+                                                                <h4 class="modal-title">'.$row['last_name'].', '.$row['first_name'].'</h4>
                                                               </div>
-                                                              <div class="modal-body">
+                                                              <div class="modal-body">';
+
+
+                                            if ($row ['status'] == "Complete") {
+                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-success" style = "font-size: 1em;">'.$row ['status'].'</span><br>';
+                                            } else if ($row ['status'] == "Incomplete") {
+                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-warning" style = "font-size: 1em;">'.$row ['status'].'</span><br>';
+                                            }
+                                        echo '                            
+                                                                <br>
                                                                 <h2 class="titleRequirements">Letter of Endorsement</h2>
                                                                 <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
                                                                 <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
