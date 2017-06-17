@@ -84,8 +84,8 @@ include("connect.php");
                     <div class="col-md-11">
                         <form class="form-inline" method="get">
 
-                        <div class="form-group">
-                            <select name="filter" class="form-control" onchange="form.submit()">
+                        <div class="form-group dropdown-toggle">
+                            <select name="filter" class="form-control touch" onchange="form.submit()">
                                 <option value="0">Filter Students By:</option>
                                 <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                 <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
@@ -107,9 +107,9 @@ include("connect.php");
 
                         <form id="Name" action="#">
                         <div class="input-group">
-                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID Number / Student Name">
+                                <input type="text" id="myInput" onkeyup="filterData()" style="width:280px;" class="form-control" placeholder="Search ID Number / Student Name">
                                 <span class="input-group-btn">  
-                                    <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
+                                    <button class="btn btn-primary" type="button">Search</button>
                                 </span>
                             </div>
                         </form> 
@@ -123,9 +123,41 @@ include("connect.php");
                 </div>
             </div>
 
-                    
+            <div class="container-fluid">
+                <div class="row padding-top padding-bottom">
+                    <div class="col-sm-2 well gray">
+                        <p class="text-center colorInfo">Number of Students</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                    <div class="col-sm-2 well blue">
+                        <p class="text-center colorInfo">Number of Incomplete Requirements</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                    <div class="col-sm-2 well gray">
+                        <p class="text-center colorInfo">Number of Complete Requirements</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                    <div class="col-sm-2 well blue">
+                        <p class="text-center colorInfo">Number of Company-Based Students</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                    <div class="col-sm-2 well gray">
+                        <p class="text-center colorInfo">Number of In-House Students</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                    <div class="col-sm-2 well blue">
+                        <p class="text-center colorInfo">Number of Students</p>
+                        <hr class="style-four">
+                        <p class = "number text-center">100</p>
+                    </div>
+                </div>
+            </div>
 
-                
                 <div class="padding-top">
                         <div class="table-responsive">
                             <table class="table table-fixed table-striped table-hover text-center" id="myTable">

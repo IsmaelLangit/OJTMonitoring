@@ -363,3 +363,22 @@ div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
     opacity: 1;
     width: 100%;
 }
+.gray{
+    background: #eaeaea;
+}
+.blue{
+    background: #D9F3FF;
+}
+.colorInfo{
+    color: #000000;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.number{
+    color: #035aa8;
+    font-size: 4em;
+}
+.well{
+    height: 250px !important; 
+}
