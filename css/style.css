@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6
 	letter-spacing: 2px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    color: #FFD34E;
+    color: #3db3ff;
     background-color: transparent;
     text-transform: uppercase;
 }
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
 {
-	color: #FFD34E;
+	color: #1770a8;
 }
 
 .navbar-fixed-top {
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6
 {
 	font-size: 80px;
 	font-weight: 700;
-	color: #f2f0a4;
+	color: #30a0e8;
 	line-height: 10px;
 	letter-spacing: 4px;
 	opacity: 1;
@@ -128,39 +128,14 @@ h1, h2, h3, h4, h5, h6
 {
     font-size: 40px;
     font-weight: 700;
-    color: #f2f0a4;
+    color: #30a0e8;
     line-height: 10px;
     letter-spacing: 4px;
     opacity: 1;
     text-transform: uppercase;
     padding: 25px 0px;
 }
-.btn-submit
-{
-    background: #FFD34E;
-    border: 0px;
-    display: inline-block;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 10px 40px;
-    font-weight: normal;
-    border-radius: 0px;
-    letter-spacing: 1px;
-    color: #333;
-    position: relative;
-    overflow: hidden;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-    margin-top: 25px;
-    border: 2px solid  #FFD34E;
-}
-
-.btn-submit:hover {
-    background: #fff;
-}
+]
 /****/
 .section-title:hover .botm-line
 {
@@ -190,21 +165,10 @@ p
 	color: #000 !important;
 	font-weight: 600;
 }
-.btn-send
-{
-	border-radius: 0px;
-	color: #000;
-	background-color: #FFD34E;
-}
 a, a:hover
 {
 	color: #006091;
     text-decoration: none;
-}
-.cont-title
-{
-	font-size: 24px;
-	padding:15px 0px;
 }
 /****/
 @media (min-width: 451px) and (max-width: 900px){
@@ -214,7 +178,7 @@ a, a:hover
 }
 @media (min-width: 20px) and (max-width: 450px){
     .navbar-toggle:hover, .navbar-toggle{
-        background-color: #fff;
+        background-color: rgba(0, 0, 0, 0.87);
         color: #000;
     }
     .navbar-toggle{
@@ -222,11 +186,11 @@ a, a:hover
     }
     .navbar-default .navbar-nav > li > a{
         text-align: center;
-        background-color: rgba(255, 255, 255, 0.32);
+        background-color: rgba(0, 0, 0, 0.87);
         color: #000;
     }
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-        background-color: rgba(255, 255, 255, 0.32);
+        background-color: rgba(0, 0, 0, 0.87);
         color: #FFD34E;
     }
     .top-title{
@@ -259,9 +223,8 @@ a, a:hover
 }
 
 /****/
-
 .logoNav{
-    height: 50px !important;
+    height: 65px !important;
     margin-top: 0px;
 }
 .overlay {
@@ -273,7 +236,7 @@ a, a:hover
   left: 0;
 }
 .footerLogo{
-    height: 40px;
+    height: 60px;
 }
 .padding-top{
     padding-top: 50px !important;
