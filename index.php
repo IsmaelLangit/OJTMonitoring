@@ -202,7 +202,7 @@ include("connect.php");
                                                             </td>';
 
                                                 }
-                                                            else if ($row['endorsement'] == 'no' ){
+                                                else if ($row['endorsement'] == 'no' ){
                                                     echo '  <td>
                                                                 <a href="" data-html="true" data-toggle="tooltip" 
                                                                 title=" 

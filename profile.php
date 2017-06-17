@@ -114,9 +114,28 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Status</th>
-                    <td><?php echo $row['status']; ?></td>
+                    <?php
+                        if ($row ['status'] == "Complete") {
+                            echo '<td><span class="label label-success">'.$row ['status'].'</span></td><br>';
+                        } else if ($row ['status'] == "Incomplete") {
+                            echo '<td><span class="label label-warning">'.$row ['status'].'</span></td><br>';
+                        }
+                    ?>
                 </tr>
             </table>
+
+            
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="pull-right">
                 <a href="index.php" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Go Back</a>
