@@ -66,11 +66,12 @@ include("connect.php");
                 $company_head        = $_POST['company_head'];
                 $position        = $_POST['position'];
                 $typeofojt       = $_POST['typeofojt'];
+                $typeofcompany       = $_POST['typeofcompany'];
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt)
-                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt, typeofcompany)
+                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt' ,'$typeofcompany')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
                                   <strong> Success!</strong> You have successfully added this company  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
@@ -114,7 +115,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Company Head</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="company_head" class="form-control" placeholder="Company head.." required>
+                                            <input type="text" name="company_head" class="form-control" placeholder="Company head..">
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Position</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="position" class="form-control" placeholder="Position.." required>
+                                            <input type="text" name="position" class="form-control" placeholder="Position..">
                                         </div>
                                     </div>
                                 </div>
@@ -137,6 +138,11 @@ include("connect.php");
                                             <select name="typeofojt" class="form-control">
                                                 <option value="Company-based">Company-Based</option>
                                                 <option value="In-house">In-House</option>
+                                            </select>
+                                            <br>
+                                            <select name="typeofcompany" class="form-control">
+                                                <option value="Government">Government</option>
+                                                <option value="Private">Private</option>
                                             </select>
                                         </div>
                                     </div>

@@ -83,7 +83,7 @@ include("connect.php");
                 $typeofojt       = $_POST['typeofojt'];
                 $typeofcompany       = $_POST['typeofcompany'];
                 
-                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position',typeofojt='$typeofojt' ,typeofcompany='$typeofcompany'WHERE coid='$coid'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position',typeofojt='$typeofojt' ,typeofcompany='$typeofcompany' WHERE coid='$coid'") or die(mysqli_error());
                 if($update){
                     header("Location: editcompany.php?coid=".$coid."&message=success");
                 }else{
@@ -148,28 +148,29 @@ include("connect.php");
                                         <label class="col-sm-2 control-label">Type</label>
                                         <div class="col-sm-6">
                                             <select name="typeofojt" class="form-control">
-                            <option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>
-                            ";
-                            <?php
-                                if ($row ['typeofojt'] == 'In-house') {
-                                    echo "<option value='Company-based'>Company-based</option>";
-                                } else if ($row ['typeofojt'] == 'Company-based') {
-                                    echo "<option value='In-house'>In-house</option>";
-                                }
-                                ?>
-                        </select>
-                        <br>
-                        <select name="typeofcompany" class="form-control">
-                            <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
-                            ";
-                            <?php
-                                if ($row ['typeofcompany'] == 'Government') {
-                                    echo "<option value='Private'>Private</option>";
-                                } else if ($row ['typeofcompany'] == 'Private') {
-                                    echo "<option value='Government'>Government</option>";
-                                }
-                                ?>
-                        </select>                                        </div>
+                                                <option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>
+                                                ";
+                                                <?php
+                                                    if ($row ['typeofojt'] == 'In-house') {
+                                                        echo "<option value='Company-based'>Company-based</option>";
+                                                    } else if ($row ['typeofojt'] == 'Company-based') {
+                                                        echo "<option value='In-house'>In-house</option>";
+                                                    }
+                                                    ?>
+                                            </select>
+                                            <br>
+                                            <select name="typeofcompany" class="form-control">
+                                                <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
+                                                ";
+                                                <?php
+                                                    if ($row ['typeofcompany'] == 'Government') {
+                                                        echo "<option value='Private'>Private</option>";
+                                                    } else if ($row ['typeofcompany'] == 'Private') {
+                                                        echo "<option value='Government'>Government</option>";
+                                                    }
+                                                    ?>
+                                            </select>   
+                                        </div>
                                     </div>
                                 </div>
                             </div>

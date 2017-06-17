@@ -186,7 +186,7 @@ include("connect.php");
                                 <div class="row">
                                     <label class="col-sm-3 control-label">Mobile Number</label>
                                     <div class="col-sm-8">
-                                        <input type="number" name="mobile_number" class="form-control" placeholder="09000000000" required>
+                                        <input type="number" name="mobile_number" class="form-control" placeholder="09000000000">
                                     </div>
                                 </div>
                             </div>

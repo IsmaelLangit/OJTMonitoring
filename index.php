@@ -1,4 +1,4 @@
-<?php
+ <?php
 include("connect.php");
 ?>
 <!DOCTYPE html>
@@ -93,7 +93,15 @@ include("connect.php");
                                 <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
                                 <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                                 <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
-                                 <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
+                                <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
+                                <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>>WITH Endorsement</option>
+                                <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>WITH Waiver</option>
+                                <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>WITH MOA</option>
+                                <option value="yes4" <?php if($filter == 'yes4'){ echo 'selected'; } ?>>WITH Evaluation</option>
+                                <option value="no1" <?php if($filter == 'no1'){ echo 'selected'; } ?>>WITHOUT Endorsement</option>
+                                <option value="no2" <?php if($filter == 'no2'){ echo 'selected'; } ?>>WITHOUT Waiver</option>
+                                <option value="no3" <?php if($filter == 'no3'){ echo 'selected'; } ?>>WITHOUT MOA</option>
+                                <option value="no4" <?php if($filter == 'no4'){ echo 'selected'; } ?>>WITHOUT Evaluation</option>
                             </select>
                         </div>
 
@@ -138,8 +146,32 @@ include("connect.php");
                                     <th class="text-center">Action</th>
                                 </tr>
                                 <?php
-                                    if($filter){
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or coname='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    if($filter == "yes1"){
+                                        $filter = "yes";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "no1"){
+                                        $filter = "no";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "yes2"){
+                                        $filter = "yes";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "no2"){
+                                        $filter = "no";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "yes3"){
+                                        $filter = "yes";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "no3"){
+                                        $filter = "no";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "yes4"){
+                                        $filter = "yes";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter == "no4"){
+                                        $filter = "no";
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    } else if($filter){
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
                                     }else{
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
                                     }

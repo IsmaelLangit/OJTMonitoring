@@ -219,7 +219,7 @@ include("connect.php");
                     <div class="row">
                         <label class="col-sm-3 control-label">Mobile Number</label>
                         <div class="col-sm-8">
-                            <input type="number" class="form-control" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number" required>
+                            <input type="number" class="form-control" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number">
                         </div>
                     </div>
                 </div>
