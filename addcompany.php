@@ -32,7 +32,7 @@ include("connect.php");
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
                             <ul class="nav navbar-nav">
                                 <li><a href="index.php">List of Students</a></li>
                                 <li><a href="add.php">Add Student</a></li>
