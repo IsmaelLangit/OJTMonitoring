@@ -67,7 +67,7 @@ include("connect.php");
                 $last_name           = $_POST['last_name'];
                 $first_name          = $_POST['first_name'];
                 $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number'];
+                $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
                 $email       = $_POST['email'];
 
                 $endorsement         = $_POST['endorsement'];
@@ -186,7 +186,10 @@ include("connect.php");
                                 <div class="row">
                                     <label class="col-sm-3 control-label">Mobile Number</label>
                                     <div class="col-sm-8">
-                                        <input type="number" name="mobile_number" class="form-control" placeholder="09000000000">
+                                        <input type="number" name="mobile_number1" class="form-control" placeholder="+63" readonly> 
+                                        <input type="number" name="mobile_number2" class="form-control" placeholder="000">
+                                        <input type="number" name="mobile_number3" class="form-control" placeholder="000">
+                                        <input type="number" name="mobile_number4" class="form-control" placeholder="0000"> 
                                     </div>
                                 </div>
                             </div>
@@ -337,7 +340,7 @@ include("connect.php");
                     |
                     <a href="company.php">Company</a>
                 </p>
-                <p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
             </div>
             <div class="footer-center">
                 <div>

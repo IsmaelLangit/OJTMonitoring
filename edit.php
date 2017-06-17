@@ -79,7 +79,7 @@ include("connect.php");
                 $last_name           = $_POST['last_name'];
                 $first_name          = $_POST['first_name'];
                 $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number'];
+                 $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
                 $email       = $_POST['email'];
 
                 $endorsement         = $_POST['endorsement'];
@@ -214,16 +214,32 @@ include("connect.php");
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="container-fluid">
-                    <div class="row">
-                        <label class="col-sm-3 control-label">Mobile Number</label>
-                        <div class="col-sm-8">
-                            <input type="number" class="form-control" name="mobile_number" value="<?php echo $row ['mobile_number']; ?>" class="form-control" placeholder="Mobile Number">
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <label class="col-sm-3 control-label">Mobile Number</label>
+                                    <div class="col-sm-8">
+                                    <?php
+                                        $mobile_number = $row ['mobile_number'];
+                                        $mobile_number1 = explode("-", $mobile_number); //separate by "-"
+                                        
+                                        $part1 = $mobile_number1[0];
+                                        $part2 = $mobile_number1[1];
+                                        $part3 = $mobile_number1[2];
+
+
+                                        echo '
+                                        <input type="number" name="mobile_number1" class="form-control" placeholder="(+63)" readonly> 
+                                        <input type="number" name="mobile_number2" class="form-control" placeholder="000" min = "090" max = "099" value = "'.$part1.'">
+                                        <input type="number" name="mobile_number3" class="form-control" placeholder="000" value = "'.$part2.'">
+                                        <input type="number" name="mobile_number4" class="form-control" placeholder="0000" value = "'.$part3.'">
+                                        '; 
+
+                                    ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
              <div class="form-group">
                 <div class="container-fluid">
@@ -427,7 +443,7 @@ include("connect.php");
                     |
                     <a href="company.php">Company</a>
                 </p>
-                <p class="footer-company-name">OJT 2 Monitoring &copy; 2017</p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
             </div>
             <div class="footer-center">
                 <div>
