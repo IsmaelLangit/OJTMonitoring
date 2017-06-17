@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
 {
-	color: #1770a8;
+	color: #22e2d6;
 }
 
 .navbar-fixed-top {
@@ -330,4 +330,33 @@ h4.modal-title{
     text-transform: uppercase !important;
     letter-spacing: 2px;
     color: #ce1919;
+}
+/* Border X get width  */
+div.borderXwidth a:before, div.borderXwidth a:after
+{
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 2px;
+    content: '';
+    background: #FFF;
+    transition: all 0.3s;
+}
+
+div.borderXwidth a:before
+{
+    left: 0px;
+    top: 0px;
+}
+
+div.borderXwidth a:after
+{
+    right: 0px;
+    bottom: 0px;
+}
+
+div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
+{
+    opacity: 1;
+    width: 100%;
 }

@@ -22,7 +22,7 @@ include("connect.php");
     <header class="main-header" id="header">
         <div class="bg-color">
             <!--nav-->
-            <nav class="nav navbar-default navbar-fixed-top">
+            <nav class="nav navbar-default navbar-fixed-top ">
                 <div class="container-fluid">
                     <div class="col-md-12">
                         <div class="navbar-header">
@@ -31,8 +31,8 @@ include("connect.php");
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
-                            <ul class="nav navbar-nav">
+                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
+                            <ul class="nav navbar-nav ">
                                 <li class="active"><a href="index.php">List of Students</a></li>
                                 <li><a href="add.php">Add Student</a></li>
                                 <li><a href="company.php">list of Companies</a></li>
