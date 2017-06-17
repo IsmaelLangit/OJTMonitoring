@@ -134,8 +134,6 @@ include("connect.php");
                                     <th class="text-center">ID Number</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Course & Year</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Mobile No.</th>
                                     <th class="text-center">Endorsement</th>
                                     <th class="text-center">Waiver</th>
                                     <th class="text-center">MOA</th>
@@ -185,9 +183,7 @@ include("connect.php");
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
                                                 <td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
-                                                            <td>'.$row['courseyear'].'</td>
-                                                            <td>'.$row['email'].'</td>
-                                                            <td>'.$row['mobile_number'].'</td>';
+                                                            <td>'.$row['courseyear'].'</td>';
                                     
                                                 if($row['endorsement'] == 'yes'){
                                                     echo '  <td>
