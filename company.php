@@ -144,7 +144,7 @@ include("connect.php");
                                     <td><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-home"></" aria-hidden="true"></span> '.$row['coname'].'</a></td>
                                                 <td>'.$row['coaddress'].'</td>';
                                             echo '
-                                    <td>';
+                                    <td class = "text-center">';
                                     if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-danger">Private</span> <br>';
                                         echo '<span class="label label-info">In-house</span>';

@@ -182,7 +182,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                                 if($row['endorsement'] == 'yes'){
@@ -350,7 +350,7 @@ include("connect.php");
                                            
                                     
                                             echo '
-                                                <td>'.$row['coname'].'</td>
+                                                <td class="text-left">'.$row['coname'].'</td>
                                                 <td>';
                                                 if($row['typeofojt'] == 'In-house'){
                                                     echo '<span class="label label-info">In-house</span>';
