@@ -225,119 +225,7 @@ include("connect.php");
                 </div>
             </div>
 
-            <br>
-            <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
-            <hr class="style-four">
-
-            <div class="form-group">
-                <div class="container-fluid">
-                    <div class="row">
-                        <label class="col-sm-3 control-label subLabel">Endorsement</label>
-                        <div class="col-sm-8">
-                            <?php
-                                    echo  "<input type='hidden' name='endorsement' value='no'>";
-                                    
-                                    
-                                    if ($row ['endorsement'] == 'yes') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Submitted <br>";
-                                    } 
-                                    
-                                    if($row ['endorsement'] == 'no') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Submitted <br>";
-                                    }   
-                              ?>
-                                <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                                <br>
-                                <input type="text" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>" placeholder="Date release">
-                                <br>
-                                <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="container-fluid">
-                    <div class="row">
-                        <label class="col-sm-3 control-label subLabel">Waiver</label>
-                        <div class="col-sm-8">
-                            <?php
-                                    echo  "<input type='hidden' name='waiver' value='no'>";
-                                    
-                                    
-                                    if ($row ['waiver'] == 'yes') {
-                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Submitted <br>";
-                                    } 
-                                    
-                                    if($row ['waiver'] == 'no') {
-                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Submitted <br>";
-                                    }   
-                              ?>
-                                <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                                <br>
-                                <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>"class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                                <br>
-                                <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <label class="col-sm-3 control-label subLabel">Memorandum of Agreement</label>
-                    <div class="col-sm-8">
-                        <?php
-                                echo  "<input type='hidden' name='moa' value='no'>";
-                                
-                                
-                                if ($row ['moa'] == 'yes') {
-                                    echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span>Submitted <br>";
-                                } 
-                                
-                                if($row ['moa'] == 'no') {
-                                    echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Submitted <br>";
-                                }   
-                          ?>
-                            <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <br>
-                            <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <br>
-                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Remarks">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <label class="col-sm-3 control-label subLabel">Evaluation</label>
-                    <div class="col-sm-8">
-                        <?php
-                                echo  "<input type='hidden' name='evaluation' value='no'>";
-                                
-                                
-                                if ($row ['evaluation'] == 'yes') {
-                                    echo "<input type='checkbox' name='evaluation' value='yes' checked><span class='space'></span>Submitted <br>";
-                                } 
-                                
-                                if($row ['evaluation'] == 'no') {
-                                    echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Submitted <br>";
-                                }   
-                          ?>
-                            <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <br>
-                            <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date release">
-                            <br>
-                            <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Remarks">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
+             <div class="form-group">
                 <div class="container-fluid">
                     <div class="row">
                         <label class="col-sm-3 control-label">Company Name</label>
@@ -376,7 +264,11 @@ include("connect.php");
             </div>
         </div>
 
-        <div class="form-group">
+            <br>
+            <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
+            <hr class="style-four">
+
+            <div class="form-group">
             <div class="container-fluid">
                 <div class="row">
                     <label class="col-sm-3 control-label">Requirement Status</label>
@@ -390,6 +282,114 @@ include("connect.php");
                                     echo  "<input type='hidden' name='status' value='Incomplete'>";
                                 }
                         ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label subLabel">Endorsement</label>
+                        <div class="col-sm-8">
+                            <?php
+                                    echo  "<input type='hidden' name='endorsement' value='no'>";
+                                    
+                                    
+                                    if ($row ['endorsement'] == 'yes') {
+                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    } 
+                                    
+                                    if($row ['endorsement'] == 'no') {
+                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Submitted <br>";
+                                    }   
+                              ?>
+                                <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
+                                <br>
+                                <input type="text" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>" placeholder="Date received">
+                                <br>
+                                <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label subLabel">Waiver</label>
+                        <div class="col-sm-8">
+                            <?php
+                                    echo  "<input type='hidden' name='waiver' value='no'>";
+                                    
+                                    
+                                    if ($row ['waiver'] == 'yes') {
+                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    } 
+                                    
+                                    if($row ['waiver'] == 'no') {
+                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Submitted <br>";
+                                    }   
+                              ?>
+                                <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
+                                <br>
+                                <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>"class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date received">
+                                <br>
+                                <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label subLabel">Memorandum of Agreement</label>
+                    <div class="col-sm-8">
+                        <?php
+                                echo  "<input type='hidden' name='moa' value='no'>";
+                                
+                                
+                                if ($row ['moa'] == 'yes') {
+                                    echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span>Submitted <br>";
+                                } 
+                                
+                                if($row ['moa'] == 'no') {
+                                    echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Submitted <br>";
+                                }   
+                          ?>
+                            <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
+                            <br>
+                            <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date received">
+                            <br>
+                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" placeholder="Remarks">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-sm-3 control-label subLabel">Evaluation</label>
+                    <div class="col-sm-8">
+                        <?php
+                                echo  "<input type='hidden' name='evaluation' value='no'>";
+                                
+                                
+                                if ($row ['evaluation'] == 'yes') {
+                                    echo "<input type='checkbox' name='evaluation' value='yes' checked><span class='space'></span>Submitted <br>";
+                                } 
+                                
+                                if($row ['evaluation'] == 'no') {
+                                    echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Submitted <br>";
+                                }   
+                          ?>
+                            <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
+                            <br>
+                            <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date received">
+                            <br>
+                            <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" placeholder="Remarks">
                     </div>
                 </div>
             </div>
