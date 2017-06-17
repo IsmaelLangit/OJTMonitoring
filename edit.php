@@ -230,8 +230,8 @@ include("connect.php");
 
                                         echo '
                                         <input type="number" name="mobile_number1" class="form-control" placeholder="(+63)" readonly> 
-                                        <input type="number" name="mobile_number2" class="form-control" placeholder="000" min = "090" max = "099" value = "'.$part1.'">
-                                        <input type="number" name="mobile_number3" class="form-control" placeholder="000" value = "'.$part2.'">
+                                        <input type="number" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" value = "'.$part1.'">
+                                        <input type="number" name="mobile_number3" class="form-control" placeholder="000" min = "0000" max = "9999" value = "'.$part2.'">
                                         <input type="number" name="mobile_number4" class="form-control" placeholder="0000" value = "'.$part3.'">
                                         '; 
 
