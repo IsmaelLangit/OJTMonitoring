@@ -297,11 +297,11 @@ include("connect.php");
                                     
                                     
                                     if ($row ['endorsement'] == 'yes') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span>Submitted <br>";
+                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
                                     } 
                                     
                                     if($row ['endorsement'] == 'no') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span>Submitted <br>";
+                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
                                     }   
                               ?>
                                 <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
@@ -324,11 +324,11 @@ include("connect.php");
                                     
                                     
                                     if ($row ['waiver'] == 'yes') {
-                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span>Submitted <br>";
+                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
                                     } 
                                     
                                     if($row ['waiver'] == 'no') {
-                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span>Submitted <br>";
+                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
                                     }   
                               ?>
                                 <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
@@ -351,11 +351,11 @@ include("connect.php");
                                 
                                 
                                 if ($row ['moa'] == 'yes') {
-                                    echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
                                 } 
                                 
                                 if($row ['moa'] == 'no') {
-                                    echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span>Submitted <br>";
+                                    echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
                                 }   
                           ?>
                             <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
@@ -378,11 +378,11 @@ include("connect.php");
                                 
                                 
                                 if ($row ['evaluation'] == 'yes') {
-                                    echo "<input type='checkbox' name='evaluation' value='yes' checked><span class='space'></span>Submitted <br>";
+                                    echo "<input type='checkbox' name='evaluation' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
                                 } 
                                 
                                 if($row ['evaluation'] == 'no') {
-                                    echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span>Submitted <br>";
+                                    echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
                                 }   
                           ?>
                             <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement" placeholder="Date released">
