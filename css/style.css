@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6
 {
 	font-size: 80px;
 	font-weight: 700;
-	color: #30a0e8;
+	color: #1babd3;
 	line-height: 10px;
 	letter-spacing: 4px;
 	opacity: 1;
@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6
 {
     font-size: 40px;
     font-weight: 700;
-    color: #30a0e8;
+    color: #1babd3;
     line-height: 10px;
     letter-spacing: 4px;
     opacity: 1;
@@ -276,7 +276,7 @@ a, a:hover
     transition: all 0.3s ease;
 }
 #return-to-top:hover {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(10, 123, 205, 0.81);
 }
 #return-to-top:hover i {
     color: #fff;
@@ -286,6 +286,8 @@ a, a:hover
     font-size: 2em;
     font-style: italic;
     color: #b20e00;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
 }
 .fontGlyphiconOk{
   color: #01a34a;
@@ -329,9 +331,10 @@ h2.titleRequirements{
 h4.modal-title{
     text-transform: uppercase !important;
     letter-spacing: 2px;
-    color: #ce1919;
+    color: #000;
 }
 /* Border X get width  */
+
 div.borderXwidth a:before, div.borderXwidth a:after
 {
     position: absolute;
