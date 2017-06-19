@@ -160,15 +160,13 @@ include("connect.php");
                                 </div>
                             </div>
                         </form>
-                    </div>
 
+                    </div>
                     <div class="col-md-3">
                         <img class="img-responsive center-block addPicture" src="img/0af0e35a05b3955209dd049fd0a974f5.png">
                     </div>
                 </div>
             </div>
-
-            
         </div> <!--End of Container Fluid-->
     </section>
     <!---->
@@ -199,7 +197,7 @@ include("connect.php");
                     "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
                 </p>
             </div>
-        </footer>
+    </footer>
     <!---->
     <!-- end-->
     <script src="js/jquery.min.js"></script>

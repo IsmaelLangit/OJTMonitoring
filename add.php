@@ -68,6 +68,7 @@ include("connect.php");
                 $first_name          = mysqli_real_escape_string($_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
                 $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
+
                 $email       = mysqli_real_escape_string($_POST['email']);
 
                 $endorsement         = $_POST['endorsement'];
@@ -79,12 +80,11 @@ include("connect.php");
                 $release_waiver      = $_POST['release_waiver'];
                 $receive_waiver      = $_POST['receive_waiver'];
                 $remark_waiver     = mysqli_real_escape_string($_POST['remark_waiver']);
-
             
-
                 $moa         = $_POST['moa'];
                 $release_moa         = $_POST['release_moa'];
                 $receive_moa         = $_POST['receive_moa'];
+
                 $remark_moa     = mysqli_real_escape_string($_POST['remark_moa']);
 
                 $evaluation      = $_POST['evaluation'];
@@ -186,10 +186,12 @@ include("connect.php");
                                 <div class="row">
                                     <label class="col-sm-3 control-label">Mobile Number</label>
                                     <div class="col-sm-8">
+
                                         <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="+63" readonly> 
                                         <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" >
                                         <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "000" max = "999">
                                         <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" min = "0000" max = "9999"> 
+
                                     </div>
                                 </div>
                             </div>

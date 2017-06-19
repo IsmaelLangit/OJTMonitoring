@@ -75,7 +75,7 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $idnum           = $connect,$_POST['idnum'];
+                $idnum           = $_POST['idnum'];
                 $last_name           = mysqli_real_escape_string($_POST['last_name']);
                 $first_name          = mysqli_real_escape_string($_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
