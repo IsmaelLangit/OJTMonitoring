@@ -102,7 +102,7 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Mobile Number</th>
-                    <td><?php echo $row['mobile_number']; ?></td>
+                    <td><?php echo "(+63) ".$row['mobile_number']; ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Email</th>
