@@ -61,12 +61,12 @@ include("connect.php");
 
             <?php
             if(isset($_POST['add'])){
-                $coname          = $_POST['coname'];
-                $coaddress           = $_POST['coaddress'];
-                $company_head        = $_POST['company_head'];
-                $position        = $_POST['position'];
-                $typeofojt       = $_POST['typeofojt'];
-                $typeofcompany       = $_POST['typeofcompany'];
+                $coname          = mysqli_real_escape_string($connect, $_POST['coname']);
+                $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
+                $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
+                $position        = mysqli_real_escape_string($connect,$_POST['position']);
+                $typeofojt       = mysqli_real_escape_string($connect,$_POST['typeofojt']);
+                $typeofcompany       = mysqli_real_escape_string($connect,$_POST['typeofcompany']);
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){

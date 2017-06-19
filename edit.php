@@ -75,34 +75,34 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $idnum           = $_POST['idnum'];
-                $last_name           = $_POST['last_name'];
-                $first_name          = $_POST['first_name'];
+                $idnum           = $connect,$_POST['idnum'];
+                $last_name           = mysqli_real_escape_string($_POST['last_name']);
+                $first_name          = mysqli_real_escape_string($_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
                  $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
-                $email       = $_POST['email'];
+                $email       = mysqli_real_escape_string($_POST['email']);
 
                 $endorsement         = $_POST['endorsement'];
                 $release_endorsement         = $_POST['release_endorsement'];
                 $receive_endorsement         = $_POST['receive_endorsement'];
-                $remark_endorsement      = $_POST['remark_endorsement'];
+                $remark_endorsement      = mysqli_real_escape_string($_POST['remark_endorsement']);
 
                 $waiver      = $_POST['waiver'];
                 $release_waiver      = $_POST['release_waiver'];
                 $receive_waiver      = $_POST['receive_waiver'];
-                $remark_waiver     = $_POST['remark_waiver'];
+                $remark_waiver     = mysqli_real_escape_string($_POST['remark_waiver']);
 
             
 
                 $moa         = $_POST['moa'];
                 $release_moa         = $_POST['release_moa'];
                 $receive_moa         = $_POST['receive_moa'];
-                $remark_moa     = $_POST['remark_moa'];
+                $remark_moa     = mysqli_real_escape_string($_POST['remark_moa']);
 
                 $evaluation      = $_POST['evaluation'];
                 $release_evaluation      = $_POST['release_evaluation'];
                 $receive_evaluation      = $_POST['receive_evaluation'];
-                $remark_evaluation     = $_POST['remark_evaluation'];
+                $remark_evaluation     = mysqli_real_escape_string($_POST['remark_evaluation']);
 
                 $coid        = $_POST['coid'];
                 $status          = $_POST['status'];
