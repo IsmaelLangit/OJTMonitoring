@@ -61,11 +61,11 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid ORDER BY coname ASC'");
+                $con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid' ORDER BY coname ASC");
                 if(mysqli_num_rows($con) == 0){
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
                 }else{
-                    $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid '");
+                    $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
@@ -125,7 +125,7 @@ include("connect.php");
                         <th>Type</th>
                         <th>Company Head</th>
                         <th>Position</th>
-                        <th>Number of students</th>
+                      <!--   <th>Number of students</th> -->
                         <th>Action</th>
                     </tr>
                     <?php
@@ -168,14 +168,12 @@ include("connect.php");
                                 <td>'.$row['position'].'</td>
                                 ';
 
-                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                    while ($row = mysqli_fetch_assoc($con)) {
-                                        echo '
-                                        <td>'.$row['countidnum'].'</td>
-                                    ';
-                                    }
-
-
+                                  // $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                  //   while ($row = mysqli_fetch_assoc($con)) {
+                                  //       echo '
+                                  //       <td>'.$row['countidnum'].'</td>
+                                  //   ';
+                                  //   } 
 
                                 echo '
                                     <td>
