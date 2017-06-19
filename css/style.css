@@ -420,3 +420,6 @@ span.indexIcon{
 .quickSummary{
     cursor: pointer;
 }
+.paddingTopSlight{
+    padding-top: 10px;
+}

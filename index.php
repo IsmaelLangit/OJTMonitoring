@@ -107,7 +107,7 @@ include("connect.php");
 
                         <form id="Name" action="#">
                         <div class="input-group">
-                                <input type="text" id="myInput" onkeyup="filterData()" style="width:280px;" class="form-control" placeholder="Search ID Number / Student Name">
+                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID Number / Student Name">
                                 <span class="input-group-btn">  
                                     <button class="btn btn-primary" type="button">Search</button>
                                 </span>
@@ -125,8 +125,8 @@ include("connect.php");
 
             <div class="container-fluid">
 
-            <div class="padding-top"></div>
-            <button class="btn btn-info btn-md" data-toggle="collapse" data-target="#summary">Quick Summary</button>
+            <div class="paddingTopSlight"></div>
+            <button class="btn btn-info btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
 
                 <div id="summary" class="row row-centered padding-top panel-collapse collapse">
 
@@ -230,7 +230,7 @@ include("connect.php");
                 </div>
             </div>
 
-                <div class="padding-top">
+                <div class="paddingTopSlight">
                         <div class="table-responsive">
                             <table class="table table-fixed table-striped table-hover text-center" id="myTable">
                                 <tr class="info">
