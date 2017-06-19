@@ -96,7 +96,7 @@ include("connect.php");
 
                 <form id="Name" action="#">
                     <div class="input-group">
-                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search Company Name">
+                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search Company Name / Address">
                         <span class="input-group-btn">  
                         <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
                         </span>
@@ -244,8 +244,9 @@ include("connect.php");
 
                 for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[1];
+                td1 = tr[i].getElementsByTagName("td")[2];
                     if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
                             tr[i].style.display = "";
                         } else {
                             tr[i].style.display = "none";
