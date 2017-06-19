@@ -124,9 +124,9 @@ include("connect.php");
             </div>
 
             <div class="container-fluid">
-                <div class="row row-centered wellHeight padding-top">
+                <div class="row row-centered padding-top">
                     <a href="">
-                        <div class="col-sm-2 yellow well col-centered text-center">
+                        <div class="col-sm-2 yellow wellHeight well col-centered text-center">
                         <span class="indexIcon fa fa-users"></span>
                         <hr class="style-four">
                             <?php
