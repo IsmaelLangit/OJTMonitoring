@@ -157,6 +157,7 @@ include("connect.php");
                         </div>
                     </a>
 
+<<<<<<< HEAD
                     <a href="">
                         <div class="col-sm-2 well red col-centered text-center">
                         <span class="indexIcon fa fa-remove"></span>
@@ -188,6 +189,33 @@ include("connect.php");
                             ?>  
                         </div>
                     </a>
+=======
+                    <div class="col-sm-2 well blue col-centered ">
+                        <?php
+                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
+                            while ($row = mysqli_fetch_assoc($con)) {
+                                echo '
+                                <p class="text-center colorInfo">Number of Complete Requirements</p>
+                                <hr class="style-four">
+                                <p class = "number text-center">'.$row["countidnum"].'</p>
+                            ';
+                            }
+                        ?>  
+                    </div>
+
+                    <div class="col-sm-2 well gray col-centered ">
+                        <?php
+                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
+                            while ($row = mysqli_fetch_assoc($con)) {
+                                echo '
+                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
+                                <hr class="style-four">
+                                <p class = "number text-center">'.$row["countidnum"].'</p>
+                            ';
+                            }
+                        ?>  
+                    </div>
+>>>>>>> 6138520eaf0dfddebff801ff2a640f7f0cdbe959
 
                     <a href="">
                         <div class="col-sm-2 well violet col-centered text-center">

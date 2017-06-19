@@ -50,7 +50,13 @@ include("connect.php");
                             $idnum = $_GET['idnum'];
                             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
-                            echo $row ['last_name']."'s";
+
+                            if (substr($row ['last_name'], -1) == "s") {
+                                echo $row ['last_name']."'";
+                            } else if (substr($row ['last_name'], -1) != "s"){
+                                 echo $row ['last_name']."'s";
+                            }
+                            
                             ?> 
                     </h2>
                     <h3 class="top-title">Profile</h3>
@@ -123,19 +129,6 @@ include("connect.php");
                     ?>
                 </tr>
             </table>
-
-            
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="pull-right">
                 <a href="index.php" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Go Back</a>
