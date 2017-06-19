@@ -110,6 +110,7 @@ include("connect.php");
                     <th scope="row" class="info">Position</th>
                     <td><?php echo $row['position']; ?></td>
                 </tr>
+                
             </table>
 
             <div class="pull-right">
