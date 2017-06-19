@@ -140,10 +140,10 @@ include("connect.php");
 
                     <div class="col-sm-2 well blue col-centered ">
                         <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
+                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
                             while ($row = mysqli_fetch_assoc($con)) {
                                 echo '
-                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
+                                <p class="text-center colorInfo">Number of Complete Requirements</p>
                                 <hr class="style-four">
                                 <p class = "number text-center">'.$row["countidnum"].'</p>
                             ';
@@ -153,10 +153,10 @@ include("connect.php");
 
                     <div class="col-sm-2 well gray col-centered ">
                         <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
+                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
                             while ($row = mysqli_fetch_assoc($con)) {
                                 echo '
-                                <p class="text-center colorInfo">Number of Complete Requirements</p>
+                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
                                 <hr class="style-four">
                                 <p class = "number text-center">'.$row["countidnum"].'</p>
                             ';
