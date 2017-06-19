@@ -50,7 +50,11 @@ include("connect.php");
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
-                            echo $row ['coname']."'s";
+                            if (substr($row ['coname'], -1) == "s") {
+                                echo $row ['coname']."'";
+                            } else if (substr($row ['coname'], -1) != "s"){
+                                 echo $row ['coname']."'s";
+                            }
                             ?> 
                     </h2>
                     <h2 class="top-title">Profile</h3>
