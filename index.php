@@ -92,7 +92,7 @@ include("connect.php");
                                 <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
                                 <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
                                 <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                                <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
+                                <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'se lected'; } ?>>Company-based</option>
                                 <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
                                 <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
                                 <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>With Waiver</option>
@@ -535,8 +535,10 @@ include("connect.php");
 
                 for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[2];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                td1 = tr[i].getElementsByTagName("td")[9];
+                td2 = tr[i].getElementsByTagName("td")[3];
+                    if (td || td1) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
                             tr[i].style.display = "";
                         } else {
                             tr[i].style.display = "none";
