@@ -125,6 +125,7 @@ include("connect.php");
                         <th>Type</th>
                         <th>Company Head</th>
                         <th>Position</th>
+                        <th>Number of students</th>
                         <th>Action</th>
                     </tr>
                     <?php
@@ -158,10 +159,24 @@ include("connect.php");
                                         echo '<span class="label label-success">Government</span> <br>';
                                         echo '<span class="label label-primary">Company-based</span>';
                                     }
-                                    echo '
+
+                      
+                                  
+                          
+                                echo '
                                 <td>'.$row['company_head'].'</td>
                                 <td>'.$row['position'].'</td>
                                 ';
+
+                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                    while ($row = mysqli_fetch_assoc($con)) {
+                                        echo '
+                                        <td>'.$row['countidnum'].'</td>
+                                    ';
+                                    }
+
+
+
                                 echo '
                                     <td>
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
