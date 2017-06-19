@@ -49,76 +49,91 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <!--/ header-->
-        <!---->
-        <section class="section-padding">
-            <div class="container-fluid">
-                <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                <?php
-                    if(isset($_POST['add'])){
-                        $idnum           = $_POST['idnum'];
-                        $last_name           = $_POST['last_name'];
-                        $first_name          = $_POST['first_name'];
-                        $courseyear      = $_POST['courseyear'];
-                        $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
-                        $email       = $_POST['email'];
-                        $endorsement         = $_POST['endorsement'];
-                        $release_endorsement         = $_POST['release_endorsement'];
-                        $receive_endorsement         = $_POST['receive_endorsement'];
-                        $remark_endorsement      = $_POST['remark_endorsement'];
-                        $waiver      = $_POST['waiver'];
-                        $release_waiver      = $_POST['release_waiver'];
-                        $receive_waiver      = $_POST['receive_waiver'];
-                        $remark_waiver     = $_POST['remark_waiver'];
-                    
-                        $moa         = $_POST['moa'];
-                        $release_moa         = $_POST['release_moa'];
-                        $receive_moa         = $_POST['receive_moa'];
-                        $remark_moa     = $_POST['remark_moa'];
-                        $evaluation      = $_POST['evaluation'];
-                        $release_evaluation      = $_POST['release_evaluation'];
-                        $receive_evaluation      = $_POST['receive_evaluation'];
-                        $remark_evaluation     = $_POST['remark_evaluation'];
-                        $coid        = $_POST['coid'];
-                        $status          = $_POST['status'];
-                        
-                        $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
-                        if(mysqli_num_rows($con) == 0){
-                            $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver,  release_moa, receive_moa, remark_moa, moa,  release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
-                                                                    VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_moa', '$receive_moa', '$remark_moa', '$moa', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
-                            if($insert){
-                                    echo '<div class="alert alert-success" role="alert">
-                                          <strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
-                                        </div>';
-                                }else{
-                            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
-                                }
-                            
+        </div>
+    </header>
+    <!--/ header-->
+    <!---->
+
+
+    <section class="section-padding">
+        <div class="container-fluid">
+
+            <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+            <?php
+            if(isset($_POST['add'])){
+                $idnum           = $_POST['idnum'];
+                $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
+                $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
+                $courseyear      = $_POST['courseyear'];
+                $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
+
+                $email       = mysqli_real_escape_string($connect,$_POST['email']);
+
+                $endorsement         = $_POST['endorsement'];
+                $release_endorsement         = $_POST['release_endorsement'];
+                $receive_endorsement         = $_POST['receive_endorsement'];
+                $remark_endorsement      = mysqli_real_escape_string($connect,$_POST['remark_endorsement']);
+
+                $waiver      = $_POST['waiver'];
+                $release_waiver      = $_POST['release_waiver'];
+                $receive_waiver      = $_POST['receive_waiver'];
+                $remark_waiver     = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
+            
+                $moa         = $_POST['moa'];
+                $release_moa         = $_POST['release_moa'];
+                $receive_moa         = $_POST['receive_moa'];
+                $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
+
+                $evaluation      = $_POST['evaluation'];
+                $release_evaluation      = $_POST['release_evaluation'];
+                $receive_evaluation      = $_POST['receive_evaluation'];
+                $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
+
+                $coid        = $_POST['coid'];
+                $status          = $_POST['status'];
+                
+                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                if(mysqli_num_rows($con) == 0){
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver,  release_moa, receive_moa, remark_moa, moa,  release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
+                                                            VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_moa', '$receive_moa', '$remark_moa', '$moa', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    if($insert){
+                            echo '<div class="alert alert-success" role="alert">
+                                  <strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                </div>';
+                        }else{
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
                         }
-                        
-                    }
-                    ?>
-                <div class="container-fluid">
-                    <div class="row">
+                    
+                }
+                
+            }
+            ?>
+
+            
+
+            <div class="container-fluid">
+                <div class="row">
                         <div class="col-md-9">
-                            <form class="form-horizontal well" action="" method="post">
-                                <h2 class="head-title black titleFont">Basic Information</h2>
-                                <hr class="style-four">
-                                <div class="form-group">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label class="control-label">ID Number</label>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <input type="number" name="idnum" class="form-control" placeholder="0000000" required>
-                                            </div>
-                                        </div>
+                         <form class="form-horizontal well" action="" method="post">
+                        <h2 class="head-title black titleFont">Basic Information</h2>
+                        <hr class="style-four">
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="control-label">ID Number</label>
+                                </div>
+                                    <div class="col-sm-8">
+                                    <input type="number" name="idnum" class="form-control" placeholder="0000000" pattern="[0-9]{7}" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="container-fluid">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <label class="control-label">First Name</label>
@@ -128,7 +143,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label class="control-label">Last Name</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+
                                 <div class="form-group">
                                     <div class="container-fluid">
                                         <div class="row">
@@ -165,7 +194,7 @@
                                                 <label class="control-label">Mobile Number</label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="+63" readonly> 
+                                                <input style="width:65px;" type="text" class="form-control" placeholder="+63" readonly> 
                                                 <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" >
                                                 <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "000" max = "999">
                                                 <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" min = "0000" max = "9999"> 
@@ -243,12 +272,12 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <?php
-                                                    echo  "<input type='hidden' name='waiver' value='no'>";
+                                                    echo  "<input type='hidden' name='moa' value='no'>";
                                                     
-                                                    echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver'><br>" ;
-                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
-                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_waiver' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                                    echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
+                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks'><br>" ;
                                                     ?>
                                             </div>
                                         </div>
@@ -311,27 +340,65 @@
                             <img class="img-responsive text-center center-block addPicture" src="img/1486485564-add-character-include-more-person-user_81147.png">
                         </div>
                     </div>
+
+                    </div> <!--end of col-md-9-->
+                        <div class="col-md-3">
+                            <img class="img-responsive text-center center-block addPicture" src="img/1486485564-add-character-include-more-person-user_81147.png">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div> <!--End of Container Fluid-->
+    </section>
+    <!---->
+    <!---->
+
+    <footer class="footer-distributed footer">
+            <div class="footer-left">
+                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <p class="footer-links">
+                    <a href="index.php">Students</a>
+                    |
+                    <a href="company.php">Company</a>
+                </p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
+            </div>
+            <div class="footer-center">
+                <div>
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+                </div>
+                <div>
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    <p>(063) 74 444 8246 to 48</p>
                 </div>
             </div>
-            <!--End of Container Fluid-->
-        </section>
-        <!---->
-        <!---->
-        <!---->
-        <!-- end-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/wow.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="js/smoothScroll.js"></script>
-        <script src="js/filter.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/preloader.js"></script>
-        <script>
-            $('.date').datepicker({
-                format: 'yyyy-mm-dd',
-            })
-        </script>
-    </body>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>Vision of SLU</span>
+                    "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+                </p>
+            </div>
+        </footer>
+    <!---->
+    <!-- end-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/smoothScroll.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/preloader.js"></script>
+
+
+    <script>
+    $('.date').datepicker({
+        format: 'yyyy-mm-dd',
+    })
+    </script>
+    
+  </body>
 </html>

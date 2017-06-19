@@ -76,9 +76,9 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $coname          = $_POST['coname'];
-                $coaddress           = $_POST['coaddress'];
-                $company_head        = $_POST['company_head'];
+                $coname          = mysqli_real_escape_string($connect,$_POST['coname'])
+                $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
+                $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
                 $position        = $_POST['position'];
                 $typeofojt       = $_POST['typeofojt'];
                 $typeofcompany       = $_POST['typeofcompany'];

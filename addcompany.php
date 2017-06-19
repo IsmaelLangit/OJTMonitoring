@@ -61,12 +61,12 @@ include("connect.php");
 
             <?php
             if(isset($_POST['add'])){
-                $coname          = $_POST['coname'];
-                $coaddress           = $_POST['coaddress'];
-                $company_head        = $_POST['company_head'];
-                $position        = $_POST['position'];
-                $typeofojt       = $_POST['typeofojt'];
-                $typeofcompany       = $_POST['typeofcompany'];
+                $coname          = mysqli_real_escape_string($connect, $_POST['coname']);
+                $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
+                $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
+                $position        = mysqli_real_escape_string($connect,$_POST['position']);
+                $typeofojt       = mysqli_real_escape_string($connect,$_POST['typeofojt']);
+                $typeofcompany       = mysqli_real_escape_string($connect,$_POST['typeofcompany']);
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
@@ -86,10 +86,12 @@ include("connect.php");
             ?>
 
             <div class="container">
+                <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
                 <div class="row">
+
                     <div class="col-md-9 ">
 
-                        <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
+                        
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">
@@ -166,6 +168,7 @@ include("connect.php");
                         <img class="img-responsive center-block addPicture" src="img/0af0e35a05b3955209dd049fd0a974f5.png">
                     </div>
                 </div>
+            </form>
             </div>
         </div> <!--End of Container Fluid-->
     </section>
