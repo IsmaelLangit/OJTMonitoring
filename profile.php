@@ -84,7 +84,7 @@ include("connect.php");
             if(isset($_GET['aksi']) == 'delete'){
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum'");
                 if($delete){
-                    echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data successfully deleted.</div>';
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data successfully deleted.</div>';
                 }else{
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
                 }
