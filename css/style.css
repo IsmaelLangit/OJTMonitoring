@@ -400,6 +400,7 @@ span.indexIcon{
     color: #055a8e;
     text-align: center;
 }
-.col-sm-2,.well{
-    height: 250px;
 }
+#wellHeight,
+.wellHeight{
+    height: 250px !important;

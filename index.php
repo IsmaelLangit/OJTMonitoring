@@ -124,7 +124,7 @@ include("connect.php");
             </div>
 
             <div class="container-fluid">
-                <div class="row row-centered padding-top">
+                <div class="row row-centered wellHeight padding-top">
                     <a href="">
                         <div class="col-sm-2 yellow well col-centered text-center">
                         <span class="indexIcon fa fa-users"></span>
@@ -142,7 +142,7 @@ include("connect.php");
                     </a>
 
                     <a href="">
-                        <div class="col-sm-2 well green col-centered text-center">
+                        <div class="col-sm-2 well wellHeight green col-centered text-center">
                         <span class="indexIcon fa fa-check"></span>
                         <hr class="style-four">
                             <?php
@@ -157,9 +157,8 @@ include("connect.php");
                         </div>
                     </a>
 
-<<<<<<< HEAD
                     <a href="">
-                        <div class="col-sm-2 well red col-centered text-center">
+                        <div class="col-sm-2 well wellHeight red col-centered text-center">
                         <span class="indexIcon fa fa-remove"></span>
                         <hr class="style-four">
                             <?php
@@ -175,7 +174,7 @@ include("connect.php");
                     </a>
 
                     <a href="">
-                        <div class="col-sm-2 well blue col-centered text-center">
+                        <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
                             <?php
@@ -189,36 +188,10 @@ include("connect.php");
                             ?>  
                         </div>
                     </a>
-=======
-                    <div class="col-sm-2 well blue col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Complete Requirements</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                            ';
-                            }
-                        ?>  
-                    </div>
 
-                    <div class="col-sm-2 well gray col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                            ';
-                            }
-                        ?>  
-                    </div>
->>>>>>> 6138520eaf0dfddebff801ff2a640f7f0cdbe959
 
                     <a href="">
-                        <div class="col-sm-2 well violet col-centered text-center">
+                        <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
                             <?php
@@ -234,7 +207,7 @@ include("connect.php");
                     </a>
 
                     <a href="">
-                        <div class="col-sm-2 well orange col-centered text-center">
+                        <div class="col-sm-2 well wellHeight orange col-centered text-center">
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
                             <?php
