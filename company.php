@@ -97,7 +97,7 @@ include("connect.php");
                 <form id="Name" action="#">
                     <div class="input-group">
                         <span class="input-group-btn">  
-                        <button class="btn btn-primary" type="button" onclick="filterData()" value="reset">Reset</button>
+                        <button class="btn btn-default">Search</button>
                         </span>
                         <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                     </div>
