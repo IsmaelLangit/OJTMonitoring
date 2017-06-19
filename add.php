@@ -341,12 +341,7 @@
                         </div>
                     </div>
 
-                    </div> <!--end of col-md-9-->
-                        <div class="col-md-3">
-                            <img class="img-responsive text-center center-block addPicture" src="img/1486485564-add-character-include-more-person-user_81147.png">
-                        </div>
 
-                    </div>
                 </form>
             </div>
         </div> <!--End of Container Fluid-->
