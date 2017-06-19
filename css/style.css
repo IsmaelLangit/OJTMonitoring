@@ -333,27 +333,46 @@ h4.modal-title{
     letter-spacing: 2px;
     color: #000;
 }
-
-.gray{
-    background: #eaeaea;
+.blue,.green,.orange,.red,.violet,.yellow,
+.blue,.green,.orange,.red,.violet,.yellow:after,
+.blue,.green,.orange,.red,.violet,.yellow:before {
+  transition: all .3s;
 }
 .blue{
     background: #D9F3FF;
 }
+.blue:hover{
+    background: #6ac7f2;
+}
 .green{
     background: #c6ffd2;
+}
+.green:hover{
+    background: #7efc98;
 }
 .orange{
     background: #ffdfc6;
 }
+.orange:hover{
+    background: #f9ba89;
+}
 .red{
     background: #ffdbdb;
+}
+.red:hover{
+    background: #f98989;
 }
 .violet{
     background: #ecdbff;
 }
+.violet:hover{
+    background: #c599f7;
+}
 .yellow{
     background: #feffdb;
+}
+.yellow:hover{
+    background: #f3f771;
 }
 .colorInfo{
     color: #000000;
