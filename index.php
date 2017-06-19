@@ -22,7 +22,7 @@ include("connect.php");
     <header class="main-header" id="header">
         <div class="bg-color">
             <!--nav-->
-            <nav class="nav navbar-default navbar-fixed-top ">
+            <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
                     <div class="col-md-12">
                         <div class="navbar-header">
