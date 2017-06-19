@@ -180,10 +180,12 @@ include("connect.php");
                                 <div class="row">
                                     <label class="col-sm-3 control-label">Mobile Number</label>
                                     <div class="col-sm-8">
+
                                         <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="+63" readonly> 
                                         <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" >
                                         <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "000" max = "999">
                                         <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" min = "0000" max = "9999"> 
+
                                     </div>
                                 </div>
                             </div>
