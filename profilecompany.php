@@ -110,6 +110,17 @@ include("connect.php");
                     <th scope="row" class="info">Position</th>
                     <td><?php echo $row['position']; ?></td>
                 </tr>
+                <tr>
+                    <th scope="row" class="info">Number of Students</th>
+                    <?php
+                        $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                        while ($row = mysqli_fetch_assoc($con)) {
+                            echo '
+                                <td>'.$row['countidnum'].'</td>
+                            ';
+                        }
+                    ?>
+                </tr>                
             </table>
 
             <div class="pull-right">
