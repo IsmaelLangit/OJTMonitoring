@@ -124,7 +124,11 @@ include("connect.php");
             </div>
 
             <div class="container-fluid">
-                <div class="row row-centered padding-top">
+
+            <div class="padding-top"></div>
+            <button class="btn btn-info btn-md" data-toggle="collapse" data-target="#summary">Quick Summary</button>
+
+                <div id="summary" class="row row-centered padding-top panel-collapse collapse">
 
                     <a href="index.php" >
                         <div class="col-sm-2 yellow wellHeight well col-centered text-center">
