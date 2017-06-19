@@ -86,10 +86,12 @@ include("connect.php");
             ?>
 
             <div class="container">
+                <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
                 <div class="row">
+
                     <div class="col-md-9 ">
 
-                        <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
+                        
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">
@@ -166,6 +168,7 @@ include("connect.php");
                         <img class="img-responsive center-block addPicture" src="img/0af0e35a05b3955209dd049fd0a974f5.png">
                     </div>
                 </div>
+            </form>
             </div>
         </div> <!--End of Container Fluid-->
     </section>
