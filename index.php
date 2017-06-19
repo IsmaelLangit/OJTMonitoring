@@ -1,4 +1,4 @@
- <?php
+<?php
 include("connect.php");
 ?>
 <!DOCTYPE html>
@@ -106,11 +106,11 @@ include("connect.php");
                         </div>
 
                         <form id="Name" action="#">
-                        <div class="input-group">
-                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search ID Number / Student Name">
+                            <div class="input-group">
                                 <span class="input-group-btn">  
-                                    <button class="btn btn-primary" type="button">Search</button>
+                                    <button class="btn btn-default" type="button">Search</button>
                                 </span>
+                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                             </div>
                         </form> 
 

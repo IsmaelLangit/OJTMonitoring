@@ -96,10 +96,10 @@ include("connect.php");
 
                 <form id="Name" action="#">
                     <div class="input-group">
-                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control" placeholder="Search Company Name / Address">
                         <span class="input-group-btn">  
-                        <button class="btn btn-primary" type="button" onclick="resetName()" value="reset">Reset</button>
+                            <button class="btn btn-default" type="button">Search</button>
                         </span>
+                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                     </div>
                 </form>
 
