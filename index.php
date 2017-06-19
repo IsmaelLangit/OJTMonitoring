@@ -94,14 +94,14 @@ include("connect.php");
                                 <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                                 <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
                                 <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
-                                <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>>WITH Endorsement</option>
-                                <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>WITH Waiver</option>
-                                <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>WITH MOA</option>
-                                <option value="yes4" <?php if($filter == 'yes4'){ echo 'selected'; } ?>>WITH Evaluation</option>
-                                <option value="no1" <?php if($filter == 'no1'){ echo 'selected'; } ?>>WITHOUT Endorsement</option>
-                                <option value="no2" <?php if($filter == 'no2'){ echo 'selected'; } ?>>WITHOUT Waiver</option>
-                                <option value="no3" <?php if($filter == 'no3'){ echo 'selected'; } ?>>WITHOUT MOA</option>
-                                <option value="no4" <?php if($filter == 'no4'){ echo 'selected'; } ?>>WITHOUT Evaluation</option>
+                                <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
+                                <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>With Waiver</option>
+                                <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>With MOA</option>
+                                <option value="yes4" <?php if($filter == 'yes4'){ echo 'selected'; } ?>>With Evaluation</option>
+                                <option value="no1" <?php if($filter == 'no1'){ echo 'selected'; } ?>>Without Endorsement</option>
+                                <option value="no2" <?php if($filter == 'no2'){ echo 'selected'; } ?>>Without Waiver</option>
+                                <option value="no3" <?php if($filter == 'no3'){ echo 'selected'; } ?>>Without MOA</option>
+                                <option value="no4" <?php if($filter == 'no4'){ echo 'selected'; } ?>>Without Evaluation</option>
                             </select>
                         </div>
 
@@ -124,84 +124,103 @@ include("connect.php");
             </div>
 
             <div class="container-fluid">
-                <div class="row row-centered padding-top padding-bottom">
-                    <div class="col-sm-2 well gray col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Total Students</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
+                <div class="row row-centered padding-top">
+                    <a href="">
+                        <div class="col-sm-2 yellow well col-centered text-center">
+                        <span class="indexIcon fa fa-users"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="colorInfo">Total Students</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    ';
+                                }
+                            ?>  
+                        </div>
+                    </a>
+
+                    <a href="">
+                        <div class="col-sm-2 well green col-centered text-center">
+                        <span class="indexIcon fa fa-check"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="text-center colorInfo">Complete Requirements</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
                                 ';
-                            }
-                        ?>  
-                    </div>
+                                }
+                            ?>  
+                        </div>
+                    </a>
 
-                    <div class="col-sm-2 well blue col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                            ';
-                            }
-                        ?>  
-                    </div>
-
-                    <div class="col-sm-2 well gray col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Complete Requirements</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                            ';
-                            }
-                        ?>  
-                    </div>
-
-                    <div class="col-sm-2 well blue col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'Company-based'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Company-based Students</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
+                    <a href="">
+                        <div class="col-sm-2 well red col-centered text-center">
+                        <span class="indexIcon fa fa-remove"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="text-center colorInfo">Incomplete Requirements</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
                                 ';
-                            }
-                        ?>  
-                    </div>
+                                }
+                            ?>  
+                        </div>
+                    </a>
 
-                    <div class="col-sm-2 well gray col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'In-house'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of In-house Students</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                                ';
-                            }
-                        ?>  
-                    </div>
+                    <a href="">
+                        <div class="col-sm-2 well blue col-centered text-center">
+                        <span class="indexIcon fa fa-building"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'Company-based'");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="text-center colorInfo">Company-Based</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    ';
+                                }
+                            ?>  
+                        </div>
+                    </a>
 
-                    <div class="col-sm-2 well blue col-centered ">
-                        <?php
-                            $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where coname = 'No Company'");
-                            while ($row = mysqli_fetch_assoc($con)) {
-                                echo '
-                                <p class="text-center colorInfo">Number of Students with No Company</p>
-                                <hr class="style-four">
-                                <p class = "number text-center">'.$row["countidnum"].'</p>
-                                ';
-                            }
-                        ?>  
-                    </div>
+                    <a href="">
+                        <div class="col-sm-2 well violet col-centered text-center">
+                        <span class="indexIcon fa fa-institution"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'In-house'");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="text-center colorInfo">In-House</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    ';
+                                }
+                            ?>  
+                        </div>
+                    </a>
+
+                    <a href="">
+                        <div class="col-sm-2 well orange col-centered text-center">
+                        <span class="indexIcon fa fa-warning"></span>
+                        <hr class="style-four">
+                            <?php
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where coname = 'No Company'");
+                                while ($row = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                    <p class="text-center colorInfo">No Company</p>
+                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    ';
+                                }
+                            ?>  
+                        </div>
+                    </a>
+
                 </div>
             </div>
 
@@ -475,11 +494,11 @@ include("connect.php");
             </div>
             <div class="footer-center">
                 <div>
-                    <i class="glyphicon glyphicon-globe"></i>
+                    <i class="fa fa-building-o"></i>
                     <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
                 </div>
                 <div>
-                    <i class="glyphicon glyphicon-earphone"></i>
+                    <i class="fa fa-phone"></i>
                     <p>(063) 74 444 8246 to 48</p>
                 </div>
             </div>

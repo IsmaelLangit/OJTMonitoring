@@ -162,7 +162,7 @@ p
 }
 .black
 {
-	color: #000 !important;
+	color: #108acc; !important;
 	font-weight: 600;
 }
 a, a:hover
@@ -340,6 +340,21 @@ h4.modal-title{
 .blue{
     background: #D9F3FF;
 }
+.green{
+    background: #c6ffd2;
+}
+.orange{
+    background: #ffdfc6;
+}
+.red{
+    background: #ffdbdb;
+}
+.violet{
+    background: #ecdbff;
+}
+.yellow{
+    background: #feffdb;
+}
 .colorInfo{
     color: #000000;
     font-size: 1.2em;
@@ -348,7 +363,7 @@ h4.modal-title{
 }
 .number{
     color: #035aa8;
-    font-size: 4em;
+    font-size: 3em;
 }
 .paddingInBetween{
     margin-left: 20px;
@@ -379,4 +394,12 @@ nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
   transition: all .5s;
+}
+span.indexIcon{
+    font-size: 2.5em !important;
+    color: #055a8e;
+    text-align: center;
+}
+.col-sm-2,.well{
+    height: 250px;
 }
