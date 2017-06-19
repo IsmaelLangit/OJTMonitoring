@@ -125,12 +125,12 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row row-centered padding-top padding-bottom">
-                    <div class="col-sm-2 well gray col-centered paddingInBetween">
+                    <div class="col-sm-2 well gray col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students");
                             while ($row = mysqli_fetch_assoc($con)) {
                                 echo '
-                                <p class="text-center colorInfo">Number of Students</p>
+                                <p class="text-center colorInfo">Number of Total Students</p>
                                 <hr class="style-four">
                                 <p class = "number text-center">'.$row["countidnum"].'</p>
                                 ';
@@ -138,7 +138,7 @@ include("connect.php");
                         ?>  
                     </div>
 
-                    <div class="col-sm-2 well blue col-centered paddingInBetween">
+                    <div class="col-sm-2 well blue col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
                             while ($row = mysqli_fetch_assoc($con)) {
@@ -151,12 +151,12 @@ include("connect.php");
                         ?>  
                     </div>
 
-                    <div class="col-sm-2 well gray col-centered paddingInBetween">
+                    <div class="col-sm-2 well gray col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
                             while ($row = mysqli_fetch_assoc($con)) {
                                 echo '
-                                <p class="text-center colorInfo">Number of Incomplete Requirements</p>
+                                <p class="text-center colorInfo">Number of Complete Requirements</p>
                                 <hr class="style-four">
                                 <p class = "number text-center">'.$row["countidnum"].'</p>
                             ';
@@ -164,7 +164,7 @@ include("connect.php");
                         ?>  
                     </div>
 
-                    <div class="col-sm-2 well blue col-centered paddingInBetween">
+                    <div class="col-sm-2 well blue col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'Company-based'");
                             while ($row = mysqli_fetch_assoc($con)) {
@@ -177,7 +177,7 @@ include("connect.php");
                         ?>  
                     </div>
 
-                    <div class="col-sm-2 well gray col-centered paddingInBetween">
+                    <div class="col-sm-2 well gray col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'In-house'");
                             while ($row = mysqli_fetch_assoc($con)) {
@@ -190,7 +190,7 @@ include("connect.php");
                         ?>  
                     </div>
 
-                    <div class="col-sm-2 well blue col-centered paddingInBetween">
+                    <div class="col-sm-2 well blue col-centered ">
                         <?php
                             $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where coname = 'No Company'");
                             while ($row = mysqli_fetch_assoc($con)) {
