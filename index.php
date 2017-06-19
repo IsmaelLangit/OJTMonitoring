@@ -125,7 +125,7 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row row-centered padding-top">
-                    <a href="">
+                    <a href="index.php">
                         <div class="col-sm-2 yellow wellHeight well col-centered text-center">
                         <span class="indexIcon fa fa-users"></span>
                         <hr class="style-four">
@@ -141,7 +141,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="">
+                    <a href="index.php?filter=Complete">
                         <div class="col-sm-2 well wellHeight green col-centered text-center">
                         <span class="indexIcon fa fa-check"></span>
                         <hr class="style-four">
@@ -157,7 +157,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="">
+                    <a href="index.php?filter=Incomplete">
                         <div class="col-sm-2 well wellHeight red col-centered text-center">
                         <span class="indexIcon fa fa-remove"></span>
                         <hr class="style-four">
@@ -173,7 +173,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="">
+                    <a href="index.php?filter=Company-based">
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
@@ -190,7 +190,7 @@ include("connect.php");
                     </a>
 
 
-                    <a href="">
+                    <a href="index.php?filter=In-house">
                         <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
@@ -206,7 +206,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="">
+                    <a href="index.php?filter=No+Company">
                         <div class="col-sm-2 well wellHeight orange col-centered text-center">
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
