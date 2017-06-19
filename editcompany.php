@@ -76,10 +76,10 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $coname          = mysqli_real_escape_string($connect,$_POST['coname'])
+                $coname          = mysqli_real_escape_string($connect,$_POST['coname']);
                 $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
                 $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
-                $position        = $_POST['position'];
+                $position        = mysqli_real_escape_string($connect,$_POST['position']);
                 $typeofojt       = $_POST['typeofojt'];
                 $typeofcompany       = $_POST['typeofcompany'];
                 
