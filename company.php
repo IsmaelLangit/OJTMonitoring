@@ -79,11 +79,11 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-11">
 
                     <form class="form-inline" method="get">
                 <div class="form-group">
-                    <select name="filter" class="form-control" onchange="form.submit()">
+                    <select name="filter" class="form-control touch" onchange="form.submit()">
                         <option value="0">Filter Companies By:</option>
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
@@ -97,7 +97,7 @@ include("connect.php");
                 <form id="Name" action="#">
                     <div class="input-group">
                         <span class="input-group-btn">  
-                        <button class="btn btn-default">Search</button>
+                        <button class="btn btn-default disabled">Search</button>
                         </span>
                         <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                     </div>
@@ -106,8 +106,8 @@ include("connect.php");
             </form>
 
                     </div>
-                    <div class="col-md-6">
-                        <a class="btn btn-success pull-right" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
+                    <div class="col-md-1 text-center paddingTopSlight">
+                        <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>
             </div>

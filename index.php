@@ -84,41 +84,41 @@ include("connect.php");
                     <div class="col-md-11">
                         <form class="form-inline" method="get">
 
-                        <div class="form-group dropdown-toggle">
-                            <select name="filter" class="form-control touch" onchange="form.submit()">
-                                <option value="0">Filter Students By:</option>
-                                <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                                <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
-                                <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
-                                <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
-                                <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                                <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'se lected'; } ?>>Company-based</option>
-                                <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
-                                <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
-                                <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>With Waiver</option>
-                                <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>With MOA</option>
-                                <option value="yes4" <?php if($filter == 'yes4'){ echo 'selected'; } ?>>With Evaluation</option>
-                                <option value="no1" <?php if($filter == 'no1'){ echo 'selected'; } ?>>Without Endorsement</option>
-                                <option value="no2" <?php if($filter == 'no2'){ echo 'selected'; } ?>>Without Waiver</option>
-                                <option value="no3" <?php if($filter == 'no3'){ echo 'selected'; } ?>>Without MOA</option>
-                                <option value="no4" <?php if($filter == 'no4'){ echo 'selected'; } ?>>Without Evaluation</option>
-                            </select>
-                        </div>
-
-                        <form id="Name" action="#">
-                            <div class="input-group">
-                                <span class="input-group-btn">  
-                                    <button class="btn btn-default" type="button">Search</button>
-                                </span>
-                                <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
+                            <div class="form-group dropdown-toggle">
+                                <select name="filter" class="form-control touch" onchange="form.submit()">
+                                    <option value="0">Filter Students By:</option>
+                                    <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
+                                    <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
+                                    <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
+                                    <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
+                                    <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'se lected'; } ?>>Company-based</option>
+                                    <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
+                                    <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
+                                    <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>With Waiver</option>
+                                    <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>With MOA</option>
+                                    <option value="yes4" <?php if($filter == 'yes4'){ echo 'selected'; } ?>>With Evaluation</option>
+                                    <option value="no1" <?php if($filter == 'no1'){ echo 'selected'; } ?>>Without Endorsement</option>
+                                    <option value="no2" <?php if($filter == 'no2'){ echo 'selected'; } ?>>Without Waiver</option>
+                                    <option value="no3" <?php if($filter == 'no3'){ echo 'selected'; } ?>>Without MOA</option>
+                                    <option value="no4" <?php if($filter == 'no4'){ echo 'selected'; } ?>>Without Evaluation</option>
+                                </select>
                             </div>
-                        </form> 
+
+                            <form id="Name" action="#">
+                                <div class="input-group">
+                                    <span class="input-group-btn">  
+                                        <button class="btn btn-default disabled" type="button">Search</button>
+                                    </span>
+                                    <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
+                                </div>
+                            </form> 
 
                     </form>
                     </div>
 
-                    <div class="col-md-1">
-                        <a class="btn btn-success" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+                    <div class="col-md-1 text-center paddingTopSlight">
+                        <a class="btn btn-success addStudent" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                     </div>
                 </div>
             </div>

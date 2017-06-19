@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6
 }
 .bg-color
 {
-	background-color: RGBA(0, 0, 0, 0.75);
+	background-color: RGBA(0, 0, 0, 0.72);
 }
 
 .nav > li > a {
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6
 }
 
 .top-nav-collapse {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.72);
     padding: 25px 0;
 }
 .wrapper
@@ -135,39 +135,23 @@ h1, h2, h3, h4, h5, h6
     text-transform: uppercase;
     padding: 25px 0px;
 }
-]
-/****/
-.section-title:hover .botm-line
-{
-	width: 70px;
-	/* For Safari 3.1 to 6.0 */
-    -webkit-transition-property: width;
-    -webkit-transition-duration: 2s;
-    -webkit-transition-timing-function: linear;
-    -webkit-transition-delay: 1s;
-    /* Standard syntax */
-    transition-property: width;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-    transition-delay: 1s;
-}
-p
-{
-	color: #888;
-}
 .section {
     position: relative;
     padding: 88px 0 67px 0;
     display: block;
 }
-.black
-{
-	color: #108acc; !important;
-	font-weight: 600;
-}
-a, a:hover
+a
 {
 	color: #006091;
+    text-decoration: none;
+}
+a,
+a:after,
+a:before {
+  transition: all .4s;
+}
+a:hover{
+    color: #c10b0b;
     text-decoration: none;
 }
 /****/
@@ -201,9 +185,6 @@ a, a:hover
     }
     .sub-title{
         font-size: 24px;
-    }
-    .footer-copyright {
-    text-align: center;
     }
     .padding-right-zero{
         padding-right: 15px;
@@ -243,10 +224,10 @@ a, a:hover
 }
 #return-to-top {
     position: fixed;
-    bottom: 60px;
-    right: 60px;
+    bottom: 50px;
+    right: 20px;
     background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.75);
     width: 60px;
     height: 60px;
     display: block;
@@ -276,11 +257,11 @@ a, a:hover
     transition: all 0.3s ease;
 }
 #return-to-top:hover {
-    background: rgba(10, 123, 205, 0.81);
+    background: rgba(0, 0, 0, 0.90);
 }
 #return-to-top:hover i {
-    color: #fff;
-    top: 5px;
+    color: #37bfce;
+    top: 13px;
 }
 .nothingToDisplay{
     font-size: 2em;
@@ -421,5 +402,8 @@ span.indexIcon{
     cursor: pointer;
 }
 .paddingTopSlight{
-    padding-top: 10px;
+    padding: 10px 0;
+}
+button.disabled{
+    cursor: default !important;
 }

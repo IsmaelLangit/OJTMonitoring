@@ -129,12 +129,10 @@ include("connect.php");
             ?>
             
             <div class="container-fluid">
-                <form class="form-horizontal margin-top margin-bottom well" action="" method="post">
+                <form class="form-horizontal margin-top margin-bottom" action="" method="post">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-9 well">
                         
-                        
-
                         <h2 class="head-title black titleFont">Basic Information</h2>
                         <hr class="style-four">
                 
