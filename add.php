@@ -404,7 +404,7 @@
 
     <script>
     $('.date').datepicker({
-        format: 'yyyy-mm-dd',
+        format: 'MM dd yyyy',
     })
     </script>
     
