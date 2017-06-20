@@ -113,9 +113,9 @@ include("connect.php");
             </table>
 
             <div class="pull-right">
-            <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Companies</a>
-            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Data</a>
-            <a href="profilecompany.php?aksi=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Data</a>
+            <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
+            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
+            <a href="profilecompany.php?aksi=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
 
 
