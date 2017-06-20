@@ -58,8 +58,6 @@ include("connect.php");
     <section class="section-padding">
         <div class="container-fluid">
 
-            <div id="preloader"></div>
-
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -90,7 +88,7 @@ include("connect.php");
                                 <span class="input-group-btn">  
                                     <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly> 
                                  </span>
-                                <select name="filter" class="form-control touch" onchange="form.submit()">
+                                <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'complete'){ echo 'selected'; } ?>>Complete</option>
