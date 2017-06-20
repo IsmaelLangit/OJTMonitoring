@@ -1,14 +1,8 @@
-$("#laserbar").addClass("waiting");
-$({ width: 0 }).animate(
-  { width: 100 },
-  {
-    duration: 10000,
-    step: function() {
-      $("#laserbar").css("width", this.width + "%");
-    },
-    complete: function() {
-      $("#laserbar").toggleClass("done");
-      console.log("loading complete");
-    }
-  }
-);
+jQuery(document).ready(function($) {
+  // site preloader -- also uncomment the div in the header and the css style for #preloader
+  $(window).load(function() {
+    $("#preloader").fadeOut("slow", function() {
+      $(this).remove();
+    });
+  });
+});
