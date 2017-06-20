@@ -56,6 +56,8 @@ include("connect.php");
     <section class="section-padding">
         <div class="container-fluid">
 
+            <div id="laserbar"></div>
+
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -89,13 +91,9 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
-<<<<<<< HEAD
-                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
-                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
-=======
+
                         <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
                         <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
->>>>>>> 5c40e467f6dec5f6c4015d6534bc2b9588c18141
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
