@@ -79,12 +79,20 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             
-            if(isset($_GET['aksi']) == 'delete'){
-                $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
-                if($delete){
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data successfully deleted.</div>';
+            if(isset($_GET['action']) == 'delete'){
+                $coid = $_GET['coid'];
+                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
+                if(mysqli_num_rows($con) != 0){
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company! </strong> with OJT students</div>';
                 }else{
-                    echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
+                    $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
+                    if($delete){
+                        echo '<div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
+                                </div>';
+                    }else{
+                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    }
                 }
             }
             ?>
@@ -127,7 +135,7 @@ include("connect.php");
             <div class="pull-right">
             <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-            <a href="profilecompany.php?aksi=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+            <a href="profilecompany.php?action=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
 
 
