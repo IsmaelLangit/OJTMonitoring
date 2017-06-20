@@ -179,8 +179,8 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">&nbsp;</label>
                                         <div class="col-sm-6">
-                                            <input type="submit" name="save" class="btn btn-sm btn-success" value="Save">
-                        <a href="company.php" class="btn btn-sm btn-danger">Cancel</a>
+                                            <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
+                        <a href="company.php" class="btn btn-md btn-danger">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

@@ -116,7 +116,7 @@
                 <div class="row">
                         <div class="col-md-9">
                          <form class="form-horizontal well" action="" method="post">
-                        <h2 class="head-title black titleFont">Basic Information</h2>
+                        <h2 class="z">Basic Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -327,8 +327,8 @@
                                                 <label class="control-label">&nbsp;</label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <input type="submit" name="add" class="btn btn-sm btn-success" value="Add Student">
-                                                <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                                <input type="submit" name="add" class="btn btn-md btn-success" value="Add Student">
+                                                <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
                                             </div>
                                         </div>
                                     </div>

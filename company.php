@@ -82,11 +82,13 @@ include("connect.php");
                     <div class="col-md-11">
 
                     <form class="form-inline" method="get">
-                <div class="form-group">
+                <div class="form-group input-group">
+                    <span class="input-group-btn">  
+                            <input style="width:90px;" type="text" class="form-control" placeholder="Filter By:" readonly> 
+                    </span>
                     <select name="filter" class="form-control touch" onchange="form.submit()">
-                        <option value="0">Filter Companies By:</option>
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                        <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
+                        <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
                         <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                         <option value="Government" <?php if($filter == 'Government'){ echo 'selected'; } ?>>Government</option>
@@ -97,7 +99,7 @@ include("connect.php");
                 <form id="Name" action="#">
                     <div class="input-group">
                         <span class="input-group-btn">  
-                        <button class="btn btn-default disabled">Search</button>
+                            <input style="width:75px;" type="text" class="form-control" placeholder="Search" readonly> 
                         </span>
                         <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                     </div>
@@ -125,7 +127,7 @@ include("connect.php");
                         <th>Type</th>
                         <th>Company Head</th>
                         <th>Position</th>
-                      <!--   <th>Number of students</th> -->
+                        <th>Number of students</th>
                         <th>Action</th>
                     </tr>
                     <?php
@@ -168,12 +170,12 @@ include("connect.php");
                                 <td>'.$row['position'].'</td>
                                 ';
 
-                                  // $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                  //   while ($row = mysqli_fetch_assoc($con)) {
-                                  //       echo '
-                                  //       <td>'.$row['countidnum'].'</td>
-                                  //   ';
-                                  //   } 
+                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                    while ($row1 = mysqli_fetch_assoc($con)) {
+                                        echo '
+                                        <td>'.$row1['countidnum'].'</td>
+                                    ';
+                                    } 
 
                                 echo '
                                     <td>
