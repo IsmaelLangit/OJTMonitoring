@@ -58,6 +58,8 @@ include("connect.php");
     <section class="section-padding">
         <div class="container-fluid">
 
+            <div id="laserbar"></div>
+
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -86,7 +88,7 @@ include("connect.php");
 
                             <div class="form-group input-group dropdown-toggle">
                                 <span class="input-group-btn">  
-                                    <input style="width:90px;" type="text" class="form-control" placeholder="Filter By:" readonly> 
+                                    <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly> 
                                  </span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
@@ -110,7 +112,7 @@ include("connect.php");
                             <form id="Name" action="#">
                                 <div class="input-group">
                                     <span class="input-group-btn">  
-                                        <input style="width:75px;" type="text" class="form-control" placeholder="Search" readonly> 
+                                        <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> 
                                     </span>
                                     <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                                 </div>
@@ -128,7 +130,7 @@ include("connect.php");
             <div class="container-fluid">
 
             <div class=""></div>
-            <button class="btn btn-info btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
+            <button class="btn btn-primary btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
 
                 <div id="summary" class="row row-centered paddingTopSlight panel-collapse collapse">
 

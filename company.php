@@ -56,6 +56,8 @@ include("connect.php");
     <section class="section-padding">
         <div class="container-fluid">
 
+            <div id="laserbar"></div>
+
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -127,7 +129,7 @@ include("connect.php");
                         <th class="text-center">Type</th>
                         <th class="text-center">Company Head</th>
                         <th class="text-center">Position</th>
-                        <th class="text-center">Number of students</th>
+                        <th class="text-center">Number of OJT Student/s</th>
                         <th class="text-center">Action</th>
                     </tr>
                     <?php
