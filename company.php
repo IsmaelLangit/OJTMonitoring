@@ -127,7 +127,7 @@ include("connect.php");
                         <th>Type</th>
                         <th>Company Head</th>
                         <th>Position</th>
-                      <!--   <th>Number of students</th> -->
+                        <th>Number of students</th>
                         <th>Action</th>
                     </tr>
                     <?php
@@ -170,12 +170,12 @@ include("connect.php");
                                 <td>'.$row['position'].'</td>
                                 ';
 
-                                  // $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                  //   while ($row = mysqli_fetch_assoc($con)) {
-                                  //       echo '
-                                  //       <td>'.$row['countidnum'].'</td>
-                                  //   ';
-                                  //   } 
+                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                    while ($row1 = mysqli_fetch_assoc($con)) {
+                                        echo '
+                                        <td>'.$row1['countidnum'].'</td>
+                                    ';
+                                    } 
 
                                 echo '
                                     <td>
