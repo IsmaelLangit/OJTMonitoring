@@ -454,7 +454,7 @@ include("connect.php");
                                            
                                     
                                             echo '
-                                                <td class="text-left">'.$row['coname'].'</td>
+                                                <a href="profilecompany.php?coid='.$row['coid'].'"><td class="text-left">'.$row['coname'].'</td></a>
                                                 <td>';
                                                 if($row['typeofojt'] == 'In-house'){
                                                     echo '<span class="label label-info">In-house</span>';
@@ -482,9 +482,8 @@ include("connect.php");
                                     ?>
                             </table>
                         </div>
-                </div>
-            </div> <!--End of col-md-12-->
-        </div> <!--End of Container Fluid-->
+                </div><!--End of col-md-12-->
+            </div> <!--End of Container Fluid-->
     </section>
     <!---->
     <!---->
