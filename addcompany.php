@@ -155,8 +155,8 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">&nbsp;</label>
                                         <div class="col-sm-6">
-                                            <input type="submit" name="add" class="btn btn-sm btn-success" value="Add">
-                                            <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                            <input type="submit" name="add" class="btn btn-md btn-success" value="Add">
+                                            <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

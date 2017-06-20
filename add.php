@@ -327,8 +327,8 @@
                                                 <label class="control-label">&nbsp;</label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <input type="submit" name="add" class="btn btn-sm btn-success" value="Add Student">
-                                                <a href="index.php" class="btn btn-sm btn-danger">Cancel</a>
+                                                <input type="submit" name="add" class="btn btn-md btn-success" value="Add Student">
+                                                <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
                                             </div>
                                         </div>
                                     </div>
