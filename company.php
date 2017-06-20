@@ -175,8 +175,30 @@ include("connect.php");
                                   $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                     while ($row1 = mysqli_fetch_assoc($con)) {
                                         echo '
-                                        <td>'.$row1['countidnum'].'</td>
-                                    ';
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#count" ><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+
+                                            <div id="count" class="modal fade" role="dialog">
+                                              <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                  </div>
+                                                  <div class="modal-body text-center">
+                                                    <h2 class="infoStudent">Practicum Student/s</h2>
+                                                    <p class="student"><a href="">Ismael Langit</a></p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+
+                                        ';
                                     } 
 
                                 echo '
