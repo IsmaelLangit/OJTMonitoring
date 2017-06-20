@@ -90,13 +90,12 @@ include("connect.php");
                                  </span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
-                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
-                                    <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
-                                    <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
-                                    <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                                    <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'se lected'; } ?>>Company-based</option>
-                                    <option value="No Company" <?php if($filter == 'No Company'){ echo 'selected'; } ?>>No Company</option>
+                                    <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
+                                    <option value="Complete" <?php if($filter == 'complete'){ echo 'selected'; } ?>>Complete</option>
+                                    <option value="Incomplete" <?php if($filter == 'incomplete'){ echo 'selected'; } ?>>Incomplete</option>
+                                    <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
+                                    <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
+                                    <option value="No Company" <?php if($filter == 'no company'){ echo 'selected'; } ?>>No Company</option>
                                     <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
                                     <option value="yes2" <?php if($filter == 'yes2'){ echo 'selected'; } ?>>With Waiver</option>
                                     <option value="yes3" <?php if($filter == 'yes3'){ echo 'selected'; } ?>>With MOA</option>
