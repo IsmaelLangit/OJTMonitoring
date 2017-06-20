@@ -9,7 +9,6 @@ body {
 	line-height: 1.5;
 	font-family: 'Open Sans', sans-serif;
     overflow-x: hidden; 
-    background-image: url("./img/paper.png") !important;
 }
 ol, ul {
 	list-style: none;

@@ -63,7 +63,7 @@ include("connect.php");
                 $coid = $_GET['coid'];
                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
                 if(mysqli_num_rows($con) != 0){
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company! </strong> with OJT students</div>';
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> Sorry! You <strong> cannot delete a company </strong> with present OJT students</div>';
                 }else{
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
@@ -89,8 +89,13 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
+<<<<<<< HEAD
                         <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
                         <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
+=======
+                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
+                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
+>>>>>>> 5c40e467f6dec5f6c4015d6534bc2b9588c18141
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
@@ -119,16 +124,16 @@ include("connect.php");
             <br>
 
             <div class="table-responsive">
-                <table class="table table-striped table-hover" id="myTable">
+                <table class="table table-hover" id="myTable">
                     <tr class="info">
-                        <th>No</th>
-                        <th>Company Name</th>
-                        <th>Address</th>
-                        <th>Type</th>
-                        <th>Company Head</th>
-                        <th>Position</th>
-                        <th>Number of students</th>
-                        <th>Action</th>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Company Head</th>
+                        <th class="text-center">Position</th>
+                        <th class="text-center">Number of students</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     <?php
                         if($filter){
@@ -161,9 +166,6 @@ include("connect.php");
                                         echo '<span class="label label-success">Government</span> <br>';
                                         echo '<span class="label label-primary">Company-based</span>';
                                     }
-
-                      
-                                  
                           
                                 echo '
                                 <td>'.$row['company_head'].'</td>
