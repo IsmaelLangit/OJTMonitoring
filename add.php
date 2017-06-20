@@ -103,11 +103,11 @@
                             echo '<div class="alert alert-success" role="alert">
                                   <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
                                 </div>';
-                        }else{
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
-                        }
+                    } 
                     
-                }
+                } else {
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>The student already exists.</div>';
+                    }
                 
             }
             ?>
