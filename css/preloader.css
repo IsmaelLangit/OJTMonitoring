@@ -16,14 +16,14 @@
 #laserbar.done { opacity: 0; }
 #laserbar.waiting:before {
 	position: absolute;
-  content: '';
+  	content: '';
 	top: 0;
-  opacity: 1;
+  	opacity: 1;
 	width: 15%;
 	right: 0px;
 	height: 2px;
-	box-shadow: #3bb3cc 1px 0 6px 2px;
-	border-radius: 50%;
+	box-shadow: #3bb3cc 10px 0 3px 5px;
+	border-radius: 10%;
 }
 @-moz-keyframes pulse {
 	30% { opacity: 1; }
