@@ -90,6 +90,7 @@ include("connect.php");
                                  </span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
                                     <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
                                     <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
