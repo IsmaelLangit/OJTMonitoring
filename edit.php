@@ -175,26 +175,31 @@ include("connect.php");
                         <label class="col-sm-3 control-label">Course & Year</label>
                         <div class="col-sm-3">
                             <select name="courseyear" class="form-control">
-                                <option value="<?php echo $row ['courseyear']; ?>"><?php echo $row ['courseyear']; ?></option>
-                                ";
+
                                 <?php
-                                    if ($row ['courseyear'] == 'BSIT 3') {
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSIT 4') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSCS 3') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSCS 4') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                    }
+                                        echo "<option value='BSIT 3' ";
+                                        if($row ['courseyear'] == 'BSIT 3'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSIT-3</option>";
+
+                                        echo "<option value='BSIT 4' ";
+                                        if($row ['courseyear'] == 'BSIT 4'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSIT-4</option>";
+
+                                        echo "<option value='BSCS 3' ";
+                                        if($row ['courseyear'] == 'BSCS 3'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSCS-3</option>";
+
+                                        echo "<option value='BSCS 4' ";
+                                        if($row ['courseyear'] == 'BSCS 4'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSCS-4</option>";
                                     ?>
                             </select>
                         </div>
