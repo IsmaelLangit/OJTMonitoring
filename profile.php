@@ -120,7 +120,7 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Company Name</th>
-                    <td><?php echo $row['coname']; ?></td>
+                    <td><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Status</th>
