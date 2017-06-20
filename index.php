@@ -454,7 +454,7 @@ include("connect.php");
                                            
                                     
                                             echo '
-                                                <a href="profilecompany.php?coid='.$row['coid'].'"><td class="text-left">'.$row['coname'].'</td></a>
+                                                <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
                                                 <td>';
                                                 if($row['typeofojt'] == 'In-house'){
                                                     echo '<span class="label label-info">In-house</span>';
