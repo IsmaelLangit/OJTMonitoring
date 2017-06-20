@@ -416,3 +416,6 @@ span.indexIcon{
 button.disabled{
     cursor: default !important;
 }
+.help{
+    cursor: help;
+}

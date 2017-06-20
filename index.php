@@ -291,7 +291,7 @@ include("connect.php");
                                     
                                                 if($row['endorsement'] == 'yes'){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_endorsement'].' 
                                                                     <br> 
@@ -304,7 +304,7 @@ include("connect.php");
                                                 }
                                                 else if ($row['endorsement'] == 'no' ){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_endorsement'].' 
                                                                     <br> 
@@ -318,7 +318,7 @@ include("connect.php");
                                     
                                                 if($row['waiver'] == 'yes'){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_waiver'].' 
                                                                     <br> 
@@ -330,7 +330,7 @@ include("connect.php");
                                                 }
                                                             else if ($row['waiver'] == 'no' ){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_waiver'].' 
                                                                     <br> 
@@ -344,7 +344,7 @@ include("connect.php");
                                                 if($row['moa'] == 'yes'){
 
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_moa'].' 
                                                                     <br> 
@@ -357,7 +357,7 @@ include("connect.php");
                                                 }
                                                             else if ($row['moa'] == 'no' ){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_moa'].' 
                                                                     <br> 
@@ -370,7 +370,7 @@ include("connect.php");
                                     
                                                 if($row['evaluation'] == 'yes'){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_evaluation'].' 
                                                                     <br> 
@@ -382,7 +382,7 @@ include("connect.php");
                                                 }
                                                             else if ($row['evaluation'] == 'no' ){
                                                     echo '  <td>
-                                                                <a href="" data-html="true" data-toggle="tooltip" 
+                                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                                 title=" 
                                                                     Date Released: '.$row ['release_evaluation'].' 
                                                                     <br> 
