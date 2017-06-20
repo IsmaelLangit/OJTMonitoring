@@ -86,7 +86,7 @@ include("connect.php");
 
                             <div class="form-group input-group dropdown-toggle">
                                 <span class="input-group-btn">  
-                                    <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly> 
+                                    <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
                                  </span>
                                 <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
