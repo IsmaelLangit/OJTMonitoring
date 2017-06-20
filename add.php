@@ -236,14 +236,26 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <?php
-                                                    echo  "<input type='hidden' name='endorsement' value='no'>";
+                                                    echo  " <input type='hidden' name='endorsement' value='no'>";
                                                     
-                                                    echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'><br>" ;
-                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
-                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                                    echo  " <input type='checkbox' name='endorsement' value='yes'>
+                                                            <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+
+                                                    echo  " <label class='control-label'>Date Released</label>
+                                                            <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'>
+
+                                                            <br>" ;
+
+                                                    echo  " <label class='control-label'>Date Received</label>
+                                                            <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'>
+                                                            <br>" ;
+
+                                                    echo  " <label class='control-label'>Remarks</label>
+                                                            <input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'>
+                                                            <br>" ;
                                                     ?>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
