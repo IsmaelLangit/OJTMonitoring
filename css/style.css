@@ -419,3 +419,29 @@ button.disabled{
 .help{
     cursor: help !important;
 }
+.countNumber,
+.countNumber:after,
+.countNumber:before{
+    transition: all .3s;
+}
+.countNumber{
+    background-color: #08a8a6;
+    padding: 3px 8px;
+    border-radius: 100px;
+    color: #fff
+}
+.countNumber:hover{
+    background-color: #067a78;
+    padding: 3px 8px;
+    border-radius: 100px;
+    color: #fff;
+}
+.student{
+    font-size: 1.2em;
+}
+.infoStudent{
+    font-size: 1.8em;
+    color: #067a78;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+}
