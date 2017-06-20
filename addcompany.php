@@ -57,6 +57,8 @@ include("connect.php");
     <section class="section-padding">
         <div class="container-fluid">
 
+            <div id="laserbar"></div>
+            
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
