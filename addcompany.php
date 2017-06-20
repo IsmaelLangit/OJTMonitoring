@@ -74,7 +74,7 @@ include("connect.php");
                                                             VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt' ,'$typeofcompany')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
-                                  <strong> Success!</strong> You have successfully added this company  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this company  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
                                 </div>';
                         }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
