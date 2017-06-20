@@ -89,10 +89,10 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
-                        <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
-                        <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                        <option value="Government" <?php if($filter == 'Government'){ echo 'selected'; } ?>>Government</option>
-                        <option value="Private" <?php if($filter == 'Private'){ echo 'selected'; } ?>>Private</option>
+                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
+                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
+                        <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
+                        <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
                 </div>
 
