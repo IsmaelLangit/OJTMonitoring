@@ -127,7 +127,7 @@ include("connect.php");
                         <th class="text-center">Type</th>
                         <th class="text-center">Company Head</th>
                         <th class="text-center">Position</th>
-                        <th class="text-center">Number of students</th>
+                        <th class="text-center">Number of OJT Student/s</th>
                         <th class="text-center">Action</th>
                     </tr>
                     <?php
