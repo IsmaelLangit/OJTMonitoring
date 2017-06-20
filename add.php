@@ -118,7 +118,7 @@
                 <div class="row">
                         <div class="col-md-9">
                          <form class="form-horizontal well" action="" method="post">
-                        <h2 class="z">Basic Information</h2>
+                        <h2 class="head-title titleFont">Basic Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
