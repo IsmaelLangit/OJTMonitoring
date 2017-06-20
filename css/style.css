@@ -155,9 +155,18 @@ a:hover{
     text-decoration: none;
 }
 /****/
-@media (min-width: 451px) and (max-width: 900px){
+@media (min-width: 35px) and (max-width: 800px){
     .section-title{
         margin-bottom: 15px;
+    }
+    .navbar-default .navbar-nav > li > a{
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.70);
+        color: #fff;
+    }
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+        background-color: rgba(0, 0, 0, 0.70);
+        color: #1babd3;
     }
 }
 @media (min-width: 20px) and (max-width: 450px){
@@ -170,12 +179,12 @@ a:hover{
     }
     .navbar-default .navbar-nav > li > a{
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.87);
-        color: #000;
+        background-color: rgba(0, 0, 0, 0.70);
+        color: #fff;
     }
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-        background-color: rgba(0, 0, 0, 0.87);
-        color: #FFD34E;
+        background-color: rgba(0, 0, 0, 0.70);
+        color: #1babd3;
     }
     .top-title{
         font-size: 15px;
