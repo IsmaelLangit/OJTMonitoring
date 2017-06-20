@@ -117,7 +117,7 @@ include("connect.php");
                     </form>
                     </div>
 
-                    <div class="col-md-1 text-center paddingTopSlight">
+                    <div class="col-md-1 text-center">
                         <a class="btn btn-success addStudent" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ include("connect.php");
 
             <div class="container-fluid">
 
-            <div class="paddingTopSlight"></div>
+            <div class=""></div>
             <button class="btn btn-info btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
 
                 <div id="summary" class="row row-centered padding-top panel-collapse collapse">
