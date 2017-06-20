@@ -89,13 +89,8 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
-<<<<<<< HEAD
-                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
-                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
-=======
                         <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
                         <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
->>>>>>> 5c40e467f6dec5f6c4015d6534bc2b9588c18141
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
@@ -175,9 +170,9 @@ include("connect.php");
                                   $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                     while ($row1 = mysqli_fetch_assoc($con)) {
                                         echo '
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#count" ><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
 
-                                            <div id="count" class="modal fade" role="dialog">
+                                            <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
 
                                                 <!-- Modal content-->
@@ -188,7 +183,14 @@ include("connect.php");
                                                   </div>
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
-                                                    <p class="student"><a href="">Ismael Langit</a></p>
+                                                ';
+                                                    $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                                        while ($row2 = mysqli_fetch_assoc($con1)) {
+                                                        echo '
+                                                        <p class="student"><a href="profile.php?idnum="'.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                                        ';
+                                                    }
+                                                 echo '
                                                   </div>
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
