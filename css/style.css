@@ -417,5 +417,5 @@ button.disabled{
     cursor: default !important;
 }
 .help{
-    cursor: help;
+    cursor: help !important;
 }
