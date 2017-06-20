@@ -108,7 +108,7 @@ include("connect.php");
                             <form id="Name" action="#">
                                 <div class="input-group">
                                     <span class="input-group-btn">  
-                                        <button class="btn btn-default disabled" type="button">Search</button>
+                                        <input style="width:75px;" type="text" class="form-control" placeholder="Search" readonly> 
                                     </span>
                                     <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                                 </div>
