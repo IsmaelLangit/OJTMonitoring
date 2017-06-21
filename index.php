@@ -291,112 +291,100 @@ include("connect.php");
                                                 <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
-                                                if($row['endorsement'] == 'yes'){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_endorsement'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_endorsement'].' 
-                                                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
-                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                                                </a>
-                                                            </td>';
+                                            echo '
+                                            <td>
+                                                <a class="help" data-html="true" data-toggle="tooltip" 
+                                                title=" 
+                                                    Date Released: '.$row ['release_endorsement'].' 
+                                                    <br> 
+                                                    Date Received: '.$row ['receive_endorsement'].' 
+                                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
+                                            ';
 
-                                                }
-                                                else if ($row['endorsement'] == 'no' ){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_endorsement'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_endorsement'].' 
-                                                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
-                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                                                </a>
-                                                            </td>';
-                                                }
+                                            if($row['endorsement'] == 'yes'){
+                                                echo '  
+                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                    </a>
+                                                 </td>';
+                                            }
+                                            else if ($row['endorsement'] == 'no' ){
+                                                echo '  
+                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                        </a>
+                                                    </td>';
+                                            }
                                     
-                                    
-                                                if($row['waiver'] == 'yes'){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_waiver'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_waiver'].' 
-                                                                    <br> Remarks: '.$row ['remark_waiver'].' " >
-                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                                                </a>
-                                                            </td>';
-                                                }
-                                                            else if ($row['waiver'] == 'no' ){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_waiver'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_waiver'].' 
-                                                                    <br> Remarks: '.$row ['remark_waiver'].' " >
-                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                                                </a>
-                                                            </td>';
-                                                }
-                                    
-                                                if($row['moa'] == 'yes'){
+                             
+                                            echo '
+                                            <td>
+                                                <a class="help" data-html="true" data-toggle="tooltip" 
+                                                title=" 
+                                                    Date Released: '.$row ['release_waiver'].' 
+                                                    <br> 
+                                                    Date Received: '.$row ['receive_waiver'].' 
+                                                    <br> Remarks: '.$row ['remark_waiver'].' " >
+                                            ';
 
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_moa'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_moa'].' 
-                                                                    <br> Remarks: '.$row ['remark_moa'].' " >
-                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                                                </a>
-                                                            </td>';
+                                            if($row['waiver'] == 'yes'){
+                                                echo '  
+                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                    </a>
+                                                 </td>';
+                                            }
+                                            else if ($row['waiver'] == 'no' ){
+                                                echo '  
+                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                        </a>
+                                                    </td>';
+                                            }
+                                 
+                                            echo '
+                                                <td>
+                                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                                        title=" 
+                                                            Date Released: '.$row ['release_moa'].' 
+                                                            <br> 
+                                                            Date Received: '.$row ['receive_moa'].' 
+                                                            <br> Remarks: '.$row ['remark_moa'].' " >
+                                                ';
+                                            if($row['moa'] == 'yes'){
+                                                echo '  
+                                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                    </a>
+                                                </td>';
+                                            }
+                                            else if ($row['moa'] == 'no' ){
+                                                    echo '  
+                                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                        </a>
+                                                    </td>';
+                                            }
 
-                                                }
-                                                            else if ($row['moa'] == 'no' ){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_moa'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_moa'].' 
-                                                                    <br> Remarks: '.$row ['remark_moa'].' " >
-                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                                                </a>
-                                                            </td>';
-                                                }
-                                    
+                                            echo '
+                                            <td>
+                                                <a class="help" data-html="true" data-toggle="tooltip" 
+                                                title=" 
+                                                    Date Released: '.$row ['release_evaluation'].' 
+                                                    <br> 
+                                                    Date Received: '.$row ['receive_evaluation'].' 
+                                                    <br> Remarks: '.$row ['remark_evaluation'].' " >
+
+                                            ';
                                                 if($row['evaluation'] == 'yes'){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_evaluation'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_evaluation'].' 
-                                                                    <br> Remarks: '.$row ['remark_evaluation'].' " >
-                                                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                                                </a>
-                                                            </td>';
+                                                    echo '  
+                                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                        </a>
+                                                    </td>';
                                                 }
                                                             else if ($row['evaluation'] == 'no' ){
-                                                    echo '  <td>
-                                                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                                                title=" 
-                                                                    Date Released: '.$row ['release_evaluation'].' 
-                                                                    <br> 
-                                                                    Date Received: '.$row ['receive_evaluation'].' 
-                                                                    <br> Remarks: '.$row ['remark_evaluation'].' " >
-                                                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                                                </a>
-                                                            </td>';
+                                                    echo '  
+                                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                        </a>
+                                                    </td>';
                                                 }
+                 
                                     
                                             echo '
-                                                </td>
                                                 <td>';
                                                 if($row['status'] == 'Complete'){
                                                     echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm">Complete</span>';
@@ -404,17 +392,16 @@ include("connect.php");
                                                     echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm">Incomplete</span>';
                                                 }
 
-                                        echo '
-                                             <div id='.$row['idnum'].' class="modal fade" role="dialog">
-                                                          <div class="modal-dialog">
-
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                              <div class="modal-header">
+                                            echo '
+                                                 <div id='.$row['idnum'].' class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                 <h4 class="modal-title">'.$row['last_name'].', '.$row['first_name'].'</h4>
-                                                              </div>
-                                                              <div class="modal-body">';
+                                                            </div>
+                                                        <div class="modal-body">';
 
 
                                             if ($row ['status'] == "Complete") {

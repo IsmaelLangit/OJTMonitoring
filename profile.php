@@ -131,6 +131,115 @@ include("connect.php");
                         }
                     ?>
                 </tr>
+                <tr>
+                    <th scope="row" class="info">Endorsement</th>
+                    <?php
+                    echo '
+                    <td>
+                            <a class="help" data-html="true" data-toggle="tooltip" 
+                                title=" 
+                                    Date Released: '.$row ['release_endorsement'].' 
+                                    <br> 
+                                    Date Received: '.$row ['receive_endorsement'].' 
+                                    <br> Remarks: '.$row ['remark_endorsement'].' " >
+                    ';
+                    if($row['endorsement'] == 'yes'){
+                        echo '  
+                                <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                            </a>
+                        </td>';
+
+                    }
+                    else if ($row['endorsement'] == 'no' ){
+                        echo '  
+                                <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                            </a>
+                        </td>';
+                                }
+                        ?>
+                </tr>
+                <tr>
+                    <th scope="row" class="info">Waiver</th>
+                    <?php
+                    echo '
+                    <td>
+                        <a class="help" data-html="true" data-toggle="tooltip" 
+                        title=" 
+                            Date Released: '.$row ['release_waiver'].' 
+                            <br> 
+                            Date Received: '.$row ['receive_waiver'].' 
+                            <br> Remarks: '.$row ['remark_waiver'].' " >
+                    ';
+                        if($row['waiver'] == 'yes'){
+                            echo '  
+                                <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                </a>
+                            </td>';
+                        }
+                        else if ($row['waiver'] == 'no' ){
+                                echo '  
+                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                    </a>
+                                </td>';
+                        }
+                    ?>
+                </tr>
+                <tr>
+                    <th scope="row" class="info">Memorandum of Agreement</th>
+                        <?php
+                        echo '
+                        <td>
+                            <a class="help" data-html="true" data-toggle="tooltip" 
+                                title=" 
+                                    Date Released: '.$row ['release_moa'].' 
+                                    <br> 
+                                    Date Received: '.$row ['receive_moa'].' 
+                                    <br> Remarks: '.$row ['remark_moa'].' " >
+                        ';
+                        if($row['moa'] == 'yes'){
+                            echo '  
+                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                </a>
+                            </td>';
+                        }
+                        else if ($row['moa'] == 'no' ){
+                                echo '  
+                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                    </a>
+                                </td>';
+                        }
+                    ?>
+                </tr>
+                <tr>
+                    <th scope="row" class="info">Evaluation</th>
+                    <?php
+                    echo '
+                    <td>
+                        <a class="help" data-html="true" data-toggle="tooltip" 
+                        title=" 
+                            Date Released: '.$row ['release_evaluation'].' 
+                            <br> 
+                            Date Received: '.$row ['receive_evaluation'].' 
+                            <br> Remarks: '.$row ['remark_evaluation'].' " >
+
+                    ';
+                        if($row['evaluation'] == 'yes'){
+                            echo '  
+                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                </a>
+                            </td>';
+                        }
+                                    else if ($row['evaluation'] == 'no' ){
+                            echo '  
+                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                </a>
+                            </td>';
+                        }
+
+                    ?>
+
+
+                </tr>
             </table>
 
             <div class="pull-right">
