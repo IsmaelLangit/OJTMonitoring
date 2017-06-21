@@ -67,11 +67,16 @@ include("connect.php");
                 $position        = mysqli_real_escape_string($connect,$_POST['position']);
                 $typeofojt       = mysqli_real_escape_string($connect,$_POST['typeofojt']);
                 $typeofcompany       = mysqli_real_escape_string($connect,$_POST['typeofcompany']);
+
+                $moa         = $_POST['moa'];
+                $release_moa         = $_POST['release_moa'];
+                $receive_moa         = $_POST['receive_moa'];
+                $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt, typeofcompany)
-                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt' ,'$typeofcompany')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt, typeofcompany, release_moa, receive_moa, remark_moa, moa)
+                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt' ,'$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
                                   <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this company  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
@@ -150,6 +155,25 @@ include("connect.php");
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-3 text-right">
+                                                <label class="control-label subLabel">Memorandum of Agreement</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <?php
+                                                    echo  "<input type='hidden' name='moa' value='no'>";
+                                                    
+                                                    echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
+                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                                    ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">

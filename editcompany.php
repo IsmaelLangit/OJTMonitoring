@@ -81,8 +81,13 @@ include("connect.php");
                 $position        = mysqli_real_escape_string($connect,$_POST['position']);
                 $typeofojt       = $_POST['typeofojt'];
                 $typeofcompany       = $_POST['typeofcompany'];
+
+                $moa         = $_POST['moa'];
+                $release_moa         = $_POST['release_moa'];
+                $receive_moa         = $_POST['receive_moa'];
+                $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
                 
-                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position',typeofojt='$typeofojt' ,typeofcompany='$typeofcompany' WHERE coid='$coid'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position',typeofojt='$typeofojt' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
                 if($update){
                     header("Location: editcompany.php?coid=".$coid."&message=success");
                 }else{
@@ -173,6 +178,38 @@ include("connect.php");
                                     </div>
                                 </div>
                             </div>
+                             <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-3 text-right">
+                                            <label class="control-label subLabel">Memorandum of Agreement</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <?php
+                                                    echo  "<input type='hidden' name='moa' value='no'>";
+                                                    
+                                                    
+                                                    if ($row ['moa'] == 'yes') {
+                                                        echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
+                                                    } 
+                                                    
+                                                    if($row ['moa'] == 'no') {
+                                                        echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
+                                                    }   
+                                              ?>
+                                                <label class='control-label'>Date Released</label>
+                                                <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                                <br>
+                                                <label class='control-label'>Date Received</label>
+                                                <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                                <br>
+                                                <label class='control-label'>Remark/s</label>
+                                                <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">

@@ -440,8 +440,6 @@ include("connect.php");
                                                         </div>
                                             ';
 
-                                           
-                                    
                                             echo '
                                                 <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
                                                 <td>';
@@ -515,31 +513,29 @@ include("connect.php");
     <script src="js/tooltip.js"></script>
     <script>
         function filterData() {
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
-                for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
-                td1 = tr[i].getElementsByTagName("td")[9];
-                td2 = tr[i].getElementsByTagName("td")[3];
-                    if (td || td1) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }       
-                }
+            for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            td1 = tr[i].getElementsByTagName("td")[9];
+            td2 = tr[i].getElementsByTagName("td")[3];
+                if (td || td1) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
             }
+        }
             
-             function resetName(){
-                document.getElementById("Name").reset;
-            }
+        function resetName(){
+            document.getElementById("Name").reset;
+        }
     </script>
-
-    
   </body>
 </html>
