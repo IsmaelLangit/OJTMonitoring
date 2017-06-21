@@ -127,7 +127,6 @@ include("connect.php");
 
             <div class="container-fluid">
 
-            <div class=""></div>
             <button class="btn btn-primary btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
 
                 <div id="summary" class="row row-centered paddingTopSlight panel-collapse collapse">
