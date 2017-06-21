@@ -121,16 +121,18 @@ include("connect.php");
                         </tr>
                     </table>
 
+                    <h2 class="head-title titleFont">Practicum 2 Information</h2>
+                    <hr class="style-four">
+
                     <table class="table table-striped table-bordered table-hover">
 
-                        <h2 class="head-title titleFont">Practicum 2 Information</h2>
-                        <hr class="style-four">
+                        
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Company Name</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Company Name</th>
                             <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Status</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Status</th>
                             <?php
                                 if ($row ['status'] == "Complete") {
                                     echo '<td><span class="label label-success">'.$row ['status'].'</span></td><br>';
@@ -140,7 +142,7 @@ include("connect.php");
                             ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Endorsement</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Endorsement</th>
                             <?php
                             echo '
                             <td class="col-md-6">
@@ -167,7 +169,7 @@ include("connect.php");
                                 ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Waiver</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Waiver</th>
                             <?php
                             echo '
                             <td class="col-md-6">
@@ -193,7 +195,7 @@ include("connect.php");
                             ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Memorandum of Agreement</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
                                 <?php
                                 echo '
                                 <td class="col-md-6">
@@ -219,7 +221,7 @@ include("connect.php");
                             ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-warning text-white col-md-6">Evaluation</th>
+                            <th scope="row" class="bg-danger text-white col-md-6">Evaluation</th>
                             <?php
                             echo '
                             <td class="col-md-6">
