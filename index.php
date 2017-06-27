@@ -38,6 +38,7 @@ include("connect.php");
                                 <li><a href="company.php">list of Companies</a></li>
                                 <li><a href="addcompany.php">Add Company</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
