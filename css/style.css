@@ -33,10 +33,11 @@ a:hover{
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
     height: 60px !important;
-    margin-top: 0px;
+    margin-top: -20px;
 }
 .navbar-default {
     background-color: transparent;
+    height: 70px;
 }
 .main-header
 {
@@ -56,6 +57,7 @@ a:hover{
 }
 .nav > li > a {
     padding: 0px;
+    margin-top: -20px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #82ceff;
@@ -75,7 +77,7 @@ a:hover{
     transition: all 0.5s;
 }
 .top-nav-collapse {
-    background: rgba(0,0,0,0.72);
+    background: rgba(0,0,0,0.82);
     padding: 25px 0;
 }
 nav.stroke ul li a,
