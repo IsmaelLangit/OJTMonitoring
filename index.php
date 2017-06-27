@@ -114,11 +114,11 @@ include("connect.php");
                                  </span>
                                 <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
                                     <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
-                                    <option value="0" <?php if($sort == '0'){ echo 'selected'; } ?>>All</option>
+                                    <option value="all" <?php if($sort == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($sort == '10'){ echo 'selected'; } ?>>10</option>
                                     <option value="20" <?php if($sort == '20'){ echo 'selected'; } ?>>20</option>
                                     <option value="50" <?php if($sort == '50'){ echo 'selected'; } ?>>50</option>
-                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>       
+                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>   
                                 </select>
                             </div>
 
@@ -265,40 +265,196 @@ include("connect.php");
                                     <th class="text-center">OJT Type</th>
                                     <th class="text-center">Action</th>
                                 </tr>
+                                
+
                                 <?php
+
+                                $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter'");
+                                $total=mysqli_num_rows($t);
+
+                                $start=1;
+
+                                if($sort == "all") {
+                                    $limit = $total;
+                                } else {
+                                    $limit=$sort; 
+                                }
+                                
+                                if(isset($_GET['id'])){
+                                    $id=$_GET['id'];
+                                    $start=($id-1)*$limit;
+                                } else {
+                                    $id=1;
+                                }
+                                
                                     if($filter == "yes1"){
                                         $filter = "yes";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                         $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "yes1";
+
                                     } else if($filter == "no1"){
                                         $filter = "no";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "no1";
+
+
                                     } else if($filter == "yes2"){
                                         $filter = "yes";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "yes2";
+
                                     } else if($filter == "no2"){
                                         $filter = "no";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "no2";
+
                                     } else if($filter == "yes3"){
                                         $filter = "yes";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t= mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "yes3";
+
                                     } else if($filter == "no3"){
                                         $filter = "no";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "no3";
+
                                     } else if($filter == "yes4"){
                                         $filter = "yes";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "yes4";
+
                                     } else if($filter == "no4"){
                                         $filter = "no";
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        $filter = "no4";
+
                                     } else if($filter){
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+
+
                                     }else{
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
+                                        $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
+                                        $total=mysqli_num_rows($t);
+
+                                        if($sort == "all") {
+                                        $limit = $total;
+                                        }
+                
+                                        $page=ceil($total/$limit);
+                                        $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     }
+
+                                    ?>
+
+                                    <ul class="pagination">
+
+                                        <?php 
+       
+                                            if ($sort != "all" && $total != 0) {
+                                                if($id > 1) {
+                                                echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                                } else {
+                                                    echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                                }
+        
+                                                for($i=1; $i <= $page; $i++){
+                                                 echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'">'.$i.'</a></li>'; 
+                                                }
+
+                                                if($id!=$page) {
+                                                    echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
+                                                } else {
+                                                    echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li>';
+                                                }
+                                            }
+                                            
+                                        
+                                    ?>
+                                </ul>
+                                <?php 
+
                                     if(mysqli_num_rows($sql) == 0){
                                         echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                                     }else{
-                                        $no = 1;
+                                        if($id == 1) {
+                                            $no = 1;
+                                        } else {
+                                            $no = $sort * ($id-1) + 1;
+                                        }
+
+
                                         while($row = mysqli_fetch_assoc($sql)){
                                             echo '
                                             <tr>
