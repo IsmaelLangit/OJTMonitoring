@@ -304,12 +304,11 @@ include("connect.php");
                                         $limit = $total;
                                         }
 
-                                        if($total == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
-                                        } else {
+                                        if($total != 0) {
                                              $page=ceil($total/$limit);
-                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         }
+                                        $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                        
                 
                                        
                                         $filter = "yes1";
@@ -323,7 +322,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "no1";
 
@@ -337,7 +338,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                       if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "yes2";
 
@@ -350,7 +353,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "no2";
 
@@ -363,7 +368,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "yes3";
 
@@ -376,7 +383,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "no3";
 
@@ -385,10 +394,6 @@ include("connect.php");
                                         $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC");
                                         $total=mysqli_num_rows($t);
 
-                                        
-
-                                       
-                                       
                                         if($sort == "all") {
                                         $limit = $total;
                                         }
@@ -396,6 +401,8 @@ include("connect.php");
                                         if($total != 0) {
                                              $page=ceil($total/$limit);
                                         }
+                
+                                       
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     
                                         $filter = "yes4";
@@ -409,7 +416,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                         $filter = "no4";
 
@@ -421,7 +430,9 @@ include("connect.php");
                                         $limit = $total;
                                         }
                 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
 
 
@@ -429,16 +440,16 @@ include("connect.php");
                                         $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
                                         $total=mysqli_num_rows($t);
 
-                                        if(!$filter || !$sort) {
+                                        if(!$filter && !$sort || $sort == "all") {
                                             $sort = $total;
                                             $limit = $total;
                                         }
 
-                                        if($sort == "all") {
-                                        $limit = $total;
-                                        } 
+                        
 
-                                        $page=ceil($total/$limit);
+                                        if($total != 0) {
+                                             $page=ceil($total/$limit);
+                                        }
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     }
 
