@@ -32,7 +32,7 @@ a:hover{
 
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
-    height: 65px !important;
+    height: 60px !important;
     margin-top: 0px;
 }
 .navbar-default {
@@ -43,6 +43,12 @@ a:hover{
 	background: url(../img/taas.jpg) no-repeat;
 	background-size: cover;
 	min-height: 80px;
+}
+.navbar-brand
+{
+    padding: 0px;
+    height: inherit;
+    font-family: 'Lato', sans-serif;
 }
 .bg-color
 {
@@ -97,6 +103,7 @@ nav ul li a:after,
 nav ul li a:before {
   transition: all .5s;
 }
+
 
 /*---------------------------TYPOGRAPHY---------------------------*/
 
