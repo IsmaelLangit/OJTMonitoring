@@ -274,7 +274,7 @@ include("connect.php");
                                 $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter'");
                                 $total=mysqli_num_rows($t);
 
-                                $start=1;
+                                $start=0;
 
                                 if($sort == "all") {
                                     $limit = $total;
