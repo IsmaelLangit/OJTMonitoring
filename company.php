@@ -343,67 +343,36 @@ include("connect.php");
             });
         }
         var f_no = 1;
-        var f_idnum = 1;
+        var address = 1;
         var f_name = 1;
-        var f_courseandyear = 1;
-        var f_companyname = 1;
-
-        var f_endorsement = 1;
-        var f_waiver = 1;
-        var f_evaluation = 1;
-        var f_moa = 1;
-        var f_status = 1;
         var f_type = 1;
+        var f_number = 1;
+        var f_moa = 1;
 
         $("#no").click(function(){
             f_no *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_no,n);
         });
-        $("#idnum").click(function(){
-            f_idnum *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_idnum,n);
-        });
         $("#name").click(function(){
             f_name *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_name,n);
         });
-        $("#courseandyear").click(function(){
-            f_courseandyear *= -1;
+        $("#address").click(function(){
+            f_address*= -1;
             var n = $(this).prevAll().length;
-            sortTable(f_courseandyear,n);
+            sortTable(f_address,n);
         });
-        $("#companyname").click(function(){
-            f_companyname *= -1;
+        $("#number").click(function(){
+            f_number *= -1;
             var n = $(this).prevAll().length;
-            sortTable(f_companyname,n);
-        });
-        $("#endorsement").click(function(){
-            f_endorsement *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_endorsement,n);
-        });
-        $("#waiver").click(function(){
-            f_waiver *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_waiver,n);
-        });
-        $("#evaluation").click(function(){
-            f_evaluation *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_evaluation,n);
+            sortTable(f_number,n);
         });
         $("#moa").click(function(){
             f_moa *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_moa,n);
-        });
-        $("#status").click(function(){
-            f_status *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_status,n);
         });
         $("#type").click(function(){
             f_type *= -1;
