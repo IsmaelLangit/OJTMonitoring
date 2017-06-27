@@ -239,6 +239,7 @@ include("connect.php");
     <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/preloader.js"></script>
+    <script src="js/tooltip.js"></script>
 
 
     <script>
