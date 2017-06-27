@@ -89,17 +89,10 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
-<<<<<<< HEAD
-                        <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
-                        <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
-                        <option value="Government" <?php if($filter == 'Government'){ echo 'selected'; } ?>>Government</option>
-                        <option value="Private" <?php if($filter == 'Private'){ echo 'selected'; } ?>>Private</option>
-=======
                         <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
                         <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
->>>>>>> 5f98aadbd257c5e6cef6efd6455f72dc15426ef1
                     </select>
                 </div>
 
@@ -135,6 +128,7 @@ include("connect.php");
                         <th class="text-center">Company Head</th>
                         <th class="text-center">Position</th>
                         <th class="text-center">Number of OJT Student/s</th>
+                        <th class="text-center">MOA</th>
                         <th class="text-center">Action</th>
                     </tr>
                     <?php
@@ -209,6 +203,27 @@ include("connect.php");
 
                                         ';
                                     } 
+                                echo '
+                                                <td>
+                                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                                        title=" 
+                                                            Date Released: '.$row ['release_moa'].' 
+                                                            <br> 
+                                                            Date Received: '.$row ['receive_moa'].' 
+                                                            <br> Remarks: '.$row ['remark_moa'].' " >
+                                                ';
+                                            if($row['moa'] == 'yes'){
+                                                echo '  
+                                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                                    </a>
+                                                </td>';
+                                            }
+                                            else if ($row['moa'] == 'no' ){
+                                                    echo '  
+                                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                        </a>
+                                                    </td>';
+                                            }
 
                                 echo '
                                     <td>

@@ -108,14 +108,29 @@ include("connect.php");
                                 </select>
                             </div>
 
+                            <div class="form-group input-group dropdown-toggle">
+                                <span class="input-group-btn">  
+                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
+                                 </span>
+                                <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
+                                    <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
+                                    <option value="0" <?php if($sort == '0'){ echo 'selected'; } ?>>All</option>
+                                    <option value="Complete" <?php if($sort == 'complete'){ echo 'selected'; } ?>>Complete</option>
+                                    <option value="Incomplete" <?php if($sort == 'incomplete'){ echo 'selected'; } ?>>Incomplete</option>
+                                    <option value="In-house" <?php if($sort == 'in-house'){ echo 'selected'; } ?>>In-house</option>
+                                </select>
+                            </div>
+
                             <form id="Name" action="#">
                                 <div class="input-group">
                                     <span class="input-group-btn">  
                                         <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> 
                                     </span>
-                                    <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
+                                    <input type="text" id="myInput" onkeyup="search()" class="form-control input-xxlarge">
                                 </div>
                             </form> 
+
+
 
                     </form>
                     </div>
@@ -512,7 +527,7 @@ include("connect.php");
     <script src="js/preloader.js"></script>
     <script src="js/tooltip.js"></script>
     <script>
-        function filterData() {
+        function search() {
             var input, filter, table, tr, td, i;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();

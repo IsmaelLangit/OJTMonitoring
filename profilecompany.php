@@ -158,7 +158,35 @@ include("connect.php");
                         } 
                     ?>
                     
-                </tr> 
+                </tr>
+                <tr>
+                    <tr>
+                            <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
+                                <?php
+                                echo '
+                                <td class="col-md-6">
+                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                        title=" 
+                                            Date Released: '.$row ['release_moa'].' 
+                                            <br> 
+                                            Date Received: '.$row ['receive_moa'].' 
+                                            <br> Remarks: '.$row ['remark_moa'].' " >
+                                ';
+                                if($row['moa'] == 'yes'){
+                                    echo '  
+                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        </a>
+                                    </td>';
+                                }
+                                else if ($row['moa'] == 'no' ){
+                                        echo '  
+                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                            </a>
+                                        </td>';
+                                }
+                            ?>
+                        </tr>
+                </tr>  
             </table>
 
             <div class="pull-right">

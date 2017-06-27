@@ -108,7 +108,7 @@ include("connect.php");
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
