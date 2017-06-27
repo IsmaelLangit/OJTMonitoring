@@ -406,14 +406,19 @@ include("connect.php");
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
 
 
-                                    }else{
+                                    } else {
                                         $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
                                         $total=mysqli_num_rows($t);
 
+                                        if(!$filter || !$sort) {
+                                            $sort = $total;
+                                            $limit = $total;
+                                        }
+
                                         if($sort == "all") {
                                         $limit = $total;
-                                        }
-                
+                                        } 
+
                                         $page=ceil($total/$limit);
                                         $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     }
