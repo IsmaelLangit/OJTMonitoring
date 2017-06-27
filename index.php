@@ -254,17 +254,17 @@ include("connect.php");
 
                                 <thead>
                                     <tr class="info">
-                                        <th id="no" class="text-center" title="Sort By Number">No</th>
-                                        <th id="idnum" class="text-center" title="Sort By ID Number">ID Number</th>
-                                        <th id="name" class="text-center" title="Sort By Name">Name</th>
-                                        <th id="courseandyear" class="text-center" title="Sort By Course and Year"> Course & Year</th>
-                                        <th id="endorsement" class="text-center" title="Sort By Endorsement Status">Endorsement</th>
-                                        <th id="waiver" class="text-center" title="Sort By Waiver Status">Waiver</th>
-                                        <th id="moa" class="text-center" title="Sort By MOA Status">MOA</th>
-                                        <th id="evaluation" class="text-center" title="Sort By Evaluation Status">Evaluation</th>
-                                        <th id="status" class="text-center" title="Sort By Requirement Status">Requirement Status</th>
-                                        <th id="companyname" class="text-center" title="Sort By Company Name">Company Name</th>
-                                        <th id="type" class="text-center" title="Sort By OJT Type">OJT Type</th>
+                                        <th id="no" class="text-center" title="Sort By Number"><span class="fa fa-sort space"></span>No </th>
+                                        <th id="idnum" class="text-center" title="Sort By ID Number"><span class="fa fa-sort space"></span>ID Number</th>
+                                        <th id="name" class="text-center" title="Sort By Name"><span class="fa fa-sort space"></span>Name</th>
+                                        <th id="courseandyear" class="text-center" title="Sort By Course and Year"><span class="fa fa-sort space"></span> Course & Year</th>
+                                        <th id="endorsement" class="text-center" title="Sort By Endorsement Status"><span class="fa fa-sort space"></span>Endorsement</th>
+                                        <th id="waiver" class="text-center" title="Sort By Waiver Status"><span class="fa fa-sort space"></span>Waiver</th>
+                                        <th id="moa" class="text-center" title="Sort By MOA Status"><span class="fa fa-sort space"></span>MOA</th>
+                                        <th id="evaluation" class="text-center" title="Sort By Evaluation Status"><span class="fa fa-sort space"></span>Evaluation</th>
+                                        <th id="status" class="text-center" title="Sort By Requirement Status"><span class="fa fa-sort space"></span>Requirement Status</th>
+                                        <th id="companyname" class="text-center" title="Sort By Company Name"><span class="fa fa-sort space"></span>Company Name</th>
+                                        <th id="type" class="text-center" title="Sort By OJT Type"><span class="fa fa-sort space"></span>OJT Type</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>

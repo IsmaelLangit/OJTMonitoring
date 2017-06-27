@@ -108,7 +108,7 @@
                     } 
                     
                 } else {
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>The student already exists.</div>';
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class="fa fa-check-circle-o"></span> Sorry! </strong> The student you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
             }

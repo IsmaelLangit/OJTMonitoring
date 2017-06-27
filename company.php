@@ -121,14 +121,14 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th id="no" class="text-center touch">No</th>
-                            <th id="name" class="text-center touch">Company Name</th>
-                            <th id="address" class="text-center touch">Address</th>
-                            <th id="type" class="text-center touch">Type</th>
-                            <th id="head" class="text-center touch">Company Head</th>
-                            <th id="position" class="text-center touch">Position</th>
-                            <th id="number" class="text-center touch">Number of OJT Student/s</th>
-                            <th id="moa" class="text-center touch">MOA</th>
+                            <th id="no" class="text-center touch"><span class="fa fa-sort space"></span>No</th>
+                            <th id="name" class="text-center touch"><span class="fa fa-sort space"></span>Company Name</th>
+                            <th id="address" class="text-center">Address</th>
+                            <th id="type" class="text-center touch"><span class="fa fa-sort space"></span>Type</th>
+                            <th id="head" class="text-center">Company Head</th>
+                            <th id="position" class="text-center">Position</th>
+                            <th id="number" class="text-center touch"><span class="fa fa-sort space"></span>Number of OJT Student/s</th>
+                            <th id="moa" class="text-center touch"><span class="fa fa-sort space"></span>MOA</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
