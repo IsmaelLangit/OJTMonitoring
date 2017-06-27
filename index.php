@@ -45,8 +45,7 @@ include("connect.php");
             <!--/ nav-->
             <div class="container text-center">
                 <div class="wrapper wow fadeIn">
-                    <h2 class="top-title">List of Practicum 2</h2>
-                    <h3 class="title">Students</h3>
+                    <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
                 </div>
             </div>
         </div>

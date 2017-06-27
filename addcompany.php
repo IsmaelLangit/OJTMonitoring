@@ -46,8 +46,7 @@ include("connect.php");
             <!--/ nav-->
             <div class="container text-center">
                 <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="top-title">Company</h2>
-                    <h3 class="title">Addition</h3>
+                    <h2 class="top-title"><span class="title">Add</span> a Company  </h2>
                 </div>
             </div>
         </div>

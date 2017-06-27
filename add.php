@@ -44,8 +44,7 @@
                 <!--/ nav-->
                 <div class="container text-center">
                     <div class="wrapper wow fadeIn delay-05s " >
-                        <h2 class="top-title">Student</h2>
-                        <h3 class="title">Addition</h3>
+                        <h2 class="top-title"><span class="title">Add</span> a Student </h2>
                     </div>
                 </div>
             </div>
@@ -322,7 +321,7 @@
                     </form>
                         </div>
                         <!--end of col-md-9-->
-                        <div class="col-md-3">
+                        <div class="col-md-3 padding-top">
                             <img class="img-responsive text-center center-block addPicture" src="img/1486485564-add-character-include-more-person-user_81147.png">
                         </div>
                     </div>

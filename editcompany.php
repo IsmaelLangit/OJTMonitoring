@@ -45,16 +45,16 @@ include("connect.php");
             <!--/ nav-->
             <div class="container-fluid text-center">
                 <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="top-title">Edit</h2>
-                    <h2 class="companytitle">
+                    <h2 class="top-title">Edit
+                    <span class="companytitle">
                         <?php 
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
                             echo $row ['coname']."'s";
                             ?> 
-                    </h2>
-                    <h3 class="top-title">Details</h3>
+                    </span>
+                    Details</h2>
                 </div>
             </div>
         </div>

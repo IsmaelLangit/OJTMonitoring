@@ -44,8 +44,9 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="title">
+                <div class="wrapper wow fadeIn delay-05s">
+                    <h2 class="top-title">
+                        <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
                             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
@@ -58,8 +59,8 @@ include("connect.php");
                             }
                             
                             ?> 
-                    </h2>
-                    <h3 class="top-title">Profile</h3>
+                        </span>
+                    Profile</h2>
                 </div>
             </div>
         </div>
@@ -94,8 +95,6 @@ include("connect.php");
             ?>
 
             <div class="row">
-                
-                <div class="col-md-6">
 
                     <h2 class="head-title titleFont">Basic Information</h2>
                     <hr class="style-four">
@@ -123,9 +122,6 @@ include("connect.php");
                         </tr>
                     </table>
 
-                </div>
-
-                <div class="col-md-6">
                     <h2 class="head-title titleFont">Practicum 2 Information</h2>
                     <hr class="style-four">
 
@@ -252,7 +248,6 @@ include("connect.php");
                             ?>
                         </tr>
                     </table>
-                </div>
             </div>
 
             <div class="row text-center">

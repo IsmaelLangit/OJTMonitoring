@@ -45,7 +45,7 @@ include("connect.php");
             <!--/ nav-->
             <div class="container-fluid text-center">
                 <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="companytitle">
+                    <h2 class="title">
                         <?php 
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
@@ -53,11 +53,10 @@ include("connect.php");
                             if (substr($row ['coname'], -1) == "s") {
                                 echo $row ['coname']."'";
                             } else if (substr($row ['coname'], -1) != "s"){
-                                 echo $row ['coname']."'s";
+                                 echo $row ['coname'];
                             }
                             ?> 
                     </h2>
-                    <h2 class="top-title">Profile</h3>
                 </div>
             </div>
         </div>
@@ -65,7 +64,7 @@ include("connect.php");
     <!--/ header-->
     <!---->
     <section class="section-padding">
-        <div class="container">
+        <div class="container padding-top">
 
             
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -201,7 +200,7 @@ include("connect.php");
     </section>
     <!---->
     <!---->
-    <footer class="footer-distributed footer">
+    <footer class="footer-distributed footer navbar-fixed-bottom">
             <div class="footer-left">
                 <img class="footerLogo img-responsive" src="img/NewLogo.png">
                 <p class="footer-links">
