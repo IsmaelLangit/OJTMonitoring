@@ -110,11 +110,11 @@ nav ul li a:before {
 /*---------------------------TYPOGRAPHY---------------------------*/
 
 .wrapper{
-	padding: 90px 0px;
+	padding: 50px 0px;
 }
 .top-title{
 	z-index: 5;
-	font-size: 27px;
+	font-size: 20px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 0px;
@@ -123,7 +123,7 @@ nav ul li a:before {
 	text-transform: uppercase;
 }
 .sub-title{
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 71px;
@@ -132,10 +132,10 @@ nav ul li a:before {
 	text-transform: uppercase;
 }
 .title{
-	font-size: 80px;
+	font-size: 60px;
 	font-weight: 700;
 	color: #1babd3;
-	line-height: 10px;
+	line-height: 0px;
 	letter-spacing: 4px;
 	opacity: 1;
 	text-transform: uppercase;
