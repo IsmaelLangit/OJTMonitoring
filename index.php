@@ -164,7 +164,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Complete">
+                    <a href="index.php?filter=Complete&sort=all">
                         <div class="col-sm-2 well wellHeight green col-centered text-center">
                         <span class="indexIcon fa fa-check"></span>
                         <hr class="style-four">
@@ -180,7 +180,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Incomplete">
+                    <a href="index.php?filter=Incomplete&sort=all">
                         <div class="col-sm-2 well wellHeight red col-centered text-center">
                         <span class="indexIcon fa fa-remove"></span>
                         <hr class="style-four">
@@ -196,7 +196,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Company-based">
+                    <a href="index.php?filter=Company-based&sort=all">
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
@@ -213,7 +213,7 @@ include("connect.php");
                     </a>
 
 
-                    <a href="index.php?filter=In-house">
+                    <a href="index.php?filter=In-house&sort=all">
                         <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
@@ -229,7 +229,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=No+Company">
+                    <a href="index.php?filter=No+Company&sort=all">
                         <div class="col-sm-2 well wellHeight orange col-centered text-center">
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
