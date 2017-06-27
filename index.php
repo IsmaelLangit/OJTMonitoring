@@ -256,13 +256,13 @@ include("connect.php");
                                         <th id="idnum" class="text-center">ID Number</th>
                                         <th id="name" class="text-center">Name</th>
                                         <th id="courseandyear" class="text-center">Course & Year</th>
-                                        <th class="text-center">Endorsement</th>
-                                        <th class="text-center">Waiver</th>
-                                        <th class="text-center">MOA</th>
-                                        <th class="text-center">Evaluation</th>
-                                        <th class="text-center">Requirement Status</th>
+                                        <th id="endorsement" class="text-center">Endorsement</th>
+                                        <th id="waiver" class="text-center">Waiver</th>
+                                        <th id="moa" class="text-center">MOA</th>
+                                        <th id="evaluation" class="text-center">Evaluation</th>
+                                        <th id="status" class="text-center">Requirement Status</th>
                                         <th id="companyname" class="text-center">Company Name</th>
-                                        <th class="text-center">OJT Type</th>
+                                        <th id="type" class="text-center">OJT Type</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -585,17 +585,73 @@ include("connect.php");
                 $('#mytable').children('tbody').append(row);
             });
         }
-        var f_name = 1;
+        var f_no = 1;
         var f_idnum = 1;
-        $("#name").click(function(){
-            f_name *= -1;
+        var f_name = 1;
+        var f_courseandyear = 1;
+        var f_companyname = 1;
+
+        var f_endorsement = 1;
+        var f_waiver = 1;
+        var f_evaluation = 1;
+        var f_moa = 1;
+        var f_status = 1;
+        var f_type = 1;
+
+        $("#no").click(function(){
+            f_no *= -1;
             var n = $(this).prevAll().length;
-            sortTable(f_name,n);
+            sortTable(f_no,n);
         });
         $("#idnum").click(function(){
             f_idnum *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_idnum,n);
+        });
+        $("#name").click(function(){
+            f_name *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_name,n);
+        });
+        $("#courseandyear").click(function(){
+            f_courseandyear *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_courseandyear,n);
+        });
+        $("#companyname").click(function(){
+            f_companyname *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_companyname,n);
+        });
+        $("#endorsement").click(function(){
+            f_endorsement *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_endorsement,n);
+        });
+        $("#waiver").click(function(){
+            f_waiver *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_waiver,n);
+        });
+        $("#evaluation").click(function(){
+            f_evaluation *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_evaluation,n);
+        });
+        $("#moa").click(function(){
+            f_moa *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_moa,n);
+        });
+        $("#status").click(function(){
+            f_status *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_status,n);
+        });
+        $("#type").click(function(){
+            f_type *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_type,n);
         });
     </script>
   </body>
