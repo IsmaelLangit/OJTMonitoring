@@ -119,17 +119,19 @@ include("connect.php");
 
             <div class="table-responsive">
                 <table class="table table-hover" id="myTable">
-                    <tr class="info">
-                        <th class="text-center">No</th>
-                        <th class="text-center">Company Name</th>
-                        <th class="text-center">Address</th>
-                        <th class="text-center">Type</th>
-                        <th class="text-center">Company Head</th>
-                        <th class="text-center">Position</th>
-                        <th class="text-center">Number of OJT Student/s</th>
-                        <th class="text-center">MOA</th>
-                        <th class="text-center">Action</th>
-                    </tr>
+                    <thead>
+                        <tr class="info">
+                            <th id="no" class="text-center touch">No</th>
+                            <th id="name" class="text-center touch">Company Name</th>
+                            <th id="address" class="text-center touch">Address</th>
+                            <th id="type" class="text-center touch">Type</th>
+                            <th id="head" class="text-center touch">Company Head</th>
+                            <th id="position" class="text-center touch">Position</th>
+                            <th id="number" class="text-center touch">Number of OJT Student/s</th>
+                            <th id="moa" class="text-center touch">MOA</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
                     <?php
                         if($filter){
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC");
@@ -308,6 +310,106 @@ include("connect.php");
              function resetName(){
                 document.getElementById("Name").reset;
             }
+    </script>
+
+    <script>
+        function sortTable(f,n){
+            var rows = $('#myTable tbody  tr').get();
+
+            rows.sort(function(a, b) {
+
+                var A = getVal(a);
+                var B = getVal(b);
+
+                if(A < B) {
+                    return -1*f;
+                }
+                if(A > B) {
+                    return 1*f;
+                }
+                return 0;
+            });
+
+            function getVal(elm){
+                var v = $(elm).children('td').eq(n).text().toUpperCase();
+                if($.isNumeric(v)){
+                    v = parseInt(v,10);
+                }
+                return v;
+            }
+
+            $.each(rows, function(index, row) {
+                $('#myTable').children('tbody').append(row);
+            });
+        }
+        var f_no = 1;
+        var f_idnum = 1;
+        var f_name = 1;
+        var f_courseandyear = 1;
+        var f_companyname = 1;
+
+        var f_endorsement = 1;
+        var f_waiver = 1;
+        var f_evaluation = 1;
+        var f_moa = 1;
+        var f_status = 1;
+        var f_type = 1;
+
+        $("#no").click(function(){
+            f_no *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_no,n);
+        });
+        $("#idnum").click(function(){
+            f_idnum *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_idnum,n);
+        });
+        $("#name").click(function(){
+            f_name *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_name,n);
+        });
+        $("#courseandyear").click(function(){
+            f_courseandyear *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_courseandyear,n);
+        });
+        $("#companyname").click(function(){
+            f_companyname *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_companyname,n);
+        });
+        $("#endorsement").click(function(){
+            f_endorsement *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_endorsement,n);
+        });
+        $("#waiver").click(function(){
+            f_waiver *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_waiver,n);
+        });
+        $("#evaluation").click(function(){
+            f_evaluation *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_evaluation,n);
+        });
+        $("#moa").click(function(){
+            f_moa *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_moa,n);
+        });
+        $("#status").click(function(){
+            f_status *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_status,n);
+        });
+        $("#type").click(function(){
+            f_type *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_type,n);
+        });
     </script>
 
 
