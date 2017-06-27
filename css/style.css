@@ -281,6 +281,13 @@ nav ul li a:before {
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+#modal span{
+    display: block;
+    background:#5DC3A7;
+    padding: 10px;
+    color:#fff;
+    border-radius:3px;
+}
 .nothingToDisplay{
     font-size: 2em;
     font-style: italic;

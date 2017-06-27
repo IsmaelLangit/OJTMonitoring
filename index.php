@@ -579,9 +579,9 @@ include("connect.php");
 
 
                                             if ($row ['status'] == "Complete") {
-                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-success" style = "font-size: 1em;">'.$row ['status'].'</span><br>';
+                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-success" style = "font-size: 1.2em;">'.$row ['status'].'</span><br>';
                                             } else if ($row ['status'] == "Incomplete") {
-                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-warning" style = "font-size: 1em;">'.$row ['status'].'</span><br>';
+                                                echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-warning" style = "font-size: 1.2em;">'.$row ['status'].'</span><br>';
                                             }
                                         echo '                            
                                                                 <br>
