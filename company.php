@@ -45,8 +45,7 @@ include("connect.php");
             <!--/ nav-->
             <div class="container text-center">
                 <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="top-title">List of Practicum 2</h2>
-                    <h3 class="title">Companies</h3>
+                    <h2 class="top-title">List of Practicum 2 <span class="title">Companies</span></h2>
                 </div>
             </div>
         </div>
@@ -145,8 +144,8 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-home"></" aria-hidden="true"></span> '.$row['coname'].'</a></td>
-                                                <td>'.$row['coaddress'].'</td>';
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-home"></" aria-hidden="true"></span> '.$row['coname'].'</a></td>
+                                    <td class="col-md-4">'.$row['coaddress'].'</td>';
                                             echo '
                                     <td class = "text-center">';
                                     if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Private'){
@@ -164,8 +163,8 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td>'.$row['company_head'].'</td>
-                                <td>'.$row['position'].'</td>
+                                <td >'.$row['company_head'].'</td>
+                                <td class="col-md-1">'.$row['position'].'</td>
                                 ';
 
                                   $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
@@ -284,6 +283,7 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/preloader.js"></script>
+    <script src="js/tooltip.js"></script>
     <script>
     function filterData() {
                 var input, filter, table, tr, td, i;

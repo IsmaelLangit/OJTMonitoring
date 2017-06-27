@@ -38,6 +38,7 @@ include("connect.php");
                                 <li><a href="company.php">list of Companies</a></li>
                                 <li><a href="addcompany.php">Add Company</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -45,8 +46,7 @@ include("connect.php");
             <!--/ nav-->
             <div class="container text-center">
                 <div class="wrapper wow fadeIn">
-                    <h2 class="top-title">List of Practicum 2</h2>
-                    <h3 class="title">Students</h3>
+                    <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
                 </div>
             </div>
         </div>
@@ -251,21 +251,23 @@ include("connect.php");
                 <div class="paddingTopSlight">
                         <div class="table-responsive">
                             <table class="table table-fixed table-striped table-hover text-center" id="myTable">
-                                <tr class="info">
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">ID Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Course & Year</th>
-                                    <th class="text-center">Endorsement</th>
-                                    <th class="text-center">Waiver</th>
-                                    <th class="text-center">MOA</th>
-                                    <th class="text-center">Evaluation</th>
-                                    <th class="text-center">Requirement Status</th>
-                                    <th class="text-center">Company Name</th>
-                                    <th class="text-center">OJT Type</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                                
+
+                                <thead>
+                                    <tr class="info">
+                                        <th id="no" class="text-center" title="Sort By Number">No</th>
+                                        <th id="idnum" class="text-center" title="Sort By ID Number">ID Number</th>
+                                        <th id="name" class="text-center" title="Sort By Name">Name</th>
+                                        <th id="courseandyear" class="text-center" title="Sort By Course and Year"> Course & Year</th>
+                                        <th id="endorsement" class="text-center" title="Sort By Endorsement Status">Endorsement</th>
+                                        <th id="waiver" class="text-center" title="Sort By Waiver Status">Waiver</th>
+                                        <th id="moa" class="text-center" title="Sort By MOA Status">MOA</th>
+                                        <th id="evaluation" class="text-center" title="Sort By Evaluation Status">Evaluation</th>
+                                        <th id="status" class="text-center" title="Sort By Requirement Status">Requirement Status</th>
+                                        <th id="companyname" class="text-center" title="Sort By Company Name">Company Name</th>
+                                        <th id="type" class="text-center" title="Sort By OJT Type">OJT Type</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
 
                                 <?php
 
@@ -708,6 +710,106 @@ include("connect.php");
         function resetName(){
             document.getElementById("Name").reset;
         }
+    </script>
+
+    <script>
+        function sortTable(f,n){
+            var rows = $('#myTable tbody  tr').get();
+
+            rows.sort(function(a, b) {
+
+                var A = getVal(a);
+                var B = getVal(b);
+
+                if(A < B) {
+                    return -1*f;
+                }
+                if(A > B) {
+                    return 1*f;
+                }
+                return 0;
+            });
+
+            function getVal(elm){
+                var v = $(elm).children('td').eq(n).text().toUpperCase();
+                if($.isNumeric(v)){
+                    v = parseInt(v,10);
+                }
+                return v;
+            }
+
+            $.each(rows, function(index, row) {
+                $('#myTable').children('tbody').append(row);
+            });
+        }
+        var f_no = 1;
+        var f_idnum = 1;
+        var f_name = 1;
+        var f_courseandyear = 1;
+        var f_companyname = 1;
+
+        var f_endorsement = 1;
+        var f_waiver = 1;
+        var f_evaluation = 1;
+        var f_moa = 1;
+        var f_status = 1;
+        var f_type = 1;
+
+        $("#no").click(function(){
+            f_no *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_no,n);
+        });
+        $("#idnum").click(function(){
+            f_idnum *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_idnum,n);
+        });
+        $("#name").click(function(){
+            f_name *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_name,n);
+        });
+        $("#courseandyear").click(function(){
+            f_courseandyear *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_courseandyear,n);
+        });
+        $("#companyname").click(function(){
+            f_companyname *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_companyname,n);
+        });
+        $("#endorsement").click(function(){
+            f_endorsement *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_endorsement,n);
+        });
+        $("#waiver").click(function(){
+            f_waiver *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_waiver,n);
+        });
+        $("#evaluation").click(function(){
+            f_evaluation *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_evaluation,n);
+        });
+        $("#moa").click(function(){
+            f_moa *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_moa,n);
+        });
+        $("#status").click(function(){
+            f_status *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_status,n);
+        });
+        $("#type").click(function(){
+            f_type *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_type,n);
+        });
     </script>
   </body>
 </html>

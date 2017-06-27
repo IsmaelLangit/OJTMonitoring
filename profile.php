@@ -44,8 +44,9 @@ include("connect.php");
             </nav>
             <!--/ nav-->
             <div class="container text-center">
-                <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="title">
+                <div class="wrapper wow fadeIn delay-05s">
+                    <h2 class="top-title">
+                        <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
                             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
@@ -58,8 +59,8 @@ include("connect.php");
                             }
                             
                             ?> 
-                    </h2>
-                    <h3 class="top-title">Profile</h3>
+                        </span>
+                    Profile</h2>
                 </div>
             </div>
         </div>
@@ -69,7 +70,6 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
-            
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -98,6 +98,7 @@ include("connect.php");
 
                     <h2 class="head-title titleFont">Basic Information</h2>
                     <hr class="style-four">
+                    <br>
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th scope="row" class="bg-info col-md-6">ID Number</th>
@@ -125,8 +126,6 @@ include("connect.php");
                     <hr class="style-four">
 
                     <table class="table table-striped table-bordered table-hover">
-
-                        
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Company Name</th>
                             <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>

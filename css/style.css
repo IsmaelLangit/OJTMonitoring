@@ -7,9 +7,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+table th:hover{
+     cursor:pointer;
+}
 .section-padding
 {
-	padding: 20px 15px;
+	padding: 25px 15px;
 }
 h1, h2, h3, h4, h5, h6
 {
@@ -32,11 +35,12 @@ a:hover{
 
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
-    height: 65px !important;
-    margin-top: 0px;
+    height: 60px !important;
+    margin-top: -20px;
 }
 .navbar-default {
     background-color: transparent;
+    height: 70px;
 }
 .main-header
 {
@@ -44,12 +48,19 @@ a:hover{
 	background-size: cover;
 	min-height: 80px;
 }
+.navbar-brand
+{
+    padding: 0px;
+    height: inherit;
+    font-family: 'Lato', sans-serif;
+}
 .bg-color
 {
 	background-color: RGBA(0, 0, 0, 0.72);
 }
 .nav > li > a {
     padding: 0px;
+    margin-top: -20px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #82ceff;
@@ -69,9 +80,10 @@ a:hover{
     transition: all 0.5s;
 }
 .top-nav-collapse {
-    background: rgba(0,0,0,0.72);
+    background: rgba(0,0,0,0.82);
     padding: 25px 0;
 }
+/*--
 nav.stroke ul li a,
 nav.fill ul li a {
   position: relative;
@@ -86,7 +98,7 @@ nav.fill ul li a:after {
   width: 0%;
   content: '.';
   color: transparent;
-  background: #aaa;
+  background: #22e2d6;
   height: 1px;
 }
 nav.stroke ul li a:hover:after {
@@ -97,15 +109,17 @@ nav ul li a:after,
 nav ul li a:before {
   transition: all .5s;
 }
+--/
+
 
 /*---------------------------TYPOGRAPHY---------------------------*/
 
 .wrapper{
-	padding: 90px 0px;
+	padding: 50px 0px;
 }
 .top-title{
 	z-index: 5;
-	font-size: 27px;
+	font-size: 25px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 0px;
@@ -114,7 +128,7 @@ nav ul li a:before {
 	text-transform: uppercase;
 }
 .sub-title{
-	font-size: 50px;
+	font-size: 25px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 71px;
@@ -123,17 +137,17 @@ nav ul li a:before {
 	text-transform: uppercase;
 }
 .title{
-	font-size: 80px;
+	font-size: 25px;
 	font-weight: 700;
-	color: #1babd3;
-	line-height: 10px;
+	color: #82ceff;
+	line-height: 0px;
 	letter-spacing: 4px;
 	opacity: 1;
 	text-transform: uppercase;
 	padding: 25px 0px;
 }
 .companytitle{
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 700;
     color: #1babd3;
     line-height: 10px;
@@ -162,6 +176,9 @@ nav ul li a:before {
         background-color: rgba(0, 0, 0, 0.70);
         color: #1babd3;
     }
+    .navbar-brand img{
+        height: 50px;
+    }
 }
 @media (min-width: 20px) and (max-width: 450px){
     .navbar-toggle:hover, .navbar-toggle{
@@ -184,10 +201,10 @@ nav ul li a:before {
         font-size: 15px;
     }
     .title{
-        font-size: 50px;
+        font-size: 15px;
     }
     .sub-title{
-        font-size: 24px;
+        font-size: 15px;
     }
     .padding-right-zero{
         padding-right: 15px;
@@ -206,20 +223,20 @@ nav ul li a:before {
     }
 }
 
-.overlay {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.80);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.footerLogo{
-    height: 60px;
-}
-.padding-top{
-    padding-top: 50px !important;
-}
+    .overlay {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.80);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .footerLogo{
+        height: 60px;
+    }
+    .padding-top{
+        padding-top: 50px !important;
+    }
 /*----------------------------RETURN TO TOP------------------------------*/
 #return-to-top {
     position: fixed;
@@ -358,7 +375,9 @@ button.disabled{
     text-transform: uppercase;
     letter-spacing: 2.5px;
 }
-
+.paddingTop{
+    padding: 150px 0;
+}
 /*-----------------------------QUICK SUMMARY STYLES-----------------------------*/
 
 .blue,.green,.orange,.red,.violet,.yellow,
