@@ -69,7 +69,6 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
-            
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -95,9 +94,12 @@ include("connect.php");
             ?>
 
             <div class="row">
+                
+                <div class="col-md-6">
 
                     <h2 class="head-title titleFont">Basic Information</h2>
                     <hr class="style-four">
+                    <br>
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th scope="row" class="bg-info col-md-6">ID Number</th>
@@ -121,12 +123,13 @@ include("connect.php");
                         </tr>
                     </table>
 
+                </div>
+
+                <div class="col-md-6">
                     <h2 class="head-title titleFont">Practicum 2 Information</h2>
                     <hr class="style-four">
 
                     <table class="table table-striped table-bordered table-hover">
-
-                        
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Company Name</th>
                             <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>
@@ -249,6 +252,7 @@ include("connect.php");
                             ?>
                         </tr>
                     </table>
+                </div>
             </div>
 
             <div class="row text-center">
