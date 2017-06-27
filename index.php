@@ -84,11 +84,13 @@ include("connect.php");
                     <div class="col-md-11">
                         <form class="form-inline" method="get">
 
-                            <div class="form-group dropdown-toggle">
+                            <div class="form-group input-group dropdown-toggle">
+                                <span class="input-group-btn">  
+                                    <input style="width:90px;" type="text" class="form-control" placeholder="Filter By:" readonly> 
+                                 </span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
-                                    <option value="0">Filter Students By:</option>
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>Show All</option>
+                                    <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'Complete'){ echo 'selected'; } ?>>Complete</option>
                                     <option value="Incomplete" <?php if($filter == 'Incomplete'){ echo 'selected'; } ?>>Incomplete</option>
                                     <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
