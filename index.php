@@ -249,21 +249,23 @@ include("connect.php");
 
                 <div class="paddingTopSlight">
                         <div class="table-responsive">
-                            <table class="table table-fixed table-striped table-hover text-center" id="myTable">
-                                <tr class="info">
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">ID Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Course & Year</th>
-                                    <th class="text-center">Endorsement</th>
-                                    <th class="text-center">Waiver</th>
-                                    <th class="text-center">MOA</th>
-                                    <th class="text-center">Evaluation</th>
-                                    <th class="text-center">Requirement Status</th>
-                                    <th class="text-center">Company Name</th>
-                                    <th class="text-center">OJT Type</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
+                            <table class="table table-fixed table-striped table-hover text-center" id="mytable">
+                                <thead>
+                                    <tr class="info">
+                                        <th id="no" class="text-center">No</th>
+                                        <th id="idnum" class="text-center">ID Number</th>
+                                        <th id="name" class="text-center">Name</th>
+                                        <th id="courseandyear" class="text-center">Course & Year</th>
+                                        <th class="text-center">Endorsement</th>
+                                        <th class="text-center">Waiver</th>
+                                        <th class="text-center">MOA</th>
+                                        <th class="text-center">Evaluation</th>
+                                        <th class="text-center">Requirement Status</th>
+                                        <th id="companyname" class="text-center">Company Name</th>
+                                        <th class="text-center">OJT Type</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
                                 <?php
                                     if($filter == "yes1"){
                                         $filter = "yes";
@@ -551,6 +553,50 @@ include("connect.php");
         function resetName(){
             document.getElementById("Name").reset;
         }
+    </script>
+
+    <script>
+        function sortTable(f,n){
+            var rows = $('#mytable tbody  tr').get();
+
+            rows.sort(function(a, b) {
+
+                var A = getVal(a);
+                var B = getVal(b);
+
+                if(A < B) {
+                    return -1*f;
+                }
+                if(A > B) {
+                    return 1*f;
+                }
+                return 0;
+            });
+
+            function getVal(elm){
+                var v = $(elm).children('td').eq(n).text().toUpperCase();
+                if($.isNumeric(v)){
+                    v = parseInt(v,10);
+                }
+                return v;
+            }
+
+            $.each(rows, function(index, row) {
+                $('#mytable').children('tbody').append(row);
+            });
+        }
+        var f_name = 1;
+        var f_idnum = 1;
+        $("#name").click(function(){
+            f_name *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_name,n);
+        });
+        $("#idnum").click(function(){
+            f_idnum *= -1;
+            var n = $(this).prevAll().length;
+            sortTable(f_idnum,n);
+        });
     </script>
   </body>
 </html>
