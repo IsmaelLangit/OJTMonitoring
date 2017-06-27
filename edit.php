@@ -15,7 +15,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
-    <link rel="icon" href="img/Logo.png">
+    <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
     <!--header-->
@@ -79,7 +79,7 @@ include("connect.php");
                 $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
                 $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
-                 $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
+                $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
                 $email       = mysqli_real_escape_string($connect,$_POST['email']);
 
                 $endorsement         = $_POST['endorsement'];
@@ -92,28 +92,23 @@ include("connect.php");
                 $receive_waiver      = $_POST['receive_waiver'];
                 $remark_waiver     = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
 
-            
-
-                $moa         = $_POST['moa'];
-                $release_moa         = $_POST['release_moa'];
-                $receive_moa         = $_POST['receive_moa'];
-                $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
-
                 $evaluation      = $_POST['evaluation'];
                 $release_evaluation      = $_POST['release_evaluation'];
                 $receive_evaluation      = $_POST['receive_evaluation'];
                 $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
                 $coid        = $_POST['coid'];
-                $status          = $_POST['status'];
 
+                $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                $company_moa = mysqli_fetch_assoc($company_query);
+                $moa  = $company_moa["moa"];
                 if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
-                    $status = "Complete";
+                     $status = "Complete";
                 } else {
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
@@ -123,7 +118,7 @@ include("connect.php");
             
             if(isset($_GET['message']) == 'success'){
                 echo '<div class="alert alert-success" role="alert">
-                                  <strong> Success!</strong> You have successfully updated the information on this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully updated the information on this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
                                 </div>';
             }
             ?>
@@ -175,26 +170,31 @@ include("connect.php");
                         <label class="col-sm-3 control-label">Course & Year</label>
                         <div class="col-sm-3">
                             <select name="courseyear" class="form-control">
-                                <option value="<?php echo $row ['courseyear']; ?>"><?php echo $row ['courseyear']; ?></option>
-                                ";
+
                                 <?php
-                                    if ($row ['courseyear'] == 'BSIT 3') {
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSIT 4') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSCS 3') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 4'>BSCS-4</option>";
-                                    } else if ($row ['courseyear'] == 'BSCS 4') {
-                                        echo "<option value='BSIT 3'>BSIT-3</option>";
-                                        echo "<option value='BSIT 4'>BSIT-4</option>";
-                                        echo "<option value='BSCS 3'>BSCS-3</option>";
-                                    }
+                                        echo "<option value='BSIT 3' ";
+                                        if($row ['courseyear'] == 'BSIT 3'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSIT-3</option>";
+
+                                        echo "<option value='BSIT 4' ";
+                                        if($row ['courseyear'] == 'BSIT 4'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSIT-4</option>";
+
+                                        echo "<option value='BSCS 3' ";
+                                        if($row ['courseyear'] == 'BSCS 3'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSCS-3</option>";
+
+                                        echo "<option value='BSCS 4' ";
+                                        if($row ['courseyear'] == 'BSCS 4'){ 
+                                            echo 'selected';
+                                        } 
+                                        echo ">BSCS-4</option>";
                                     ?>
                             </select>
                         </div>
@@ -308,6 +308,45 @@ include("connect.php");
             </div>
 
             <div class="form-group">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 text-right">
+                        <label class="control-label subLabel">Memorandum of Agreement</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <?php 
+
+                                if($row['moa'] == 'yes'){
+                                    echo '  
+                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        </a>
+                                        </span><strong>Submitted</strong>
+                                    </td>';
+                                }
+                                else if ($row['moa'] == 'no' ){
+                                    echo '  
+                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                        </a>
+                                        </span><strong>Submitted</strong>
+                                    </td>';
+                        }
+                          ?>
+
+                            <br>
+                            <label class='control-label'>Date Released</label>
+                            <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" readonly>
+                            <br>
+                            <label class='control-label'>Date Received</label>
+                            <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                            <br>
+                            <label class='control-label'>Remark/s</label>
+                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-3 text-right">
@@ -371,38 +410,6 @@ include("connect.php");
                     </div>
                 </div>
             </div>
-
-            <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 text-right">
-                        <label class="control-label subLabel">Memorandum of Agreement</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <?php
-                                echo  "<input type='hidden' name='moa' value='no'>";
-                                
-                                
-                                if ($row ['moa'] == 'yes') {
-                                    echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
-                                } 
-                                
-                                if($row ['moa'] == 'no') {
-                                    echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
-                                }   
-                          ?>
-                            <label class='control-label'>Date Released</label>
-                            <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
-                            <br>
-                            <label class='control-label'>Date Received</label>
-                            <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
-                            <br>
-                            <label class='control-label'>Remark/s</label>
-                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" >
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="container-fluid">
@@ -470,7 +477,7 @@ include("connect.php");
                     |
                     <a href="company.php">Company</a>
                 </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
             </div>
             <div class="footer-center">
                 <div>
@@ -504,7 +511,7 @@ include("connect.php");
 
     <script>
     $('.date').datepicker({
-        format: 'yyyy-mm-dd',
+        format: 'MM dd yyyy',
     })
     </script>
     

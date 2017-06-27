@@ -15,7 +15,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
-    <link rel="icon" href="img/Logo.png">
+    <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
     <!--header-->
@@ -67,6 +67,7 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
+            
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -79,12 +80,20 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             
-            if(isset($_GET['aksi']) == 'delete'){
-                $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
-                if($delete){
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data successfully deleted.</div>';
+            if(isset($_GET['action']) == 'delete'){
+                $coid = $_GET['coid'];
+                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
+                if(mysqli_num_rows($con) != 0){
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company! </strong> with OJT students</div>';
                 }else{
-                    echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
+                    $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
+                    if($delete){
+                        echo '<div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
+                                </div>';
+                    }else{
+                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    }
                 }
             }
             ?>
@@ -109,13 +118,53 @@ include("connect.php");
                 <tr>
                     <th scope="row" class="info">Position</th>
                     <td><?php echo $row['position']; ?></td>
-                </tr>       
+                </tr> 
+                <tr>
+                    <th scope="row" class="info">Number of Students</th>
+                    <?php
+                     $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                        while ($row1 = mysqli_fetch_assoc($con)) {
+                            echo '
+                                <td><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+
+                                            <div id="'.$row['coid'].'" class="modal fade" role="dialog">
+                                              <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                  </div>
+                                                  <div class="modal-body text-center">
+                                                    <h2 class="infoStudent">Practicum Student/s</h2>
+                                                ';
+                                                    $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                                        while ($row2 = mysqli_fetch_assoc($con1)) {
+                                                        echo '
+                                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                                        ';
+                                                    }
+                                                 echo '
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+                            ';
+                        } 
+                    ?>
+                    
+                </tr> 
             </table>
 
             <div class="pull-right">
             <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-            <a href="profilecompany.php?aksi=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+            <a href="profilecompany.php?action=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
 
 

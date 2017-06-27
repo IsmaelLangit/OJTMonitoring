@@ -15,7 +15,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
-    <link rel="icon" href="img/Logo.png">
+    <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
     <!--header-->
@@ -61,9 +61,9 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $con = mysqli_query($connect, "SELECT * FROM company WHERE coid='$coid' ORDER BY coname ASC");
-                if(mysqli_num_rows($con) == 0){
-                    echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Welcome Admin!</div>';
+                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
+                if(mysqli_num_rows($con) != 0){
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> Sorry! You <strong> cannot delete a company </strong> with present OJT students</div>';
                 }else{
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
@@ -89,10 +89,17 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
+<<<<<<< HEAD
                         <option value="Company-based" <?php if($filter == 'Company-based'){ echo 'selected'; } ?>>Company-based</option>
                         <option value="In-house" <?php if($filter == 'In-house'){ echo 'selected'; } ?>>In-house</option>
                         <option value="Government" <?php if($filter == 'Government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'Private'){ echo 'selected'; } ?>>Private</option>
+=======
+                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
+                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
+                        <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
+                        <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
+>>>>>>> 5f98aadbd257c5e6cef6efd6455f72dc15426ef1
                     </select>
                 </div>
 
@@ -119,16 +126,16 @@ include("connect.php");
             <br>
 
             <div class="table-responsive">
-                <table class="table table-striped table-hover" id="myTable">
+                <table class="table table-hover" id="myTable">
                     <tr class="info">
-                        <th>No</th>
-                        <th>Company Name</th>
-                        <th>Address</th>
-                        <th>Type</th>
-                        <th>Company Head</th>
-                        <th>Position</th>
-                      <!--   <th>Number of students</th> -->
-                        <th>Action</th>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Company Head</th>
+                        <th class="text-center">Position</th>
+                        <th class="text-center">Number of OJT Student/s</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     <?php
                         if($filter){
@@ -161,21 +168,47 @@ include("connect.php");
                                         echo '<span class="label label-success">Government</span> <br>';
                                         echo '<span class="label label-primary">Company-based</span>';
                                     }
-
-                      
-                                  
                           
                                 echo '
                                 <td>'.$row['company_head'].'</td>
                                 <td>'.$row['position'].'</td>
                                 ';
 
-                                  // $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                  //   while ($row = mysqli_fetch_assoc($con)) {
-                                  //       echo '
-                                  //       <td>'.$row['countidnum'].'</td>
-                                  //   ';
-                                  //   } 
+                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                    while ($row1 = mysqli_fetch_assoc($con)) {
+                                        echo '
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+
+                                            <div id="'.$row['coid'].'" class="modal fade" role="dialog">
+                                              <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                  </div>
+                                                  <div class="modal-body text-center">
+                                                    <h2 class="infoStudent">Practicum Student/s</h2>
+                                                ';
+                                                    $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                                        while ($row2 = mysqli_fetch_assoc($con1)) {
+                                                        echo '
+                                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                                        ';
+                                                    }
+                                                 echo '
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+
+                                        ';
+                                    } 
 
                                 echo '
                                     <td>
@@ -207,7 +240,7 @@ include("connect.php");
                     |
                     <a href="company.php">Company</a>
                 </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
             </div>
             <div class="footer-center">
                 <div>

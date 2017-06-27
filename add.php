@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
         <link rel="stylesheet" type="text/css" href="css/preloader.css">
-        <link rel="icon" href="img/Logo.png">
+        <link rel="icon" href="img/scisLogo.png">
     </head>
     <body>
         <!--header-->
@@ -79,11 +79,6 @@
                 $release_waiver      = $_POST['release_waiver'];
                 $receive_waiver      = $_POST['receive_waiver'];
                 $remark_waiver     = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
-            
-                $moa         = $_POST['moa'];
-                $release_moa         = $_POST['release_moa'];
-                $receive_moa         = $_POST['receive_moa'];
-                $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
 
                 $evaluation      = $_POST['evaluation'];
                 $release_evaluation      = $_POST['release_evaluation'];
@@ -91,32 +86,41 @@
                 $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
                 $coid        = $_POST['coid'];
-                $status          = $_POST['status'];
-                
+
+ 
                 $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver,  release_moa, receive_moa, remark_moa, moa,  release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
-                                                            VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_moa', '$receive_moa', '$remark_moa', '$moa', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                    $company_moa = mysqli_fetch_assoc($company_query);
+                    $moa  = $company_moa["moa"];
+                    if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
+                        $status = "Complete";
+                    } else {
+                        $status = "Incomplete";
+                    }
+                
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
+                                                            VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
-                                  <strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
                                 </div>';
-                        }else{
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
-                        }
+                    } 
                     
-                }
+                } else {
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>The student already exists.</div>';
+                    }
                 
             }
             ?>
 
-            
 
             <div class="container-fluid">
                 <div class="row">
                         <div class="col-md-9">
                          <form class="form-horizontal well" action="" method="post">
-                        <h2 class="z">Basic Information</h2>
+                        <h2 class="head-title titleFont">Basic Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -234,14 +238,26 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <?php
-                                                    echo  "<input type='hidden' name='endorsement' value='no'>";
+                                                    echo  " <input type='hidden' name='endorsement' value='no'>";
                                                     
-                                                    echo  "<input type='checkbox' name='endorsement' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'><br>" ;
-                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
-                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'><br>" ;
+                                                    echo  " <input type='checkbox' name='endorsement' value='yes'>
+                                                            <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+
+                                                    echo  " <label class='control-label'>Date Released</label>
+                                                            <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'>
+
+                                                            <br>" ;
+
+                                                    echo  " <label class='control-label'>Date Received</label>
+                                                            <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'>
+                                                            <br>" ;
+
+                                                    echo  " <label class='control-label'>Remarks</label>
+                                                            <input type='text' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'>
+                                                            <br>" ;
                                                     ?>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -268,25 +284,6 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-sm-3 text-right">
-                                                <label class="control-label subLabel">Memorandum of Agreement</label>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <?php
-                                                    echo  "<input type='hidden' name='moa' value='no'>";
-                                                    
-                                                    echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
-                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
-                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks'><br>" ;
-                                                    ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-3 text-right">
                                                 <label class="control-label subLabel">Evaluation</label>
                                             </div>
                                             <div class="col-sm-8">
@@ -302,24 +299,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-3 text-right">
-                                                <label class="control-label"></label>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <?php
-                                                    if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
-                                                        echo  "<input type='hidden' name='status' value='Complete' checked>";
-                                                    } else {
-                                                        echo  "<input type='hidden' name='status' value='Incomplete' checked>";
-                                                    }
-                                                    ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <div class="container-fluid">
                                         <div class="row">
@@ -356,7 +336,7 @@
                     |
                     <a href="company.php">Company</a>
                 </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2017</p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
             </div>
             <div class="footer-center">
                 <div>
@@ -385,12 +365,13 @@
     <script src="js/smoothScroll.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/preloader.js"></script>
+    <script src="js/bootstrap-notify.min.js"></script>
+    <script type="js/Gruntfile.js"></script>
 
 
     <script>
     $('.date').datepicker({
-        format: 'yyyy-mm-dd',
+        format: 'MM dd yyyy',
     })
     </script>
     
