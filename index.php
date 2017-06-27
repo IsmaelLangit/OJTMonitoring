@@ -115,9 +115,10 @@ include("connect.php");
                                 <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
                                     <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
                                     <option value="0" <?php if($sort == '0'){ echo 'selected'; } ?>>All</option>
-                                    <option value="Complete" <?php if($sort == 'complete'){ echo 'selected'; } ?>>Complete</option>
-                                    <option value="Incomplete" <?php if($sort == 'incomplete'){ echo 'selected'; } ?>>Incomplete</option>
-                                    <option value="In-house" <?php if($sort == 'in-house'){ echo 'selected'; } ?>>In-house</option>
+                                    <option value="10" <?php if($sort == '10'){ echo 'selected'; } ?>>10</option>
+                                    <option value="20" <?php if($sort == '20'){ echo 'selected'; } ?>>20</option>
+                                    <option value="50" <?php if($sort == '50'){ echo 'selected'; } ?>>50</option>
+                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>       
                                 </select>
                             </div>
 
