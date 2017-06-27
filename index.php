@@ -249,20 +249,20 @@ include("connect.php");
 
                 <div class="paddingTopSlight">
                         <div class="table-responsive">
-                            <table class="table table-fixed table-striped table-hover text-center" id="mytable">
+                            <table class="table table-fixed table-striped table-hover text-center" id="myTable">
                                 <thead>
                                     <tr class="info">
-                                        <th id="no" class="text-center">No</th>
-                                        <th id="idnum" class="text-center">ID Number</th>
-                                        <th id="name" class="text-center">Name</th>
-                                        <th id="courseandyear" class="text-center">Course & Year</th>
-                                        <th id="endorsement" class="text-center">Endorsement</th>
-                                        <th id="waiver" class="text-center">Waiver</th>
-                                        <th id="moa" class="text-center">MOA</th>
-                                        <th id="evaluation" class="text-center">Evaluation</th>
-                                        <th id="status" class="text-center">Requirement Status</th>
-                                        <th id="companyname" class="text-center">Company Name</th>
-                                        <th id="type" class="text-center">OJT Type</th>
+                                        <th id="no" class="text-center" title="Sort By Number">No</th>
+                                        <th id="idnum" class="text-center" title="Sort By ID Number">ID Number</th>
+                                        <th id="name" class="text-center" title="Sort By Name">Name</th>
+                                        <th id="courseandyear" class="text-center" title="Sort By Course and Year"> Course & Year</th>
+                                        <th id="endorsement" class="text-center" title="Sort By Endorsement Status">Endorsement</th>
+                                        <th id="waiver" class="text-center" title="Sort By Waiver Status">Waiver</th>
+                                        <th id="moa" class="text-center" title="Sort By MOA Status">MOA</th>
+                                        <th id="evaluation" class="text-center" title="Sort By Evaluation Status">Evaluation</th>
+                                        <th id="status" class="text-center" title="Sort By Requirement Status">Requirement Status</th>
+                                        <th id="companyname" class="text-center" title="Sort By Company Name">Company Name</th>
+                                        <th id="type" class="text-center" title="Sort By OJT Type">OJT Type</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -557,7 +557,7 @@ include("connect.php");
 
     <script>
         function sortTable(f,n){
-            var rows = $('#mytable tbody  tr').get();
+            var rows = $('#myTable tbody  tr').get();
 
             rows.sort(function(a, b) {
 
@@ -582,7 +582,7 @@ include("connect.php");
             }
 
             $.each(rows, function(index, row) {
-                $('#mytable').children('tbody').append(row);
+                $('#myTable').children('tbody').append(row);
             });
         }
         var f_no = 1;
