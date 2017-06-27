@@ -365,7 +365,8 @@
     <script src="js/smoothScroll.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/preloader.js"></script>
+    <script src="js/bootstrap-notify.min.js"></script>
+    <script type="js/Gruntfile.js"></script>
 
 
     <script>
