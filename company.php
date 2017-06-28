@@ -112,7 +112,6 @@ include("connect.php");
                         <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
                     </div>
                 </form>
-
             </form>
 
                     </div>
@@ -121,8 +120,6 @@ include("connect.php");
                     </div>
                 </div>
             </div>
-
-            <br>
 
             <div class="table-responsive">
                 <table class="table table-hover" id="myTable">
@@ -239,9 +236,9 @@ include("connect.php");
                                     <td class = "text-center">';
 
                                     if ($row['typeofcompany'] == 'Private'){
-                                        echo '<span class="label label-danger">Private</span> <br>';
+                                        echo '<span class="label label-primary">Private</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Government'){
-                                        echo '<span class="label label-success">Government</span> <br>';
+                                        echo '<span class="label label-info">Government</span> <br>';
                                     }
                           
                                 echo '
