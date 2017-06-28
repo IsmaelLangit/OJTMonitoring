@@ -188,7 +188,17 @@ include("connect.php");
             <div class="pull-right">
             <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-            <a href="profilecompany.php?action=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+            <?php
+            echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
+            $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
+            if(mysqli_num_rows($con) == 0){
+                echo 'onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')"';
+            }
+            echo 'class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+            ';
+            ?>
             </div>
 
             
