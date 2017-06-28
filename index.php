@@ -267,7 +267,7 @@ include("connect.php");
 
                                 <?php
 
-                                $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter'");
+                                $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter'");
                                 $total=mysqli_num_rows($t);
 
                                 $start=0;
@@ -408,7 +408,7 @@ include("connect.php");
                                     $filter = "no4";
 
                                 } else if($filter){
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -418,7 +418,7 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
 
 
                                 } else {
