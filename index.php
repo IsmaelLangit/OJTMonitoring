@@ -192,26 +192,15 @@ include("connect.php");
                         </div>
                     </a>
 
-<<<<<<< HEAD
-                    <a href="index.php?filter=Government&sort=all">
-=======
                      <a href="index.php?filter=Private&sort=all">
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
                             <?php
-<<<<<<< HEAD
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Government'");
-                                while ($row = mysqli_fetch_assoc($con)) {
-                                    echo '
-                                    <p class="text-center colorInfo">Government</p>
-=======
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Private'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
                                     <p class="text-center colorInfo">Private</p>
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                     <p class = "number text-center">'.$row["countidnum"].'</p>
                                     ';
                                 }
@@ -220,26 +209,15 @@ include("connect.php");
                     </a>
 
 
-<<<<<<< HEAD
-                    <a href="index.php?filter=Private&sort=all">
-=======
                     <a href="index.php?filter=Government&sort=all">
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                         <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
                             <?php
-<<<<<<< HEAD
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Private'");
-                                while ($row = mysqli_fetch_assoc($con)) {
-                                    echo '
-                                    <p class="text-center colorInfo">Private</p>
-=======
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Government'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
                                     <p class="text-center colorInfo">Government</p>
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                     <p class = "number text-center">'.$row["countidnum"].'</p>
                                     ';
                                 }
@@ -289,11 +267,7 @@ include("connect.php");
 
                                 <?php
 
-<<<<<<< HEAD
-                                $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany ='$filter' or coname ='$filter'");
-=======
                                 $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter'");
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                 $total=mysqli_num_rows($t);
 
                                 $start=0;
@@ -434,11 +408,7 @@ include("connect.php");
                                     $filter = "no4";
 
                                 } else if($filter){
-<<<<<<< HEAD
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
-=======
                                     $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -448,11 +418,7 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-<<<<<<< HEAD
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
-=======
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
 
 
                                 } else {
@@ -673,19 +639,11 @@ include("connect.php");
 
                                             echo '
                                                 <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
-<<<<<<< HEAD
-                                                <td>';
-                                                if($row['typeofcompany'] == 'Government'){
-                                                    echo '<span class="label label-info">Government</span>';
-                                                } else if ($row['typeofcompany'] == 'Private' ){
-                                                    echo '<span class="label label-primary">Private</span>';
-=======
                                                 <td class = "text-center">';
                                                 if ($row['typeofcompany'] == 'Private'){
                                                     echo '<span class="label label-danger">Private</span> <br>';
                                                 } else if ($row['typeofcompany'] == 'Government'){
                                                     echo '<span class="label label-success">Government</span> <br>';
->>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                                 }
                                             echo '
                                                 </td>
