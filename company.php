@@ -85,8 +85,6 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
-                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
-                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
@@ -235,22 +233,15 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-home"></" aria-hidden="true"></span> '.$row['coname'].'</a></td>
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
                                     <td class="col-md-4">'.$row['coaddress'].'</td>';
                                             echo '
                                     <td class = "text-center">';
-                                    if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Private'){
+
+                                    if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-danger">Private</span> <br>';
-                                        echo '<span class="label label-info">In-house</span>';
-                                    } else if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Government'){
+                                    } else if ($row['typeofcompany'] == 'Government'){
                                         echo '<span class="label label-success">Government</span> <br>';
-                                        echo '<span class="label label-info">In-house</span>';
-                                    } else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Private'){
-                                        echo '<span class="label label-danger">Private</span> <br>';
-                                        echo '<span class="label label-primary">Company-based</span>';
-                                    } else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Government'){
-                                        echo '<span class="label label-success">Government</span> <br>';
-                                        echo '<span class="label label-primary">Company-based</span>';
                                     }
                           
                                 echo '

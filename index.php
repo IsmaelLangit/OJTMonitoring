@@ -91,8 +91,8 @@ include("connect.php");
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'complete'){ echo 'selected'; } ?>>Complete</option>
                                     <option value="Incomplete" <?php if($filter == 'incomplete'){ echo 'selected'; } ?>>Incomplete</option>
-                                    <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-house</option>
-                                    <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-based</option>
+                                    <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
+                                    <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                                     <option value="No Company" <?php if($filter == 'no company'){ echo 'selected'; } ?>>No Company</option>
 
                                     <option value="yes1" <?php if($filter == 'yes1'){ echo 'selected'; } ?>><strong>With</strong> Endorsement</option>
@@ -192,15 +192,15 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Company-based&sort=all">
+                     <a href="index.php?filter=Private&sort=all">
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'Company-based'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Private'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
-                                    <p class="text-center colorInfo">Company-Based</p>
+                                    <p class="text-center colorInfo">Private</p>
                                     <p class = "number text-center">'.$row["countidnum"].'</p>
                                     ';
                                 }
@@ -209,15 +209,15 @@ include("connect.php");
                     </a>
 
 
-                    <a href="index.php?filter=In-house&sort=all">
+                    <a href="index.php?filter=Government&sort=all">
                         <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofojt = 'In-house'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Government'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
-                                    <p class="text-center colorInfo">In-House</p>
+                                    <p class="text-center colorInfo">Government</p>
                                     <p class = "number text-center">'.$row["countidnum"].'</p>
                                     ';
                                 }
@@ -260,7 +260,7 @@ include("connect.php");
                                         <th id="evaluation" class="text-center" title="Sort By Evaluation Status"><span class="fa fa-sort space"></span>Evaluation</th>
                                         <th id="status" class="text-center" title="Sort By Requirement Status"><span class="fa fa-sort space"></span>Requirement Status</th>
                                         <th id="companyname" class="text-center" title="Sort By Company Name"><span class="fa fa-sort space"></span>Company Name</th>
-                                        <th id="type" class="text-center" title="Sort By OJT Type"><span class="fa fa-sort space"></span>OJT Type</th>
+                                        <th id="type" class="text-center" title="Sort By OJT Type"><span class="fa fa-sort space"></span>Type</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -639,11 +639,11 @@ include("connect.php");
 
                                             echo '
                                                 <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
-                                                <td>';
-                                                if($row['typeofojt'] == 'In-house'){
-                                                    echo '<span class="label label-info">In-house</span>';
-                                                } else if ($row['typeofojt'] == 'Company-based' ){
-                                                    echo '<span class="label label-primary">Company-based</span>';
+                                                <td class = "text-center">';
+                                                if ($row['typeofcompany'] == 'Private'){
+                                                    echo '<span class="label label-danger">Private</span> <br>';
+                                                } else if ($row['typeofcompany'] == 'Government'){
+                                                    echo '<span class="label label-success">Government</span> <br>';
                                                 }
                                             echo '
                                                 </td>
