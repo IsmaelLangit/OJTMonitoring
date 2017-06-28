@@ -137,13 +137,10 @@ include("connect.php");
                         </tr>
                     </thead>
                     <?php
-
                         $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter'");
                         $total=mysqli_num_rows($t);
-
                         $start=0;
                         $page=0;
-
                         if($sort == "all") {
                             $limit = $total;
                         } else {
@@ -156,7 +153,6 @@ include("connect.php");
                         } else {
                             $id=1;
                         }
-
                         if ($filter == 'none' || !$filter) {
                             $all=mysqli_query($connect,"SELECT * from company");
                             $allrows=mysqli_num_rows($all);
@@ -170,7 +166,6 @@ include("connect.php");
                                 $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$sort");
                                 $page=ceil($allrows/$sort);
                             }
-
                         } else if($filter){
                             if($sort == "all") {
                                 $limit = $total;
@@ -193,7 +188,6 @@ include("connect.php");
                                     } else {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
                                     }
-
                                     for($i=1; $i <= $page; $i++){
                                      echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'" ';
                                         if($id == $i) {
@@ -202,11 +196,9 @@ include("connect.php");
                                             echo '>'.$i.'</a></li>';
                                         }
                                     }
-
                                     if (!$id) {
                                         $id = 1;
                                     }
-
                                     if($id!=$page) {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
                                     } else {
@@ -234,7 +226,6 @@ include("connect.php");
                                     <td class="col-md-4">'.$row['coaddress'].'</td>';
                                             echo '
                                     <td class = "text-center">';
-
                                     if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-primary">Private</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Government'){
@@ -245,9 +236,7 @@ include("connect.php");
                                 <td >'.$row['company_head'].'</td>
                                 <td class="col-md-1">'.$row['position'].'</td>
                                 ';
-
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-
                                 while ($row1 = mysqli_fetch_assoc($con)) {
                                     echo '
                                         <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
@@ -276,7 +265,6 @@ include("connect.php");
                                                 </div>
                                               </div>
                                             </div>
-
                                         ';
                                     } 
                                         echo '
@@ -300,20 +288,16 @@ include("connect.php");
                                             </a>
                                         </td>';
                                 }
-
                                 echo '
                                     <td>
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
-
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
-
                                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
                                 echo 'onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')"';
                                 }
-
                                 echo 'class="btn btn-danger btn-sm">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </a>
@@ -376,7 +360,6 @@ include("connect.php");
                 filter = input.value.toUpperCase();
                 table = document.getElementById("myTable");
                 tr = table.getElementsByTagName("tr");
-
                 for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[1];
                 td1 = tr[i].getElementsByTagName("td")[2];
@@ -395,12 +378,9 @@ include("connect.php");
     <script>
         function sortTable(f,n){
             var rows = $('#myTable tbody  tr').get();
-
             rows.sort(function(a, b) {
-
                 var A = getVal(a);
                 var B = getVal(b);
-
                 if(A < B) {
                     return -1*f;
                 }
@@ -409,7 +389,6 @@ include("connect.php");
                 }
                 return 0;
             });
-
             function getVal(elm){
                 var v = $(elm).children('td').eq(n).text().toUpperCase();
                 if($.isNumeric(v)){
@@ -417,7 +396,6 @@ include("connect.php");
                 }
                 return v;
             }
-
             $.each(rows, function(index, row) {
                 $('#myTable').children('tbody').append(row);
             });
@@ -428,7 +406,6 @@ include("connect.php");
         var f_type = 1;
         var f_number = 1;
         var f_moa = 1;
-
         $("#no").click(function(){
             f_no *= -1;
             var n = $(this).prevAll().length;
