@@ -191,6 +191,7 @@ include("connect.php");
                     <div class="text-center">
                         <ul class="pagination">
                             <?php 
+           
                                 if ($page > 1){
                                     if($id > 1) {
                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
@@ -198,11 +199,20 @@ include("connect.php");
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
                                     }
 
-                                    for ($i=1 ; $i <= $page ; $i++){
-                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'">'.$i.'</a></li>'; 
+                                    for($i=1; $i <= $page; $i++){
+                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'" ';
+                                        if($id == $i) {
+                                            echo 'class="list-group-item active">'.$i.'</a></li>';
+                                        } else {
+                                            echo '>'.$i.'</a></li>';
+                                        }
                                     }
 
-                                    if($id != $page) {
+                                    if (!$id) {
+                                        $id = 1;
+                                    }
+
+                                    if($id!=$page) {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
                                     } else {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li>';

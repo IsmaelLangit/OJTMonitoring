@@ -438,8 +438,7 @@ include("connect.php");
 
                                 ?>
                                     <div class="text-center">
-                                        <ul class="pagination">
-
+                                        <ul class="pagination list-group">
                                             <?php 
            
                                                 if ($page > 1){
@@ -450,7 +449,16 @@ include("connect.php");
                                                     }
             
                                                     for($i=1; $i <= $page; $i++){
-                                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'">'.$i.'</a></li>'; 
+                                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'" ';
+                                                        if($id == $i) {
+                                                            echo 'class="list-group-item active">'.$i.'</a></li>';
+                                                        } else {
+                                                            echo '>'.$i.'</a></li>';
+                                                        }
+                                                    }
+
+                                                    if (!$id) {
+                                                        $id = 1;
                                                     }
 
                                                     if($id!=$page) {
@@ -748,7 +756,7 @@ include("connect.php");
             $('#myTable').children('tbody').append(row);
         });
         }
-        
+
         var f_no = 1;
         var f_idnum = 1;
         var f_name = 1;
