@@ -641,9 +641,9 @@ include("connect.php");
                                                 <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
                                                 <td class = "text-center">';
                                                 if ($row['typeofcompany'] == 'Private'){
-                                                    echo '<span class="label label-danger">Private</span> <br>';
+                                                    echo '<span class="label label-primary">Private</span> <br>';
                                                 } else if ($row['typeofcompany'] == 'Government'){
-                                                    echo '<span class="label label-success">Government</span> <br>';
+                                                    echo '<span class="label label-info">Government</span> <br>';
                                                 }
                                             echo '
                                                 </td>
