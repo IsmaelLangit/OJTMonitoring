@@ -77,7 +77,6 @@ include("connect.php");
                 $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
                 $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
                 $position        = mysqli_real_escape_string($connect,$_POST['position']);
-                $typeofojt       = $_POST['typeofojt'];
                 $typeofcompany       = $_POST['typeofcompany'];
 
                 $moa         = $_POST['moa'];
@@ -85,7 +84,7 @@ include("connect.php");
                 $receive_moa         = $_POST['receive_moa'];
                 $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
                 
-                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position',typeofojt='$typeofojt' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
                 if($update){
                     header("Location: editcompany.php?coid=".$coid."&message=success");
                 }else{
@@ -149,21 +148,8 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Type</label>
                                         <div class="col-sm-6">
-                                            <select name="typeofojt" class="form-control">
-                                                <option value="<?php echo $row ['typeofojt']; ?>"><?php echo $row ['typeofojt']; ?></option>
-                                                ";
-                                                <?php
-                                                    if ($row ['typeofojt'] == 'In-house') {
-                                                        echo "<option value='Company-based'>Company-based</option>";
-                                                    } else if ($row ['typeofojt'] == 'Company-based') {
-                                                        echo "<option value='In-house'>In-house</option>";
-                                                    }
-                                                    ?>
-                                            </select>
-                                            <br>
                                             <select name="typeofcompany" class="form-control">
                                                 <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
-                                                ";
                                                 <?php
                                                     if ($row ['typeofcompany'] == 'Government') {
                                                         echo "<option value='Private'>Private</option>";
