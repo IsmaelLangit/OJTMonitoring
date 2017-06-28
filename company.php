@@ -309,7 +309,15 @@ include("connect.php");
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
-                                        <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')" class="btn btn-danger btn-sm">
+
+                                        <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
+
+                                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
+                                if(mysqli_num_rows($con) == 0){
+                                echo 'onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')"';
+                                }
+
+                                echo 'class="btn btn-danger btn-sm">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </a>
                                     </td>
