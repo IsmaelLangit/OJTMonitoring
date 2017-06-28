@@ -268,10 +268,10 @@ include("connect.php");
                         <label class="col-sm-3 control-label">Type of OJT</label>
                         <div class="col-sm-8">
                             <?php
-                                if ($row ['typeofojt'] == "In-house") {
-                                    echo "<span class='label label-info'>In-house</span>";
+                                if ($row ['typeofcompany'] == "Private") {
+                                    echo "<span class='label label-info'>Private</span>";
                                 } else {
-                                    echo "<span class='label label-primary'>Company-based</span>";
+                                    echo "<span class='label label-primary'>Government</span>";
                                 }
                             ?>
                         </div>

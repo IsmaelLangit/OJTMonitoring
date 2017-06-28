@@ -141,7 +141,7 @@ include("connect.php");
                     </thead>
                     <?php
 
-                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter')");
+                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter'");
                         $total=mysqli_num_rows($t);
 
                         $start=0;
@@ -182,7 +182,7 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' ORDER BY coname ASC LIMIT $start,$limit");
                         } 
                     ?>
 
