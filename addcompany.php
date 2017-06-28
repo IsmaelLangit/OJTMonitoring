@@ -64,7 +64,6 @@ include("connect.php");
                 $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
                 $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
                 $position        = mysqli_real_escape_string($connect,$_POST['position']);
-                $typeofojt       = mysqli_real_escape_string($connect,$_POST['typeofojt']);
                 $typeofcompany       = mysqli_real_escape_string($connect,$_POST['typeofcompany']);
 
                 $moa         = $_POST['moa'];
@@ -74,8 +73,8 @@ include("connect.php");
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofojt, typeofcompany, release_moa, receive_moa, remark_moa, moa)
-                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofojt' ,'$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofcompany, release_moa, receive_moa, remark_moa, moa)
+                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
                                   <span class = "fa fa-check-circle"></span><strong> Great!</strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to list of companies.</a>.
@@ -139,12 +138,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Type</label>
                                         <div class="col-sm-6">
-                                            <select name="typeofojt" class="form-control">
-                                                <option value="Company-based">Company-Based</option>
-                                                <option value="In-house">In-House</option>
-                                            </select>
-                                            <br>
-                                            <select name="typeofcompany" class="form-control">
+                                           <select name="typeofcompany" class="form-control">
                                                 <option value="Government">Government</option>
                                                 <option value="Private">Private</option>
                                             </select>

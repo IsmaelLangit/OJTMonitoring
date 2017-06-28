@@ -85,8 +85,6 @@ include("connect.php");
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
-                        <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
-                        <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
@@ -143,7 +141,7 @@ include("connect.php");
                     </thead>
                     <?php
 
-                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter')");
+                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND (typeofcompany = '$filter')");
                         $total=mysqli_num_rows($t);
 
                         $start=0;
@@ -184,7 +182,7 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofcompany = '$filter') ORDER BY coname ASC LIMIT $start,$limit");
                         } 
                     ?>
 
@@ -239,19 +237,11 @@ include("connect.php");
                                     <td class="col-md-4">'.$row['coaddress'].'</td>';
                                             echo '
                                     <td class = "text-center">';
-                                    if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Private'){
-                                        echo '<span class="label label-danger">Private</span> <br>';
-                                        echo '<span class="label label-info">In-house</span>';
-                                    } else if($row['typeofojt'] == 'In-house' && $row['typeofcompany'] == 'Government'){
+                                    if($row['typeofcompany'] == 'Government'){
                                         echo '<span class="label label-success">Government</span> <br>';
-                                        echo '<span class="label label-info">In-house</span>';
-                                    } else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Private'){
+                                    } else if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-danger">Private</span> <br>';
-                                        echo '<span class="label label-primary">Company-based</span>';
-                                    } else if ($row['typeofojt'] == 'Company-based' && $row['typeofcompany'] == 'Government'){
-                                        echo '<span class="label label-success">Government</span> <br>';
-                                        echo '<span class="label label-primary">Company-based</span>';
-                                    }
+                                    } 
                           
                                 echo '
                                 <td >'.$row['company_head'].'</td>
