@@ -233,15 +233,24 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'"><span class="glyphicon glyphicon-home"></" aria-hidden="true"></span> '.$row['coname'].'</a></td>
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
                                     <td class="col-md-4">'.$row['coaddress'].'</td>';
                                             echo '
                                     <td class = "text-center">';
+<<<<<<< HEAD
                                     if($row['typeofcompany'] == 'Government'){
                                         echo '<span class="label label-success">Government</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-danger">Private</span> <br>';
                                     } 
+=======
+
+                                    if ($row['typeofcompany'] == 'Private'){
+                                        echo '<span class="label label-danger">Private</span> <br>';
+                                    } else if ($row['typeofcompany'] == 'Government'){
+                                        echo '<span class="label label-success">Government</span> <br>';
+                                    }
+>>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                           
                                 echo '
                                 <td >'.$row['company_head'].'</td>

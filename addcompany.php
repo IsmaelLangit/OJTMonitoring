@@ -138,7 +138,11 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Type</label>
                                         <div class="col-sm-6">
+<<<<<<< HEAD
                                            <select name="typeofcompany" class="form-control">
+=======
+                                            <select name="typeofcompany" class="form-control">
+>>>>>>> 863f45813b41916aacdd74ce2982071a4496542b
                                                 <option value="Government">Government</option>
                                                 <option value="Private">Private</option>
                                             </select>
