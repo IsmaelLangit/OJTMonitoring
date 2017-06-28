@@ -130,6 +130,10 @@ include("connect.php");
                             <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>
                         </tr>
                         <tr>
+                            <th scope="row" class="bg-danger text-white col-md-6">Address</th>
+                            <td class="col-md-6"><?php echo $row['coaddress']; ?></td>
+                        </tr>
+                        <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Status</th>
                             <?php
                                 if ($row ['status'] == "Complete") {
