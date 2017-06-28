@@ -106,7 +106,7 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Type</th>
-                    <td><?php echo $row['typeofojt']; ?></td>
+                    <td><?php echo $row['typeofcompany']; ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Company Head</th>
