@@ -135,14 +135,14 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th id="no" class="text-center touch">No</th>
-                            <th id="name" class="text-center touch">Company Name</th>
-                            <th id="address" class="text-center touch">Address</th>
-                            <th id="type" class="text-center touch">Type</th>
-                            <th id="head" class="text-center touch">Company Head</th>
-                            <th id="position" class="text-center touch">Position</th>
-                            <th id="number" class="text-center touch">Number of OJT Student/s</th>
-                            <th id="moa" class="text-center touch">MOA</th>
+                            <th id="no" class="text-center touch"><span class="fa fa-sort space"></span>No</th>
+                            <th id="name" class="text-center touch"><span class="fa fa-sort space"></span>Company Name</th>
+                            <th id="address" class="text-center">Address</th>
+                            <th id="type" class="text-center touch"><span class="fa fa-sort space"></span>Type</th>
+                            <th id="head" class="text-center">Company Head</th>
+                            <th id="position" class="text-center">Position</th>
+                            <th id="number" class="text-center touch"><span class="fa fa-sort space"></span>Number of OJT Student/s</th>
+                            <th id="moa" class="text-center touch"><span class="fa fa-sort space"></span>MOA</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -423,67 +423,36 @@ include("connect.php");
             });
         }
         var f_no = 1;
-        var f_idnum = 1;
+        var address = 1;
         var f_name = 1;
-        var f_courseandyear = 1;
-        var f_companyname = 1;
-
-        var f_endorsement = 1;
-        var f_waiver = 1;
-        var f_evaluation = 1;
-        var f_moa = 1;
-        var f_status = 1;
         var f_type = 1;
+        var f_number = 1;
+        var f_moa = 1;
 
         $("#no").click(function(){
             f_no *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_no,n);
         });
-        $("#idnum").click(function(){
-            f_idnum *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_idnum,n);
-        });
         $("#name").click(function(){
             f_name *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_name,n);
         });
-        $("#courseandyear").click(function(){
-            f_courseandyear *= -1;
+        $("#address").click(function(){
+            f_address*= -1;
             var n = $(this).prevAll().length;
-            sortTable(f_courseandyear,n);
+            sortTable(f_address,n);
         });
-        $("#companyname").click(function(){
-            f_companyname *= -1;
+        $("#number").click(function(){
+            f_number *= -1;
             var n = $(this).prevAll().length;
-            sortTable(f_companyname,n);
-        });
-        $("#endorsement").click(function(){
-            f_endorsement *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_endorsement,n);
-        });
-        $("#waiver").click(function(){
-            f_waiver *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_waiver,n);
-        });
-        $("#evaluation").click(function(){
-            f_evaluation *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_evaluation,n);
+            sortTable(f_number,n);
         });
         $("#moa").click(function(){
             f_moa *= -1;
             var n = $(this).prevAll().length;
             sortTable(f_moa,n);
-        });
-        $("#status").click(function(){
-            f_status *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_status,n);
         });
         $("#type").click(function(){
             f_type *= -1;
