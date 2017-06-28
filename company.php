@@ -387,9 +387,6 @@ include("connect.php");
                 }
             }
             
-             function resetName(){
-                document.getElementById("Name").reset;
-            }
     </script>
 
     <script>
