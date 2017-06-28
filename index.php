@@ -460,7 +460,7 @@ include("connect.php");
 
                                             <?php 
            
-                                                if ($sort != "all" && $total != 0) {
+                                                if ($page > 1){
                                                     if($id > 1) {
                                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
                                                     } else {
