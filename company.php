@@ -87,12 +87,26 @@ include("connect.php");
                     </span>
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                        <option value="" <?php if($filter == ''){ echo 'selected'; } ?>>None</option>
+                        <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
                         <option value="Company-based" <?php if($filter == 'company-based'){ echo 'selected'; } ?>>Company-Based</option>
                         <option value="In-house" <?php if($filter == 'in-house'){ echo 'selected'; } ?>>In-House</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
                         <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
                     </select>
+                </div>
+
+                <div class="form-group input-group dropdown-toggle">
+                                <span class="input-group-btn">  
+                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
+                                 </span>
+                                <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
+                                    <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
+                                    <option value="all" <?php if($sort == 'all'){ echo 'selected'; } ?>>All</option>
+                                    <option value="10" <?php if($sort == '10'){ echo 'selected'; } ?>>10</option>
+                                    <option value="20" <?php if($sort == '20'){ echo 'selected'; } ?>>20</option>
+                                    <option value="50" <?php if($sort == '50'){ echo 'selected'; } ?>>50</option>
+                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>   
+                                </select>
                 </div>
 
                 <form id="Name" action="#">
@@ -133,11 +147,77 @@ include("connect.php");
                         </tr>
                     </thead>
                     <?php
-                        if($filter){
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC");
-                        }else{
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC");
+
+                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter')");
+                        $total=mysqli_num_rows($t);
+
+                        $start=0;
+                        $page=0;
+
+                        if($sort == "all") {
+                            $limit = $total;
+                        } else {
+                            $limit=$sort; 
                         }
+                        
+                        if(isset($_GET['id'])){
+                            $id=$_GET['id'];
+                            $start=($id-1)*$limit;
+                        } else {
+                            $id=1;
+                        }
+
+                        if ($filter == 'none' || !$filter) {
+                            $all=mysqli_query($connect,"SELECT * from company");
+                            $allrows=mysqli_num_rows($all);
+                            if (!$sort) {
+                                $limit = $allrows;
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$limit");
+                            }else if ($sort == "all") {
+                                $limit = $allrows;
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$limit");
+                            } else {
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$sort");
+                                $page=ceil($allrows/$sort);
+                            }
+
+                        } else if($filter){
+                            if($sort == "all") {
+                                $limit = $total;
+                            }
+        
+                            if($total != 0) {
+                                $page=ceil($total/$limit);
+                            }
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND (typeofojt='$filter' or typeofcompany = '$filter') ORDER BY coname ASC LIMIT $start,$limit");
+                        } 
+                    ?>
+
+                    <div class="text-center">
+                        <ul class="pagination">
+                            <?php 
+                                if ($page > 1){
+                                    if($id > 1) {
+                                    echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                    } else {
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                    }
+
+                                    for($i=1; $i <= $page; $i++){
+                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'">'.$i.'</a></li>'; 
+                                    }
+
+                                    if($id!=$page) {
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
+                                    } else {
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li>';
+                                    }
+                                }
+                            ?>
+                        </ul>
+                    </div>
+
+                        <?php
                         if(mysqli_num_rows($sql) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
                         }else{
