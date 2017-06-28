@@ -14,7 +14,6 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
-
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -299,7 +298,6 @@ include("connect.php");
     <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
-
 
     <script>
     $('.date').datepicker({

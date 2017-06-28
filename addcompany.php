@@ -94,8 +94,6 @@ include("connect.php");
                 <div class="row">
 
                     <div class="col-md-9 ">
-
-                        
                             <div class="form-group">
                                 <div class="container">
                                     <div class="row">
@@ -235,8 +233,6 @@ include("connect.php");
     <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/preloader.js"></script>
-
-
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',

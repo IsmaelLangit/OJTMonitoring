@@ -65,8 +65,6 @@ include("connect.php");
     <!---->
     <section class="section-padding">
         <div class="container padding-top">
-
-            
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
@@ -125,34 +123,33 @@ include("connect.php");
                         while ($row1 = mysqli_fetch_assoc($con)) {
                             echo '
                                 <td><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+                                    <div id="'.$row['coid'].'" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
 
-                                            <div id="'.$row['coid'].'" class="modal fade" role="dialog">
-                                              <div class="modal-dialog">
-
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
-                                                  </div>
-                                                  <div class="modal-body text-center">
-                                                    <h2 class="infoStudent">Practicum Student/s</h2>
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                          </div>
+                                          <div class="modal-body text-center">
+                                            <h2 class="infoStudent">Practicum Student/s</h2>
+                                        ';
+                                            $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                                while ($row2 = mysqli_fetch_assoc($con1)) {
+                                                echo '
+                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
                                                 ';
-                                                    $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
-                                                        while ($row2 = mysqli_fetch_assoc($con1)) {
-                                                        echo '
-                                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
-                                                        ';
-                                                    }
-                                                 echo '
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                                  </div>
-                                                </div>
+                                            }
+                                         echo '
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
 
-                                              </div>
-                                            </div>
+                                      </div>
+                                    </div>
                             ';
                         } 
                     ?>
@@ -160,9 +157,9 @@ include("connect.php");
                 </tr>
                 <tr>
                     <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
-                                <?php
-                                echo '
+                        <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
+                            <?php
+                            echo '
                                 <td class="col-md-6">
                                     <a class="help" data-html="true" data-toggle="tooltip" 
                                         title=" 
@@ -171,20 +168,20 @@ include("connect.php");
                                             Date Received: '.$row ['receive_moa'].' 
                                             <br> Remarks: '.$row ['remark_moa'].' " >
                                 ';
-                                if($row['moa'] == 'yes'){
+                            if($row['moa'] == 'yes'){
+                                echo '  
+                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                    </a>
+                                </td>';
+                            }
+                            else if ($row['moa'] == 'no' ){
                                     echo '  
-                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
                                         </a>
                                     </td>';
-                                }
-                                else if ($row['moa'] == 'no' ){
-                                        echo '  
-                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                            </a>
-                                        </td>';
-                                }
+                            }
                             ?>
-                        </tr>
+                    </tr>
                 </tr>  
             </table>
 
@@ -193,7 +190,6 @@ include("connect.php");
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <a href="profilecompany.php?action=delete&coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['coname']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
-
 
             
         </div> <!--End of Container Fluid-->
@@ -239,7 +235,6 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/tooltip.js"></script>
-
 
     <script>
     $('.date').datepicker({

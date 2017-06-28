@@ -3,20 +3,20 @@ include("connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SCIS OJT Monitoring</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/preloader.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SCIS OJT Monitoring</title>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
-    <link rel="icon" href="img/scisLogo.png">
-  </head>
+        <link rel="icon" href="img/scisLogo.png">
+        </head>
   <body>
     <!--header-->
     <header class="main-header" id="header">
@@ -54,7 +54,6 @@ include("connect.php");
     <!--/ header-->
     <!---->
     
-
     <section class="section-padding">
         <div class="container-fluid">
 
@@ -83,7 +82,6 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-11">
                         <form class="form-inline" method="get">
-
                             <div class="form-group input-group dropdown-toggle">
                                 <span class="input-group-btn">  
                                     <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
@@ -130,15 +128,13 @@ include("connect.php");
                                     <input type="text" id="myInput" onkeyup="search()" class="form-control input-xxlarge">
                                 </div>
                             </form> 
-
-
-
-                    </form>
+                        </form>
                     </div>
 
                     <div class="col-md-1 text-center">
                         <a class="btn btn-success addStudent" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                     </div>
+
                 </div>
             </div>
 
@@ -295,16 +291,14 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
 
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
+
                                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
-                                    
-            
-                                   
                                     $filter = "yes1";
 
                                 } else if($filter == "no1"){
@@ -313,15 +307,15 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
+
                                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no1";
-
 
                                 } else if($filter == "yes2"){
                                     $filter = "yes";
@@ -329,11 +323,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
-                                   if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                    if($total != 0) {
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes2";
@@ -344,11 +338,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no2";
@@ -359,11 +353,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes3";
@@ -374,11 +368,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no3";
@@ -389,16 +383,13 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
 
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
-            
-                                   
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
-                                
                                     $filter = "yes4";
 
                                 } else if($filter == "no4"){
@@ -407,11 +398,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no4";
@@ -421,11 +412,11 @@ include("connect.php");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
-                                    $limit = $total;
+                                        $limit = $total;
                                     }
             
                                     if($total != 0) {
-                                         $page=ceil($total/$limit);
+                                        $page=ceil($total/$limit);
                                     }
                                     $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofojt='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
 
@@ -439,8 +430,6 @@ include("connect.php");
                                         $limit = $total;
                                     }
 
-                    
-
                                     if($total != 0) {
                                          $page=ceil($total/$limit);
                                     }
@@ -448,7 +437,6 @@ include("connect.php");
                                 }
 
                                 ?>
-
                                     <div class="text-center">
                                         <ul class="pagination">
 
@@ -484,7 +472,6 @@ include("connect.php");
                                         } else {
                                             $no = $sort * ($id-1) + 1;
                                         }
-
 
                                         while($row = mysqli_fetch_assoc($sql)){
                                             echo '
@@ -612,35 +599,34 @@ include("connect.php");
                                             } else if ($row ['status'] == "Incomplete") {
                                                 echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-warning" style = "font-size: 1.2em;">'.$row ['status'].'</span><br>';
                                             }
-                                        echo '                            
-                                                                <br>
-                                                                <h2 class="titleRequirements">Letter of Endorsement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_endorsement'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">OJT Waiver</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_waiver'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_waiver'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_waiver'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">Memorandum of Agreement</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_moa'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_moa'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_moa'].'</span></p>
-                                                                <br>
-                                                                <h2 class="titleRequirements">Evaluation</h2>
-                                                                <p>Date Released: <span class="dateRequirement">'.$row ['release_evaluation'].'</span></p>
-                                                                <p>Date Received: <span class="dateRequirement">'.$row ['receive_evaluation'].'</span></p>
-                                                                <p>Remarks: <span class="dateRequirement">'.$row ['remark_evaluation'].'</span></p>
-                                                              </div>
-                                                              <div class="modal-footer">
-                                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                                              </div>
-                                                            </div>
-
-                                                          </div>
-                                                        </div>
+                                            echo '                            
+                                                    <br>
+                                                    <h2 class="titleRequirements">Letter of Endorsement</h2>
+                                                    <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
+                                                    <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.$row ['remark_endorsement'].'</span></p>
+                                                    <br>
+                                                    <h2 class="titleRequirements">OJT Waiver</h2>
+                                                    <p>Date Released: <span class="dateRequirement">'.$row ['release_waiver'].'</span></p>
+                                                    <p>Date Received: <span class="dateRequirement">'.$row ['receive_waiver'].'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.$row ['remark_waiver'].'</span></p>
+                                                    <br>
+                                                    <h2 class="titleRequirements">Memorandum of Agreement</h2>
+                                                    <p>Date Released: <span class="dateRequirement">'.$row ['release_moa'].'</span></p>
+                                                    <p>Date Received: <span class="dateRequirement">'.$row ['receive_moa'].'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.$row ['remark_moa'].'</span></p>
+                                                    <br>
+                                                    <h2 class="titleRequirements">Evaluation</h2>
+                                                    <p>Date Released: <span class="dateRequirement">'.$row ['release_evaluation'].'</span></p>
+                                                    <p>Date Received: <span class="dateRequirement">'.$row ['receive_evaluation'].'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.$row ['remark_evaluation'].'</span></p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                             ';
 
                                             echo '
@@ -648,12 +634,9 @@ include("connect.php");
                                                 <td>';
                                                 if($row['typeofojt'] == 'In-house'){
                                                     echo '<span class="label label-info">In-house</span>';
-                                                }
-                                                            else if ($row['typeofojt'] == 'Company-based' ){
+                                                } else if ($row['typeofojt'] == 'Company-based' ){
                                                     echo '<span class="label label-primary">Company-based</span>';
                                                 }
-                                    
-                                    
                                             echo '
                                                 </td>
                                                 <td>
@@ -736,9 +719,6 @@ include("connect.php");
             }
         }
             
-    </script>
-
-    <script>
         function sortTable(f,n){
             var rows = $('#myTable tbody  tr').get();
 
@@ -756,18 +736,19 @@ include("connect.php");
                 return 0;
             });
 
-            function getVal(elm){
-                var v = $(elm).children('td').eq(n).text().toUpperCase();
-                if($.isNumeric(v)){
-                    v = parseInt(v,10);
-                }
-                return v;
+        function getVal(elm){
+            var v = $(elm).children('td').eq(n).text().toUpperCase();
+            if($.isNumeric(v)){
+                v = parseInt(v,10);
             }
-
-            $.each(rows, function(index, row) {
-                $('#myTable').children('tbody').append(row);
-            });
+            return v;
         }
+
+        $.each(rows, function(index, row) {
+            $('#myTable').children('tbody').append(row);
+        });
+        }
+        
         var f_no = 1;
         var f_idnum = 1;
         var f_name = 1;

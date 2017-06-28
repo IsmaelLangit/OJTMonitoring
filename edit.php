@@ -14,7 +14,6 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
-
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -63,9 +62,7 @@ include("connect.php");
     <!---->
     <section class="section-padding">
         <div class="container-fluid">
-
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-
             <?php
             $idnum = $_GET['idnum'];
             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
@@ -102,8 +99,9 @@ include("connect.php");
                 $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                 $company_moa = mysqli_fetch_assoc($company_query);
                 $moa  = $company_moa["moa"];
+
                 if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
-                     $status = "Complete";
+                    $status = "Complete";
                 } else {
                     $status = "Incomplete";
                 }
@@ -172,30 +170,30 @@ include("connect.php");
                             <select name="courseyear" class="form-control">
 
                                 <?php
-                                        echo "<option value='BSIT 3' ";
-                                        if($row ['courseyear'] == 'BSIT 3'){ 
-                                            echo 'selected';
-                                        } 
-                                        echo ">BSIT-3</option>";
+                                    echo "<option value='BSIT 3' ";
+                                    if($row ['courseyear'] == 'BSIT 3'){ 
+                                        echo 'selected';
+                                    } 
+                                    echo ">BSIT-3</option>";
 
-                                        echo "<option value='BSIT 4' ";
-                                        if($row ['courseyear'] == 'BSIT 4'){ 
-                                            echo 'selected';
-                                        } 
-                                        echo ">BSIT-4</option>";
+                                    echo "<option value='BSIT 4' ";
+                                    if($row ['courseyear'] == 'BSIT 4'){ 
+                                        echo 'selected';
+                                    } 
+                                    echo ">BSIT-4</option>";
 
-                                        echo "<option value='BSCS 3' ";
-                                        if($row ['courseyear'] == 'BSCS 3'){ 
-                                            echo 'selected';
-                                        } 
-                                        echo ">BSCS-3</option>";
+                                    echo "<option value='BSCS 3' ";
+                                    if($row ['courseyear'] == 'BSCS 3'){ 
+                                        echo 'selected';
+                                    } 
+                                    echo ">BSCS-3</option>";
 
-                                        echo "<option value='BSCS 4' ";
-                                        if($row ['courseyear'] == 'BSCS 4'){ 
-                                            echo 'selected';
-                                        } 
-                                        echo ">BSCS-4</option>";
-                                    ?>
+                                    echo "<option value='BSCS 4' ";
+                                    if($row ['courseyear'] == 'BSCS 4'){ 
+                                        echo 'selected';
+                                    } 
+                                    echo ">BSCS-4</option>";
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -213,35 +211,34 @@ include("connect.php");
                 </div>
             </div>
 
-                        <div class="form-group form-inline">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-sm-3 text-right">
-                                        <label class="control-label">Mobile Number</label>
-                                    </div>
-                                    
-                                    <div class="col-sm-8">
-                                    <?php
-                                        $mobile_number = $row ['mobile_number'];
-                                        $mobile_number1 = explode("-", $mobile_number); //separate by "-"
-                                        
-                                        $part1 = $mobile_number1[0];
-                                        $part2 = $mobile_number1[1];
-                                        $part3 = $mobile_number1[2];
-
-
-                                        echo '
-                                        <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="(+63)" readonly> 
-                                        <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" value = "'.$part1.'">
-                                        <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "0000" max = "9999" value = "'.$part2.'">
-                                        <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" value = "'.$part3.'">
-                                        '; 
-
-                                    ?>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="form-group form-inline">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            <label class="control-label">Mobile Number</label>
                         </div>
+                        <div class="col-sm-8">
+                        <?php
+                            $mobile_number = $row ['mobile_number'];
+                            $mobile_number1 = explode("-", $mobile_number); //separate by "-"
+                            
+                            $part1 = $mobile_number1[0];
+                            $part2 = $mobile_number1[1];
+                            $part3 = $mobile_number1[2];
+
+
+                            echo '
+                            <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="(+63)" readonly> 
+                            <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" value = "'.$part1.'">
+                            <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "0000" max = "9999" value = "'.$part2.'">
+                            <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" value = "'.$part3.'">
+                            '; 
+
+                        ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
              <div class="form-group">
                 <div class="container-fluid">
@@ -266,21 +263,21 @@ include("connect.php");
             </div>
 
             <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <label class="col-sm-3 control-label">Type of OJT</label>
-                    <div class="col-sm-8">
-                        <?php
+                <div class="container-fluid">
+                    <div class="row">
+                        <label class="col-sm-3 control-label">Type of OJT</label>
+                        <div class="col-sm-8">
+                            <?php
                                 if ($row ['typeofojt'] == "In-house") {
                                     echo "<span class='label label-info'>In-house</span>";
                                 } else {
                                     echo "<span class='label label-primary'>Company-based</span>";
                                 }
-                        ?>
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
             <br>
             <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
@@ -315,33 +312,32 @@ include("connect.php");
                     </div>
                     <div class="col-sm-8">
                         <?php 
-
-                                if($row['moa'] == 'yes'){
-                                    echo '  
-                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                        </a>
-                                        </span><strong>Submitted</strong>
-                                    </td>';
-                                }
-                                else if ($row['moa'] == 'no' ){
-                                    echo '  
-                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                        </a>
-                                        </span><strong>Submitted</strong>
-                                    </td>';
-                        }
+                            if($row['moa'] == 'yes'){
+                                echo '  
+                                    <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                    </a>
+                                    </span><strong>Submitted</strong>
+                                </td>';
+                            }
+                            else if ($row['moa'] == 'no' ){
+                                echo '  
+                                    <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                    </a>
+                                    </span><strong>Submitted</strong>
+                                </td>';
+                            }
                           ?>
 
-                            <br>
-                            <label class='control-label'>Date Released</label>
-                            <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" readonly>
-                            <br>
-                            <label class='control-label'>Date Received</label>
-                            <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
-                            <br>
-                            <label class='control-label'>Remark/s</label>
-                            <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" readonly>
-                        </div>
+                        <br>
+                        <label class='control-label'>Date Released</label>
+                        <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" readonly>
+                        <br>
+                        <label class='control-label'>Date Received</label>
+                        <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                        <br>
+                        <label class='control-label'>Remark/s</label>
+                        <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" readonly>
+                    </div>  
                     </div>
                 </div>
             </div>
@@ -354,16 +350,15 @@ include("connect.php");
                         </div>
                         <div class="col-sm-8">
                             <?php
-                                    echo  "<input type='hidden' name='endorsement' value='no'>";
-                                    
-                                    
-                                    if ($row ['endorsement'] == 'yes') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
-                                    } 
-                                    
-                                    if($row ['endorsement'] == 'no') {
-                                        echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
-                                    }   
+                                echo  "<input type='hidden' name='endorsement' value='no'>";
+                                
+                                if ($row ['endorsement'] == 'yes') {
+                                    echo "<input type='checkbox' name='endorsement' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
+                                } 
+                                
+                                if($row ['endorsement'] == 'no') {
+                                    echo "<input type='checkbox' name='endorsement' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
+                                }   
                               ?>
                                 <label class='control-label'>Date Released</label>
                                 <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
@@ -387,16 +382,15 @@ include("connect.php");
                         
                         <div class="col-sm-8">
                             <?php
-                                    echo  "<input type='hidden' name='waiver' value='no'>";
-                                    
-                                    
-                                    if ($row ['waiver'] == 'yes') {
-                                        echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
-                                    } 
-                                    
-                                    if($row ['waiver'] == 'no') {
-                                        echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
-                                    }   
+                                echo  "<input type='hidden' name='waiver' value='no'>";
+
+                                if ($row ['waiver'] == 'yes') {
+                                    echo "<input type='checkbox' name='waiver' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
+                                } 
+                                
+                                if($row ['waiver'] == 'no') {
+                                    echo "<input type='checkbox' name='waiver' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
+                                }   
                               ?>
                                 <label class='control-label'>Date Released</label>
                                 <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement"  >
@@ -411,14 +405,14 @@ include("connect.php");
                 </div>
             </div>
 
-        <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 text-right">
-                        <label class="control-label subLabel">Evaluation</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <?php
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            <label class="control-label subLabel">Evaluation</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <?php
                                 echo  "<input type='hidden' name='evaluation' value='no'>";
                                 
                                 
@@ -429,41 +423,40 @@ include("connect.php");
                                 if($row ['evaluation'] == 'no') {
                                     echo "<input type='checkbox' name='evaluation' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
                                 }   
-                          ?>
-                            <label class='control-label'>Date Released</label>
-                            <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
-                            <br>
-                            <label class='control-label'>Date Received</label>
-                            <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
-                            <br>
-                            <label class='control-label'>Remark/s</label>
-                            <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control">
+                              ?>
+                                <label class='control-label'>Date Released</label>
+                                <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                <br>
+                                <label class='control-label'>Date Received</label>
+                                <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                <br>
+                                <label class='control-label'>Remark/s</label>
+                                <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 text-right">
-                        <label class="control-label">&nbsp;</label>
-                    </div>
-                    <div class="col-sm-8 text-left">
-                        <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
-                        <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+                            <label class="control-label">&nbsp;</label>
+                        </div>
+                        <div class="col-sm-8 text-left">
+                            <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
+                            <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
         </div>
         
-        <div class="col-md-3">
-            <img class="img-responsive text-center center-block addPicture" src="img/edit.png">
+            <div class="col-md-3">
+                <img class="img-responsive text-center center-block addPicture" src="img/edit.png">
+            </div>
+            </div>
         </div>
-    </div>
-</div>
             
         </div> <!--End of Container Fluid-->
     </section>

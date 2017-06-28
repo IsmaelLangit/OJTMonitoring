@@ -53,7 +53,6 @@
     <!--/ header-->
     <!---->
 
-
     <section class="section-padding">
         <div class="container-fluid">
 
@@ -113,7 +112,6 @@
                 
             }
             ?>
-
 
             <div class="container-fluid">
                 <div class="row">
@@ -260,7 +258,6 @@
                                                     <br>" ;
                                             ?>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>

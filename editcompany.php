@@ -63,9 +63,7 @@ include("connect.php");
     <!---->
     <section class="section-padding">
         <div class="container-fluid">
-
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-
             <?php
             $coid = $_GET['coid'];
             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");

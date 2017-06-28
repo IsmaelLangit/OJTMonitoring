@@ -14,7 +14,6 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/preloader.css">
-
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -54,9 +53,7 @@ include("connect.php");
     <!---->
     <section class="section-padding">
         <div class="container-fluid">
-
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
@@ -126,8 +123,6 @@ include("connect.php");
                     </div>
                 </div>
             </div>
-
-            
 
             <br>
 
@@ -203,11 +198,11 @@ include("connect.php");
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
                                     }
 
-                                    for($i=1; $i <= $page; $i++){
+                                    for ($i=1 ; $i <= $page ; $i++){
                                      echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'">'.$i.'</a></li>'; 
                                     }
 
-                                    if($id!=$page) {
+                                    if($id != $page) {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
                                     } else {
                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li>';
@@ -219,9 +214,13 @@ include("connect.php");
 
                         <?php
                         if(mysqli_num_rows($sql) == 0){
-                            echo '<tr class="nothingToDisplay text-center"><td colspan="8">Nothing to Display</td></tr>';
+                            echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                         }else{
-                            $no = 1;
+                            if($id == 1) {
+                                $no = 1;
+                            } else {
+                                $no = $sort * ($id-1) + 1;
+                            }
                             while($row = mysqli_fetch_assoc($sql)){
                                 echo '
                                 <tr>
@@ -249,14 +248,13 @@ include("connect.php");
                                 <td class="col-md-1">'.$row['position'].'</td>
                                 ';
 
-                                  $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                    while ($row1 = mysqli_fetch_assoc($con)) {
-                                        echo '
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
 
+                                while ($row1 = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
-
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
                                                   <div class="modal-header">
@@ -266,45 +264,44 @@ include("connect.php");
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
                                                 ';
-                                                    $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
-                                                        while ($row2 = mysqli_fetch_assoc($con1)) {
-                                                        echo '
-                                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                while ($row2 = mysqli_fetch_assoc($con1)) {
+                                        echo '
+                                            <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
                                                         ';
                                                     }
-                                                 echo '
+                                        echo '
                                                   </div>
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                                                   </div>
                                                 </div>
-
                                               </div>
                                             </div>
 
                                         ';
                                     } 
-                                echo '
-                                                <td>
-                                                    <a class="help" data-html="true" data-toggle="tooltip" 
-                                                        title=" 
-                                                            Date Released: '.$row ['release_moa'].' 
-                                                            <br> 
-                                                            Date Received: '.$row ['receive_moa'].' 
-                                                            <br> Remarks: '.$row ['remark_moa'].' " >
-                                                ';
-                                            if($row['moa'] == 'yes'){
-                                                echo '  
-                                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                                    </a>
-                                                </td>';
-                                            }
-                                            else if ($row['moa'] == 'no' ){
-                                                    echo '  
-                                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                                        </a>
-                                                    </td>';
-                                            }
+                                        echo '
+                                            <td>
+                                                <a class="help" data-html="true" data-toggle="tooltip" 
+                                                    title=" 
+                                                        Date Released: '.$row ['release_moa'].' 
+                                                        <br> 
+                                                        Date Received: '.$row ['receive_moa'].' 
+                                                        <br> Remarks: '.$row ['remark_moa'].' " >
+                                            ';
+                                if($row['moa'] == 'yes'){
+                                    echo '  
+                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        </a>
+                                    </td>';
+                                }
+                                else if ($row['moa'] == 'no' ){
+                                        echo '  
+                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                            </a>
+                                        </td>';
+                                }
 
                                 echo '
                                     <td>
