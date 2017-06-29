@@ -213,8 +213,8 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.$row['coname'].'</a></td>
-                                    <td class="col-md-4">'.$row['coaddress'].'</td>';
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.htmlentities($row['coname']).'</a></td>
+                                    <td class="col-md-4">'.htmlentities($row['coaddress']).'</td>';
                                             echo '
                                     <td class = "text-center">';
                                     if ($row['typeofcompany'] == 'Private'){
@@ -224,8 +224,8 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td >'.$row['company_head'].'</td>
-                                <td class="col-md-1">'.$row['position'].'</td>
+                                <td >'.htmlentities($row['company_head']).'</td>
+                                <td class="col-md-1">'.htmlentities($row['position']).'</td>
                                 ';
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                 while ($row1 = mysqli_fetch_assoc($con)) {
@@ -237,7 +237,7 @@ include("connect.php");
                                                 <div class="modal-content">
                                                   <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                    <h4 class="modal-title text-center">'.htmlentities($row['coname']).'</h4>
                                                   </div>
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
@@ -245,7 +245,7 @@ include("connect.php");
                                 $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                         echo '
-                                            <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                            <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.htmlentities($row2['last_name']).", ".htmlentities($row2['first_name']).'</a></p>
                                                         ';
                                                     }
                                         echo '
@@ -287,7 +287,7 @@ include("connect.php");
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
                                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
-                                echo 'onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')"';
+                                echo 'onclick="return confirm(\'Are you sure you want to delete '.htmlentities($row['coname']).'?\')"';
                                 }
                                 echo 'class="btn btn-danger btn-sm">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

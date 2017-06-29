@@ -70,7 +70,7 @@ include("connect.php");
                 $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
                 $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
+                $mobile_number       = $_POST['mobile_number'];
                 $email       = mysqli_real_escape_string($connect,$_POST['email']);
 
                 $endorsement         = $_POST['endorsement'];
@@ -221,22 +221,10 @@ include("connect.php");
                                         </div>
                                         <div class="col-sm-8">
                                             <?php
-                                                $mobile_number = $row ['mobile_number'];
-                                                $mobile_number1 = explode("-", $mobile_number); //separate by "-"
-                                                
-                                                $part1 = $mobile_number1[0];
-                                                $part2 = $mobile_number1[1];
-                                                $part3 = $mobile_number1[2];
-                                                
-                                                
                                                 echo '
-                                                <input style="width:65px;" type="text" name="mobile_number1" class="form-control" placeholder="(+63)" readonly> 
-                                                <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" value = "'.$part1.'">
-                                                <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "0000" max = "9999" value = "'.$part2.'">
-                                                <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" value = "'.$part3.'">
+                                                <input type="text" name="mobile_number" class="form-control" value="'.$row ['mobile_number'].'">
                                                 '; 
-                                                
-                                                ?>
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

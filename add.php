@@ -56,7 +56,7 @@
                 $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
                 $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number2']."-".$_POST['mobile_number3']."-".$_POST['mobile_number4'];
+                $mobile_number       = $_POST['mobile_number'];
 
                 $email       = mysqli_real_escape_string($connect,$_POST['email']);
 
@@ -184,10 +184,8 @@
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input style="width:65px;" type="text" class="form-control" placeholder="+63" readonly> 
-                                            <input style="width:55px;" type="text" name="mobile_number2" class="form-control" placeholder="900" min = "900" max = "999" >
-                                            <input style="width:55px;" type="text" name="mobile_number3" class="form-control" placeholder="000" min = "000" max = "999">
-                                            <input style="width:60px;" type="text" name="mobile_number4" class="form-control" placeholder="0000" min = "0000" max = "9999"> 
+                                            <input type="text" name="mobile_number" class="form-control">
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +202,7 @@
                                                 <?php
                                                     $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                     while ($row = mysqli_fetch_assoc($con)) {
-                                                        echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
+                                                        echo "<option value='".$row["coid"]."'>".htmlentities($row["coname"])."</option>";
                                                     }
                                                     echo "</select>";
                                                     ?>

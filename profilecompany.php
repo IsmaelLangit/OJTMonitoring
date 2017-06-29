@@ -48,9 +48,9 @@ include("connect.php");
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
                             if (substr($row ['coname'], -1) == "s") {
-                                echo $row ['coname']."'";
+                                echo htmlentities($row ['coname'])."'";
                             } else if (substr($row ['coname'], -1) != "s"){
-                                 echo $row ['coname'];
+                                 echo htmlentities($row ['coname']);
                             }
                             ?> 
                     </h2>
@@ -91,11 +91,11 @@ include("connect.php");
             <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th scope="row" class="info">Company Name</th>
-                    <td><?php echo $row['coname']; ?></td>
+                    <td><?php echo htmlentities($row['coname']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Address</th>
-                    <td><?php echo $row['coaddress']; ?></td>
+                    <td><?php echo htmlentities($row['coaddress']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Type</th>
@@ -103,11 +103,11 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Company Head</th>
-                    <td><?php echo $row['company_head']; ?></td>
+                    <td><?php echo htmlentities($row['company_head']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Position</th>
-                    <td><?php echo $row['position']; ?></td>
+                    <td><?php echo htmlentities($row['position']); ?></td>
                 </tr> 
                 <tr>
                     <th scope="row" class="info">Number of Students</th>
@@ -123,7 +123,7 @@ include("connect.php");
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                            <h4 class="modal-title text-center">'.htmlentities($row['coname']).'</h4>
                                           </div>
                                           <div class="modal-body text-center">
                                             <h2 class="infoStudent">Practicum Student/s</h2>
@@ -131,7 +131,7 @@ include("connect.php");
                                             $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                                 echo '
-                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.htmlentities($row2['last_name']).", ".htmlentities($row2['first_name']).'</a></p>
                                                 ';
                                             }
                                          echo '
