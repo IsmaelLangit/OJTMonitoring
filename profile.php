@@ -110,7 +110,7 @@ include("connect.php");
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Mobile Number</th>
-                            <td class="col-md-10"><?php echo $row['mobile_number']; ?></td>
+                            <td class="col-md-6"><?php echo htmlentities($row['mobile_number']); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Email</th>

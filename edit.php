@@ -48,7 +48,7 @@ include("connect.php");
                     $idnum = $_GET['idnum'];
                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                     $row = mysqli_fetch_assoc($sql);
-                    echo $row ['last_name']."'s";
+                    echo htmlentities($row ['last_name'])."'s";
                 ?> 
             </span>
             Details</h2> 
@@ -240,14 +240,14 @@ include("connect.php");
                                         <div class="col-sm-8">
                                             <select name="coid" class="form-control">
                                             <option value="<?php echo $row ['coid']; ?>">
-                                                <?php echo $row ['coname']; ?>
+                                                <?php echo htmlentities($row ['coname']); ?>
                                             </option>
                                             ";
                                             <?php
                                                 $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                                     if($row ['coid'] != $row2 ['coid'])
-                                                    echo "<option value='".$row2["coid"]."'>".$row2["coname"]."</option>";
+                                                    echo "<option value='".$row2["coid"]."'>".htmlentities($row2["coname"])."</option>";
                                                 }
                                                 echo "</select>";
                                                 ?>
