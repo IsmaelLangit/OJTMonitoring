@@ -186,7 +186,13 @@ include("connect.php");
             </table>
 
             <div class="pull-right">
-            <a href="company.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
+            <?php
+                $previous = "javascript:history.go(-1)";
+                if(isset($_SERVER['HTTP_REFERER'])) {
+                    $previous = $_SERVER['HTTP_REFERER'];
+                }
+                ?>
+            <a href="<?= $previous ?>" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <?php
             echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
