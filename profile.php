@@ -17,10 +17,7 @@ include("connect.php");
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
-    <!--header-->
-    <header class="main-header" id="header">
-        <div class="bg-color">
-            <!--nav-->
+
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
                     <div class="col-md-12">
@@ -41,31 +38,28 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-            <!--/ nav-->
-            <div class="container text-center">
-                <div class="wrapper wow fadeIn delay-05s">
-                    <h2 class="top-title">
-                        <span class="title">
-                        <?php 
-                            $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
-                            $row = mysqli_fetch_assoc($sql);
 
-                            if (substr($row ['last_name'], -1) == "s") {
-                                echo $row ['last_name']."'";
-                            } else if (substr($row ['last_name'], -1) != "s"){
-                                 echo $row ['last_name']."'s";
-                            }
-                            
-                            ?> 
-                        </span>
-                    Profile</h2>
-                </div>
-            </div>
+    <div class="text-center sect bg">
+        <div class="wow fadeIn">
+            <h2 class="top-title">
+            <span class="title">
+            <?php 
+                $idnum = $_GET['idnum'];
+                $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                $row = mysqli_fetch_assoc($sql);
+
+                if (substr($row ['last_name'], -1) == "s") {
+                    echo $row ['last_name']."'";
+                } else if (substr($row ['last_name'], -1) != "s"){
+                     echo $row ['last_name']."'s";
+                }
+                
+                ?> 
+            </span>
+            Profile</h2>
         </div>
-    </header>
-    <!--/ header-->
-    <!---->
+    </div>
+
     <section class="section-padding">
         <div class="container">
 

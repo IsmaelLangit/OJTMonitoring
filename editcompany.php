@@ -18,10 +18,6 @@ include("connect.php");
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
-    <!--header-->
-    <header class="main-header" id="header">
-        <div class="bg-color">
-            <!--nav-->
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
                     <div class="col-md-12">
@@ -42,25 +38,21 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-            <!--/ nav-->
-            <div class="container-fluid text-center">
-                <div class="wrapper wow fadeIn delay-05s " >
-                    <h2 class="top-title">Edit
-                    <span class="companytitle">
-                        <?php 
-                            $coid = $_GET['coid'];
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
-                            $row = mysqli_fetch_assoc($sql);
-                            echo $row ['coname']."'s";
-                            ?> 
-                    </span>
-                    Details</h2>
-                </div>
-            </div>
+
+    <div class="text-center sect bg">
+        <div class="wow fadeIn">
+            <h2 class="top-title">Edit
+            <span class="companytitle">
+                <?php 
+                    $coid = $_GET['coid'];
+                    $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                    $row = mysqli_fetch_assoc($sql);
+                    echo $row ['coname']."'s";
+                    ?> 
+            </span>
+            Details</h2>
         </div>
-    </header>
-    <!--/ header-->
-    <!---->
+    </div>
     <section class="section-padding">
         <div class="container-fluid">
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
