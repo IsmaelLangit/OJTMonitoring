@@ -479,7 +479,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.htmlentities($row['last_name']).", ".htmlentities($row['first_name']).'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.htmlentities($row['last_name']).", ".htmlentities($row['first_name']).'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                             echo '
