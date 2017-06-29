@@ -39,9 +39,6 @@
             </div>
         </nav>
 
-    <!--/ header-->
-    <!---->
-
     <div class="text-center sect bg">
         <div class="wow fadeIn">
             <h2 class="top-title"><span class="title">Add</span> a Student </h2>
