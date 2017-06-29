@@ -261,6 +261,9 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+textarea {
+    max-width: 100%; 
+}
 .nothingToDisplay{
     font-size: 2em;
     font-style: italic;
