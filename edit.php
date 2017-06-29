@@ -126,7 +126,7 @@ include("connect.php");
                 <div class="container-fluid">
                     <div class="row">
                         <label class="col-sm-3 control-label">ID Number</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
                         </div>
                     </div>
@@ -159,8 +159,8 @@ include("connect.php");
                 <div class="container-fluid">
                     <div class="row">
                         <label class="col-sm-3 control-label">Course & Year</label>
-                        <div class="col-sm-3">
-                            <select name="courseyear" class="form-control">
+                        <div class="col-sm-2">
+                            <select name="courseyear" class="form-control touch">
 
                                 <?php
                                     echo "<option value='BSIT 3' ";
@@ -360,7 +360,7 @@ include("connect.php");
                                 <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
                                 <br>
                                 <label class='control-label'>Remark/s</label>
-                                <input type="text" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks">
+                                <textarea rows="5" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks"></textarea>
                         </div>
                     </div>
                 </div>
@@ -392,7 +392,7 @@ include("connect.php");
                                 <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
                                 <br>
                                 <label class='control-label'>Remark/s</label>
-                                <input type="text" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" >
+                                <textarea rows="5" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks" ></textarea>
                         </div>
                     </div>
                 </div>
@@ -424,7 +424,7 @@ include("connect.php");
                                 <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                 <br>
                                 <label class='control-label'>Remark/s</label>
-                                <input type="text" class="form-control" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control">
+                                <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control" > </textarea>
                         </div>
                     </div>
                 </div>
