@@ -195,7 +195,27 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4 text-right">
+                                            <label class="control-label">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select name="coid" class="form-control touch">
+                                                <option value='1'>No current company</option>
+                                                <?php
+                                                    $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
+                                                    while ($row = mysqli_fetch_assoc($con)) {
+                                                        echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
+                                                    }
+                                                    echo "</select>";
+                                                    ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div> <!--end of basic information col-md-6-->
 
                     <div class="col-md-9">
@@ -203,7 +223,7 @@
 
                             <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
                             <hr class="style-four">
-                            
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Endorsement</strong></p>
@@ -267,6 +287,13 @@
 
                         </div> <!--End of ROW-->
                     </div> <!--end of practicum 2 requirements col-md-6-->
+                    <div class="form-group text-center">
+                        <div class="col">
+                            <input type="submit" name="add" class="btn btn-md btn-success" value="Add Student">
+                            <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
                 </div>
             </div> <!--End of Container Fluid-->
 
