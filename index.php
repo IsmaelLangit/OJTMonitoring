@@ -17,37 +17,43 @@ include("connect.php");
 
         <link rel="icon" href="img/scisLogo.png">
         </head>
-
   <body>
+    <!--header-->
+    <header class="main-header" id="header">
+        <div class="bg-color">
+            <!--nav-->
+            <nav class="nav navbar-default navbar-fixed-top stroke">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
+                            <ul class="nav navbar-nav ">
+                                <li class="active"><a href="index.php">List of Students</a></li>
+                                <li><a href="add.php">Add Student</a></li>
+                                <li><a href="company.php">list of Companies</a></li>
+                                <li><a href="addcompany.php">Add Company</a></li>
+                            </ul>
 
-        <nav class="nav navbar-default navbar-fixed-top stroke">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                        <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                        <ul class="nav navbar-nav ">
-                            <li class="active"><a href="index.php">List of Students</a></li>
-                            <li><a href="add.php">Add Student</a></li>
-                            <li><a href="company.php">list of Companies</a></li>
-                            <li><a href="addcompany.php">Add Company</a></li>
-                        </ul>
-
+                        </div>
                     </div>
                 </div>
+            </nav>
+            <!--/ nav-->
+            <div class="container text-center">
+                <div class="wrapper wow fadeIn">
+                    <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
+                </div>
             </div>
-        </nav>
-
-    <div class="text-center sect bg">
-        <div class="wow fadeIn">
-            <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
         </div>
-    </div>
-
+    </header>
+    <!--/ header-->
+    <!---->
+    
     <section class="section-padding">
         <div class="container-fluid">
 
@@ -244,17 +250,17 @@ include("connect.php");
 
                                 <thead>
                                     <tr class="info">
-                                        <th id="no" class="text-center touch" title="Sort By Number"><span class="fa fa-sort space"></span>No </th>
-                                        <th id="idnum" class="text-center touch" title="Sort By ID Number"><span class="fa fa-sort space"></span>ID Number</th>
-                                        <th id="name" class="text-center touch" title="Sort By Name"><span class="fa fa-sort space"></span>Name</th>
-                                        <th id="courseandyear" class="text-center touch" title="Sort By Course and Year"><span class="fa fa-sort space"></span> Course & Year</th>
-                                        <th id="endorsement" class="text-center touch" title="Sort By Endorsement Status"><span class="fa fa-sort space"></span>Endorsement</th>
-                                        <th id="waiver" class="text-center touch" title="Sort By Waiver Status"><span class="fa fa-sort space"></span>Waiver</th>
-                                        <th id="moa" class="text-center touch" title="Sort By MOA Status"><span class="fa fa-sort space"></span>MOA</th>
-                                        <th id="evaluation" class="text-center touch" title="Sort By Evaluation Status"><span class="fa fa-sort space"></span>Evaluation</th>
-                                        <th id="status" class="text-center touch" title="Sort By Requirement Status"><span class="fa fa-sort space"></span>Requirement Status</th>
-                                        <th id="companyname" class="text-center touch" title="Sort By Company Name"><span class="fa fa-sort space"></span>Company Name</th>
-                                        <th id="type" class="text-center touch" title="Sort By OJT Type"><span class="fa fa-sort space"></span>Type</th>
+                                        <th id="no" class="text-center" title="Sort By Number"><span class="fa fa-sort space"></span>No </th>
+                                        <th id="idnum" class="text-center" title="Sort By ID Number"><span class="fa fa-sort space"></span>ID Number</th>
+                                        <th id="name" class="text-center" title="Sort By Name"><span class="fa fa-sort space"></span>Name</th>
+                                        <th id="courseandyear" class="text-center" title="Sort By Course and Year"><span class="fa fa-sort space"></span> Course & Year</th>
+                                        <th id="endorsement" class="text-center" title="Sort By Endorsement Status"><span class="fa fa-sort space"></span>Endorsement</th>
+                                        <th id="waiver" class="text-center" title="Sort By Waiver Status"><span class="fa fa-sort space"></span>Waiver</th>
+                                        <th id="moa" class="text-center" title="Sort By MOA Status"><span class="fa fa-sort space"></span>MOA</th>
+                                        <th id="evaluation" class="text-center" title="Sort By Evaluation Status"><span class="fa fa-sort space"></span>Evaluation</th>
+                                        <th id="status" class="text-center" title="Sort By Requirement Status"><span class="fa fa-sort space"></span>Requirement Status</th>
+                                        <th id="companyname" class="text-center" title="Sort By Company Name"><span class="fa fa-sort space"></span>Company Name</th>
+                                        <th id="type" class="text-center" title="Sort By OJT Type"><span class="fa fa-sort space"></span>Type</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -478,7 +484,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['last_name'].", ".$row['first_name'].'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                             echo '
