@@ -47,7 +47,7 @@ include("connect.php");
     </div>
 
     <section class="section-padding">
-        <div class="container-fluid">
+        <div class="container">
             
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
@@ -81,103 +81,113 @@ include("connect.php");
             }
             ?>
 
-            <div class="container">
-                <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
+            <form action="" method="post">
                 <div class="row">
 
-                    <div class="col-md-9 ">
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Company Name</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="coname" class="form-control" placeholder="Company name..." required>
-                                        </div>
+                    <div class="col-md-6">
+
+                        <h2 class="head-title titleFont">Company Information</h2>
+                        <hr class="style-four">
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Company Name</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="coname" class="form-control" placeholder="Company Name" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Address</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="coaddress" class="form-control" placeholder="Address.." required>
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Address</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="coaddress" class="form-control" placeholder="Address" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Company Head</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="company_head" class="form-control" placeholder="Company head..">
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Company Head</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="company_head" class="form-control" placeholder="Company Head">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Position</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="position" class="form-control" placeholder="Position..">
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Position</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="position" class="form-control" placeholder="Position">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Type</label>
-                                        <div class="col-sm-6">
-                                           <select name="typeofcompany" class="form-control">
-                                                <option value="Government">Government</option>
-                                                <option value="Private">Private</option>
-                                            </select>
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Type</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <select name="typeofcompany" class="touch form-control">
+                                            <option value="Government">Government</option>
+                                            <option value="Private">Private</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-3 text-right">
-                                                <label class="control-label subLabel">Memorandum of Agreement</label>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <?php
-                                                    echo  "<input type='hidden' name='moa' value='no'>";
-                                                    
-                                                    echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                                    echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
-                                                    echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
-                                                    echo  "<label class='control-label'>Remarks</label><input type='text' name='remark_moa' class='form-control' placeholder = 'Input remarks'><br>" ;
-                                                    ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">&nbsp;</label>
-                                        <div class="col-sm-6">
-                                            <input type="submit" name="add" class="btn btn-md btn-success" value="Add">
-                                            <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
-                                        </div>
-                                    </div>
+                        </div>
+
+                    </div> <!--End of basic information company col-md-6-->
+
+                    <div class="col-md-6">
+
+                        <h2 class="head-title titleFont">Memorandum of Agreement</h2>
+                        <hr class="style-four">
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="col">
+                                    <?php
+                                        echo  "<input type='hidden' name='moa' value='no'>";
+                                        
+                                        echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                        echo  "<label class='control-label'>Remarks</label><textarea rows='5' name='remark_moa' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
+                                        ?>
                                 </div>
                             </div>
-                        </form>
+                        </div>
 
                     </div>
-                    <div class="col-md-3">
-                        <img class="img-responsive center-block addPicture" src="img/0af0e35a05b3955209dd049fd0a974f5.png">
-                    </div>
                 </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" name="add" class="btn btn-md btn-success" value="Add">
+                    <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                </div>
+                
             </form>
-            </div>
         </div> <!--End of Container Fluid-->
     </section>
     <!---->
