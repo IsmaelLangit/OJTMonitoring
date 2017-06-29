@@ -48,7 +48,7 @@ include("connect.php");
                     $idnum = $_GET['idnum'];
                     $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
                     $row = mysqli_fetch_assoc($sql);
-                    echo $row ['last_name']."'s";
+                    echo htmlentities($row ['last_name'])."'s";
                 ?> 
             </span>
             Details</h2> 
