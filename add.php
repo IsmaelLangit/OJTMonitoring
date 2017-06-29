@@ -202,7 +202,7 @@
                                                 <?php
                                                     $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                     while ($row = mysqli_fetch_assoc($con)) {
-                                                        echo "<option value='".$row["coid"]."'>".$row["coname"]."</option>";
+                                                        echo "<option value='".$row["coid"]."'>".htmlentities($row["coname"])."</option>";
                                                     }
                                                     echo "</select>";
                                                     ?>

@@ -121,11 +121,11 @@ include("connect.php");
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Company Name</th>
-                            <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo $row['coname']; ?></a></td>
+                            <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo htmlentities($row['coname']); ?></a></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Address</th>
-                            <td class="col-md-6"><?php echo $row['coaddress']; ?></td>
+                            <td class="col-md-6"><?php echo htmlentities($row['coaddress']); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-6">Status</th>

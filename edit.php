@@ -230,13 +230,13 @@ include("connect.php");
                         <div class="col-sm-8">
                             <select name="coid" class="form-control">
                             <option value="<?php echo $row ['coid']; ?>">
-                            <?php echo $row ['coname']; ?></option>
+                            <?php echo htmlentities($row ['coname']); ?></option>
                             ";
                             <?php
                                 $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                     if($row ['coid'] != $row2 ['coid'])
-                                    echo "<option value='".$row2["coid"]."'>".$row2["coname"]."</option>";
+                                    echo "<option value='".$row2["coid"]."'>".htmlentities($row2["coname"])."</option>";
                                 }
                                 echo "</select>";
                                 ?>

@@ -123,7 +123,7 @@ include("connect.php");
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                            <h4 class="modal-title text-center">'.htmlentities($row['coname']).'</h4>
                                           </div>
                                           <div class="modal-body text-center">
                                             <h2 class="infoStudent">Practicum Student/s</h2>
@@ -131,7 +131,7 @@ include("connect.php");
                                             $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                                 echo '
-                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.htmlentities($row2['last_name']).", ".htmlentities($row2['first_name']).'</a></p>
                                                 ';
                                             }
                                          echo '
