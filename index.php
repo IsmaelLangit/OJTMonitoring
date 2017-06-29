@@ -17,43 +17,37 @@ include("connect.php");
 
         <link rel="icon" href="img/scisLogo.png">
         </head>
-  <body>
-    <!--header-->
-    <header class="main-header" id="header">
-        <div class="bg-color">
-            <!--nav-->
-            <nav class="nav navbar-default navbar-fixed-top stroke">
-                <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="fa fa-bars"></span>
-                        </button>
-                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
-                        </div>
-                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav ">
-                                <li class="active"><a href="index.php">List of Students</a></li>
-                                <li><a href="add.php">Add Student</a></li>
-                                <li><a href="company.php">list of Companies</a></li>
-                                <li><a href="addcompany.php">Add Company</a></li>
-                            </ul>
 
-                        </div>
+  <body>
+
+        <nav class="nav navbar-default navbar-fixed-top stroke">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                        <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="index.php">List of Students</a></li>
+                            <li><a href="add.php">Add Student</a></li>
+                            <li><a href="company.php">list of Companies</a></li>
+                            <li><a href="addcompany.php">Add Company</a></li>
+                        </ul>
+
                     </div>
                 </div>
-            </nav>
-            <!--/ nav-->
-            <div class="container text-center">
-                <div class="wrapper wow fadeIn">
-                    <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
-                </div>
             </div>
+        </nav>
+
+    <div class="text-center sect bg">
+        <div class="wow fadeIn">
+            <h2 class="top-title">List of Practicum 2 <span class="title">Students</span></h2>
         </div>
-    </header>
-    <!--/ header-->
-    <!---->
-    
+    </div>
+
     <section class="section-padding">
         <div class="container-fluid">
 
