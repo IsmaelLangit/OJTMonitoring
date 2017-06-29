@@ -13,9 +13,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/preloader.css">
     <link rel="icon" href="img/scisLogo.png">
-    <script src="js/unsave"></script>
   </head>
   <body>
 
@@ -332,7 +330,7 @@ include("connect.php");
                                             <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" readonly> </textarea>
+                                            <textarea rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo $row ['remark_moa']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +357,7 @@ include("connect.php");
                                             <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_endorsement" value="<?php echo $row ['remark_endorsement']; ?>" class="form-control" placeholder="Remarks"></textarea>
+                                            <textarea rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo $row ['remark_endorsement']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +384,7 @@ include("connect.php");
                                             <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_waiver" value="<?php echo $row ['remark_waiver']; ?>" class="form-control" placeholder="Remarks" ></textarea>
+                                            <textarea rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo $row ['remark_waiver']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -414,7 +412,7 @@ include("connect.php");
                                             <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" value="<?php echo $row ['remark_evaluation']; ?>" class="form-control"></textarea>
+                                            <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo $row ['remark_evaluation']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -469,11 +467,7 @@ include("connect.php");
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
-    <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/preloader.js"></script>
-
-
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',
