@@ -248,7 +248,14 @@ include("connect.php");
             </div>
 
             <div class="row text-center">
-                <a href="index.php" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
+                <?php
+                $previous = "javascript:history.go(-1)";
+                if(isset($_SERVER['HTTP_REFERER'])) {
+                    $previous = $_SERVER['HTTP_REFERER'];
+                }
+
+                ?>
+                <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
                 <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-danger" onclick="return confirm('Are you sure to delete <?php echo $row['first_name'].$row['last_name']; ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
