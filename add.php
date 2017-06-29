@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
-        <link rel="stylesheet" type="text/css" href="css/preloader.css">
         <link rel="icon" href="img/scisLogo.png">
     </head>
     <body>
@@ -332,7 +331,6 @@
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
-    <script src="js/filter.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/bootstrap-notify.min.js"></script>
     <script type="js/Gruntfile.js"></script>
