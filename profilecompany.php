@@ -48,9 +48,9 @@ include("connect.php");
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
                             if (substr($row ['coname'], -1) == "s") {
-                                echo $row ['coname']."'";
+                                echo htmlentities($row ['coname'])."'";
                             } else if (substr($row ['coname'], -1) != "s"){
-                                 echo $row ['coname'];
+                                 echo htmlentities($row ['coname']);
                             }
                             ?> 
                     </h2>
@@ -91,11 +91,11 @@ include("connect.php");
             <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th scope="row" class="info">Company Name</th>
-                    <td><?php echo $row['coname']; ?></td>
+                    <td><?php echo htmlentities($row['coname']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Address</th>
-                    <td><?php echo $row['coaddress']; ?></td>
+                    <td><?php echo htmlentities($row['coaddress']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Type</th>
@@ -103,11 +103,11 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Company Head</th>
-                    <td><?php echo $row['company_head']; ?></td>
+                    <td><?php echo htmlentities($row['company_head']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Position</th>
-                    <td><?php echo $row['position']; ?></td>
+                    <td><?php echo htmlentities($row['position']); ?></td>
                 </tr> 
                 <tr>
                     <th scope="row" class="info">Number of Students</th>
