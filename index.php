@@ -431,15 +431,14 @@ include("connect.php");
                                 }
 
                                 ?>
-                                    <div class="text-center">
-                                        <ul class="pagination list-group">
+                                   
                                             <?php 
            
                                                 if ($page > 1){
                                                     if($id > 1) {
-                                                    echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                                    echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
                                                     } else {
-                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                                        echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
                                                     }
             
                                                     for($i=1; $i <= $page; $i++){
@@ -456,14 +455,13 @@ include("connect.php");
                                                     }
 
                                                     if($id!=$page) {
-                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li>';
+                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li></ul></div>';
                                                     } else {
-                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li>';
+                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li></ul></div>';
                                                     }
                                                 }
                                             ?>
-                                        </ul>
-                                    </div>
+                                        
                                 <?php 
 
                                     if(mysqli_num_rows($sql) == 0){
