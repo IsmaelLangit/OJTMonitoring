@@ -90,8 +90,8 @@ include("connect.php");
 
             <table class="table table-striped table-bordered table-hover">
                 <tr>
-                    <th scope="row" class="info">Company Name</th>
-                    <td><?php echo htmlentities($row['coname']); ?></td>
+                    <th scope="row" class="info col-md-2">Company Name</th>
+                    <td class="col-md-5"><?php echo htmlentities($row['coname']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Address</th>
@@ -150,7 +150,7 @@ include("connect.php");
                 </tr>
                 <tr>
                     <tr>
-                        <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
+                        <th scope="row" class="bg-danger text-white">Memorandum of Agreement</th>
                             <?php
                             echo '
                                 <td class="col-md-6">

@@ -88,113 +88,119 @@ include("connect.php");
             ?>
 
             <div class="row">
+                <div class="col-md-6">
 
                     <h2 class="head-title titleFont">Basic Information</h2>
                     <hr class="style-four">
+
                     <br>
+
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th scope="row" class="bg-info col-md-6">ID Number</th>
-                            <td class="col-md-6"><?php echo $row['idnum']; ?></td>
+                            <th scope="row" class="bg-info col-md-3">ID Number</th>
+                            <td class="col-md-10"><?php echo $row['idnum']; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-info col-md-6">Name</th>
-                            <td class="col-md-6"><?php echo htmlentities($row['last_name']).", ", htmlentities($row['first_name']); ?></td>
+                            <th scope="row" class="bg-info">Name</th>
+                            <td class="col-md-10"><?php echo htmlentities($row['last_name']).", ", htmlentities($row['first_name']); ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-info col-md-6">Course & Year</th>
-                            <td class="col-md-6"><?php echo $row['courseyear']; ?></td>
+                            <th scope="row" class="bg-info">Course & Year</th>
+                            <td class="col-md-10"><?php echo $row['courseyear']; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-info col-md-6">Mobile Number</th>
-                            <td class="col-md-6"><?php echo $row['mobile_number']; ?></td>
+                            <th scope="row" class="bg-info">Mobile Number</th>
+                            <td class="col-md-10"><?php echo $row['mobile_number']; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-info col-md-6">Email</th>
-                            <td class="col-md-6"><?php echo $row['email']; ?></td>
+                            <th scope="row" class="bg-info">Email</th>
+                            <td class="col-md-10"><?php echo $row['email']; ?></td>
                         </tr>
                     </table>
+                </div>
+
+                <div class="col-md-6">
 
                     <h2 class="head-title titleFont">Practicum 2 Information</h2>
                     <hr class="style-four">
 
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Company Name</th>
-                            <td class="col-md-6"><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo htmlentities($row['coname']); ?></a></td>
+                            <th scope="row" class="bg-danger text-white col-md-3">Company Name</th>
+                            <td><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo htmlentities($row['coname']); ?></a></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Address</th>
-                            <td class="col-md-6"><?php echo htmlentities($row['coaddress']); ?></td>
+                            <th scope="row" class="bg-danger text-white">Address</th>
+                            <td><?php echo htmlentities($row['coaddress']); ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Status</th>
+                            <th scope="row" class="bg-danger text-white">Status</th>
                             <?php
                                 if ($row ['status'] == "Complete") {
                                     echo '<td><span class="label label-success">'.$row ['status'].'</span></td><br>';
                                 } else if ($row ['status'] == "Incomplete") {
                                     echo '<td><span class="label label-warning">'.$row ['status'].'</span></td><br>';
                                 }
-                            ?>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Endorsement</th>
-                            <?php
-                            echo '
-                            <td class="col-md-6">
-                                    <a class="help" data-html="true" data-toggle="tooltip" 
-                                        title=" 
-                                            Date Released: '.$row ['release_endorsement'].' 
-                                            <br> 
-                                            Date Received: '.$row ['receive_endorsement'].' 
-                                            <br> Remarks: '.htmlentities($row ['remark_endorsement']).' " >
-                            ';
-                            if($row['endorsement'] == 'yes'){
-                                echo '  
-                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                    </a>
-                                </td>';
-
-                            }
-                            else if ($row['endorsement'] == 'no' ){
-                                echo '  
-                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                    </a>
-                                </td>';
-                                        }
                                 ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Waiver</th>
+                            <th scope="row" class="bg-danger text-white">Endorsement</th>
                             <?php
-                            echo '
-                            <td class="col-md-6">
-                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                title=" 
-                                    Date Released: '.$row ['release_waiver'].' 
-                                    <br> 
-                                    Date Received: '.$row ['receive_waiver'].' 
-                                    <br> Remarks: '.htmlentities($row ['remark_waiver']).' " >
-                            ';
-                                if($row['waiver'] == 'yes'){
+                                echo '
+                                <td>
+                                        <a class="help" data-html="true" data-toggle="tooltip" 
+                                            title=" 
+                                                Date Released: '.$row ['release_endorsement'].' 
+                                                <br> 
+                                                Date Received: '.$row ['receive_endorsement'].' 
+                                                <br> Remarks: '.htmlentities($row ['remark_endorsement']).' " >
+                                ';
+                                if($row['endorsement'] == 'yes'){
                                     echo '  
-                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
                                         </a>
                                     </td>';
+                                
                                 }
-                                else if ($row['waiver'] == 'no' ){
-                                        echo '  
+                                else if ($row['endorsement'] == 'no' ){
+                                    echo '  
                                             <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                            </a>
-                                        </td>';
-                                }
-                            ?>
+                                        </a>
+                                    </td>';
+                                            }
+                                    ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Memorandum of Agreement</th>
-                                <?php
+                            <th scope="row" class="bg-danger text-white">Waiver</th>
+                            <?php
                                 echo '
-                                <td class="col-md-6">
+                                <td>
+                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                    title=" 
+                                        Date Released: '.$row ['release_waiver'].' 
+                                        <br> 
+                                        Date Received: '.$row ['receive_waiver'].' 
+                                        <br> Remarks: '.htmlentities($row ['remark_waiver']).' " >
+                                ';
+                                    if($row['waiver'] == 'yes'){
+                                        echo '  
+                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                            </a>
+                                        </td>';
+                                    }
+                                    else if ($row['waiver'] == 'no' ){
+                                            echo '  
+                                                <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                                </a>
+                                            </td>';
+                                    }
+                                ?>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="bg-danger text-white">Memorandum of Agreement</th>
+                            <?php
+                                echo '
+                                <td>
                                     <a class="help" data-html="true" data-toggle="tooltip" 
                                         title=" 
                                             Date Released: '.$row ['release_moa'].' 
@@ -214,37 +220,38 @@ include("connect.php");
                                             </a>
                                         </td>';
                                 }
-                            ?>
+                                ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-6">Evaluation</th>
+                            <th scope="row" class="bg-danger text-white">Evaluation</th>
                             <?php
-                            echo '
-                            <td class="col-md-6">
-                                <a class="help" data-html="true" data-toggle="tooltip" 
-                                title=" 
-                                    Date Released: '.$row ['release_evaluation'].' 
-                                    <br> 
-                                    Date Received: '.$row ['receive_evaluation'].' 
-                                    <br> Remarks: '.htmlentities($row ['remark_evaluation']).' " >
-
-                            ';
-                                if($row['evaluation'] == 'yes'){
-                                    echo '  
-                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
-                                        </a>
-                                    </td>';
-                                }
-                                            else if ($row['evaluation'] == 'no' ){
-                                    echo '  
-                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
-                                        </a>
-                                    </td>';
-                                }
-
-                            ?>
+                                echo '
+                                <td>
+                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                    title=" 
+                                        Date Released: '.$row ['release_evaluation'].' 
+                                        <br> 
+                                        Date Received: '.$row ['receive_evaluation'].' 
+                                        <br> Remarks: '.htmlentities($row ['remark_evaluation']).' " >
+                                
+                                ';
+                                    if($row['evaluation'] == 'yes'){
+                                        echo '  
+                                                <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                            </a>
+                                        </td>';
+                                    }
+                                                else if ($row['evaluation'] == 'no' ){
+                                        echo '  
+                                                <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                            </a>
+                                        </td>';
+                                    }
+                                
+                                ?>
                         </tr>
                     </table>
+                </div>
             </div>
 
             <div class="row text-center">
