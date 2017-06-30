@@ -643,7 +643,13 @@ include("connect.php");
                                                     <a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
                                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                                     </a>
-                                                    <a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['first_name']))." ".strip_tags(htmlentities($row['last_name'])).'?\')" class="btn btn-danger btn-sm">
+                                                    <a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" class="confirm btn btn-danger btn-sm" 
+                                                            data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name'])).
+                                                            '" data-confirm-button="Yes"
+                                                            data-cancel-button="No"
+                                                            data-confirm-button-class= "btn-success"
+                                                            data-cancel-button-class= "btn-danger"
+                                                            data-title="Delete Student">
                                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                                     </a>
                                                 </td>
@@ -696,6 +702,11 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
+
+    <script>
+        $(".confirm").confirm();
+    </script>
 
     <script>   
         function sortTable(f,n){
