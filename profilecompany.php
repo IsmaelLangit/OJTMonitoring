@@ -82,7 +82,7 @@ include("connect.php");
                 $coid = $_GET['coid'];
                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
                 if(mysqli_num_rows($con) != 0){
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company! </strong> with OJT students</div>';
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company </strong> with OJT students.</div>';
                 }else{
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
