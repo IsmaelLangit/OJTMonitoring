@@ -250,7 +250,7 @@ include("connect.php");
                                 $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                         echo '
-                                            <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$row2['last_name'].", ".$row2['first_name'].'</a></p>
+                                            <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
                                                         ';
                                                     }
                                         echo '

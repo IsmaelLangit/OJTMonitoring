@@ -484,12 +484,12 @@ include("connect.php");
                                     
                                             echo '
                                             <td>
-                                                <a class="help" data-html="true" data-toggle="tooltip" 
+                                                <a style="word-wrap:break-word;" class="help" data-html="true" data-toggle="tooltip" 
                                                 title=" 
                                                     Date Released: '.$row ['release_endorsement'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_endorsement'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_endorsement'])).' " >
+                                                    <br> Remarks: '.strip_tags(urlencode($row ['remark_endorsement'])).' " >
                                             ';
 
                                             if($row['endorsement'] == 'yes'){
