@@ -129,7 +129,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input maxlength = '300' type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
+                                        <textarea rows="5" maxlength = '300' type="text" name="coaddress" class="form-control" placeholder="Company address" required><?php echo strip_tags(htmlentities($row ['coaddress'])); ?></textarea>
                                     </div>
                                 </div>
                             </div>

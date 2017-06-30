@@ -113,7 +113,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required>
+                                        <textarea rows="5" type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -175,8 +175,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='moa' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa' placeholder='Date of Release'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder='Date Received'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><textarea rows='5' name='remark_moa' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                         ?>
                                 </div>
