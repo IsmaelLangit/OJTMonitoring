@@ -45,7 +45,7 @@ include("connect.php");
     <!--/ header-->
 
     <section class="section-padding">
-        <div class="container-fluid">
+        <div class="container">
 
             <div class="col text-center">
                 <h1 class="top-title">Edit 
@@ -96,121 +96,133 @@ include("connect.php");
                                 </div>';
             }
             ?>
-            <div class="container">
+
+            <form action="" method="post">
                 <div class="row">
-                    <div class="col-md-9 ">
 
-                        <form class="form-horizontal well padding-top padding-bottom" action="" method="post">
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Company Name</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
-                                        </div>
+                    <div class="col-md-6">
+
+                        <h2 class="head-title titleFont">Company Information</h2>
+                        <hr class="style-four">
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Company Name</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Address</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Address</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Company Head</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="company_head" value="<?php echo strip_tags(htmlentities($row ['company_head'])); ?>" class="form-control" placeholder="Company head">
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Company Head</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="company_head" value="<?php echo strip_tags(htmlentities($row ['company_head'])); ?>" class="form-control" placeholder="Company head">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Position</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Position</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">Type</label>
-                                        <div class="col-sm-6">
-                                            <select name="typeofcompany" class="form-control">
-                                                <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
-                                                <?php
-                                                    if ($row ['typeofcompany'] == 'Government') {
-                                                        echo "<option value='Private'>Private</option>";
-                                                    } else if ($row ['typeofcompany'] == 'Private') {
-                                                        echo "<option value='Government'>Government</option>";
-                                                    }
-                                                    ?>
-                                            </select>   
-                                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 text-right">
+                                        <label class="control-label">Type</label>
                                     </div>
-                                </div>
-                            </div>
-                             <div class="form-group">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-3 text-right">
-                                            <label class="control-label subLabel">Memorandum of Agreement</label>
-                                        </div>
-                                        <div class="col-sm-8">
+                                    <div class="col-sm-8">
+                                        <select name="typeofcompany" class="form-control">
+                                            <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
                                             <?php
-                                                    echo  "<input type='hidden' name='moa' value='no'>";
-                                                    
-                                                    
-                                                    if ($row ['moa'] == 'yes') {
-                                                        echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
-                                                    } 
-                                                    
-                                                    if($row ['moa'] == 'no') {
-                                                        echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
-                                                    }   
-                                              ?>
-                                                <label class='control-label'>Date Released</label>
-                                                <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
-                                                <br>
-                                                <label class='control-label'>Date Received</label>
-                                                <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
-                                                <br>
-                                                <label class='control-label'>Remark/s</label>
-                                                <input type="text" class="form-control" name="remark_moa" value="<?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control" >
-                                        </div>
+                                                if ($row ['typeofcompany'] == 'Government') {
+                                                    echo "<option value='Private'>Private</option>";
+                                                } else if ($row ['typeofcompany'] == 'Private') {
+                                                    echo "<option value='Government'>Government</option>";
+                                                }
+                                                ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label class="col-sm-2 control-label">&nbsp;</label>
-                                        <div class="col-sm-6">
-                                            <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
-                        <a href="company.php" class="btn btn-md btn-danger">Cancel</a>
-                                        </div>
-                                    </div>
+                    </div> <!--End of basic information company col-md-6-->
+
+                    <div class="col-md-6">
+
+                        <h2 class="head-title titleFont">Memorandum of Agreement</h2>
+                        <hr class="style-four">
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="col">
+                                    <?php
+                                        echo  "<input type='hidden' name='moa' value='no'>";
+                                        
+                                        
+                                        if ($row ['moa'] == 'yes') {
+                                            echo "<input type='checkbox' name='moa' value='yes' checked><span class='space'></span><strong>Submitted</strong> <br>";
+                                        } 
+                                        
+                                        if($row ['moa'] == 'no') {
+                                            echo "<input type='checkbox' name='moa' value='yes'><span class='space'></span><strong>Submitted</strong> <br>";
+                                        }   
+                                    ?>
+
+                                    <label class='control-label'>Date Released</label>
+                                    <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                    <br>
+                                    <label class='control-label'>Date Received</label>
+                                    <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                    <br>
+                                    <label class='control-label'>Remark/s</label>
+                                    <textarea rows="5" class="form-control" name="remark_moa" value="<?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control" ></textarea>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
 
-                    <div class="col-md-3">
-                        <img class="img-responsive center-block addPicture" src="img/edit.png">
                     </div>
                 </div>
-            </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
+                    <a href="company.php" class="btn btn-md btn-danger">Cancel</a>
+                </div>
+                
+            </form>
             
         </div> <!--End of Container Fluid-->
     </section>
