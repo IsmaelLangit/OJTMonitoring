@@ -115,15 +115,15 @@ include("connect.php");
                                     <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>   
                                 </select>
                             </div>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> <?php
+                                    $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
+                                    ?>
+                                </span>
+                                <input onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                            </div>
 
-                            <form id="Name" action="#">
-                                <div class="input-group">
-                                    <span class="input-group-btn">  
-                                        <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> 
-                                    </span>
-                                    <input type="text" id="myInput" onkeyup="search()" class="form-control input-xxlarge">
-                                </div>
-                            </form> 
                         </form>
                     </div>
 
@@ -191,7 +191,7 @@ include("connect.php");
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Private'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where typeofcompany = 'Private'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
                                     <p class="text-center colorInfo">Private</p>
@@ -208,7 +208,7 @@ include("connect.php");
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where typeofcompany = 'Government'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where typeofcompany = 'Government'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
                                     <p class="text-center colorInfo">Government</p>
@@ -224,7 +224,7 @@ include("connect.php");
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company on students.coid = company.coid where coname = 'No Company'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where coname = 'No Company'");
                                 while ($row = mysqli_fetch_assoc($con)) {
                                     echo '
                                     <p class="text-center colorInfo">No Company</p>
@@ -260,11 +260,13 @@ include("connect.php");
                                 </thead>
 
                                 <?php
+                                $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);  
 
-                                $t=mysqli_query($connect,"SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter'");
+                                $t=mysqli_query($connect,"SELECT * from students NATURAL JOIN company WHERE (status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter') and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%')");
                                 $total=mysqli_num_rows($t);
 
                                 $start=0;
+                                $page = 1;
 
                                 if($sort == "all") {
                                     $limit = $total;
@@ -281,7 +283,7 @@ include("connect.php");
                                 
                                 if($filter == "yes1"){
                                     $filter = "yes";
-                                     $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -292,12 +294,12 @@ include("connect.php");
                                         $page=ceil($total/$limit);
                                     }
 
-                                    $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes1";
 
                                 } else if($filter == "no1"){
                                     $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -308,12 +310,12 @@ include("connect.php");
                                         $page=ceil($total/$limit);
                                     }
 
-                                    $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE endorsement='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no1";
 
                                 } else if($filter == "yes2"){
                                     $filter = "yes";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -323,12 +325,12 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes2";
 
                                 } else if($filter == "no2"){
                                     $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -338,12 +340,12 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE waiver='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no2";
 
                                 } else if($filter == "yes3"){
                                     $filter = "yes";
-                                    $t= mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t= mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -353,12 +355,12 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes3";
 
                                 } else if($filter == "no3"){
                                     $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -368,12 +370,12 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE moa='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no3";
 
                                 } else if($filter == "yes4"){
                                     $filter = "yes";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -383,12 +385,12 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "yes4";
 
                                 } else if($filter == "no4"){
                                     $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -398,11 +400,11 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE evaluation='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                     $filter = "no4";
 
                                 } else if($filter){
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if($sort == "all") {
@@ -412,11 +414,11 @@ include("connect.php");
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
 
 
                                 } else {
-                                    $t=mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC");
+                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
                                     if(!$filter && !$sort || $sort == "all") {
@@ -427,41 +429,39 @@ include("connect.php");
                                     if($total != 0) {
                                          $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid  ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
                                 }
 
                                 ?>
-                                   
-                                            <?php 
-           
-                                                if ($page > 1){
-                                                    if($id > 1) {
-                                                    echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
-                                                    } else {
-                                                        echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
-                                                    }
-            
-                                                    for($i=1; $i <= $page; $i++){
-                                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'" ';
-                                                        if($id == $i) {
-                                                            echo 'class="list-group-item active">'.$i.'</a></li>';
-                                                        } else {
-                                                            echo '>'.$i.'</a></li>';
-                                                        }
-                                                    }
+                                <?php 
 
-                                                    if (!$id) {
-                                                        $id = 1;
-                                                    }
+                                    if ($page > 1){
+                                        if($id > 1) {
+                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                        } else {
+                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                        }
 
-                                                    if($id!=$page) {
-                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li></ul></div>';
-                                                    } else {
-                                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li></ul></div>';
-                                                    }
-                                                }
-                                            ?>
-                                        
+                                        for($i=1; $i <= $page; $i++){
+                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'&search_input='.$search_input.'" ';
+                                            if($id == $i) {
+                                                echo 'class="list-group-item active">'.$i.'</a></li>';
+                                            } else {
+                                                echo '>'.$i.'</a></li>';
+                                            }
+                                        }
+
+                                        if (!$id) {
+                                            $id = 1;
+                                        }
+
+                                        if($id!=$page) {
+                                            echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                        } else {
+                                            echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li></ul></div>';
+                                        }
+                                    }
+                                ?> 
                                 <?php 
 
                                     if(mysqli_num_rows($sql) == 0){
@@ -696,28 +696,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
-    <script>
-        function search() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
-            td1 = tr[i].getElementsByTagName("td")[9];
-            td2 = tr[i].getElementsByTagName("td")[3];
-                if (td || td1) {
-                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }       
-            }
-        }
-            
+    <script>   
         function sortTable(f,n){
             var rows = $('#myTable tbody  tr').get();
 

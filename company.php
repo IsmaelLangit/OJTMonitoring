@@ -57,7 +57,7 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
+                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=$coid");
                 if(mysqli_num_rows($con) != 0){
                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
                 }else{
@@ -104,14 +104,14 @@ include("connect.php");
                                 </select>
                 </div>
 
-                <form id="Name" action="#">
-                    <div class="input-group">
-                        <span class="input-group-btn">  
-                            <input style="width:75px;" type="text" class="form-control" placeholder="Search" readonly> 
-                        </span>
-                        <input type="text" id="myInput" onkeyup="filterData()" class="form-control input-xxlarge">
-                    </div>
-                </form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> <?php
+                        $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
+                        ?>
+                    </span>
+                    <input onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                </div>
             </form>
 
                     </div>
@@ -136,11 +136,12 @@ include("connect.php");
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <?php
-                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter'");
+                    <?php  
+                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                         $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
+
                         if($sort == "all") {
                             $limit = $total;
                         } else {
@@ -154,16 +155,16 @@ include("connect.php");
                             $id=1;
                         }
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT * from company");
+                            $all=mysqli_query($connect,"SELECT * from company WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                             $allrows=mysqli_num_rows($all);
                             if (!$sort) {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
                             }else if ($sort == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' ORDER BY coname ASC LIMIT $start,$sort");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$sort");
                                 $page=ceil($allrows/$sort);
                             }
                         } else if($filter){
@@ -174,7 +175,7 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' ORDER BY coname ASC LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
                         } 
                     ?>
 
@@ -188,7 +189,7 @@ include("connect.php");
                                         echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
                                     }
                                     for($i=1; $i <= $page; $i++){
-                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'" ';
+                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'&search_input='.$search_input.'" ';
                                         if($id == $i) {
                                             echo 'class="list-group-item active">'.$i.'</a></li>';
                                         } else {
@@ -232,7 +233,7 @@ include("connect.php");
                                 <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
                                 <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
                                 ';
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                 while ($row1 = mysqli_fetch_assoc($con)) {
                                     echo '
                                         <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
@@ -247,7 +248,7 @@ include("connect.php");
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
                                                 ';
-                                $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                $con1 = mysqli_query($connect, "SELECT * from company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                         echo '
                                             <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
@@ -290,7 +291,7 @@ include("connect.php");
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
-                                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
+                                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
                                 echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
                                 }
