@@ -17,35 +17,41 @@
     </head>
     <body>
     
-        <nav class="nav navbar-default navbar-fixed-top stroke">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="navbar-header">
+    <header class="main-header" id="header">
+        <div class="bg-color wrapper">
+            <!--nav-->
+            <nav class="nav navbar-default navbar-fixed-top stroke">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="fa fa-bars"></span>
+                            <span class="fa fa-bars"></span>
                         </button>
-                        <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.php">List of Students</a></li>
-                            <li class="active"><a href="add.php">Add Student</a></li>
-                            <li><a href="company.php">list of Companies</a></li>
-                            <li><a href="addcompany.php">Add Company</a></li>
-                        </ul>
+                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
+                            <ul class="nav navbar-nav ">
+                                <li><a href="index.php">List of Students</a></li>
+                                <li class="active"><a href="add.php">Add Student</a></li>
+                                <li><a href="company.php">list of Companies</a></li>
+                                <li><a href="addcompany.php">Add Company</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-
-    <div class="text-center sect bg">
-        <div class="wow fadeIn">
-            <h2 class="top-title"><span class="title">Add</span> a Student </h2>
+            </nav>
+            <!--/ nav-->
         </div>
-    </div>
+    </header>
+    <!--/ header-->
 
     <section class="section-padding">
         <div class="container-fluid">
+
+            <div class="col text-center">
+                <h1 class="top-title"><span class="title">Add </span>a Student</h1>
+                <hr>
+            </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
@@ -183,7 +189,8 @@
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" name="mobile_number" class="form-control" maxlength = "100">
+                                            <input maxlength = "100" type="text" name="mobile_number" class="form-control" placeholder="Mobile Number">
+
                                             
                                         </div>
                                     </div>
@@ -229,12 +236,12 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                    <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'>
+                                                    <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
                                             
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                    <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'>
+                                                    <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Remarks</label>
@@ -253,8 +260,8 @@
                                             echo  "<input type='hidden' name='waiver' value='no'>";
                                             
                                             echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver'><br>" ;
-                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
                                             echo  "<label class='control-label'>Remarks</label>
                                                 <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                             ?>
@@ -270,8 +277,8 @@
                                         echo  "<input type='hidden' name='evaluation' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label>
                                             <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                         ?>

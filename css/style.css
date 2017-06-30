@@ -9,7 +9,7 @@ table {
 }
 .section-padding
 {
-	padding: 25px 15px;
+	padding: 20px 15px;
 }
 h1, h2, h3, h4, h5, h6
 {
@@ -32,22 +32,24 @@ a:hover{
 
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
-    height: 60px !important;
-    margin-top: -30px;
+    height: 65px !important;
+    margin-top: -15px;
 }
 .navbar-default {
-    background-color: #000;
-    height: 20px;
+    background-color: transparent;
 }
-.navbar-brand
+.main-header
 {
-    padding: 0px;
-    height: inherit;
-    font-family: 'Lato', sans-serif;
+    background: url(../img/taas.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100px;
+}
+.bg-color
+{
+    background-color: RGBA(0, 0, 0, 0.80);
 }
 .nav > li > a {
     padding: 0px;
-    margin-top: -30px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #82ceff;
@@ -60,17 +62,41 @@ a:hover{
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-	color: #22e2d6;
+    color: #22e2d6;
 }
 .navbar-fixed-top {
     padding: 40px 0;
     transition: all 0.5s;
 }
 .top-nav-collapse {
-    background: rgba(0,0,0,0.90);
-    padding: 35px 0;
+    background: rgba(0,0,0,0.85);
+    padding: 13px 0;
 }
-
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
 /*---------------------------SECTION---------------------------*/
 .sect{
   height: 40%;
@@ -80,14 +106,13 @@ a:hover{
   margin-top: 70px;
   padding: 80px;
   background-image: url();
-
 } 
 
 .bg{
   background: 
     linear-gradient(
-      rgba(0, 0, 0, 0.78), 
-      rgba(0, 106, 122, 0.79)
+      rgba(1, 1, 1, 0.98), 
+      rgba(0, 106, 122, 0.69)
     ),
     /* bottom, image */
     url("../img/taas.jpg");
@@ -95,46 +120,36 @@ a:hover{
 
 /*---------------------------TYPOGRAPHY---------------------------*/
 .wrapper{
-	padding: 50px 0px;
+	padding: 65px 0px;
 }
 .top-title{
-	z-index: 5;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 700;
-	color: #fff;
-	line-height: 0px;
+	color: #000;
 	letter-spacing: 6px;
-	opacity: 1;
 	text-transform: uppercase;
+    padding-bottom: 5px;
 }
 .sub-title{
-	font-size: 30px;
-	font-weight: 700;
+	font-size: 25px;
+	font-weight: 000;
 	color: #fff;
-	line-height: 71px;
 	letter-spacing: 4px;
-	opacity: 1;
 	text-transform: uppercase;
 }
 .title{
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 700;
-	color: #82ceff;
-	line-height: 0px;
+	color: #1487bc;
 	letter-spacing: 4px;
-	opacity: 1;
 	text-transform: uppercase;
-	padding: 25px 0px;
 }
 .companytitle{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 700;
     color: #1babd3;
-    line-height: 10px;
     letter-spacing: 4px;
-    opacity: 1;
     text-transform: uppercase;
-    padding: 25px 0px;
 }
 .section {
     position: relative;
@@ -261,6 +276,15 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+hr {
+   display: block;
+   position: relative;
+   width: 10%;
+   clear: both;
+   border: none;
+   border-top: 1px solid #2b2b2b;
+   border-bottom: 1.5px solid #2b2b2b;
+}
 textarea {
     max-width: 100%; 
 }
@@ -295,6 +319,7 @@ hr.style-four {
     height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+    width: 100% !important
 }
 .addPicture{
     height: 200px;
