@@ -40,7 +40,6 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-            <!--/ nav-->
         </div>
     </header>
     <!--/ header-->
@@ -148,7 +147,7 @@ include("connect.php");
                                             <label class="control-label">First Name</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="first_name" value="<?php echo $row ['first_name']; ?>" class="form-control" placeholder="First Name" required>
+                                            <input type="text" class="form-control" name="first_name" value="<?php echo strip_tags(htmlentities($row ['first_name'])); ?>" class="form-control" placeholder="First Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +160,7 @@ include("connect.php");
                                             <label class="control-label">Last Name</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="last_name" value="<?php echo $row ['last_name']; ?>" class="form-control" placeholder="Last Name" required>
+                                            <input type="text" class="form-control" name="last_name" value="<?php echo strip_tags(htmlentities($row ['last_name'])); ?>" class="form-control" placeholder="Last Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -226,11 +225,7 @@ include("connect.php");
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <?php
-                                                echo '
-                                                <input type="text" name="mobile_number" class="form-control" value="'.$row ['mobile_number'].'">
-                                                '; 
-                                            ?>
+                                            <input type="text" class="form-control" name="mobile_number" value="<?php echo strip_tags(htmlentities($row ['mobile_number'])); ?>" class="form-control" placeholder="Mobile Number" required>
                                         </div>
                                     </div>
                                 </div>
@@ -246,14 +241,14 @@ include("connect.php");
                                         <div class="col-sm-8">
                                             <select name="coid" class="form-control">
                                             <option value="<?php echo $row ['coid']; ?>">
-                                                <?php echo htmlentities($row ['coname']); ?>
+                                                <?php echo strip_tags(htmlentities($row ['coname'])); ?>
                                             </option>
                                             ";
                                             <?php
                                                 $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                                     if($row ['coid'] != $row2 ['coid'])
-                                                    echo "<option value='".$row2["coid"]."'>".htmlentities($row2["coname"])."</option>";
+                                                    echo "<option value='".$row2["coid"]."'>".strip_tags(htmlentities($row2["coname"]))."</option>";
                                                 }
                                                 echo "</select>";
                                                 ?>
@@ -338,7 +333,7 @@ include("connect.php");
                                             <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo $row ['remark_moa']; ?></textarea>
+                                            <textarea rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -365,7 +360,7 @@ include("connect.php");
                                             <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo $row ['remark_endorsement']; ?></textarea>
+                                            <textarea rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo strip_tags(htmlentities($row ['remark_endorsement'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -392,7 +387,7 @@ include("connect.php");
                                             <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo $row ['remark_waiver']; ?></textarea>
+                                            <textarea rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo strip_tags(htmlentities($row ['remark_waiver'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -420,7 +415,7 @@ include("connect.php");
                                             <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo $row ['remark_evaluation']; ?></textarea>
+                                            <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_evaluation'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>

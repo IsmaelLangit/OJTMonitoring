@@ -218,8 +218,8 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.htmlentities($row['coname']).'</a></td>
-                                    <td class="col-md-4">'.htmlentities($row['coaddress']).'</td>';
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                    <td class="col-md-4">'.strip_tags(htmlentities($row['coaddress'])).'</td>';
                                             echo '
                                     <td class = "text-center">';
                                     if ($row['typeofcompany'] == 'Private'){
@@ -229,8 +229,8 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td >'.htmlentities($row['company_head']).'</td>
-                                <td class="col-md-1">'.htmlentities($row['position']).'</td>
+                                <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
+                                <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
                                 ';
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                 while ($row1 = mysqli_fetch_assoc($con)) {
@@ -292,7 +292,7 @@ include("connect.php");
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
                                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
-                                echo 'onclick="return confirm(\'Are you sure you want to delete '.htmlentities($row['coname']).'?\')"';
+                                echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
                                 }
                                 echo 'class="btn btn-danger btn-sm">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

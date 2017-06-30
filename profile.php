@@ -40,7 +40,6 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-            <!--/ nav-->
         </div>
     </header>
     <!--/ header-->
@@ -107,7 +106,7 @@ include("connect.php");
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Name</th>
-                            <td class="col-md-10"><?php echo htmlentities($row['last_name']).", ", htmlentities($row['first_name']); ?></td>
+                            <td class="col-md-10"><?php echo strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name'])); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Course & Year</th>
@@ -115,7 +114,7 @@ include("connect.php");
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Mobile Number</th>
-                            <td class="col-md-6"><?php echo htmlentities($row['mobile_number']); ?></td>
+                            <td class="col-md-6"><?php echo strip_tags(htmlentities($row['mobile_number'])); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Email</th>
@@ -132,11 +131,11 @@ include("connect.php");
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th scope="row" class="bg-danger text-white col-md-3">Company Name</th>
-                            <td><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo htmlentities($row['coname']); ?></a></td>
+                            <td><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo strip_tags(htmlentities($row['coname'])); ?></a></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white">Address</th>
-                            <td><?php echo htmlentities($row['coaddress']); ?></td>
+                            <td><?php echo strip_tags(htmlentities($row['coaddress'])); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white">Status</th>
@@ -158,7 +157,7 @@ include("connect.php");
                                                 Date Released: '.$row ['release_endorsement'].' 
                                                 <br> 
                                                 Date Received: '.$row ['receive_endorsement'].' 
-                                                <br> Remarks: '.htmlentities($row ['remark_endorsement']).' " >
+                                                <br> Remarks: '.strip_tags(htmlentities($row ['remark_endorsement'])).' " >
                                 ';
                                 if($row['endorsement'] == 'yes'){
                                     echo '  
@@ -185,7 +184,7 @@ include("connect.php");
                                         Date Released: '.$row ['release_waiver'].' 
                                         <br> 
                                         Date Received: '.$row ['receive_waiver'].' 
-                                        <br> Remarks: '.htmlentities($row ['remark_waiver']).' " >
+                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_waiver'])).' " >
                                 ';
                                     if($row['waiver'] == 'yes'){
                                         echo '  
@@ -211,7 +210,7 @@ include("connect.php");
                                             Date Released: '.$row ['release_moa'].' 
                                             <br> 
                                             Date Received: '.$row ['receive_moa'].' 
-                                            <br> Remarks: '.htmlentities($row ['remark_moa']).' " >
+                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
                                 ';
                                 if($row['moa'] == 'yes'){
                                     echo '  
@@ -237,7 +236,7 @@ include("connect.php");
                                         Date Released: '.$row ['release_evaluation'].' 
                                         <br> 
                                         Date Received: '.$row ['receive_evaluation'].' 
-                                        <br> Remarks: '.htmlentities($row ['remark_evaluation']).' " >
+                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_evaluation'])).' " >
                                 
                                 ';
                                     if($row['evaluation'] == 'yes'){
@@ -269,7 +268,7 @@ include("connect.php");
                 ?>
                 <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-danger" onclick="return confirm('Are you sure to delete <?php echo htmlentities($row['first_name']).htmlentities($row['last_name']); ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-danger" onclick="return confirm('Are you sure to delete <?php echo strip_tags(htmlentities($row['first_name'])).strip_tags(htmlentities($row['last_name'])); ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
             
             
