@@ -177,7 +177,7 @@
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input maxlength = '100' type="email" name="email" class="form-control" placeholder="Email" maxlength = "100" required>
+                                            <input maxlength = '45' type="email" name="email" class="form-control" placeholder="Email" maxlength = "100" required>
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input maxlength = "100" type="text" name="mobile_number" class="form-control" placeholder="Mobile Number">
+                                            <input maxlength = "18" type="text" name="mobile_number" class="form-control" placeholder="Mobile Number">
 
                                             
                                         </div>
