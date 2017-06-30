@@ -8,6 +8,7 @@ include("connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Student</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -115,7 +116,7 @@ include("connect.php");
             
             if(isset($_GET['message']) == 'success'){
                 echo '<div class="alert alert-success" role="alert">
-                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                                 </div>';
             }
             ?>
@@ -471,6 +472,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',

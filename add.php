@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" type="text/css" href="css/datepicker.css">
         <link rel="icon" href="img/scisLogo.png">
     </head>
     <body>
@@ -99,12 +100,12 @@
                                                             VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
-                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link">Go back to list of students.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully added this student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                                 </div>';
                     } 
                     
                 } else {
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class="fa fa-check-circle-o"></span> Sorry! </strong> The student you are adding <strong> already exists in the database. </strong></div>';
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The student you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
             }
@@ -341,6 +342,7 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/bootstrap-notify.min.js"></script>
     <script type="js/Gruntfile.js"></script>
+    <script src="js/datepicker.js"></script>
 
 
     <script>

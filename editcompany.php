@@ -13,6 +13,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -96,7 +97,7 @@ include("connect.php");
             
             if(isset($_GET['message']) == 'success'){
                 echo '<div class="alert alert-success" role="alert">
-                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
                                 </div>';
             }
             ?>
@@ -268,6 +269,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
     <script>
     $('.date').datepicker({
         format: 'yyyy-mm-dd',
