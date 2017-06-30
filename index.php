@@ -121,7 +121,7 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="btn btn-default form-control" style="width:75px;">Reset</button>
+                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
                                 </span>
                             </div>
                         </form>
