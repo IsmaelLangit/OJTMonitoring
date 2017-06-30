@@ -121,7 +121,7 @@ include("connect.php");
                                     <span class="input-group-btn">  
                                         <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> 
                                     </span>
-                                    <input type="text" id="myInput" onkeyup="search()" class="form-control input-xxlarge">
+                                    <input type="text" id="myInput" onkeyup="search()" class="btn btn-default form-control input-xxlarge">
                                 </div>
                             </form> 
                         </form>
