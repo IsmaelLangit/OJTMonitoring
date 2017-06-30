@@ -64,7 +64,6 @@ include("connect.php");
                         ?>
                     </span> 
                 Profile</h1>
-                <hr>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -157,7 +156,7 @@ include("connect.php");
                                                 Date Released: '.$row ['release_endorsement'].' 
                                                 <br> 
                                                 Date Received: '.$row ['receive_endorsement'].' 
-                                                <br> Remarks: '.strip_tags(htmlentities($row ['remark_endorsement'])).' " >
+                                                <br> Remarks: '.strip_tags($row ['remark_endorsement']).' " >
                                 ';
                                 if($row['endorsement'] == 'yes'){
                                     echo '  
@@ -184,7 +183,7 @@ include("connect.php");
                                         Date Released: '.$row ['release_waiver'].' 
                                         <br> 
                                         Date Received: '.$row ['receive_waiver'].' 
-                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_waiver'])).' " >
+                                        <br> Remarks: '.strip_tags($row ['remark_waiver']).' " >
                                 ';
                                     if($row['waiver'] == 'yes'){
                                         echo '  
@@ -210,7 +209,7 @@ include("connect.php");
                                             Date Released: '.$row ['release_moa'].' 
                                             <br> 
                                             Date Received: '.$row ['receive_moa'].' 
-                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
+                                            <br> Remarks: '.strip_tags($row ['remark_moa']).' " >
                                 ';
                                 if($row['moa'] == 'yes'){
                                     echo '  
@@ -236,7 +235,7 @@ include("connect.php");
                                         Date Released: '.$row ['release_evaluation'].' 
                                         <br> 
                                         Date Received: '.$row ['receive_evaluation'].' 
-                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_evaluation'])).' " >
+                                        <br> Remarks: '.strip_tags($row ['remark_evaluation']).' " >
                                 
                                 ';
                                     if($row['evaluation'] == 'yes'){

@@ -62,8 +62,7 @@ include("connect.php");
                             }
                         ?> 
                     </span> 
-                Profile</h1>
-                <hr>
+                Profile</h1>           
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -167,7 +166,7 @@ include("connect.php");
                                             Date Released: '.$row ['release_moa'].' 
                                             <br> 
                                             Date Received: '.$row ['receive_moa'].' 
-                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
+                                            <br> Remarks: '.strip_tags($row ['remark_moa']).' " >
                                 ';
                             if($row['moa'] == 'yes'){
                                 echo '  

@@ -62,7 +62,7 @@ include("connect.php");
                         ?> 
                     </span> 
                 Details</h1>
-                <hr>
+                
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>

@@ -51,7 +51,6 @@ include("connect.php");
 
             <div class="col text-center">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Students </span></h1>
-                <hr>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -479,17 +478,17 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name'])).'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                             echo '
                                             <td>
-                                                <a style="word-wrap:break-word;" class="help" data-html="true" data-toggle="tooltip" 
+                                                <a class="help" data-html="true" data-toggle="tooltip" 
                                                 title=" 
                                                     Date Released: '.$row ['release_endorsement'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_endorsement'].' 
-                                                    <br> Remarks: '.strip_tags(urlencode($row ['remark_endorsement'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_endorsement']).' " >
                                             ';
 
                                             if($row['endorsement'] == 'yes'){
@@ -513,7 +512,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_waiver'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_waiver'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_waiver'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_waiver']).' " >
                                             ';
 
                                             if($row['waiver'] == 'yes'){
@@ -536,7 +535,7 @@ include("connect.php");
                                                             Date Released: '.$row ['release_moa'].' 
                                                             <br> 
                                                             Date Received: '.$row ['receive_moa'].' 
-                                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
+                                                            <br> Remarks: '.strip_tags($row ['remark_moa']).' " >
                                                 ';
                                             if($row['moa'] == 'yes'){
                                                 echo '  
@@ -558,7 +557,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_evaluation'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_evaluation'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_evaluation'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_evaluation']).' " >
 
                                             ';
                                                 if($row['evaluation'] == 'yes'){
