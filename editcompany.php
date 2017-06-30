@@ -116,7 +116,7 @@ include("connect.php");
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input maxlength = '100' type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
+                                        <textarea rows="2" maxlength = '100' type="text" name="coname" class="form-control" placeholder="Company Name" required><?php echo strip_tags(htmlentities($row ['coname'])); ?></textarea>
                                     </div>
                                 </div>
                             </div>

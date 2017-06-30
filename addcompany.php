@@ -100,7 +100,7 @@ include("connect.php");
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength = '100' name="coname" class="form-control" placeholder="Company Name" required>
+                                        <textarea rows="2" type="text" maxlength = '100' name="coname" class="form-control" placeholder="Company Name" required></textarea>
                                     </div>
                                 </div>
                             </div>
