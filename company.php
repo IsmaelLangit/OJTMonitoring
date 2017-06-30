@@ -242,7 +242,7 @@ include("connect.php");
                                                 <div class="modal-content">
                                                   <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                    <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['coname'])).'</h4>
                                                   </div>
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
@@ -270,7 +270,7 @@ include("connect.php");
                                                         Date Released: '.$row ['release_moa'].' 
                                                         <br> 
                                                         Date Received: '.$row ['receive_moa'].' 
-                                                        <br> Remarks: '.$row ['remark_moa'].' " >
+                                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
                                             ';
                                 if($row['moa'] == 'yes'){
                                     echo '  
