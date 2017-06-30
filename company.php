@@ -50,7 +50,7 @@ include("connect.php");
 
             <div class="col text-center">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Companies </span></h1>
-                <hr>
+                
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -270,7 +270,7 @@ include("connect.php");
                                                         Date Released: '.$row ['release_moa'].' 
                                                         <br> 
                                                         Date Received: '.$row ['receive_moa'].' 
-                                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
+                                                        <br> Remarks: '.strip_tags($row ['remark_moa']).' " >
                                             ';
                                 if($row['moa'] == 'yes'){
                                     echo '  

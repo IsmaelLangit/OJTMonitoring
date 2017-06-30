@@ -64,7 +64,6 @@ include("connect.php");
                         ?>
                     </span> 
                 Profile</h1>
-                <hr>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
