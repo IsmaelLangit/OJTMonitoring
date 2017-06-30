@@ -128,11 +128,7 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-3 btn-group">
-<<<<<<< HEAD
                         <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
-=======
-                        <button type="button" class="btn btn-success addStudent"><span class="glyphicon glyphicon-plus space"></span><a  href="add.php">Add Student</a></button>
->>>>>>> c0ecaf62c3ae5aae4d09122baa38d39fcb76bb15
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
