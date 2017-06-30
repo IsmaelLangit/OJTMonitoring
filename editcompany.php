@@ -163,7 +163,7 @@ include("connect.php");
                                     <div class="col-md-4 text-right">
                                         <label class="control-label">Type</label>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
                                         <select name="typeofcompany" class="form-control">
                                             <option value="<?php echo $row ['typeofcompany']; ?>"><?php echo $row ['typeofcompany']; ?></option>
                                             <?php
@@ -219,7 +219,7 @@ include("connect.php");
 
                 <div class="form-group text-center">
                     <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
-                    <a href="company.php" class="btn btn-md btn-danger">Cancel</a>
+                    <a href="company.php" class="btn btn-md btn-danger">Cancel</a> 
                 </div>
                 
             </form>
