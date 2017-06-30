@@ -54,7 +54,11 @@ include("connect.php");
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
-                            echo $row ['coname']."'s";
+                            if (substr($row ['coname'], -1) == "s") {
+                                echo strip_tags(htmlentities($row ['coname']))."'";
+                            } else if (substr($row ['coname'], -1) != "s"){
+                                 echo strip_tags(htmlentities($row ['coname']));
+                            }
                         ?> 
                     </span> 
                 Details</h1>
