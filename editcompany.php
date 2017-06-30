@@ -45,7 +45,7 @@ include("connect.php");
                     $coid = $_GET['coid'];
                     $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                     $row = mysqli_fetch_assoc($sql);
-                    echo $row ['coname']."'s";
+                    echo strip_tags(htmlentities($row ['coname'])."'s";
                     ?> 
             </span>
             Details</h2>
@@ -98,7 +98,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Company Name</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="coname" value="<?php echo $row ['coname']; ?>" class="form-control" placeholder="Company Name" required>
+                                            <input type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Address</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="coaddress" value="<?php echo $row ['coaddress']; ?>" class="form-control" placeholder="Company address" required>
+                                            <input type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Company Head</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="company_head" value="<?php echo $row ['company_head']; ?>" class="form-control" placeholder="Company head">
+                                            <input type="text" name="company_head" value="<?php echo strip_tags(htmlentities($row ['company_head'])); ?>" class="form-control" placeholder="Company head">
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Position</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="position" value="<?php echo $row ['position']; ?>" class="form-control" placeholder="Position">
+                                            <input type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@ include("connect.php");
                                                 <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
                                                 <br>
                                                 <label class='control-label'>Remark/s</label>
-                                                <input type="text" class="form-control" name="remark_moa" value="<?php echo $row ['remark_moa']; ?>" class="form-control" >
+                                                <input type="text" class="form-control" name="remark_moa" value="<?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control" >
                                         </div>
                                     </div>
                                 </div>

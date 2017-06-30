@@ -477,7 +477,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.htmlentities($row['last_name']).", ".htmlentities($row['first_name']).'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name'])).'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                             echo '
@@ -487,7 +487,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_endorsement'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_endorsement'].' 
-                                                    <br> Remarks: '.htmlentities($row ['remark_endorsement']).' " >
+                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_endorsement'])).' " >
                                             ';
 
                                             if($row['endorsement'] == 'yes'){
@@ -511,7 +511,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_waiver'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_waiver'].' 
-                                                    <br> Remarks: '.htmlentities($row ['remark_waiver']).' " >
+                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_waiver'])).' " >
                                             ';
 
                                             if($row['waiver'] == 'yes'){
@@ -534,7 +534,7 @@ include("connect.php");
                                                             Date Released: '.$row ['release_moa'].' 
                                                             <br> 
                                                             Date Received: '.$row ['receive_moa'].' 
-                                                            <br> Remarks: '.htmlentities($row ['remark_moa']).' " >
+                                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
                                                 ';
                                             if($row['moa'] == 'yes'){
                                                 echo '  
@@ -556,7 +556,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_evaluation'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_evaluation'].' 
-                                                    <br> Remarks: '.htmlentities($row ['remark_evaluation']).' " >
+                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_evaluation'])).' " >
 
                                             ';
                                                 if($row['evaluation'] == 'yes'){
@@ -588,7 +588,7 @@ include("connect.php");
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                <h4 class="modal-title">'.$row['last_name'].', '.$row['first_name'].'</h4>
+                                                                <h4 class="modal-title">'.strip_tags(htmlentities($row['last_name'])).', '.strip_tags(htmlentities($row['first_name'])).'</h4>
                                                             </div>
                                                         <div class="modal-body">';
 
@@ -603,22 +603,22 @@ include("connect.php");
                                                     <h2 class="titleRequirements">Letter of Endorsement</h2>
                                                     <p>Date Released: <span class="dateRequirement">'.$row ['release_endorsement'].'</span></p>
                                                     <p>Date Received: <span class="dateRequirement">'.$row ['receive_endorsement'].'</span></p>
-                                                    <p>Remarks: <span class="dateRequirement">'.htmlentities($row ['remark_endorsement']).'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.strip_tags(htmlentities($row ['remark_endorsement'])).'</span></p>
                                                     <br>
                                                     <h2 class="titleRequirements">OJT Waiver</h2>
                                                     <p>Date Released: <span class="dateRequirement">'.$row ['release_waiver'].'</span></p>
                                                     <p>Date Received: <span class="dateRequirement">'.$row ['receive_waiver'].'</span></p>
-                                                    <p>Remarks: <span class="dateRequirement">'.htmlentities($row ['remark_waiver']).'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.strip_tags(htmlentities($row ['remark_waiver'])).'</span></p>
                                                     <br>
                                                     <h2 class="titleRequirements">Memorandum of Agreement</h2>
                                                     <p>Date Released: <span class="dateRequirement">'.$row ['release_moa'].'</span></p>
                                                     <p>Date Received: <span class="dateRequirement">'.$row ['receive_moa'].'</span></p>
-                                                    <p>Remarks: <span class="dateRequirement">'.htmlentities($row ['remark_moa']).'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.strip_tags(htmlentities($row ['remark_moa'])).'</span></p>
                                                     <br>
                                                     <h2 class="titleRequirements">Evaluation</h2>
                                                     <p>Date Released: <span class="dateRequirement">'.$row ['release_evaluation'].'</span></p>
                                                     <p>Date Received: <span class="dateRequirement">'.$row ['receive_evaluation'].'</span></p>
-                                                    <p>Remarks: <span class="dateRequirement">'.htmlentities($row ['remark_evaluation']).'</span></p>
+                                                    <p>Remarks: <span class="dateRequirement">'.strip_tags(htmlentities($row ['remark_evaluation'])).'</span></p>
                                                   </div>
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
@@ -629,7 +629,7 @@ include("connect.php");
                                             ';
 
                                             echo '
-                                                <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.htmlentities($row['coname']).'</a></td>
+                                                <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
                                                 <td class = "text-center">';
                                                 if ($row['typeofcompany'] == 'Private'){
                                                     echo '<span class="label label-primary">Private</span> <br>';
@@ -642,7 +642,7 @@ include("connect.php");
                                                     <a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
                                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                                     </a>
-                                                    <a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.$row['first_name']." ".$row['last_name'].'?\')" class="btn btn-danger btn-sm">
+                                                    <a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['first_name']))." ".strip_tags(htmlentities($row['last_name'])).'?\')" class="btn btn-danger btn-sm">
                                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                                     </a>
                                                 </td>

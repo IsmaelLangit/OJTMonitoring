@@ -46,9 +46,9 @@ include("connect.php");
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
                             if (substr($row ['coname'], -1) == "s") {
-                                echo htmlentities($row ['coname'])."'";
+                                echo strip_tags(htmlentities($row ['coname']))."'";
                             } else if (substr($row ['coname'], -1) != "s"){
-                                 echo htmlentities($row ['coname']);
+                                 echo strip_tags(htmlentities($row ['coname']));
                             }
                             ?> 
                     </h2>
@@ -89,11 +89,11 @@ include("connect.php");
             <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th scope="row" class="info col-md-2">Company Name</th>
-                    <td class="col-md-5"><?php echo htmlentities($row['coname']); ?></td>
+                    <td class="col-md-5"><?php echo strip_tags(htmlentities($row['coname'])); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Address</th>
-                    <td><?php echo htmlentities($row['coaddress']); ?></td>
+                    <td><?php echo strip_tags(htmlentities($row['coaddress'])); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Type</th>
@@ -101,11 +101,11 @@ include("connect.php");
                 </tr>
                 <tr>
                     <th scope="row" class="info">Company Head</th>
-                    <td><?php echo htmlentities($row['company_head']); ?></td>
+                    <td><?php echo strip_tags(htmlentities($row['company_head'])); ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="info">Position</th>
-                    <td><?php echo htmlentities($row['position']); ?></td>
+                    <td><?php echo strip_tags(htmlentities($row['position'])); ?></td>
                 </tr> 
                 <tr>
                     <th scope="row" class="info">Number of Students</th>
@@ -121,7 +121,7 @@ include("connect.php");
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title text-center">'.htmlentities($row['coname']).'</h4>
+                                            <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['coname'])).'</h4>
                                           </div>
                                           <div class="modal-body text-center">
                                             <h2 class="infoStudent">Practicum Student/s</h2>
@@ -129,7 +129,7 @@ include("connect.php");
                                             $con1 = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
                                                 while ($row2 = mysqli_fetch_assoc($con1)) {
                                                 echo '
-                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.htmlentities($row2['last_name']).", ".htmlentities($row2['first_name']).'</a></p>
+                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
                                                 ';
                                             }
                                          echo '
@@ -157,7 +157,7 @@ include("connect.php");
                                             Date Released: '.$row ['release_moa'].' 
                                             <br> 
                                             Date Received: '.$row ['receive_moa'].' 
-                                            <br> Remarks: '.$row ['remark_moa'].' " >
+                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
                                 ';
                             if($row['moa'] == 'yes'){
                                 echo '  
@@ -189,7 +189,7 @@ include("connect.php");
             echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
             $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
             if(mysqli_num_rows($con) == 0){
-                echo 'onclick="return confirm(\'Are you sure you want to delete '.$row['coname'].'?\')"';
+                echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
             }
             echo 'class="btn btn-danger btn-sm">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
