@@ -13,6 +13,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -96,7 +97,7 @@ include("connect.php");
             
             if(isset($_GET['message']) == 'success'){
                 echo '<div class="alert alert-success" role="alert">
-                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link">Go back to list of companies.</a>.
+                                  <span class = "fa fa-check-circle"></span><strong> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
                                 </div>';
             }
             ?>
@@ -116,7 +117,7 @@ include("connect.php");
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input maxlength = '100' type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
+                                        <textarea rows="2" maxlength = '100' type="text" name="coname" class="form-control" placeholder="Company Name" required><?php echo strip_tags(htmlentities($row ['coname'])); ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +130,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input maxlength = '300' type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
+                                        <textarea rows="5" maxlength = '300' type="text" name="coaddress" class="form-control" placeholder="Company address" required><?php echo strip_tags(htmlentities($row ['coaddress'])); ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -268,6 +269,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
     <script>
     $('.date').datepicker({
         format: 'yyyy-mm-dd',

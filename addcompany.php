@@ -13,6 +13,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -90,7 +91,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Company Information</h2>
+                        <h2 class="head-title titleFont text-center">Company Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -100,7 +101,7 @@ include("connect.php");
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength = '100' name="coname" class="form-control" placeholder="Company Name" required>
+                                        <textarea rows="2" type="text" maxlength = '100' name="coname" class="form-control" placeholder="Company Name" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +114,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required>
+                                        <textarea rows="5" type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +166,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Memorandum of Agreement</h2>
+                        <h2 class="head-title titleFont text-center">Memorandum of Agreement</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -175,8 +176,8 @@ include("connect.php");
                                         echo  "<input type='hidden' name='moa' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa' placeholder='Date of Release'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder='Date Received'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label><textarea rows='5' name='remark_moa' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                         ?>
                                 </div>
@@ -232,6 +233,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',

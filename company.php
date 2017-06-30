@@ -80,9 +80,9 @@ include("connect.php");
                     <form class="form-inline" method="get">
                 <div class="form-group input-group">
                     <span class="input-group-btn">  
-                            <input style="width:90px;" type="text" class="form-control" placeholder="Filter By:" readonly> 
+                            <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
                     </span>
-                    <select name="filter" class="form-control touch" onchange="form.submit()">
+                    <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
@@ -106,11 +106,12 @@ include("connect.php");
 
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> <?php
+                        <?php
                         $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                         ?>
+                        <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                        <button class="btn btn-default form-control" style="width:75px;">Reset</button>
                     </span>
-                    <input onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
                 </div>
             </form>
 

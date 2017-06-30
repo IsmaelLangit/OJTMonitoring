@@ -117,18 +117,18 @@ include("connect.php");
                             </div>
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> <?php
+                                    <?php
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
+                                    <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                                    <button class="btn btn-default form-control" style="width:75px;">Reset</button>
                                 </span>
-                                <input onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
                             </div>
-
                         </form>
                     </div>
 
                     <div class="col-md-3 btn-group">
-                        <button type="button" class="btn btn-success addStudent" href="add.php"><span class="glyphicon glyphicon-plus space"></span>Add Student</button>
+                        <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
@@ -696,7 +696,33 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
+<<<<<<< HEAD
     <script>   
+=======
+    <script src="js/bootstrap-confirmation.js"></script>
+    <script>
+        function search() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            td1 = tr[i].getElementsByTagName("td")[9];
+            td2 = tr[i].getElementsByTagName("td")[3];
+                if (td || td1) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+            
+>>>>>>> ca4b4c303556ff369e0024c1a2f4b0e6d0598b17
         function sortTable(f,n){
             var rows = $('#myTable tbody  tr').get();
 
