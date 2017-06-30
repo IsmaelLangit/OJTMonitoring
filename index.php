@@ -7,48 +7,52 @@ include("connect.php");
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SCIS OJT Monitoring</title>
+        <link rel="icon" href="img/scisLogo.png">
+
         <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
-        <link rel="icon" href="img/scisLogo.png">
-        </head>
+    </head>
   <body>
 
-    <nav class="nav navbar-default navbar-fixed-top stroke">
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="fa fa-bars"></span>
-                </button>
-                    <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
+    <header class="main-header" id="header">
+        <div class="bg-color wrapper">
+            <!--nav-->
+            <nav class="nav navbar-default navbar-fixed-top stroke">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                            <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
+                            <ul class="nav navbar-nav ">
+                                <li class="active"><a href="index.php">List of Students</a></li>
+                                <li><a href="add.php">Add Student</a></li>
+                                <li><a href="company.php">list of Companies</a></li>
+                                <li><a href="addcompany.php">Add Company</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                    <ul class="nav navbar-nav ">
-                        <li class="active"><a href="index.php">List of Students</a></li>
-                        <li><a href="add.php">Add Student</a></li>
-                        <li><a href="company.php">list of Companies</a></li>
-                        <li><a href="addcompany.php">Add Company</a></li>
-                    </ul>
-
-                </div>
-            </div>
+            </nav>
+            <!--/ nav-->
         </div>
-    </nav>
-
+    </header>
     <!--/ header-->
-    <!---->
-    <div class="text-center sect bg">
-        <div class="wow fadeIn">
-            <h2 class="top-title">List of Practicum 2 <span class="title"> Students </span></h2>
-        </div>
-    </div>
 
     <section class="section-padding">
         <div class="container-fluid">
+
+            <div class="col text-center">
+                <h1 class="top-title">List of Practicum 2 <span class="title">Students </span></h1>
+                <hr>
+            </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 

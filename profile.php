@@ -17,6 +17,9 @@ include("connect.php");
   </head>
   <body>
 
+    <header class="main-header" id="header">
+        <div class="bg-color wrapper">
+            <!--nav-->
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
                     <div class="col-md-12">
@@ -27,7 +30,7 @@ include("connect.php");
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
                         <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav ">
                                 <li><a href="index.php">List of Students</a></li>
                                 <li><a href="add.php">Add Student</a></li>
                                 <li><a href="company.php">list of Companies</a></li>
@@ -37,30 +40,33 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-
-    <div class="text-center sect bg">
-        <div class="wow fadeIn">
-            <h2 class="top-title">
-            <span class="title">
-            <?php 
-                $idnum = $_GET['idnum'];
-                $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
-                $row = mysqli_fetch_assoc($sql);
-
-                if (substr($row ['last_name'], -1) == "s") {
-                    echo htmlentities($row ['last_name'])."'";
-                } else if (substr($row ['last_name'], -1) != "s"){
-                     echo htmlentities($row ['last_name'])."'s";
-                }
-                
-                ?> 
-            </span>
-            Profile</h2>
+            <!--/ nav-->
         </div>
-    </div>
+    </header>
+    <!--/ header-->
 
     <section class="section-padding">
         <div class="container">
+
+            <div class="col text-center">
+                <h1 class="top-title">
+                    <span class="title">
+                        <?php 
+                            $idnum = $_GET['idnum'];
+                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                            $row = mysqli_fetch_assoc($sql);
+
+                            if (substr($row ['last_name'], -1) == "s") {
+                                echo htmlentities($row ['last_name'])."'";
+                            } else if (substr($row ['last_name'], -1) != "s"){
+                                 echo htmlentities($row ['last_name'])."'s";
+                            }
+                            
+                        ?>
+                    </span> 
+                Profile</h1>
+                <hr>
+            </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
