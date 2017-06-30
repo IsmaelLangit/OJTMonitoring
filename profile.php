@@ -267,7 +267,13 @@ include("connect.php");
                 ?>
                 <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-danger" onclick="return confirm('Are you sure to delete <?php echo strip_tags(htmlentities($row['first_name'])).strip_tags(htmlentities($row['last_name'])); ?> ?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm btn btn-danger btn-md" 
+                                                            data-text="Are you sure you want to delete <?php echo strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name']));
+                                                            ?>" data-confirm-button="Yes"
+                                                            data-cancel-button="No"
+                                                            data-confirm-button-class= "btn-success"
+                                                            data-cancel-button-class= "btn-danger"
+                                                            data-title="Delete Student" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
             </div>
             
             
@@ -312,6 +318,11 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
+
+    <script>
+        $(".confirm").confirm();
+    </script>
 
     <script>
     $('.date').datepicker({

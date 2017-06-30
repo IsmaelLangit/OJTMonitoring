@@ -296,7 +296,7 @@ include("connect.php");
                                 if(mysqli_num_rows($con) == 0){
                                 echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
                                 }
-                                echo 'class="btn btn-danger btn-sm">
+                                echo 'class="confirm btn btn-danger btn-sm" >
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </a>
                                     </td>
