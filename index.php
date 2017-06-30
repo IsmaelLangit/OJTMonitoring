@@ -69,7 +69,7 @@ include("connect.php");
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
                                 </div>';
                     }else{
-                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
                     }
                 }
             }
@@ -77,7 +77,7 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-9">
                         <form class="form-inline" method="get">
                             <div class="form-group input-group dropdown-toggle">
                                 <span class="input-group-btn">  
@@ -128,17 +128,15 @@ include("connect.php");
                         </form>
                     </div>
 
-                    <div class="col-md-1 text-center">
-                        <a class="btn btn-success addStudent" href="add.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+                    <div class="col-md-3 btn-group">
+                        <button type="button" class="btn btn-success addStudent" href="add.php"><span class="glyphicon glyphicon-plus space"></span>Add Student</button>
+                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
                 </div>
             </div>
 
             <div class="container-fluid">
-
-            <button class="btn btn-primary btn-md center-block" data-toggle="collapse" data-target="#summary">QUICK SUMMARY</button>
-
                 <div id="summary" class="row row-centered paddingTopSlight panel-collapse collapse">
 
                     <a href="index.php" >
