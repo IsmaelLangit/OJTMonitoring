@@ -189,7 +189,7 @@
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" name="mobile_number" class="form-control">
+                                            <input type="text" name="mobile_number" class="form-control" placeholder="Mobile Number">
                                             
                                         </div>
                                     </div>
@@ -235,12 +235,12 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                    <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement'>
+                                                    <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
                                             
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                    <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started'>
+                                                    <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Remarks</label>
@@ -259,8 +259,8 @@
                                             echo  "<input type='hidden' name='waiver' value='no'>";
                                             
                                             echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver'><br>" ;
-                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'><br>" ;
+                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
                                             echo  "<label class='control-label'>Remarks</label>
                                                 <textarea rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                             ?>
@@ -276,8 +276,8 @@
                                         echo  "<input type='hidden' name='evaluation' value='no'>";
                                         
                                         echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
+                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'><br>" ;
+                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label>
                                             <textarea rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                         ?>
