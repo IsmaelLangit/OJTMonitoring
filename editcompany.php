@@ -54,7 +54,11 @@ include("connect.php");
                             $coid = $_GET['coid'];
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                             $row = mysqli_fetch_assoc($sql);
-                            echo $row ['coname']."'s";
+                            if (substr($row ['coname'], -1) == "s") {
+                                echo strip_tags(htmlentities($row ['coname']))."'";
+                            } else if (substr($row ['coname'], -1) != "s"){
+                                 echo strip_tags(htmlentities($row ['coname']));
+                            }
                         ?> 
                     </span> 
                 Details</h1>
@@ -209,7 +213,7 @@ include("connect.php");
                                     <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
                                     <br>
                                     <label class='control-label'>Remark/s</label>
-                                    <textarea rows="5" class="form-control" name="remark_moa" value="<?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control" ></textarea>
+                                    <textarea rows="5" class="form-control" name="remark_moa"><?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control</textarea>
                                 </div>
                             </div>
                         </div>

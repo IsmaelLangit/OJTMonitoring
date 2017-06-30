@@ -28,13 +28,13 @@ CREATE TABLE `company` (
   `coid` int(11) NOT NULL AUTO_INCREMENT,
   `coname` varchar(100) NOT NULL,
   `coaddress` varchar(300) NOT NULL,
-  `company_head` varchar(60) DEFAULT NULL,
-  `position` varchar(300) DEFAULT NULL,
-  `typeofcompany` varchar(45) NOT NULL DEFAULT 'Private',
-  `release_moa` varchar(20) DEFAULT NULL,
-  `receive_moa` varchar(20) DEFAULT NULL,
-  `remark_moa` varchar(300) DEFAULT NULL,
-  `moa` varchar(45) NOT NULL DEFAULT 'no',
+  `company_head` varchar(70) DEFAULT NULL,
+  `position` varchar(120) DEFAULT NULL,
+  `typeofcompany` varchar(10) NOT NULL DEFAULT 'Private',
+  `release_moa` varchar(15) DEFAULT NULL,
+  `receive_moa` varchar(15) DEFAULT NULL,
+  `remark_moa` varchar(500) DEFAULT NULL,
+  `moa` varchar(3) NOT NULL DEFAULT 'no',
   PRIMARY KEY (`coid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -58,24 +58,24 @@ DROP TABLE IF EXISTS `students`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `students` (
   `idnum` int(11) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
+  `last_name` varchar(35) NOT NULL,
   `first_name` varchar(35) NOT NULL,
-  `courseyear` varchar(10) NOT NULL,
-  `mobile_number` varchar(18) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `coid` int(11) DEFAULT '1',
-  `release_endorsement` varchar(20) DEFAULT NULL,
-  `receive_endorsement` varchar(20) DEFAULT NULL,
-  `remark_endorsement` varchar(200) DEFAULT NULL,
-  `endorsement` varchar(45) NOT NULL DEFAULT 'no',
-  `release_waiver` varchar(20) DEFAULT NULL,
-  `receive_waiver` varchar(20) DEFAULT NULL,
+  `courseyear` varchar(6) NOT NULL,
+  `mobile_number` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `coid` int(11) NOT NULL DEFAULT '1',
+  `release_endorsement` varchar(15) DEFAULT NULL,
+  `receive_endorsement` varchar(15) DEFAULT NULL,
+  `remark_endorsement` varchar(500) DEFAULT NULL,
+  `endorsement` varchar(3) NOT NULL DEFAULT 'no',
+  `release_waiver` varchar(15) DEFAULT NULL,
+  `receive_waiver` varchar(15) DEFAULT NULL,
   `remark_waiver` varchar(200) DEFAULT NULL,
-  `waiver` varchar(45) NOT NULL DEFAULT 'no',
-  `release_evaluation` varchar(20) DEFAULT NULL,
-  `receive_evaluation` varchar(20) DEFAULT NULL,
-  `remark_evaluation` varchar(200) DEFAULT NULL,
-  `evaluation` varchar(45) NOT NULL DEFAULT 'no',
+  `waiver` varchar(3) NOT NULL DEFAULT 'no',
+  `release_evaluation` varchar(15) DEFAULT NULL,
+  `receive_evaluation` varchar(15) DEFAULT NULL,
+  `remark_evaluation` varchar(500) DEFAULT NULL,
+  `evaluation` varchar(3) NOT NULL DEFAULT 'no',
   `status` varchar(10) NOT NULL DEFAULT 'Incomplete',
   PRIMARY KEY (`idnum`),
   KEY `company_id_idx` (`coid`)
@@ -101,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-30 11:12:51
+-- Dump completed on 2017-06-30 11:09:01

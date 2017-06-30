@@ -59,7 +59,7 @@ include("connect.php");
                 $coid = $_GET['coid'];
                 $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
                 if(mysqli_num_rows($con) != 0){
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students</div>';
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
                 }else{
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
@@ -242,7 +242,7 @@ include("connect.php");
                                                 <div class="modal-content">
                                                   <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title text-center">'.$row['coname'].'</h4>
+                                                    <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['coname'])).'</h4>
                                                   </div>
                                                   <div class="modal-body text-center">
                                                     <h2 class="infoStudent">Practicum Student/s</h2>
@@ -270,7 +270,7 @@ include("connect.php");
                                                         Date Released: '.$row ['release_moa'].' 
                                                         <br> 
                                                         Date Received: '.$row ['receive_moa'].' 
-                                                        <br> Remarks: '.$row ['remark_moa'].' " >
+                                                        <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
                                             ';
                                 if($row['moa'] == 'yes'){
                                     echo '  

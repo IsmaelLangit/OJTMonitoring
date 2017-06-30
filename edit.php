@@ -134,7 +134,7 @@ include("connect.php");
                                             <label class="control-label">ID Number</label>
                                         </div>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
+                                            <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@ include("connect.php");
                                             <label class="control-label">First Name</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="first_name" value="<?php echo strip_tags(htmlentities($row ['first_name'])); ?>" class="form-control" placeholder="First Name" required>
+                                            <input maxlength = "35" type="text" class="form-control" name="first_name" value="<?php echo strip_tags(htmlentities($row ['first_name'])); ?>" class="form-control" placeholder="First Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@ include("connect.php");
                                             <label class="control-label">Last Name</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="last_name" value="<?php echo strip_tags(htmlentities($row ['last_name'])); ?>" class="form-control" placeholder="Last Name" required>
+                                            <input maxlength = "35" type="text" class="form-control" name="last_name" value="<?php echo strip_tags(htmlentities($row ['last_name'])); ?>" class="form-control" placeholder="Last Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ include("connect.php");
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input maxlength = '100' type="email" class="form-control" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
+                                            <input maxlength = '45' type="email" class="form-control" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@ include("connect.php");
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" maxlength = '20' class="form-control" name="mobile_number" value="<?php echo strip_tags(htmlentities($row ['mobile_number'])); ?>" class="form-control" placeholder="Mobile Number" required>
+                                            <input type="text" maxlength = '18' class="form-control" name="mobile_number" value="<?php echo strip_tags(htmlentities($row ['mobile_number'])); ?>" class="form-control" placeholder="Mobile Number" required>
                                         </div>
                                     </div>
                                 </div>
