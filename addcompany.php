@@ -94,7 +94,7 @@ include("connect.php");
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="coname" class="form-control" placeholder="Company Name" required>
+                                        <input type="text" maxlength = '100' name="coname" class="form-control" placeholder="Company Name" required>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="coaddress" class="form-control" placeholder="Address" required>
+                                        <input type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ include("connect.php");
                                         <label class="control-label">Company Head</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="company_head" class="form-control" placeholder="Company Head">
+                                        <input type="text" maxlength = '70' name="company_head" class="form-control" placeholder="Company Head">
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ include("connect.php");
                                         <label class="control-label">Position</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="position" class="form-control" placeholder="Position">
+                                        <input maxlength = '120' type="text" name="position" class="form-control" placeholder="Position">
                                     </div>
                                 </div>
                             </div>

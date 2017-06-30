@@ -205,7 +205,7 @@ include("connect.php");
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="email" class="form-control" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
+                                            <input maxlength = '100' type="email" class="form-control" name="email" value="<?php echo $row ['email']; ?>" class="form-control" placeholder="Email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +218,7 @@ include("connect.php");
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="mobile_number" value="<?php echo strip_tags(htmlentities($row ['mobile_number'])); ?>" class="form-control" placeholder="Mobile Number" required>
+                                            <input type="text" maxlength = '20' class="form-control" name="mobile_number" value="<?php echo strip_tags(htmlentities($row ['mobile_number'])); ?>" class="form-control" placeholder="Mobile Number" required>
                                         </div>
                                     </div>
                                 </div>
@@ -326,7 +326,7 @@ include("connect.php");
                                             <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
+                                            <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -353,7 +353,7 @@ include("connect.php");
                                             <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo strip_tags(htmlentities($row ['remark_endorsement'])); ?></textarea>
+                                            <textarea maxlength = '200' rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo strip_tags(htmlentities($row ['remark_endorsement'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -380,7 +380,7 @@ include("connect.php");
                                             <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo strip_tags(htmlentities($row ['remark_waiver'])); ?></textarea>
+                                            <textarea maxlength = '200' rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo strip_tags(htmlentities($row ['remark_waiver'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -408,7 +408,7 @@ include("connect.php");
                                             <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                             <br>
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_evaluation'])); ?></textarea>
+                                            <textarea maxlength = '200' rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_evaluation'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>

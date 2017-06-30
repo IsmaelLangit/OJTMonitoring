@@ -171,7 +171,7 @@
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                            <input maxlength = '100' type="email" name="email" class="form-control" placeholder="Email" maxlength = "100" required>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" name="mobile_number" class="form-control">
+                                            <input type="text" name="mobile_number" class="form-control" maxlength = "100">
                                             
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Remarks</label>
-                                                    <textarea rows='5' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'></textarea>
+                                                    <textarea maxlength = '200' rows='5' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'></textarea>
                                                     <br>" ;
                                         ?>
                                     </div>
@@ -256,7 +256,7 @@
                                             echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver'><br>" ;
                                             echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
                                             echo  "<label class='control-label'>Remarks</label>
-                                                <textarea rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
+                                                <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                             ?>
                                     </div>
                                 </div>
@@ -273,7 +273,7 @@
                                         echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation'><br>" ;
                                         echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started'><br>" ;
                                         echo  "<label class='control-label'>Remarks</label>
-                                            <textarea rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                            <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                         ?>
                                 </div>
                                 </div>

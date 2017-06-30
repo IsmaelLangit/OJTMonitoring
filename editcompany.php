@@ -98,7 +98,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Company Name</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
+                                            <input maxlength = '100' type="text" name="coname" value="<?php echo strip_tags(htmlentities($row ['coname'])); ?>" class="form-control" placeholder="Company Name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Address</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
+                                            <input maxlength = '300' type="text" name="coaddress" value="<?php echo strip_tags(htmlentities($row ['coaddress'])); ?>" class="form-control" placeholder="Company address" required>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Company Head</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="company_head" value="<?php echo strip_tags(htmlentities($row ['company_head'])); ?>" class="form-control" placeholder="Company head">
+                                            <input maxlength = '70' type="text" name="company_head" value="<?php echo strip_tags(htmlentities($row ['company_head'])); ?>" class="form-control" placeholder="Company head">
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ include("connect.php");
                                     <div class="row">
                                         <label class="col-sm-2 control-label">Position</label>
                                         <div class="col-sm-6">
-                                            <input type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
+                                            <input maxlength = '120' type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
                                         </div>
                                     </div>
                                 </div>
