@@ -51,7 +51,6 @@ include("connect.php");
 
             <div class="col text-center">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Students </span></h1>
-                <hr>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -129,7 +128,11 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-3 btn-group">
+<<<<<<< HEAD
                         <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+=======
+                        <button type="button" class="btn btn-success addStudent"><span class="glyphicon glyphicon-plus space"></span><a  href="add.php">Add Student</a></button>
+>>>>>>> c0ecaf62c3ae5aae4d09122baa38d39fcb76bb15
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
@@ -479,7 +482,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name'])).'</a></td>
+                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
                                                             <td>'.$row['courseyear'].'</td>';
                                     
                                             echo '
@@ -489,7 +492,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_endorsement'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_endorsement'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_endorsement'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_endorsement']).' " >
                                             ';
 
                                             if($row['endorsement'] == 'yes'){
@@ -513,7 +516,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_waiver'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_waiver'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_waiver'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_waiver']).' " >
                                             ';
 
                                             if($row['waiver'] == 'yes'){
@@ -536,7 +539,7 @@ include("connect.php");
                                                             Date Released: '.$row ['release_moa'].' 
                                                             <br> 
                                                             Date Received: '.$row ['receive_moa'].' 
-                                                            <br> Remarks: '.strip_tags(htmlentities($row ['remark_moa'])).' " >
+                                                            <br> Remarks: '.strip_tags($row ['remark_moa']).' " >
                                                 ';
                                             if($row['moa'] == 'yes'){
                                                 echo '  
@@ -558,7 +561,7 @@ include("connect.php");
                                                     Date Released: '.$row ['release_evaluation'].' 
                                                     <br> 
                                                     Date Received: '.$row ['receive_evaluation'].' 
-                                                    <br> Remarks: '.strip_tags(htmlentities($row ['remark_evaluation'])).' " >
+                                                    <br> Remarks: '.strip_tags($row ['remark_evaluation']).' " >
 
                                             ';
                                                 if($row['evaluation'] == 'yes'){

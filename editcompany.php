@@ -62,7 +62,7 @@ include("connect.php");
                         ?> 
                     </span> 
                 Details</h1>
-                <hr>
+                
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -213,7 +213,7 @@ include("connect.php");
                                     <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
                                     <br>
                                     <label class='control-label'>Remark/s</label>
-                                    <textarea rows="5" class="form-control" name="remark_moa"><?php echo strip_tags(htmlentities($row ['remark_moa'])); ?>" class="form-control</textarea>
+                                    <textarea rows="5" class="form-control" name="remark_moa" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                 </div>
                             </div>
                         </div>

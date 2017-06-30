@@ -50,7 +50,7 @@ include("connect.php");
 
             <div class="col text-center">
                 <h1 class="top-title"><span class="title">Add </span>a Company</h1>
-                <hr>
+                
             </div>
             
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
