@@ -90,7 +90,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Company Information</h2>
+                        <h2 class="head-title titleFont text-center">Company Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -165,7 +165,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Memorandum of Agreement</h2>
+                        <h2 class="head-title titleFont text-center">Memorandum of Agreement</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
