@@ -129,7 +129,7 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-3 btn-group">
-                        <button type="button" class="btn btn-success addStudent" href="add.php"><span class="glyphicon glyphicon-plus space"></span>Add Student</button>
+                        <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
