@@ -119,9 +119,9 @@ include("connect.php");
                             <form id="Name" action="#">
                                 <div class="input-group">
                                     <span class="input-group-btn">  
-                                        <input style="width:75px;" type="text" class="form-control black" placeholder="Search" readonly> 
+                                        <input type="text" id="myInput" onkeyup="search()" class="form-control input-xxlarge" placeholder="Search" style="width: 260px">
+                                        <button class="btn btn-default form-control" style="width:75px;">Reset</button>
                                     </span>
-                                    <input type="text" id="myInput" onkeyup="search()" class="btn btn-default form-control input-xxlarge">
                                 </div>
                             </form> 
                         </form>
@@ -696,6 +696,7 @@ include("connect.php");
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/bootstrap-confirmation.js"></script>
     <script>
         function search() {
             var input, filter, table, tr, td, i;
