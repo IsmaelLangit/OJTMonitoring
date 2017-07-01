@@ -245,16 +245,16 @@ include("connect.php");
                                 <thead>
                                     <tr class="info">
                                         <th class="text-center touch">No</th>
-                                        <th class="text-center touch"><input type="submit" name="idnum" value="&#9650;">ID Number<input type="submit" name="idnum" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="last_name" value="&#9650;">Name<input type="submit" name="last_name" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="courseyear" value="&#9650;">Course & Year<input type="submit" name="courseyear" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="endorsement" value="&#9650;">Endorsement<input type="submit" name="endorsement" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="waiver" value="&#9650;">Waiver<input type="submit" name="waiver" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="moa" value="&#9650;">MOA<input type="submit" name="moa" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="evaluation" value="&#9650;">Evaluation<input type="submit" name="evaluation" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="status" value="&#9650;">Requirement Status<input type="submit" name="status" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="coname" value="&#9650;">Company Name<input type="submit" name="coname" value="&#9660;"></th>
-                                        <th class="text-center touch"><input type="submit" name="typeofcompany" value="&#9650;">Type<input type="submit" name="typeofcompany" value="&#9660;"></th>
+                                        <th class="text-center touch">ID Number<input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;"></th>
+                                        <th class="text-center touch">Name<input type="submit" name="last_name" value="&#9650;"><input type="submit" name="last_name" value="&#9660;"></th>
+                                        <th class="text-center touch">Course & Year<input type="submit" name="courseyear" value="&#9650;"><input type="submit" name="courseyear" value="&#9660;"></th>
+                                        <th class="text-center touch">Endorsement<input type="submit" name="endorsement" value="&#9650;"><input type="submit" name="endorsement" value="&#9660;"></th>
+                                        <th class="text-center touch">Waiver<input type="submit" name="waiver" value="&#9650;"><input type="submit" name="waiver" value="&#9660;"></th>
+                                        <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                                        <th class="text-center touch">Evaluation<input type="submit" name="evaluation" value="&#9650;"><input type="submit" name="evaluation" value="&#9660;"></th>
+                                        <th class="text-center touch">Requirement Status<input type="submit" name="status" value="&#9650;"><input type="submit" name="status" value="&#9660;"></th>
+                                        <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
+                                        <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
