@@ -273,7 +273,7 @@ include("connect.php");
                                 $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
                                 $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
 
-                                $sort = 'last_name';
+                                $sort = 'last_name, first_name';
 
                                 switch ($idnum) {
                                     case "▲":
@@ -287,41 +287,41 @@ include("connect.php");
 
                                 switch ($last_name) {
                                     case "▲":
-                                        $sort = 'last_name';
+                                        $sort = 'last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'last_name DESC';
+                                        $sort = 'last_name DESC, first_name';
                                         break;
                                 }
 
                                 switch ($courseyear) {
                                     case "▲":
-                                        $sort = 'courseyear';
+                                        $sort = 'courseyear, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'courseyear DESC';
+                                        $sort = 'courseyear DESC, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($endorsement) {
                                     case "▲":
-                                        $sort = 'endorsement';
+                                        $sort = 'endorsement, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'endorsement DESC';
+                                        $sort = 'endorsement DESC, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($waiver) {
                                     case "▲":
-                                        $sort = 'waiver';
+                                        $sort = 'waiver, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'waiver DESC';
+                                        $sort = 'waiver DESC, last_name, first_name';
                                         break;
                                 }
 
@@ -337,41 +337,41 @@ include("connect.php");
 
                                 switch ($evaluation) {
                                     case "▲":
-                                        $sort = 'evaluation';
+                                        $sort = 'evaluation, last_name, first_name,';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'evaluation DESC';
+                                        $sort = 'evaluation DESC, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($status) {
                                     case "▲":
-                                        $sort = 'status';
+                                        $sort = 'status, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'status DESC';
+                                        $sort = 'status DESC, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($coname) {
                                     case "▲":
-                                        $sort = 'coname';
+                                        $sort = 'coname, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'coname DESC';
+                                        $sort = 'coname DESC, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($typeofcompany) {
                                     case "▲":
-                                        $sort = 'typeofcompany';
+                                        $sort = 'typeofcompany, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'typeofcompany DESC';
+                                        $sort = 'typeofcompany DESC, last_name, first_name';
                                         break;
                                 }
 
