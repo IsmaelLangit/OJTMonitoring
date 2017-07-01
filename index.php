@@ -327,11 +327,11 @@ include("connect.php");
 
                                  switch ($moa) {
                                     case "▲":
-                                        $sort = 'moa';
+                                        $sort = 'moa, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'moa DESC';
+                                        $sort = 'moa DESC, last_name, first_name';
                                         break;
                                 }
 
