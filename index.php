@@ -47,6 +47,7 @@ include("connect.php");
     <!--/ header-->
 
     <section class="section-padding">
+         <form class="form-inline" method="get">
         <div class="container-fluid">
 
             <div class="col text-center">
@@ -77,7 +78,7 @@ include("connect.php");
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-9">
-                        <form class="form-inline" method="get">
+                       
                             <div class="form-group input-group dropdown-toggle">
                                 <span class="input-group-btn">  
                                     <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
@@ -106,13 +107,13 @@ include("connect.php");
                                 <span class="input-group-btn">  
                                     <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
                                  </span>
-                                <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
-                                    <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
-                                    <option value="all" <?php if($sort == 'all'){ echo 'selected'; } ?>>All</option>
-                                    <option value="10" <?php if($sort == '10'){ echo 'selected'; } ?>>10</option>
-                                    <option value="20" <?php if($sort == '20'){ echo 'selected'; } ?>>20</option>
-                                    <option value="50" <?php if($sort == '50'){ echo 'selected'; } ?>>50</option>
-                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>   
+                                <select name="viewperpage" class="btn btn-default form-control touch" onchange="form.submit()">
+                                    <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
+                                    <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
+                                    <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
+                                    <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
+                                    <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
+                                    <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
                                 </select>
                             </div>
                             <div class="input-group">
@@ -124,7 +125,6 @@ include("connect.php");
                                     <button class="btn btn-default form-control" style="width:75px;">Search</button>
                                 </span>
                             </div>
-                        </form>
                     </div>
 
                     <div class="col-md-3 btn-group">
@@ -154,7 +154,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Complete&sort=all">
+                    <a href="index.php?filter=Complete&viewperpage=all">
                         <div class="col-sm-2 well wellHeight green col-centered text-center">
                         <span class="indexIcon fa fa-check"></span>
                         <hr class="style-four">
@@ -170,7 +170,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=Incomplete&sort=all">
+                    <a href="index.php?filter=Incomplete&viewperpage=all">
                         <div class="col-sm-2 well wellHeight red col-centered text-center">
                         <span class="indexIcon fa fa-remove"></span>
                         <hr class="style-four">
@@ -186,7 +186,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                     <a href="index.php?filter=Private&sort=all">
+                     <a href="index.php?filter=Private&viewperpage=all">
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
@@ -203,7 +203,7 @@ include("connect.php");
                     </a>
 
 
-                    <a href="index.php?filter=Government&sort=all">
+                    <a href="index.php?filter=Government&viewperpage=all">
                         <div class="col-sm-2 well wellHeight violet col-centered text-center">
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
@@ -219,7 +219,7 @@ include("connect.php");
                         </div>
                     </a>
 
-                    <a href="index.php?filter=No+Company&sort=all">
+                    <a href="index.php?filter=No+Company&viewperpage=all">
                         <div class="col-sm-2 well wellHeight orange col-centered text-center">
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
@@ -244,23 +244,136 @@ include("connect.php");
 
                                 <thead>
                                     <tr class="info">
-                                        <th id="no" class="text-center touch" title="Sort By Number"><span class="fa fa-sort space"></span>No </th>
-                                        <th id="idnum" class="text-center touch" title="Sort By ID Number"><span class="fa fa-sort space"></span>ID Number</th>
-                                        <th id="name" class="text-center touch" title="Sort By Name"><span class="fa fa-sort space"></span>Name</th>
-                                        <th id="courseandyear" class="text-center touch" title="Sort By Course and Year"><span class="fa fa-sort space"></span> Course & Year</th>
-                                        <th id="endorsement" class="text-center touch" title="Sort By Endorsement Status"><span class="fa fa-sort space"></span>Endorsement</th>
-                                        <th id="waiver" class="text-center touch" title="Sort By Waiver Status"><span class="fa fa-sort space"></span>Waiver</th>
-                                        <th id="moa" class="text-center touch" title="Sort By MOA Status"><span class="fa fa-sort space"></span>MOA</th>
-                                        <th id="evaluation" class="text-center touch" title="Sort By Evaluation Status"><span class="fa fa-sort space"></span>Evaluation</th>
-                                        <th id="status" class="text-center touch" title="Sort By Requirement Status"><span class="fa fa-sort space"></span>Requirement Status</th>
-                                        <th id="companyname" class="text-center touch" title="Sort By Company Name"><span class="fa fa-sort space"></span>Company Name</th>
-                                        <th id="type" class="text-center touch" title="Sort By OJT Type"><span class="fa fa-sort space"></span>Type</th>
+                                        <th class="text-center touch">No</th>
+                                        <th class="text-center touch"><input type="submit" name="idnum" value="&#9650;">ID Number<input type="submit" name="idnum" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="last_name" value="&#9650;">Name<input type="submit" name="last_name" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="courseyear" value="&#9650;">Course & Year<input type="submit" name="courseyear" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="endorsement" value="&#9650;">Endorsement<input type="submit" name="endorsement" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="waiver" value="&#9650;">Waiver<input type="submit" name="waiver" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="moa" value="&#9650;">MOA<input type="submit" name="moa" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="evaluation" value="&#9650;">Evaluation<input type="submit" name="evaluation" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="status" value="&#9650;">Requirement Status<input type="submit" name="status" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="coname" value="&#9650;">Company Name<input type="submit" name="coname" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="typeofcompany" value="&#9650;">Type<input type="submit" name="typeofcompany" value="&#9660;"></th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
                                 <?php
-                                $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);  
+                                $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
+
+                                $idnum = (isset($_GET['idnum']) ? strtolower($_GET['idnum']) : NULL);
+                                $last_name = (isset($_GET['last_name']) ? strtolower($_GET['last_name']) : NULL);
+                                $courseyear = (isset($_GET['courseyear']) ? strtolower($_GET['courseyear']) : NULL);
+                                $endorsement = (isset($_GET['endorsement']) ? strtolower($_GET['endorsement']) : NULL);
+                                $waiver = (isset($_GET['waiver']) ? strtolower($_GET['waiver']) : NULL);
+                                $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
+                                $evaluation = (isset($_GET['evaluation']) ? strtolower($_GET['evaluation']) : NULL);
+                                $status = (isset($_GET['status']) ? strtolower($_GET['status']) : NULL);
+                                $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
+                                $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
+
+                                $sort = 'last_name';
+
+                                switch ($idnum) {
+                                    case "▲":
+                                        $sort = 'idnum';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'idnum DESC';
+                                        break;
+                                }
+
+                                switch ($last_name) {
+                                    case "▲":
+                                        $sort = 'last_name';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'last_name DESC';
+                                        break;
+                                }
+
+                                switch ($courseyear) {
+                                    case "▲":
+                                        $sort = 'courseyear';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'courseyear DESC';
+                                        break;
+                                }
+
+                                switch ($endorsement) {
+                                    case "▲":
+                                        $sort = 'endorsement';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'endorsement DESC';
+                                        break;
+                                }
+
+                                switch ($waiver) {
+                                    case "▲":
+                                        $sort = 'waiver';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'waiver DESC';
+                                        break;
+                                }
+
+                                 switch ($moa) {
+                                    case "▲":
+                                        $sort = 'moa';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'moa DESC';
+                                        break;
+                                }
+
+                                switch ($evaluation) {
+                                    case "▲":
+                                        $sort = 'evaluation';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'evaluation DESC';
+                                        break;
+                                }
+
+                                switch ($status) {
+                                    case "▲":
+                                        $sort = 'status';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'status DESC';
+                                        break;
+                                }
+
+                                switch ($coname) {
+                                    case "▲":
+                                        $sort = 'coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'coname DESC';
+                                        break;
+                                }
+
+                                switch ($typeofcompany) {
+                                    case "▲":
+                                        $sort = 'typeofcompany';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'typeofcompany DESC';
+                                        break;
+                                }
 
                                 $t=mysqli_query($connect,"SELECT * from students NATURAL JOIN company WHERE (status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter') and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%')");
                                 $total=mysqli_num_rows($t);
@@ -268,10 +381,10 @@ include("connect.php");
                                 $start=0;
                                 $page = 1;
 
-                                if($sort == "all") {
+                                if($viewperpage == "all") {
                                     $limit = $total;
                                 } else {
-                                    $limit=$sort; 
+                                    $limit=$viewperpage; 
                                 }
                                 
                                 if(isset($_GET['id'])){
@@ -286,7 +399,7 @@ include("connect.php");
                                      $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
 
@@ -294,7 +407,7 @@ include("connect.php");
                                         $page=ceil($total/$limit);
                                     }
 
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort);
                                     $filter = "yes1";
 
                                 } else if($filter == "no1"){
@@ -302,7 +415,7 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
@@ -310,7 +423,7 @@ include("connect.php");
                                         $page=ceil($total/$limit);
                                     }
 
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "no1";
 
                                 } else if($filter == "yes2"){
@@ -318,14 +431,14 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "yes2";
 
                                 } else if($filter == "no2"){
@@ -333,14 +446,14 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "no2";
 
                                 } else if($filter == "yes3"){
@@ -348,14 +461,14 @@ include("connect.php");
                                     $t= mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "yes3";
 
                                 } else if($filter == "no3"){
@@ -363,14 +476,14 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "no3";
 
                                 } else if($filter == "yes4"){
@@ -378,14 +491,14 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
 
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "yes4";
 
                                 } else if($filter == "no4"){
@@ -393,43 +506,43 @@ include("connect.php");
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
                                     $filter = "no4";
 
                                 } else if($filter){
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if($sort == "all") {
+                                    if($viewperpage == "all") {
                                         $limit = $total;
                                     }
             
                                     if($total != 0) {
                                         $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
 
 
                                 } else {
                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY last_name ASC, first_name ASC");
                                     $total=mysqli_num_rows($t);
 
-                                    if(!$filter && !$sort || $sort == "all") {
-                                        $sort = $total;
+                                    if(!$filter && !$viewperpage || $viewperpage == "all") {
+                                        $viewperpage = $total;
                                         $limit = $total;
                                     }
 
                                     if($total != 0) {
                                          $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY last_name ASC, first_name ASC LIMIT $start,$limit");
+                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                                 }
 
                                 ?>
@@ -437,13 +550,13 @@ include("connect.php");
 
                                     if ($page > 1){
                                         if($id > 1) {
-                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
                                         } else {
-                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
                                         }
 
                                         for($i=1; $i <= $page; $i++){
-                                         echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'&search_input='.$search_input.'" ';
+                                         echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
                                             if($id == $i) {
                                                 echo 'class="list-group-item active">'.$i.'</a></li>';
                                             } else {
@@ -456,9 +569,9 @@ include("connect.php");
                                         }
 
                                         if($id!=$page) {
-                                            echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
                                         } else {
-                                            echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li></ul></div>';
+                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
                                         }
                                     }
                                 ?> 
@@ -470,7 +583,7 @@ include("connect.php");
                                         if($id == 1) {
                                             $no = 1;
                                         } else {
-                                            $no = $sort * ($id-1) + 1;
+                                            $no = $viewperpage * ($id-1) + 1;
                                         }
 
                                         while($row = mysqli_fetch_assoc($sql)){
@@ -663,6 +776,7 @@ include("connect.php");
                         </div>
                 </div><!--End of col-md-12-->
             </div> <!--End of Container Fluid-->
+            </form>
     </section>
     <!---->
     <!---->
@@ -710,104 +824,104 @@ include("connect.php");
     </script>
 
     <script>   
-        function sortTable(f,n){
-            var rows = $('#myTable tbody  tr').get();
+    //     function sortTable(f,n){
+    //         var rows = $('#myTable tbody  tr').get();
 
-            rows.sort(function(a, b) {
+    //         rows.sort(function(a, b) {
 
-                var A = getVal(a);
-                var B = getVal(b);
+    //             var A = getVal(a);
+    //             var B = getVal(b);
 
-                if(A < B) {
-                    return -1*f;
-                }
-                if(A > B) {
-                    return 1*f;
-                }
-                return 0;
-            });
+    //             if(A < B) {
+    //                 return -1*f;
+    //             }
+    //             if(A > B) {
+    //                 return 1*f;
+    //             }
+    //             return 0;
+    //         });
 
-        function getVal(elm){
-            var v = $(elm).children('td').eq(n).text().toUpperCase();
-            if($.isNumeric(v)){
-                v = parseInt(v,10);
-            }
-            return v;
-        }
+    //     function getVal(elm){
+    //         var v = $(elm).children('td').eq(n).text().toUpperCase();
+    //         if($.isNumeric(v)){
+    //             v = parseInt(v,10);
+    //         }
+    //         return v;
+    //     }
 
-        $.each(rows, function(index, row) {
-            $('#myTable').children('tbody').append(row);
-        });
-        }
+    //     $.each(rows, function(index, row) {
+    //         $('#myTable').children('tbody').append(row);
+    //     });
+    //     }
 
-        var f_no = 1;
-        var f_idnum = 1;
-        var f_name = 1;
-        var f_courseandyear = 1;
-        var f_companyname = 1;
+    //     var f_no = 1;
+    //     var f_idnum = 1;
+    //     var f_name = 1;
+    //     var f_courseandyear = 1;
+    //     var f_companyname = 1;
 
-        var f_endorsement = 1;
-        var f_waiver = 1;
-        var f_evaluation = 1;
-        var f_moa = 1;
-        var f_status = 1;
-        var f_type = 1;
+    //     var f_endorsement = 1;
+    //     var f_waiver = 1;
+    //     var f_evaluation = 1;
+    //     var f_moa = 1;
+    //     var f_status = 1;
+    //     var f_type = 1;
 
-        $("#no").click(function(){
-            f_no *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_no,n);
-        });
-        $("#idnum").click(function(){
-            f_idnum *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_idnum,n);
-        });
-        $("#name").click(function(){
-            f_name *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_name,n);
-        });
-        $("#courseandyear").click(function(){
-            f_courseandyear *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_courseandyear,n);
-        });
-        $("#companyname").click(function(){
-            f_companyname *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_companyname,n);
-        });
-        $("#endorsement").click(function(){
-            f_endorsement *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_endorsement,n);
-        });
-        $("#waiver").click(function(){
-            f_waiver *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_waiver,n);
-        });
-        $("#evaluation").click(function(){
-            f_evaluation *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_evaluation,n);
-        });
-        $("#moa").click(function(){
-            f_moa *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_moa,n);
-        });
-        $("#status").click(function(){
-            f_status *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_status,n);
-        });
-        $("#type").click(function(){
-            f_type *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_type,n);
-        });
-    </script>
+    //     $("#no").click(function(){
+    //         f_no *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_no,n);
+    //     });
+    //     $("#idnum").click(function(){
+    //         f_idnum *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_idnum,n);
+    //     });
+    //     $("#name").click(function(){
+    //         f_name *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_name,n);
+    //     });
+    //     $("#courseandyear").click(function(){
+    //         f_courseandyear *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_courseandyear,n);
+    //     });
+    //     $("#companyname").click(function(){
+    //         f_companyname *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_companyname,n);
+    //     });
+    //     $("#endorsement").click(function(){
+    //         f_endorsement *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_endorsement,n);
+    //     });
+    //     $("#waiver").click(function(){
+    //         f_waiver *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_waiver,n);
+    //     });
+    //     $("#evaluation").click(function(){
+    //         f_evaluation *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_evaluation,n);
+    //     });
+    //     $("#moa").click(function(){
+    //         f_moa *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_moa,n);
+    //     });
+    //     $("#status").click(function(){
+    //         f_status *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_status,n);
+    //     });
+    //     $("#type").click(function(){
+    //         f_type *= -1;
+    //         var n = $(this).prevAll().length;
+    //         sortTable(f_type,n);
+    //     });
+   </script>
   </body>
 </html>
