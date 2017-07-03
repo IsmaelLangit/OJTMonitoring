@@ -606,9 +606,9 @@ include("connect.php");
 
                                     if ($page > 1){
                                         if($id > 1) {
-                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
+                                        echo ' <div class="container-fluid text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
                                         } else {
-                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
+                                            echo '<div class="container-fluid text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
                                         }
 
                                         for($i=1; $i <= $page; $i++){
