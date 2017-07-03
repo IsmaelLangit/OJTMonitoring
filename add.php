@@ -112,7 +112,7 @@
             ?>
 
             <div class="container-fluid">
-            <form action="" method="post">
+            <form id="form" action="" method="post">
                 <div class="row">
                     <div class="col-md-3">
                         
@@ -373,6 +373,11 @@
     <script src="js/bootstrap-notify.min.js"></script>
     <script type="js/Gruntfile.js"></script>
     <script src="js/datepicker.js"></script>
+    <script src="js/jquery.are-you-sure.js"></script>
+
+    <script>
+        $('form').areYouSure();
+    </script>
 
 
     <script>

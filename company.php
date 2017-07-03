@@ -398,7 +398,14 @@ include("connect.php");
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
                                 $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
-                                echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
+                                echo '  class="confirm btn btn-danger btn-sm" 
+                                        data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
+                                        '" data-confirm-button="Yes"
+                                        data-cancel-button="No"
+                                        data-confirm-button-class= "btn-success"
+                                        data-cancel-button-class= "btn-danger"
+                                        data-title="Delete Student">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
                                 }
                                 echo 'class="confirm btn btn-danger btn-sm" >
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -455,6 +462,7 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
   
   </body>
 </html>

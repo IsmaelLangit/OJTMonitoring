@@ -489,6 +489,12 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/datepicker.js"></script>
+    <script src="js/jquery.are-you-sure.js"></script>
+
+    <script>
+        $('form').areYouSure();
+    </script>
+    
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',
