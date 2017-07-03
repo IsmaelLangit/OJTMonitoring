@@ -83,7 +83,7 @@ include("connect.php");
                                 <span class="input-group-btn">  
                                     <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
                                  </span>
-                                <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
+                                <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'complete'){ echo 'selected'; } ?>>Complete</option>
@@ -107,7 +107,7 @@ include("connect.php");
                                 <span class="input-group-btn">  
                                     <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
                                  </span>
-                                <select name="viewperpage" class="btn btn-default form-control touch" onchange="form.submit()">
+                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
                                     <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
@@ -122,14 +122,14 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
+                                    <button class="btn btn-default form-control" >Search</button>
                                 </span>
                             </div>
                     </div>
 
-                    <div class="col-md-3 btn-group">
-                        <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
+                    <div class="col-md-3 text-center">
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
+                        <a href="add.php" type="button" class="btn btn-success" title="Add Student"><span class="glyphicon glyphicon-plus"></span></a>
                     </div>
 
                 </div>
@@ -245,7 +245,7 @@ include("connect.php");
                                 <thead>
                                     <tr class="info">
                                         <th class="text-center touch">No</th>
-                                        <th class="text-center touch">ID Number<input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;"></th>
+                                        <th class="text-center touch"><input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;">ID Number</th>
                                         <th class="text-center touch">Name<input type="submit" name="last_name" value="&#9650;"><input type="submit" name="last_name" value="&#9660;"></th>
                                         <th class="text-center touch">Course & Year<input type="submit" name="courseyear" value="&#9650;"><input type="submit" name="courseyear" value="&#9660;"></th>
                                         <th class="text-center touch">Endorsement<input type="submit" name="endorsement" value="&#9650;"><input type="submit" name="endorsement" value="&#9660;"></th>
