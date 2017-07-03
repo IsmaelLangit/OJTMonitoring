@@ -110,8 +110,6 @@ include("connect.php");
                                     <button class="form-control">Search</button>
                                 </span>
                             </div>
-            </form>
-
                     </div>
                     <div class="col-md-2 text-center paddingTopSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
