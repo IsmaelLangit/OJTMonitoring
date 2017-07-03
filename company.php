@@ -80,7 +80,7 @@ include("connect.php");
 
                    
                 <div class="input-group dropdown-toggle">
-                                <span class="input-group-addon" id="basic-addon1">Filter By:</span>
+                    <span class="input-group-addon" id="basic-addon1">Filter By:</span>
                     <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
@@ -89,11 +89,9 @@ include("connect.php");
                     </select>
                 </div>
 
-                <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
-                                 </span>
-                                <select name="viewperpage" class="btn btn-default form-control touch" onchange="form.submit()">
+                <div class="input-group dropdown-toggle">
+                    <span class="input-group-addon" id="basic-addon1">Number of Rows:</span>
+                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
                                     <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
@@ -121,7 +119,7 @@ include("connect.php");
                 </div>
             </div>
 
-            <div class="table-responsive">
+            <div class="table-responsive paddingTopSlight">
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">

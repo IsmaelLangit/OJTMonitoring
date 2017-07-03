@@ -79,11 +79,9 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-9">
                        
-                            <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
-                                 </span>
-                                <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
+                            <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1">Filter By:</span>
+                                <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
                                     <option value="Complete" <?php if($filter == 'complete'){ echo 'selected'; } ?>>Complete</option>
@@ -103,11 +101,9 @@ include("connect.php");
                                 </select>
                             </div>
 
-                            <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
-                                 </span>
-                                <select name="viewperpage" class="btn btn-default form-control touch" onchange="form.submit()">
+                            <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1">Number of Rows:</span>
+                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
                                     <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
@@ -122,14 +118,14 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
+                                    <button class="form-control">Search</button>
                                 </span>
                             </div>
                     </div>
 
-                    <div class="col-md-3 btn-group">
-                        <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus space"></span>Add Student</a>
-                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
+                    <div class="col-md-3 text-center paddingTopSlight">
+                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
+                        <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
                     </div>
 
                 </div>
