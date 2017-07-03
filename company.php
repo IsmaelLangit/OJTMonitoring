@@ -123,14 +123,38 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th class="text-center">No</th>
-                            <th class="text-center">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
-                            <th class="text-center">Address<input type="submit" name="coaddress" value="&#9650;"><input type="submit" name="coaddress" value="&#9660;"></th>
-                            <th class="text-center">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
-                            <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
-                            <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
-                            <th class="text-center touch">Number of OJT Student/s<input type="submit" name="countstudent" value="&#9650;"><input type="submit" name="countstudent" value="&#9660;"></th>
-                            <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                            <th>No</th>
+                            <th width="1%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="align-middle">Company Name</th>
+                            <th class="text-center">Address</th>
+                            <th width="1%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-center">Type</th>
+                            <th class="text-center">Company Head</th>
+                            <th class="text-center">Position</th>
+                            <th width="1%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="countstudent" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="countstudent" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-center touch">Number of OJT Student/s</th>
+                            <th width="1%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-center touch">MOA</th>
                             <th class="text-center">Action</th>
                         </tr>
 
@@ -305,10 +329,10 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                    <td class="col-md-4">'.strip_tags(htmlentities($row['coaddress'])).'</td>';
+                                    <td colspan="2" class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                    <td>'.strip_tags(htmlentities($row['coaddress'])).'</td>';
                                             echo '
-                                    <td class = "text-center">';
+                                    <td colspan="2" class = "text-center">';
                                     if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-primary">Private</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Government'){
@@ -316,9 +340,9 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
-                                <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudent'].'</span></a></td>
+                                <td class="col-md-1">'.strip_tags(htmlentities($row['company_head'])).'</td>
+                                <td class="col-md-2" >'.strip_tags(htmlentities($row['position'])).'</td>
+                                        <td colspan="2" class="text-center col-md-1"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudent'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
@@ -346,7 +370,7 @@ include("connect.php");
                                             </div>
                                         ';
                                         echo '
-                                            <td>
+                                            <td colspan="2" class="text-center">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                     title=" 
                                                         Date Released: '.$row ['release_moa'].' 
