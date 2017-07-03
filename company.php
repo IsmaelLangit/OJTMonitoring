@@ -243,7 +243,7 @@ include("connect.php");
 
 
 
-                        $t=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany FROM company NATURAL JOIN students WHERE coname != 'No Company'  AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany");
+                        $t=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany FROM company NATURAL JOIN students WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany");
                         $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
@@ -262,7 +262,7 @@ include("connect.php");
                         }
 
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent', coid,  coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE  CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa");
+                            $all=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent', coid,  coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa");
                             $allrows=mysqli_num_rows($all);
                             if (!$viewperpage) {
                                 $limit = $allrows;
