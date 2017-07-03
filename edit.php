@@ -288,19 +288,17 @@ include("connect.php");
                                 <div class="form-group">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-sm-2 text-center"> 
+                                            <div class="col-sm-3"> 
                                                 <label class="control-label">Requirement Status</label>
-                                            </div>
-                                            <div class="col-sm-10" style="font-size: 18px">
                                                 <?php
                                                     if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
-                                                        echo "<span class='label label-success'>Complete</span>";
+                                                        echo "<span class='label label-success' style='font-size: 13px'>Complete</span>";
                                                         echo  "<input type='hidden' name='status' value='Complete'>";
                                                     } else {
-                                                        echo "<span class='label label-warning'>Incomplete</span>";
+                                                        echo "<span class='label label-warning' style='font-size: 13px'>Incomplete</span>";
                                                         echo  "<input type='hidden' name='status' value='Incomplete'>";
                                                     }
-                                                    ?>
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -355,10 +353,16 @@ include("connect.php");
                                                 }   
                                                 ?>
                                             <label class='control-label'>Date Released</label>
-                                            <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                                <div class='input-group date col-sm-9'>
+                                                    <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
-                                            <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
+                                                <div class='input-group date col-sm-9'>
+                                                    <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
                                             <textarea maxlength = '200' rows="5" class="form-control" name="remark_endorsement" class="form-control" placeholder="Remarks"><?php echo strip_tags(htmlentities($row ['remark_endorsement'])); ?></textarea>
@@ -382,10 +386,16 @@ include("connect.php");
                                                 }   
                                                 ?>
                                             <label class='control-label'>Date Released</label>
-                                            <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                <div class='input-group date col-sm-9'>
+                                                    <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
-                                            <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                <div class='input-group date col-sm-9'>
+                                                    <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
                                             <textarea maxlength = '200' rows="5" class="form-control" name="remark_waiver" class="form-control" placeholder="Remarks" ><?php echo strip_tags(htmlentities($row ['remark_waiver'])); ?></textarea>
@@ -410,10 +420,16 @@ include("connect.php");
                                                 }   
                                                 ?>
                                             <label class='control-label'>Date Released</label>
-                                            <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                                <div class='input-group date col-sm-9'>
+                                                    <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
-                                            <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                            <div class='input-group date col-sm-9'>
+                                                    <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div>
                                             <br>
                                             <label class='control-label'>Remark/s</label>
                                             <textarea maxlength = '200' rows="5" class="form-control" placeholder="Remarks" name="remark_evaluation" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_evaluation'])); ?></textarea>
