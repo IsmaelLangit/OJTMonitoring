@@ -236,22 +236,82 @@ include("connect.php");
 
                 <div class="paddingTopSlight">
                         <div class="table-responsive">
-                            <table class="table table-fixed table-striped table-hover text-center" id="myTable">
+                            <table class="table table-fixed table-hover text-center" id="myTable">
 
                                 <thead>
                                     <tr class="info">
-                                        <th class="text-center">No</th>
-                                        <th class="text-center"><input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;">ID Number</th>
-                                        <th class="text-center">Name<input type="submit" name="last_name" value="&#9650;"><input type="submit" name="last_name" value="&#9660;"></th>
-                                        <th class="text-center">Course & Year<input type="submit" name="courseyear" value="&#9650;"><input type="submit" name="courseyear" value="&#9660;"></th>
-                                        <th class="text-center">Endorsement<input type="submit" name="endorsement" value="&#9650;"><input type="submit" name="endorsement" value="&#9660;"></th>
-                                        <th class="text-center">Waiver<input type="submit" name="waiver" value="&#9650;"><input type="submit" name="waiver" value="&#9660;"></th>
-                                        <th class="text-center">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
-                                        <th class="text-center">Evaluation<input type="submit" name="evaluation" value="&#9650;"><input type="submit" name="evaluation" value="&#9660;"></th>
-                                        <th class="text-center">Requirement Status<input type="submit" name="status" value="&#9650;"><input type="submit" name="status" value="&#9660;"></th>
-                                        <th class="text-center">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
-                                        <th class="text-center">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
-                                        <th class="text-center">Action</th>
+                                        <th>No</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th class="align-middle">ID Number</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="last_name" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="last_name" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th class="align-middle">Name</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="courseyear" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="courseyear" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Course & Year</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="endorsement" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="endorsement" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Endorsement</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="waiver" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="waiver" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Waiver</th>
+                                        <th width="1%" class="text-right">   
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>MOA</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="evaluation" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="evaluation" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Evaluation</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="status" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="status" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Requirement Status</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Company Name</th>
+                                        <th width="1%" class="text-right">
+                                            <div class="btn-group-vertical">
+                                                <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
+                                                <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
+                                            </div>
+                                        </th>
+                                        <th>Type</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
@@ -586,12 +646,12 @@ include("connect.php");
                                             echo '
                                             <tr>
                                                 <td>'.$no.'</td>
-                                                <td>'.$row['idnum'].'</td>
-                                                <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
-                                                            <td>'.$row['courseyear'].'</td>';
+                                                <td colspan="2" class="col-md-1">'.$row['idnum'].'</td>
+                                                <td colspan="2" class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
+                                                <td colspan="2">'.$row['courseyear'].'</td>';
                                     
                                             echo '
-                                            <td>
+                                            <td colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                 title=" 
                                                     Date Released: '.$row ['release_endorsement'].' 
@@ -601,7 +661,8 @@ include("connect.php");
                                             ';
 
                                             if($row['endorsement'] == 'yes'){
-                                                echo '  
+                                                echo ' 
+
                                                     <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
                                                     </a>
                                                  </td>';
@@ -615,7 +676,7 @@ include("connect.php");
                                     
                              
                                             echo '
-                                            <td>
+                                            <td colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                 title=" 
                                                     Date Released: '.$row ['release_waiver'].' 
@@ -638,7 +699,7 @@ include("connect.php");
                                             }
                                  
                                             echo '
-                                                <td>
+                                                <td colspan="2">
                                                     <a class="help" data-html="true" data-toggle="tooltip" 
                                                         title=" 
                                                             Date Released: '.$row ['release_moa'].' 
@@ -660,7 +721,7 @@ include("connect.php");
                                             }
 
                                             echo '
-                                            <td>
+                                            <td colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                 title=" 
                                                     Date Released: '.$row ['release_evaluation'].' 
@@ -684,7 +745,7 @@ include("connect.php");
                  
                                     
                                             echo '
-                                                <td>';
+                                                <td colspan="2">';
                                                 if($row['status'] == 'Complete'){
                                                     echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm">Complete</span>';
                                                 } else if ($row['status'] == 'Incomplete' ){
@@ -739,8 +800,8 @@ include("connect.php");
                                             ';
 
                                             echo '
-                                                <td class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                                <td class = "text-center">';
+                                                <td colspan="2" class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                                <td colspan="2" class = "text-center">';
                                                 if ($row['typeofcompany'] == 'Private'){
                                                     echo '<span class="label label-primary">Private</span> <br>';
                                                 } else if ($row['typeofcompany'] == 'Government'){

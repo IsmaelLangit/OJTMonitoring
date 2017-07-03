@@ -279,6 +279,9 @@ nav ul li a:before {
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+.arrowSort{
+  font-size: .5em !important;
+}
 hr {
    display: block;
    position: relative;
