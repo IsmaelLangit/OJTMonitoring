@@ -89,15 +89,17 @@ include("connect.php");
                     </select>
                 </div>
 
-                <div class="input-group dropdown-toggle">
-                                <span class="input-group-addon" id="basic-addon1">Number of Rows:</span>
-                                <select name="sort" class="form-control touch" onchange="form.submit()">
-                                    <?php $sort = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
-                                    <option value="all" <?php if($sort == 'all'){ echo 'selected'; } ?>>All</option>
-                                    <option value="10" <?php if($sort == '10'){ echo 'selected'; } ?>>10</option>
-                                    <option value="20" <?php if($sort == '20'){ echo 'selected'; } ?>>20</option>
-                                    <option value="50" <?php if($sort == '50'){ echo 'selected'; } ?>>50</option>
-                                    <option value="100" <?php if($sort == '100'){ echo 'selected'; } ?>>100</option>   
+                <div class="form-group input-group dropdown-toggle">
+                                <span class="input-group-btn">  
+                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
+                                 </span>
+                                <select name="viewperpage" class="btn btn-default form-control touch" onchange="form.submit()">
+                                    <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
+                                    <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
+                                    <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
+                                    <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
+                                    <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
+                                    <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
                                 </select>
                 </div>
 
@@ -129,10 +131,11 @@ include("connect.php");
                             <th class="text-center">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
                             <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
                             <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
-                            <th class="text-center">Number of OJT Student/s</th>
-                            <th class="text-center">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                            <th class="text-center touch">Number of OJT Student/s<input type="submit" name="countstudent" value="&#9650;"><input type="submit" name="countstudent" value="&#9660;"></th>
+                            <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
                             <th class="text-center">Action</th>
                         </tr>
+
                     </thead>
                     <?php 
                      $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
@@ -141,6 +144,7 @@ include("connect.php");
                     $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
                     $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
                     $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
+                    $countstudent = (isset($_GET['countstudent']) ? strtolower($_GET['countstudent']) : NULL);
 
                     $sort = 'coname';
 
@@ -195,18 +199,29 @@ include("connect.php");
                                 }
 
                                  switch ($moa) {
-                                    case "▲":
+                                    case "▼":
                                         $sort = 'moa, coname';
                                         break;
                                     
-                                    case "▼":
+                                    case "▲":
                                         $sort = 'moa DESC, coname';
+                                        break;
+                                }
+
+                                switch ($countstudent) {
+                                    case "▼":
+                                        $sort = 'countstudent, coname';
+                                        break;
+                                    
+                                    case "▲":
+                                        $sort = 'countstudent DESC, coname';
                                         break;
                                 }
 
 
 
-                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
+
+                        $t=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany FROM company NATURAL JOIN students WHERE coname != 'No Company'  AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany");
                         $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
@@ -223,17 +238,18 @@ include("connect.php");
                         } else {
                             $id=1;
                         }
+
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT * from company WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
+                            $all=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent', coid,  coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE  CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa");
                             $allrows=mysqli_num_rows($all);
                             if (!$viewperpage) {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
                             }else if ($viewperpage == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$viewperpage");
+                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$viewperpage");
                                 $page=ceil($allrows/$viewperpage);
                             }
                         } else if($filter){
@@ -244,37 +260,40 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
                     ?>
 
                     
                             <?php 
-           
-                                if ($page > 1){
-                                    if($id > 1) {
-                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
-                                    } else {
-                                        echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
-                                    }
-                                    for($i=1; $i <= $page; $i++){
-                                     echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
-                                        if($id == $i) {
-                                            echo 'class="list-group-item active">'.$i.'</a></li>';
+
+                                    if ($page > 1){
+                                        if($id > 1) {
+                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
                                         } else {
-                                            echo '>'.$i.'</a></li>';
+                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
+                                        }
+
+                                        for($i=1; $i <= $page; $i++){
+                                         echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
+                                            if($id == $i) {
+                                                echo 'class="list-group-item active">'.$i.'</a></li>';
+                                            } else {
+                                                echo '>'.$i.'</a></li>';
+                                            }
+                                        }
+
+                                        if (!$id) {
+                                            $id = 1;
+                                        }
+
+                                        if($id!=$page) {
+                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                        } else {
+                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
                                         }
                                     }
-                                    if (!$id) {
-                                        $id = 1;
-                                    }
-                                    if($id!=$page) {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
-                                    } else {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
-                                    }
-                                }
-                            ?>
+                                ?> 
                         <?php
                         if(mysqli_num_rows($sql) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
@@ -301,11 +320,7 @@ include("connect.php");
                                 echo '
                                 <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
                                 <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
-                                ';
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                while ($row1 = mysqli_fetch_assoc($con)) {
-                                    echo '
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudent'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
@@ -332,7 +347,6 @@ include("connect.php");
                                               </div>
                                             </div>
                                         ';
-                                    } 
                                         echo '
                                             <td>
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
