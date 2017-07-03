@@ -237,14 +237,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-6'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-6'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -269,14 +269,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
 
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-6'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
 
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-6'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -299,13 +299,13 @@
                                         echo  " <input type='checkbox' name='evaluation' value='yes'>
                                                 <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                         echo  " <label class='control-label'>Date Released</label>
-                                                    <div class='input-group date col-sm-6'>
+                                                    <div class='input-group date col-sm-7'>
                                                         <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                 <br>" ;
                                         echo  " <label class='control-label'>Date Received</label>
-                                                    <div class='input-group date col-sm-6'>
+                                                    <div class='input-group date col-sm-7'>
                                                         <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
