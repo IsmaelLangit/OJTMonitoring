@@ -152,7 +152,7 @@ include("connect.php");
                                     <div class="col-md-4 text-right">
                                         <label class="control-label">Type</label>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
                                         <select name="typeofcompany" class="touch form-control">
                                             <option value="Government">Government</option>
                                             <option value="Private">Private</option>
@@ -175,10 +175,22 @@ include("connect.php");
                                     <?php
                                         echo  "<input type='hidden' name='moa' value='no'>";
                                         
-                                        echo  "<input type='checkbox' name='moa' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa' placeholder='Date of Release'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder='Date Received'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label><textarea rows='5' name='remark_moa' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
+                                        echo  " <input type='checkbox' name='moa' value='yes'>
+                                                <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                        echo  " <label class='control-label'>Date Released</label>
+                                                    <div class='input-group date col-sm-6'>
+                                                        <input type='text' name='release_moa' class='input-group date form-control touch' date='' data-date-format='release_moa' placeholder='Date of Release'>
+                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                    </div>
+                                                <br>" ;
+                                        echo  " <label class='control-label'>Date Received</label>
+                                                    <div class='input-group date col-sm-6'>
+                                                        <input type='text' name='receive_moa' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder='Date Received'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                    </div>
+                                                <br>" ;
+                                        echo  " <label class='control-label'>Remarks</label>
+                                                <textarea rows='5' name='remark_moa' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                         ?>
                                 </div>
                             </div>

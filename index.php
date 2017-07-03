@@ -116,7 +116,7 @@ include("connect.php");
                                     <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
                                 </select>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group ">
                                 <span class="input-group-btn">
                                     <?php
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
@@ -127,7 +127,7 @@ include("connect.php");
                             </div>
                     </div>
 
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-3 text-center paddingTopSlight">
                         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                         <a href="add.php" type="button" class="btn btn-success" title="Add Student"><span class="glyphicon glyphicon-plus"></span></a>
                     </div>

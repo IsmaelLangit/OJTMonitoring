@@ -116,7 +116,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         
-                            <h2 class="head-title titleFont">Basic Information</h2>
+                            <h2 class="titleFont">Basic Information</h2>
                             <hr class="style-four">
                             <div class="form-group">
                                 <div class="container-fluid">
@@ -183,14 +183,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group form-inline">
+                            <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-4 text-right">
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input maxlength = "18" type="text" name="mobile_number" class="form-control" placeholder="Mobile Number">
+                                            <input maxlength = "18" type="text" name="mobile_number" class="form-control" placeholder="09000000000">
 
                                             
                                         </div>
@@ -205,7 +205,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <select name="coid" class="form-control touch">
-                                                <option value='1'>No current company</option>
+                                                <option value='1'>No Current Company</option>
                                                 <?php
                                                     $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                     while ($row = mysqli_fetch_assoc($con)) {
@@ -223,7 +223,7 @@
                     <div class="col-md-9">
                         <div class="row">
 
-                            <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
+                            <h2 class="titleFont">Practicum 2 Requirements</h2>
                             <hr class="style-four">
 
                             <div class="col-md-4">
@@ -237,12 +237,17 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                    <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
-                                            
+                                                        <div class='input-group date col-sm-6'>
+                                                            <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                    <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                                        <div class='input-group date col-sm-6'>
+                                                            <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Remarks</label>
@@ -260,11 +265,25 @@
                                         <?php
                                             echo  "<input type='hidden' name='waiver' value='no'>";
                                             
-                                            echo  "<input type='checkbox' name='waiver' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                            echo  "<label class='control-label'>Date Released</label><input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'><br>" ;
-                                            echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
-                                            echo  "<label class='control-label'>Remarks</label>
-                                                <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
+                                            echo  " <input type='checkbox' name='waiver' value='yes'>
+                                                    <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+
+                                            echo  " <label class='control-label'>Date Released</label>
+                                                        <div class='input-group date col-sm-6'>
+                                                            <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
+                                                    <br>" ;
+
+                                            echo  " <label class='control-label'>Date Received</label>
+                                                        <div class='input-group date col-sm-6'>
+                                                            <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
+                                                    <br>" ;
+
+                                            echo  " <label class='control-label'>Remarks</label>
+                                                    <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
                                             ?>
                                     </div>
                                 </div>
@@ -277,11 +296,22 @@
                                     <?php
                                         echo  "<input type='hidden' name='evaluation' value='no'>";
                                         
-                                        echo  "<input type='checkbox' name='evaluation' value='yes'><label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  "<label class='control-label'>Date Released</label><input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'><br>" ;
-                                        echo  "<label class='control-label'>Date Received</label><input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'><br>" ;
-                                        echo  "<label class='control-label'>Remarks</label>
-                                            <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                        echo  " <input type='checkbox' name='evaluation' value='yes'>
+                                                <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
+                                        echo  " <label class='control-label'>Date Released</label>
+                                                    <div class='input-group date col-sm-6'>
+                                                        <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
+                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
+                                                <br>" ;
+                                        echo  " <label class='control-label'>Date Received</label>
+                                                    <div class='input-group date col-sm-6'>
+                                                        <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
+                                                <br>" ;
+                                        echo  " <label class='control-label'>Remarks</label>
+                                                <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                         ?>
                                 </div>
                                 </div>

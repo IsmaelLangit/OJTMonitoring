@@ -310,7 +310,7 @@ textarea {
 .titleFont{
     color: #09659b !important;
     text-transform: uppercase;
-    font-size: 1.8em;
+    font-size: 1.42em;
     letter-spacing: 3px;
 }
 .subLabel{
@@ -352,7 +352,7 @@ h4.modal-title{
     margin-right: 20px;
 }
 .paddingTopSlight{
-    padding: 10px 0;
+    padding-top: 10px;
 }
 button.disabled{
     cursor: default !important;
