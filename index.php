@@ -79,10 +79,8 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-9">
                        
-                            <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:90px;" type="text" class="form-control black" placeholder="Filter By:" readonly>
-                                 </span>
+                            <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1">Filter By:</span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
@@ -103,10 +101,8 @@ include("connect.php");
                                 </select>
                             </div>
 
-                            <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
-                                 </span>
+                            <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1">Number of Rows</span>
                                 <select name="viewperpage" class="form-control touch" onchange="form.submit()">
                                     <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
@@ -244,17 +240,17 @@ include("connect.php");
 
                                 <thead>
                                     <tr class="info">
-                                        <th class="text-center touch">No</th>
-                                        <th class="text-center touch"><input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;">ID Number</th>
-                                        <th class="text-center touch">Name<input type="submit" name="last_name" value="&#9650;"><input type="submit" name="last_name" value="&#9660;"></th>
-                                        <th class="text-center touch">Course & Year<input type="submit" name="courseyear" value="&#9650;"><input type="submit" name="courseyear" value="&#9660;"></th>
-                                        <th class="text-center touch">Endorsement<input type="submit" name="endorsement" value="&#9650;"><input type="submit" name="endorsement" value="&#9660;"></th>
-                                        <th class="text-center touch">Waiver<input type="submit" name="waiver" value="&#9650;"><input type="submit" name="waiver" value="&#9660;"></th>
-                                        <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
-                                        <th class="text-center touch">Evaluation<input type="submit" name="evaluation" value="&#9650;"><input type="submit" name="evaluation" value="&#9660;"></th>
-                                        <th class="text-center touch">Requirement Status<input type="submit" name="status" value="&#9650;"><input type="submit" name="status" value="&#9660;"></th>
-                                        <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
-                                        <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center"><input type="submit" name="idnum" value="&#9650;"><input type="submit" name="idnum" value="&#9660;">ID Number</th>
+                                        <th class="text-center">Name<input type="submit" name="last_name" value="&#9650;"><input type="submit" name="last_name" value="&#9660;"></th>
+                                        <th class="text-center">Course & Year<input type="submit" name="courseyear" value="&#9650;"><input type="submit" name="courseyear" value="&#9660;"></th>
+                                        <th class="text-center">Endorsement<input type="submit" name="endorsement" value="&#9650;"><input type="submit" name="endorsement" value="&#9660;"></th>
+                                        <th class="text-center">Waiver<input type="submit" name="waiver" value="&#9650;"><input type="submit" name="waiver" value="&#9660;"></th>
+                                        <th class="text-center">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                                        <th class="text-center">Evaluation<input type="submit" name="evaluation" value="&#9650;"><input type="submit" name="evaluation" value="&#9660;"></th>
+                                        <th class="text-center">Requirement Status<input type="submit" name="status" value="&#9650;"><input type="submit" name="status" value="&#9660;"></th>
+                                        <th class="text-center">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
+                                        <th class="text-center">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -817,7 +813,6 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
-    
 
     <script>
         $(".confirm").confirm();
