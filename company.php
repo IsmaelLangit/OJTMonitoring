@@ -25,7 +25,7 @@ include("connect.php");
                     <div class="col-md-12">
                         <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="fa fa-bars"></span>
+                            <span id="bars" class="fa fa-bars"></span>
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>

@@ -103,6 +103,10 @@ nav ul li a:after,
 nav ul li a:before {
   transition: all .5s;
 }
+
+  #bars{
+    color: #636363 !important;
+  }
 /*---------------------------SECTION---------------------------*/
 .sect{
   height: 40%;

@@ -97,7 +97,7 @@ include("connect.php");
                         <div class="form-group">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-4 text-right">
+                                    <div class="col-md-4">
                                         <label class="control-label">Company Name</label>
                                     </div>
                                     <div class="col-sm-8">
@@ -110,7 +110,7 @@ include("connect.php");
                         <div class="form-group">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-4 text-right">
+                                    <div class="col-md-4">
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
@@ -123,7 +123,7 @@ include("connect.php");
                         <div class="form-group">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-4 text-right">
+                                    <div class="col-md-4">
                                         <label class="control-label">Company Head</label>
                                     </div>
                                     <div class="col-sm-8">
@@ -136,7 +136,7 @@ include("connect.php");
                         <div class="form-group">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-4 text-right">
+                                    <div class="col-md-4">
                                         <label class="control-label">Position</label>
                                     </div>
                                     <div class="col-sm-8">
@@ -149,7 +149,7 @@ include("connect.php");
                         <div class="form-group">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-4 text-right">
+                                    <div class="col-md-4">
                                         <label class="control-label">Type</label>
                                     </div>
                                     <div class="col-sm-4">

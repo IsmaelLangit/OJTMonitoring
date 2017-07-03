@@ -121,7 +121,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">ID Number</label>
                                         </div>
                                         <div class="col-sm-5">
@@ -133,7 +133,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">First Name</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -145,7 +145,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Last Name</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -157,7 +157,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Course & Year</label>
                                         </div>
                                         <div class="col-sm-5">
@@ -174,7 +174,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4" text-right"">
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -186,7 +186,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -200,7 +200,7 @@
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Company Name</label>
                                         </div>
                                         <div class="col-sm-8">

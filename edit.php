@@ -131,7 +131,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">ID Number</label>
                                         </div>
                                         <div class="col-sm-5">
@@ -144,7 +144,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">First Name</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -157,7 +157,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Last Name</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -170,7 +170,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Course & Year</label>
                                         </div>
                                         <div class="col-sm-5">
@@ -209,7 +209,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Email</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -222,7 +222,7 @@ include("connect.php");
                             <div class="form-group form-inline">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Mobile Number</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -235,7 +235,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label">Company Name</label>
                                         </div>
                                         
@@ -261,7 +261,7 @@ include("connect.php");
                             <div class="form-group">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4 text-right">
+                                        <div class="col-sm-4">
                                             <label class="control-label" >Type of OJT</label>
                                         </div>
                                         
