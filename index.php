@@ -307,41 +307,41 @@ include("connect.php");
 
                                 switch ($endorsement) {
                                     case "▲":
-                                        $sort = 'endorsement, last_name, first_name';
+                                        $sort = 'endorsement DESC, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'endorsement DESC, last_name, first_name';
+                                        $sort = 'endorsement , last_name, first_name';
                                         break;
                                 }
 
                                 switch ($waiver) {
                                     case "▲":
-                                        $sort = 'waiver, last_name, first_name';
+                                        $sort = 'waiver DESC, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'waiver DESC, last_name, first_name';
+                                        $sort = 'waiver, last_name, first_name';
                                         break;
                                 }
 
                                  switch ($moa) {
                                     case "▲":
-                                        $sort = 'moa, last_name, first_name';
+                                        $sort = 'moa DESC, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'moa DESC, last_name, first_name';
+                                        $sort = 'moa, last_name, first_name';
                                         break;
                                 }
 
                                 switch ($evaluation) {
                                    case "▲":
-                                        $sort = 'evaluation, last_name, first_name';
+                                        $sort = 'evaluation DESC, last_name, first_name';
                                         break;
                                     
                                     case "▼":
-                                        $sort = 'evaluation DESC, last_name, first_name';
+                                        $sort = 'evaluation, last_name, first_name';
                                         break;
                                 }
 
