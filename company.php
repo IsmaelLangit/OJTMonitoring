@@ -137,6 +137,7 @@ include("connect.php");
                             <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
                             <th class="text-center">Action</th>
                         </tr>
+
                     </thead>
                     <?php 
                      $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
