@@ -76,14 +76,12 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-10">
 
                    
-                <div class="form-group input-group">
-                    <span class="input-group-btn">  
-                            <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
-                    </span>
-                    <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
+                <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1">Filter By:</span>
+                    <select name="filter" class="form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
@@ -111,13 +109,13 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
+                                    <button class="form-control">Search</button>
                                 </span>
                             </div>
             </form>
 
                     </div>
-                    <div class="col-md-1 text-center paddingTopSlight">
+                    <div class="col-md-2 text-center paddingTopSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>
@@ -127,10 +125,10 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th class="text-center touch">No</th>
-                            <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
                             <th class="text-center">Address<input type="submit" name="coaddress" value="&#9650;"><input type="submit" name="coaddress" value="&#9660;"></th>
-                            <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
+                            <th class="text-center">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
                             <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
                             <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
                             <th class="text-center touch">Number of OJT Student/s<input type="submit" name="countstudent" value="&#9650;"><input type="submit" name="countstudent" value="&#9660;"></th>

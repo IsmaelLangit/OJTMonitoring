@@ -107,7 +107,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Company Information</h2>
+                        <h2 class="titleFont text-center">Company Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -188,7 +188,7 @@ include("connect.php");
 
                     <div class="col-md-6">
 
-                        <h2 class="head-title titleFont">Memorandum of Agreement</h2>
+                        <h2 class="titleFont text-center">Memorandum of Agreement</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -208,13 +208,19 @@ include("connect.php");
                                     ?>
 
                                     <label class='control-label'>Date Released</label>
-                                    <input type="text" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                        <div class='input-group date col-sm-6'>
+                                            <input type="text" placeholder="Date of Release" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                        </div>
                                     <br>
                                     <label class='control-label'>Date Received</label>
-                                    <input type="text" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                        <div class='input-group date col-sm-6'>
+                                            <input type="text" name="receive_moa" placeholder="Date Received" value="<?php echo $row ['receive_moa']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                        </div>
                                     <br>
                                     <label class='control-label'>Remark/s</label>
-                                    <textarea rows="5" class="form-control" name="remark_moa" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
+                                    <textarea rows="5" class="form-control" placeholder="Remarks" name="remark_moa" class="form-control"><?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                 </div>
                             </div>
                         </div>
