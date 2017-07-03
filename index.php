@@ -271,7 +271,6 @@ include("connect.php");
                                 $evaluation = (isset($_GET['evaluation']) ? strtolower($_GET['evaluation']) : NULL);
                                 $status = (isset($_GET['status']) ? strtolower($_GET['status']) : NULL);
                                 $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
-
                                 $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
 
                                 $sort = 'last_name, first_name';
@@ -337,8 +336,8 @@ include("connect.php");
                                 }
 
                                 switch ($evaluation) {
-                                    case "▲":
-                                        $sort = 'evaluation, last_name, first_name,';
+                                   case "▲":
+                                        $sort = 'evaluation, last_name, first_name';
                                         break;
                                     
                                     case "▼":

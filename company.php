@@ -46,6 +46,7 @@ include("connect.php");
     <!--/ header-->
 
     <section class="section-padding">
+        <form class="form-inline" method="get">
         <div class="container-fluid">
 
             <div class="col text-center">
@@ -77,7 +78,7 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-10">
 
-                    <form class="form-inline" method="get">
+                   
                 <div class="form-group input-group">
                     <span class="input-group-btn">  
                             <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
@@ -126,27 +127,98 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th id="no" class="text-center touch"><span class="fa fa-sort space"></span>No</th>
-                            <th id="name" class="text-center touch"><span class="fa fa-sort space"></span>Company Name</th>
-                            <th id="address" class="text-center">Address</th>
-                            <th id="type" class="text-center touch"><span class="fa fa-sort space"></span>Type</th>
-                            <th id="head" class="text-center">Company Head</th>
-                            <th id="position" class="text-center">Position</th>
-                            <th id="number" class="text-center touch"><span class="fa fa-sort space"></span>Number of OJT Student/s</th>
-                            <th id="moa" class="text-center touch"><span class="fa fa-sort space"></span>MOA</th>
+                            <th class="text-center touch">No</th>
+                            <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
+                            <th class="text-center">Address<input type="submit" name="coaddress" value="&#9650;"><input type="submit" name="coaddress" value="&#9660;"></th>
+                            <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
+                            <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
+                            <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
+                            <th class="text-center touch">Number of OJT Student/s</th>
+                            <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <?php  
+                    <?php 
+                     $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
+                    $coaddress = (isset($_GET['coaddress']) ? strtolower($_GET['coaddress']) : NULL);
+                    $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
+                    $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
+                    $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
+                    $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
+
+                    $sort = 'coname';
+
+                                switch ($coname) {
+                                    case "▲":
+                                        $sort = 'coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'coname DESC';
+                                        break;
+                                }
+
+                                switch ($coaddress) {
+                                    case "▲":
+                                        $sort = 'coaddress, coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'coaddress DESC, coname';
+                                        break;
+                                }
+
+                                switch ($typeofcompany) {
+                                    case "▲":
+                                        $sort = 'typeofcompany, coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'typeofcompany DESC, coname';
+                                        break;
+                                }
+
+                                switch ($company_head) {
+                                    case "▲":
+                                        $sort = 'company_head, coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'company_head DESC, coname';
+                                        break;
+                                }
+
+                                switch ($position) {
+                                    case "▲":
+                                        $sort = 'position, coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'position DESC, coname';
+                                        break;
+                                }
+
+                                 switch ($moa) {
+                                    case "▲":
+                                        $sort = 'moa, coname';
+                                        break;
+                                    
+                                    case "▼":
+                                        $sort = 'moa DESC, coname';
+                                        break;
+                                }
+
+
+
                         $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                         $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
 
-                        if($sort == "all") {
+                        if($viewperpage == "all") {
                             $limit = $total;
                         } else {
-                            $limit=$sort; 
+                            $limit=$viewperpage; 
                         }
                         
                         if(isset($_GET['id'])){
@@ -158,25 +230,25 @@ include("connect.php");
                         if ($filter == 'none' || !$filter) {
                             $all=mysqli_query($connect,"SELECT * from company WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                             $allrows=mysqli_num_rows($all);
-                            if (!$sort) {
+                            if (!$viewperpage) {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
-                            }else if ($sort == "all") {
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
+                            }else if ($viewperpage == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'ORDER BY ".$sort." LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$sort");
-                                $page=ceil($allrows/$sort);
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$viewperpage");
+                                $page=ceil($allrows/$viewperpage);
                             }
                         } else if($filter){
-                            if($sort == "all") {
+                            if($viewperpage == "all") {
                                 $limit = $total;
                             }
         
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY coname ASC LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
                     ?>
 
@@ -185,12 +257,12 @@ include("connect.php");
            
                                 if ($page > 1){
                                     if($id > 1) {
-                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id-1).'">Previous</a></li>';
+                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
                                     } else {
-                                        echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$sort.'&id=1">Previous</a></li>';
+                                        echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
                                     }
                                     for($i=1; $i <= $page; $i++){
-                                     echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$i.'&search_input='.$search_input.'" ';
+                                     echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
                                         if($id == $i) {
                                             echo 'class="list-group-item active">'.$i.'</a></li>';
                                         } else {
@@ -201,9 +273,9 @@ include("connect.php");
                                         $id = 1;
                                     }
                                     if($id!=$page) {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
                                     } else {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$sort.'&id='.$page.'">Next</a></li></ul></div>';
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
                                     }
                                 }
                             ?>
@@ -214,7 +286,7 @@ include("connect.php");
                             if($id == 1) {
                                 $no = 1;
                             } else {
-                                $no = $sort * ($id-1) + 1;
+                                $no = $viewperpage * ($id-1) + 1;
                             }
                             while($row = mysqli_fetch_assoc($sql)){
                                 echo '
@@ -310,6 +382,7 @@ include("connect.php");
             </div>
 
         </div> <!--End of Container Fluid-->
+        </form>
     </section>
     <!---->
     <!---->
@@ -350,97 +423,6 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
-    <script>
-    function filterData() {
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-                for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                td1 = tr[i].getElementsByTagName("td")[2];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }       
-                }
-            }
-            
-    </script>
-
-    <script>
-        function sortTable(f,n){
-            var rows = $('#myTable tbody  tr').get();
-            rows.sort(function(a, b) {
-                var A = getVal(a);
-                var B = getVal(b);
-                if(A < B) {
-                    return -1*f;
-                }
-                if(A > B) {
-                    return 1*f;
-                }
-                return 0;
-            });
-            function getVal(elm){
-                var v = $(elm).children('td').eq(n).text().toUpperCase();
-                if($.isNumeric(v)){
-                    v = parseInt(v,10);
-                }
-                return v;
-            }
-            $.each(rows, function(index, row) {
-                $('#myTable').children('tbody').append(row);
-            });
-        }
-        var f_no = 1;
-        var address = 1;
-        var f_name = 1;
-        var f_type = 1;
-        var f_number = 1;
-        var f_moa = 1;
-        $("#no").click(function(){
-            f_no *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_no,n);
-        });
-        $("#name").click(function(){
-            f_name *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_name,n);
-        });
-        $("#address").click(function(){
-            f_address*= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_address,n);
-        });
-        $("#number").click(function(){
-            f_number *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_number,n);
-        });
-        $("#moa").click(function(){
-            f_moa *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_moa,n);
-        });
-        $("#type").click(function(){
-            f_type *= -1;
-            var n = $(this).prevAll().length;
-            sortTable(f_type,n);
-        });
-    </script>
-
-
-    <script>
-    $('.date').datepicker({
-        format: 'yyyy-mm-dd',
-    })
-    </script>
-    
+  
   </body>
 </html>
