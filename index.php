@@ -241,70 +241,70 @@ include("connect.php");
                                 <thead>
                                     <tr class="info">
                                         <th>No</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
                                             </div>
                                         </th>
                                         <th class="align-middle">ID Number</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="last_name" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="last_name" value="&#9660;">
                                             </div>
                                         </th>
                                         <th class="align-middle">Name</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="courseyear" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="courseyear" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Course & Year</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="endorsement" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="endorsement" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Endorsement</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="waiver" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="waiver" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Waiver</th>
-                                        <th width="1%" class="text-right">   
+                                        <th width="0.5%" class="text-right">   
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>MOA</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="evaluation" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="evaluation" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Evaluation</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="status" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="status" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Requirement Status</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Company Name</th>
-                                        <th width="1%" class="text-right">
+                                        <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
                                                 <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
                                                 <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
