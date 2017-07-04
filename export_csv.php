@@ -97,7 +97,7 @@ include("connect.php");
 	</section>
 
 
-	<footer class="footer-distributed footer">
+	<footer class="footer-distributed footer navbar-fixed-bottom">
 	    <div class="footer-left">
 	        <img class="footerLogo img-responsive" src="img/NewLogo.png">
 	        <p class="footer-links">
