@@ -48,32 +48,55 @@ include("connect.php");
     <!--/ header-->
 
     <section class="section-padding">
-        <form class="form-inline" method="post">
-			<h4>Tables</h4>
-			 <select name="selecttable" class="btn btn-default form-control touch">
-		        <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-		        <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
-		        <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-		        <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-		    </select>
+    <div class="container">
+        <div class="row">
 
-			<h4>Student Information</h4>
-			<input type="hidden" name="endorsement" value="no">                                          
-		    <input type="checkbox" name="endorsement" value="yes">Endorsement<br> 
-		    <input type="hidden" name="waiver" value="no">                                          
-		    <input type="checkbox" name="waiver" value="yes">Waiver<br> 
-		    <input type="hidden" name="moa" value="no">                                          
-		    <input type="checkbox" name="moa" value="yes">Memorandum of Agreement<br> 
-		    <input type="hidden" name="evaluation" value="no">                                          
-		    <input type="checkbox" name="evaluation" value="yes">Evaluation<br> 
+                <div class="col">
+                    <h1 class="top-title"><span class="title">Export </span>Data</h1>
+                </div>
 
-			<h4>Company Information</h4>
-			<input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
-			<input type="radio" name="typeofcompany" value="Government" required> Government<br>
+                <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-			<input type="submit" name="export" class="btn btn-md btn-success" value="Export data">
-		</form>
+                
+                
+
+                <form class="form-inline" method="post">
+
+                    <h2 class="head-title titleFont">Tables</h2>
+
+        			 <select name="selecttable" class="form-control touch">
+        		        <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
+        		        <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
+        		        <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
+        		        <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+        		    </select>
+
+        			<h2 class="head-title titleFont">Student Information</h2>
+                    <hr class="style-four">
+
+        			<input type="hidden" name="endorsement" value="no">                                          
+        		    <input type="checkbox" name="endorsement" value="yes"><span class="space"></span>Endorsement<br> 
+        		    <input type="hidden" name="waiver" value="no">                                          
+        		    <input type="checkbox" name="waiver" value="yes"><span class="space"></span>Waiver<br> 
+        		    <input type="hidden" name="moa" value="no">                                          
+        		    <input type="checkbox" name="moa" value="yes"><span class="space"></span>Memorandum of Agreement<br> 
+        		    <input type="hidden" name="evaluation" value="no">                                          
+        		    <input type="checkbox" name="evaluation" value="yes"><span class="space"></span>Evaluation<br> 
+
+        			<h2 class="head-title titleFont">Company Information</h2>
+                    <hr class="style-four">
+
+        			<input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
+        			<input type="radio" name="typeofcompany" value="Government" required> Government<br>
+
+        			<input type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data">
+        		</form>
+
+            </div>
+        </div>
 	</section>
+
+
 	<footer class="footer-distributed footer">
 	    <div class="footer-left">
 	        <img class="footerLogo img-responsive" src="img/NewLogo.png">
