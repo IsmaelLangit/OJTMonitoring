@@ -185,20 +185,20 @@ include("connect.php");
                 </tr>  
             </table>
 
-            <div class="pull-right">
+            <div class="text-center">
             <?php
                 $previous = "javascript:history.go(-1)";
                 if(isset($_SERVER['HTTP_REFERER'])) {
                     $previous = $_SERVER['HTTP_REFERER'];
                 }
                 ?>
-            <a href="<?= $previous ?>" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
-            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
+            <a href="<?= $previous ?>" class="btn btn-md btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
+            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <?php
             echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
             $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
             if(mysqli_num_rows($con) == 0){
-                echo 'class="confirm btn btn-danger btn-sm" 
+                echo 'class="confirm btn btn-danger btn-md" 
                     data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
                     '" data-confirm-button="Yes"
                     data-cancel-button="No"
@@ -207,7 +207,7 @@ include("connect.php");
                     data-title="Delete Student">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
             }
-            echo 'class="btn btn-danger btn-sm">
+            echo 'class="btn btn-danger btn-md">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
             ';
