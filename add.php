@@ -36,6 +36,7 @@
                                 <li class="active"><a href="add.php">Add Student</a></li>
                                 <li><a href="company.php">list of Companies</a></li>
                                 <li><a href="addcompany.php">Add Company</a></li>
+                                <li><a href="export_csv.php">Export</a></li>
                             </ul>
                         </div>
                     </div>
