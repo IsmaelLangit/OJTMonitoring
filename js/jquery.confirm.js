@@ -117,7 +117,7 @@
                 '</button>'
         }
         var modalHTML =
-                '<div class="confirmation-modal modal fade" tabindex="-1" role="dialog">' +
+                '<div class="confirmation-modal  modal fade" tabindex="-1" role="dialog">' +
                     '<div class="'+ settings.dialogClass +'">' +
                         '<div class="modal-content">' +
                             modalHeader +

@@ -153,7 +153,7 @@ include("connect.php");
                                 </div>
                             </th>
                             <th class="text-center touch">MOA</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center col-sm-1">Action</th>
                         </tr>
 
                     </thead>
@@ -389,7 +389,7 @@ include("connect.php");
                                         </td>';
                                 }
                                 echo '
-                                    <td>
+                                    <td class="text-center">
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>

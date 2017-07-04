@@ -311,7 +311,7 @@ include("connect.php");
                                             </div>
                                         </th>
                                         <th>Type</th>
-                                        <th>Action</th>
+                                        <th class="col-sm-1 text-center">Action</th>
                                     </tr>
                                 </thead>
 
