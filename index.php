@@ -80,7 +80,7 @@ include("connect.php");
                     <div class="col-md-9">
                        
                             <div class="input-group dropdown-toggle">
-                                <span class="input-group-addon" id="basic-addon1">Filter By:</span>
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                                     <option value="0" <?php if($filter == '0'){ echo 'selected'; } ?>>None</option>
@@ -102,7 +102,7 @@ include("connect.php");
                             </div>
 
                             <div class="input-group dropdown-toggle">
-                                <span class="input-group-addon" id="basic-addon1">Number of Rows:</span>
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
                                 <select name="viewperpage" class="form-control touch" onchange="form.submit()">
                                     <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
@@ -118,7 +118,7 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="form-control">Search</button>
+                                    <button class="form-control"><span class="fa fa-search space"></span>Search</button>
                                 </span>
                             </div>
                     </div>
@@ -634,7 +634,7 @@ include("connect.php");
                                 <?php 
 
                                     if(mysqli_num_rows($sql) == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22"><span class="fa fa-ban space"></span>Nothing to Display</td></tr>';
                                     }else{
                                         if($id == 1) {
                                             $no = 1;

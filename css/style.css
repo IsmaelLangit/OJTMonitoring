@@ -279,11 +279,11 @@ textarea {
     max-width: 100%; 
 }
 .nothingToDisplay{
-    font-size: 2em;
+    font-size: 1.8em;
     font-style: italic;
     color: #b20e00;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 10px;
 }
 .fontGlyphiconOk{
   color: #01a34a;
