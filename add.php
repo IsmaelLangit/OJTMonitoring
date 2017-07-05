@@ -322,8 +322,8 @@
                     </div> <!--end of practicum 2 requirements col-md-6-->
                     <div class="form-group text-center">
                         <div class="col">
-                            <input type="submit" name="add" class="btn btn-md btn-success" value="Add Student">
-                            <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                            <button type="submit" name="add" class="btn btn-md btn-success" value="Add Student"><span class="fa fa-plus space"></span>Add</button>
+                            <a href="index.php" class="btn btn-md btn-danger"><span class="fa fa-times space"></span>Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -337,7 +337,7 @@
 
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

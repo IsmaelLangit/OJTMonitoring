@@ -99,7 +99,7 @@ include("connect.php");
 
 	<footer class="footer-distributed footer navbar-fixed-bottom">
 	    <div class="footer-left">
-	        <img class="footerLogo img-responsive" src="img/NewLogo.png">
+	        <img class="footerLogo img-responsive" src="img/scisLogo.png">
 	        <p class="footer-links">
 	            <a href="index.php">Students</a>
 	            |

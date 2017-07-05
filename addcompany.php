@@ -201,8 +201,8 @@ include("connect.php");
                 </div>
 
                 <div class="form-group text-center">
-                    <input type="submit" name="add" class="btn btn-md btn-success" value="Add">
-                    <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                    <button type="submit" name="add" class="btn btn-md btn-success" value="Add"><span class="fa fa-plus space"></span>Add</button>
+                    <a href="index.php" class="btn btn-md btn-danger"><span class="fa fa-times space"></span>Cancel</a>
                 </div>
                 
             </form>
@@ -212,7 +212,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |
