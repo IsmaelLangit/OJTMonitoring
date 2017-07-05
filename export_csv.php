@@ -1,5 +1,6 @@
 <?php
 include("connect.php");
+ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,6 @@ include("connect.php");
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
-
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
             <nav class="nav navbar-default navbar-fixed-top stroke">
@@ -41,38 +41,81 @@ include("connect.php");
                     </div>
                 </div>
             </nav>
-            <!--/ nav-->
         </div>
     </header>
-    <!--/ header-->
-<form method = "post">
-    <h4>Tables</h4>
-     <select name="selecttable" class="btn btn-default form-control touch">
-        <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-        <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
-        <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-        <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-    </select>
-
-    <h4>Student Information</h4>
-    <input type="hidden" name="endorsement" value="no">                                          
-    <input type="checkbox" name="endorsement" value="yes">Endorsement<br> 
-    <input type="hidden" name="waiver" value="no">                                          
-    <input type="checkbox" name="waiver" value="yes">Waiver<br> 
-    <input type="hidden" name="moa" value="no">                                          
-    <input type="checkbox" name="moa" value="yes">Memorandum of Agreement<br> 
-    <input type="hidden" name="evaluation" value="no">                                          
-    <input type="checkbox" name="evaluation" value="yes">Evaluation<br> 
-
-    <h4>Company Information</h4>
-    <input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
-    <input type="radio" name="typeofcompany" value="Government" required> Government<br>
-
-    <input type="submit" name="export" class="btn btn-md btn-success" value="Export data">
-</form>
-  </body>
+    <section class="section-padding">
+    <div class="container">
+        <div class="row">
+                <div class="col">
+                    <h1 class="top-title"><span class="title">Export </span>Data</h1>
+                </div>
+                <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                <form class="form-inline" method="post">
+                    <h2 class="head-title titleFont">Tables</h2>
+        			 <select name="selecttable" class="form-control touch">
+        		        <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
+        		        <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
+        		        <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
+        		        <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+        		    </select>
+        			<h2 class="head-title titleFont">Student Information</h2>
+                    <hr class="style-four">
+        			<input type="hidden" name="endorsement" value="no">                                          
+        		    <input type="checkbox" name="endorsement" value="yes"><span class="space"></span>Endorsement<br> 
+        		    <input type="hidden" name="waiver" value="no">                                          
+        		    <input type="checkbox" name="waiver" value="yes"><span class="space"></span>Waiver<br> 
+        		    <input type="hidden" name="moa" value="no">                                          
+        		    <input type="checkbox" name="moa" value="yes"><span class="space"></span>Memorandum of Agreement<br> 
+        		    <input type="hidden" name="evaluation" value="no">                                          
+        		    <input type="checkbox" name="evaluation" value="yes"><span class="space"></span>Evaluation<br> 
+        			<h2 class="head-title titleFont">Company Information</h2>
+                    <hr class="style-four">
+        			<input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
+        			<input type="radio" name="typeofcompany" value="Government" required> Government<br>
+        			<input type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data">
+        		</form>
+            </div>
+        </div>
+	</section>
+    <footer class="footer-distributed footer">
+            <div class="footer-left">
+                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <p class="footer-links">
+                    <a href="index.php">Students</a>
+                    |
+                    <a href="company.php">Company</a>
+                </p>
+                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
+            </div>
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-building-o"></i>
+                    <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>(063) 74 444 8246 to 48</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>Vision of SLU</span>
+                    "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
+                </p>
+            </div>
+        </footer>
+    <!---->
+    <!--contact ends-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/smoothScroll.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
+	</body>
 </html>
-
 <?php
     if(isset($_POST['export'])){
         $typeofcompany           = $_POST['typeofcompany'];
@@ -81,8 +124,6 @@ include("connect.php");
         $moa           = $_POST['moa'];
         $evaluation           = $_POST['evaluation'];
         $selecttable           = $_POST['selecttable'];
-
-        ob_end_clean();
         // filename for export
         $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
         $where = 'WHERE 1 ORDER BY 1';
@@ -115,13 +156,13 @@ include("connect.php");
         for($i = 0; $i < $field; $i++) {
             $csv_export.= '"'.$row[mysqli_fetch_field_direct($query, $i)->name].'";';
         }
-        $csv_export.= '
-        ';
+            $csv_export.= '
+            ';
         }
-
         // Export the data and prompt a csv file for download
         header("Content-type: text/x-csv");
         header("Content-Disposition: attachment; filename=".$csv_filename."");
         echo($csv_export);
+        ob_end_flush();
     }
 ?>
