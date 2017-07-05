@@ -77,40 +77,10 @@ ob_start();
             </div>
         </div>
 	</section>
-<<<<<<< HEAD
 
-
-	<footer class="footer-distributed footer navbar-fixed-bottom">
-	    <div class="footer-left">
-	        <img class="footerLogo img-responsive" src="img/scisLogo.png">
-	        <p class="footer-links">
-	            <a href="index.php">Students</a>
-	            |
-	            <a href="company.php">Company</a>
-	        </p>
-	        <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
-	    </div>
-	    <div class="footer-center">
-	        <div>
-	            <i class="glyphicon glyphicon-globe"></i>
-	            <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
-	        </div>
-	        <div>
-	            <i class="glyphicon glyphicon-earphone"></i>
-	            <p>(063) 74 444 8246 to 48</p>
-	        </div>
-	    </div>
-	    <div class="footer-right">
-	        <p class="footer-company-about">
-	            <span>Vision of SLU</span>
-	            "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-	        </p>
-	    </div>
-	</footer>
-=======
-    <footer class="footer-distributed footer">
+    <footer class="footer-distributed footer navbar-fixed-bottom">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |
@@ -135,7 +105,7 @@ ob_start();
                 </p>
             </div>
         </footer>
->>>>>>> 89f0d3b4e4cc11e9eb76931234604c349323adf0
+
     <!---->
     <!--contact ends-->
     <script src="js/jquery.min.js"></script>
