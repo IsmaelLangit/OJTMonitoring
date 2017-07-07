@@ -274,43 +274,43 @@ include("connect.php");
                                         <th>Endorsement</th>
                                         <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="waiver" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="waiver" value="&#9660;">
+                                                <input title="Sort by with Waiver" class="btn arrowSort" type="submit" name="waiver" value="&#9650;">
+                                                <input title="Sort by without Waiver" class="btn arrowSort" type="submit" name="waiver" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Waiver</th>
                                         <th width="0.5%" class="text-right">   
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                                <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                                <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>MOA</th>
                                         <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="evaluation" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="evaluation" value="&#9660;">
+                                                <input title="Sort by with Evaluation" class="btn arrowSort" type="submit" name="evaluation" value="&#9650;">
+                                                <input title="Sort by without Evaluation" class="btn arrowSort" type="submit" name="evaluation" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Evaluation</th>
                                         <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="status" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="status" value="&#9660;">
+                                                <input title="Sort by Complete Requirements" class="btn arrowSort" type="submit" name="status" value="&#9650;">
+                                                <input title="Sort by Incomplete Requirements" class="btn arrowSort" type="submit" name="status" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Requirement Status</th>
                                         <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
+                                                <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                                <input title="Sort by Descending" class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Company Name</th>
                                         <th width="0.5%" class="text-right">
                                             <div class="btn-group-vertical">
-                                                <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
-                                                <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
+                                                <input title="Sort by Government" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
+                                                <input title="Sort by Private" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
                                             </div>
                                         </th>
                                         <th>Type</th>
