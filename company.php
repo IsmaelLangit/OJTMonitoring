@@ -74,46 +74,7 @@ include("connect.php");
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-11">
-<<<<<<< HEAD
-                        <div class="form-group input-group">
-                            <span class="input-group-btn">  
-                                    <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
-                            </span>
-                            <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
-                                <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                                <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
-                                <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
-                                <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
-                            </select>
-                        </div>
-                        <div class="form-group input-group dropdown-toggle">
-                            <span class="input-group-btn">  
-                            <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
-                            </span>
-                            <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
-                                <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
-                                <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
-                                <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
-                                <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
-                                <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
-                                <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                            <?php
-                                $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
-                            ?>
-                            <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                            <button class="btn btn-default form-control" style="width:75px;">Search</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-1 text-center paddingTopSlight">
-                    <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
-                </div>
-=======
+
 
                    
                 <div class="input-group dropdown-toggle">
@@ -153,11 +114,10 @@ include("connect.php");
                     <div class="col-md-1 text-center paddingTopSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
->>>>>>> 9cd4802a0baa995c1595c513fd515c4aa9cbbe66
                 </div>
             </div>
 
-            <div class="table-responsive">
+            <div class="table-responsive paddingTopSlight">
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
