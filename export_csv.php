@@ -48,8 +48,6 @@
         $where_courseyear = 'courseyear LIKE "'.$courseyear.'%"';
     }
 
-
-
     if ($selecttable == "Students") {
         $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status, coname, typeofcompany';
         $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear." ORDER BY last_name, first_name";     
@@ -225,12 +223,10 @@
     <script>
         $('form').areYouSure();
     </script>
-    
     <script>
     $('.date').datepicker({
         format: 'MM dd yyyy',
     })
     </script>
-    
   </body>
 </html>

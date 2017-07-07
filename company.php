@@ -35,6 +35,7 @@ include("connect.php");
                                 <li><a href="add.php">Add Student</a></li>
                                 <li class="active"><a href="company.php">list of Companies</a></li>
                                 <li><a href="addcompany.php">Add Company</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
                             </ul>
                         </div>
                     </div>
