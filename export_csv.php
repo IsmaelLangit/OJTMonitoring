@@ -133,51 +133,103 @@
     <section class="section-padding">
     <div class="container">
         <div class="row">
-                <div class="col">
+                <div class="col text-center">
                     <h1 class="top-title"><span class="title">Export </span>Data</h1>
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                <form class="form-inline" method="post">
-                    <h2 class="head-title titleFont">Tables</h2>
-                     <select name="selecttable" class="form-control touch">
-                        <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                        <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
-                        <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-                        <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-                    </select>
+
+                <form method="post" action="">
+
+                    <div class="row">
+                        <div class="form-group">
+                            <h2 class="head-title titleFont">Tables</h2>
+
+                            <div class="col-md-2 text-center">
+                                <select name="selecttable" class="form-control touch">
+                                    <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
+                                    <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
+                                    <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
+                                    <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="row">
+
                         <h2 class="head-title titleFont">Student Information</h2>
                         <hr class="style-four">
-                        <h4> COURSE </h4>
-                        <input type="radio" name="courseyear" value="All" required checked> All<br>    
-                        <input type="radio" name="courseyear" value="BSCS" required> BSCS<br>                                          
-                        <input type="radio" name="courseyear" value="BSIT" required> BSIT<br>
-                        <h4> ENDORSEMENT </h4>
-                        <input type="radio" name="endorsement" value="All" required checked> All<br>    
-                        <input type="radio" name="endorsement" value="yes" required> Submitted<br>                                          
-                        <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
-                        <h4> WAIVER </h4>                                  
-                        <input type="radio" name="waiver" value="All" required checked> All<br>    
-                        <input type="radio" name="waiver" value="yes" required> Submitted<br>                                          
-                        <input type="radio" name="waiver" value="no" required> Not Submitted<br>
-                        <h4> EVALUATION </h4>                                     
-                        <input type="radio" name="evaluation" value="All" required checked> All<br>    
-                        <input type="radio" name="evaluation" value="yes" required> Submitted<br>                                          
-                        <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
 
-                        <h2 class="head-title titleFont">Company Information</h2>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <h4> COURSE </h4>
+                                <input type="radio" name="courseyear" value="All" required checked> All<br>    
+                                <input type="radio" name="courseyear" value="BSCS" required> BSCS<br>
+                                <input type="radio" name="courseyear" value="BSIT" required> BSIT<br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <h4> ENDORSEMENT </h4>
+                                <input type="radio" name="endorsement" value="All" required checked> All<br>    
+                                <input type="radio" name="endorsement" value="yes" required> Submitted<br>
+                                <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <h4> WAIVER </h4>                                  
+                                <input type="radio" name="waiver" value="All" required checked> All<br>    
+                                <input type="radio" name="waiver" value="yes" required> Submitted<br>
+                                <input type="radio" name="waiver" value="no" required> Not Submitted<br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <h4> EVALUATION </h4>                                     
+                                <input type="radio" name="evaluation" value="All" required checked> All<br>    
+                                <input type="radio" name="evaluation" value="yes" required> Submitted<br>
+                                <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h2 class="head-title titleFont paddingTopSlight">Company Information</h2>
                         <hr class="style-four">
-                        <h4> MEMORANDUM OF AGREEMENT </h4>  
-                        <input type="radio" name="moa" value="All" required checked> All<br>    
-                        <input type="radio" name="moa" value="yes" required> Submitted<br>                                          
-                        <input type="radio" name="moa" value="no" required> Not Submitted<br> 
-                        <h4> TYPE </h4>
-                        <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
-                        <input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
-                        <input type="radio" name="typeofcompany" value="Government" required> Government<br>
-                        <input type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data">
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <h4> COMPANY TYPE </h4>  
+                                <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
+                                <input type="radio" name="typeofcompany" value="Private" required> Private<br>
+                                <input type="radio" name="typeofcompany" value="Government" required> Government<br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <h4> MEMORANDUM OF AGREEMENT </h4>  
+                                <input type="radio" name="moa" value="All" required checked> All<br>    
+                                <input type="radio" name="moa" value="yes" required> Submitted<br>
+                                <input type="radio" name="moa" value="no" required> Not Submitted<br> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center paddingTopSlight">
+                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
+                    </div>
+
                 </form>
-            </div>
+
         </div>
+    </div>
     </section>
     <!---->
     <!---->

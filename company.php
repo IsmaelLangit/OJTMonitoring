@@ -74,6 +74,7 @@ include("connect.php");
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-11">
+<<<<<<< HEAD
                         <div class="form-group input-group">
                             <span class="input-group-btn">  
                                     <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
@@ -112,6 +113,47 @@ include("connect.php");
                 <div class="col-md-1 text-center paddingTopSlight">
                     <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                 </div>
+=======
+
+                   
+                <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
+                    <select name="filter" class="form-control touch" onchange="form.submit()">
+                        <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                        <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
+                        <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
+                        <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
+                    </select>
+                </div>
+
+                <div class="input-group dropdown-toggle">
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
+                                <select name="sort" class="form-control touch" onchange="form.submit()">
+                                    <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
+                                    <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
+                                    <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
+                                    <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
+                                    <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
+                                    <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
+                                </select>
+                </div>
+
+                <div class="input-group">
+                                <span class="input-group-btn">
+                                    <?php
+                                    $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
+                                    ?>
+                                    <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                                    <button class="form-control"><span class="fa fa-search space"></span>Search</button>
+                                </span>
+                            </div>
+            </form>
+
+                    </div>
+                    <div class="col-md-1 text-center paddingTopSlight">
+                        <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
+                    </div>
+>>>>>>> 9cd4802a0baa995c1595c513fd515c4aa9cbbe66
                 </div>
             </div>
 
@@ -119,14 +161,32 @@ include("connect.php");
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th class="text-center touch">No</th>
-                            <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
-                            <th class="text-center">Address<input type="submit" name="coaddress" value="&#9650;"><input type="submit" name="coaddress" value="&#9660;"></th>
-                            <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
-                            <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
-                            <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
-                            <th class="text-center touch">Number of OJT Student/s</th>
-                            <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                            <th class="text-center">No</th>
+                            <th width="0.5%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-left">Company Name</th>
+                            <th class="text-center">Address</th>
+                            <th width="0.5%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-left">Type</th>
+                            <th class="text-center">Company Head</th>
+                            <th class="text-center">Position</th>
+                            <th class="text-center">Number of OJT Student/s</th>
+                            <th width="0.5%" class="text-right">
+                                <div class="btn-group-vertical">
+                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-left">MOA</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -268,10 +328,10 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                    <td class="col-md-4">'.strip_tags(htmlentities($row['coaddress'])).'</td>';
+                                    <td colspan="2" class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                    <td class="col-md-3">'.strip_tags(htmlentities($row['coaddress'])).'</td>';
                                             echo '
-                                    <td class = "text-center">';
+                                    <td  colspan="2" class = "text-center">';
                                     if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-primary">Private</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Government'){
@@ -280,7 +340,7 @@ include("connect.php");
                           
                                 echo '
                                 <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
-                                <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
+                                <td class="col-md-2">'.strip_tags(htmlentities($row['position'])).'</td>
                                 ';
                                 $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
                                 while ($row1 = mysqli_fetch_assoc($con)) {
@@ -314,7 +374,7 @@ include("connect.php");
                                         ';
                                     } 
                                         echo '
-                                            <td>
+                                            <td coslpan="1" class="text-center" colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                     title=" 
                                                         Date Released: '.$row ['release_moa'].' 
