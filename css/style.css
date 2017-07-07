@@ -1,7 +1,7 @@
 body {
 	line-height: 1.5;
 	font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden; 
+  overflow-x: hidden; 
 }
 table {
 	border-collapse: collapse;
@@ -107,14 +107,16 @@ a:hover{
 	padding: 65px 0px;
 }
 .top-title{
+  font-family: 'Josefin Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 700;
 	color: #000;
 	letter-spacing: 6px;
 	text-transform: uppercase;
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 .sub-title{
+  font-family: 'Josefin Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 000;
 	color: #fff;
@@ -122,6 +124,7 @@ a:hover{
 	text-transform: uppercase;
 }
 .title{
+  font-family: 'Josefin Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 700;
 	color: #1487bc;
@@ -129,6 +132,7 @@ a:hover{
 	text-transform: uppercase;
 }
 .companytitle{
+  font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     font-weight: 700;
     color: #1babd3;

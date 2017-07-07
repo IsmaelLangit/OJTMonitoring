@@ -18,31 +18,7 @@ ob_start();
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
-    <header class="main-header" id="header">
-        <div class="bg-color wrapper">
-            <nav class="nav navbar-default navbar-fixed-top stroke">
-                <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="fa fa-bars"></span>
-                            </button>
-                                <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
-                        </div>
-                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav ">
-                                <li><a href="index.php"><span class="fa fa-user space"></span>List of Students</a></li>
-                                <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
-                                <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
-                                <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li class="active"><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+
     <section class="section-padding">
     <div class="container">
         <div class="row">
@@ -78,44 +54,6 @@ ob_start();
         </div>
 	</section>
 
-    <footer class="footer-distributed footer navbar-fixed-bottom">
-            <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/scisLogo.png">
-                <p class="footer-links">
-                    <a href="index.php">Students</a>
-                    |
-                    <a href="company.php">Company</a>
-                </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
-            </div>
-            <div class="footer-center">
-                <div>
-                    <i class="fa fa-building-o"></i>
-                    <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
-                </div>
-                <div>
-                    <i class="fa fa-phone"></i>
-                    <p>(063) 74 444 8246 to 48</p>
-                </div>
-            </div>
-            <div class="footer-right">
-                <p class="footer-company-about">
-                    <span>Vision of SLU</span>
-                    "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-                </p>
-            </div>
-        </footer>
-
-    <!---->
-    <!--contact ends-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/smoothScroll.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/jquery.confirm.js"></script>
 	</body>
 </html>
 <?php
