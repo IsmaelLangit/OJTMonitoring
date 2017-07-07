@@ -75,8 +75,12 @@ a:hover{
     transition: all 0.5s;
 }
 .top-nav-collapse {
-    background: rgba(0,0,0,0.85);
+    background: rgba(18, 18, 18, 0.90);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 13px 0;
+}
+.navbar-default .navbar-nav .top-nav-collapse > li > a{
+  color: #000;
 }
 #bars{
   color: #636363 !important;

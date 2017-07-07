@@ -21,6 +21,7 @@ include("connect.php");
 
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
+
             <!--nav-->
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
