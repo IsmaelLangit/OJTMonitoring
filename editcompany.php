@@ -36,11 +36,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-<<<<<<< HEAD
-                                <li><a href="export_csv.php">Export</a></li>
-=======
                                 <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
->>>>>>> 0ac12fc66b91085c698c1604183e968129fcbc42
                             </ul>
                         </div>
                     </div>
@@ -234,8 +230,8 @@ include("connect.php");
                 </div>
 
                 <div class="form-group text-center">
-                    <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
-                    <a href="company.php" class="btn btn-md btn-danger">Cancel</a> 
+                    <button type="submit" name="save" class="btn btn-md btn-success" value="Save"><span class="fa fa-save space"></span>Save</button>
+                    <a href="company.php" class="btn btn-md btn-danger"><span class="fa fa-times space"></span>Cancel</a> 
                 </div>
                 
             </form>
@@ -246,7 +242,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

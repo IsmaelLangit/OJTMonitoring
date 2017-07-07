@@ -443,8 +443,8 @@ include("connect.php");
                     </div> <!--End of row-->
 
                     <div class="form-group text-center">
-                        <input type="submit" name="save" class="btn btn-md btn-success" value="Save">
-                        <a href="index.php" class="btn btn-md btn-danger">Cancel</a>
+                        <button type="submit" name="save" class="btn btn-md btn-success" value="Save"><span class="fa fa-save space"></span>Save</button>
+                        <a href="index.php" class="btn btn-md btn-danger"><span class="fa fa-times space"></span>Cancel</a>
                     </div>
                 </form>
             </div> <!--End of Form Container Fluid-->
@@ -455,7 +455,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

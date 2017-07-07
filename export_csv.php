@@ -132,12 +132,12 @@ echo($csv_export);
         		</form>
             </div>
         </div>
-	  </section>
+    </section>
     <!---->
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/NewLogo.png">
+                <img class="footerLogo img-responsive" src="img/scisLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |
