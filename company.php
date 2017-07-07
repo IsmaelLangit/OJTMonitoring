@@ -124,16 +124,16 @@ include("connect.php");
                             <th class="text-center">No</th>
                             <th width="0.5%" class="text-right">
                                 <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
+                                    <input title="Sort Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                    <input title="Sort Descending" class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-left">Company Name</th>
                             <th class="text-center">Address</th>
                             <th width="0.5%" class="text-right">
                                 <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
+                                    <input title="Sort by Government" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
+                                    <input title="Sort by Private" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-left">Type</th>
@@ -142,8 +142,8 @@ include("connect.php");
                             <th class="text-center">Number of OJT Student/s</th>
                             <th width="0.5%" class="text-right">
                                 <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                    <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                    <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-left">MOA</th>
