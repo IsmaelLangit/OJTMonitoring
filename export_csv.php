@@ -11,7 +11,7 @@
     $selecttable           = $_POST['selecttable'];
     // filename for export
     $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
-    $where = 'WHERE 1 ORDER BY 1';
+
      if($endorsement == "All") {
         $where_endorsement = '(endorsement = "yes" or endorsement = "no")';
     } else {
@@ -52,13 +52,13 @@
 
     if ($selecttable == "Students") {
         $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status, coname, typeofcompany';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear;      
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear." ORDER BY last_name, first_name";     
     } else if ($selecttable == "Company") { 
         $selecttable = 'count(students.coid) as "countstudent",coid, coname, coaddress, company_head, position, typeofcompany';
-        $where = 'WHERE coname != "No Company AND '.$where_moa.' AND '.$where_typeofcompany;
+        $where = 'WHERE coname != "No Company AND '.$where_moa.' AND '.$where_typeofcompany." ORDER BY coname";
     } else {
         $selecttable = '*';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear; 
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear." ORDER BY coname, last_name, first_name";
     }
     // create empty variable to be filled with export data
     $csv_export = '';
