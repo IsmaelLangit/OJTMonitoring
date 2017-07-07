@@ -267,6 +267,9 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+.selectWidth{
+    width: auto;
+}
 .arrowSort{
   font-size: .5em !important;
 }
