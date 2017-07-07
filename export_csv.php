@@ -138,10 +138,10 @@
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-                <form method="post">
+                <form method="post" action="">
 
                     <div class="row">
-                        <div class="form-group text-center">
+                        <div class="form-group">
                             <h2 class="head-title titleFont">Tables</h2>
 
                             <div class="col-md-2 text-center">
@@ -159,7 +159,7 @@
 
                     <div class="row">
 
-                        <h2 class="head-title titleFont text-center">Student Information</h2>
+                        <h2 class="head-title titleFont">Student Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
@@ -200,7 +200,7 @@
                     </div>
 
                     <div class="row">
-                        <h2 class="head-title titleFont text-center paddingTopSlight">Company Information</h2>
+                        <h2 class="head-title titleFont paddingTopSlight">Company Information</h2>
                         <hr class="style-four">
 
                         <div class="form-group">
