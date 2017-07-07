@@ -1,26 +1,30 @@
 <?php
-include("connect.php");
-ob_start();
-if(isset($_POST['export'])){
-$typeofcompany           = $_POST['typeofcompany'];
-$endorsement           = $_POST['endorsement'];
-$waiver           = $_POST['waiver'];
-$moa           = $_POST['moa'];
-$evaluation           = $_POST['evaluation'];
-$selecttable           = $_POST['selecttable'];
-// filename for export
-$csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
-$where = 'WHERE 1 ORDER BY 1';
+    include("connect.php");
+    ob_start();
+    if(isset($_POST['export'])){
+    $typeofcompany           = $_POST['typeofcompany'];
+    $endorsement           = $_POST['endorsement'];
+    $waiver           = $_POST['waiver'];
+    $moa           = $_POST['moa'];
+    $evaluation           = $_POST['evaluation'];
+    $selecttable           = $_POST['selecttable'];
+    // filename for export
+    $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
+    $where = 'WHERE 1 ORDER BY 1';
 
 if ($selecttable == "Students") {
-$selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status';
-$where = 'WHERE endorsement = "'.$endorsement.'" AND waiver = "'.$waiver.'" AND moa = "'.$moa.'" AND evaluation = "'.$evaluation.'"';
+    $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status';
+    $where = 'WHERE endorsement = "'.$endorsement.'" AND waiver = "'.$waiver.'" AND moa = "'.$moa.'" AND evaluation = "'.$evaluation.'"';
 } else if ($selecttable == "Company") { 
-$selecttable = 'coid, coname, courseyear, coaddress, company_head, position,typeofcompany,release_moa,receive_moa,remark_moa,moa,status';
-$where = 'WHERE moa = "'.$moa.'" AND typeofcompany = "'.$typeofcompany.'"';
+    $selecttable = 'coid, coname, courseyear, coaddress, company_head, position,typeofcompany,release_moa,receive_moa,remark_moa,moa,status';
+    if($typeofcompany == "All") {
+        $where = 'WHERE moa = "'.$moa.'"';
+    } else {
+        $where = 'WHERE moa = "'.$moa.'" AND typeofcompany = "'.$typeofcompany.'"';
+    }
 } else {
-$selecttable = '*';
-$where = 'WHERE endorsement = "'.$endorsement.'" AND waiver = "'.$waiver.'" AND moa = "'.$moa.'" AND evaluation = "'.$evaluation.'" AND typeofcompany = "'.$typeofcompany.'"';
+    $selecttable = '*';
+    $where = 'WHERE endorsement = "'.$endorsement.'" AND waiver = "'.$waiver.'" AND moa = "'.$moa.'" AND evaluation = "'.$evaluation.'" AND typeofcompany = "'.$typeofcompany.'"';
 }
 // create empty variable to be filled with export data
 $csv_export = '';
@@ -121,7 +125,7 @@ echo($csv_export);
                     <input type="hidden" name="moa" value="no">                                          
                     <input type="checkbox" name="moa" value="yes" checked><span class="space"></span>Memorandum of Agreement<br> 
                     <h4> TYPE </h4>
-                    <input type="radio" name="typeofcompany" value="Private" required> All<br>    
+                    <input type="radio" name="typeofcompany" value="All" required> All<br>    
         			<input type="radio" name="typeofcompany" value="Private" required> Private<br>                                          
         			<input type="radio" name="typeofcompany" value="Government" required> Government<br>
         			<input type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data">
