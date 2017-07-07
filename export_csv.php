@@ -72,7 +72,6 @@
     // newline (seems to work both on Linux & Windows servers)
     $csv_export.= '
     ';
-    ob_end_clean();
     // loop through database query and fill export variable
     while($row = mysqli_fetch_array($query)) {
     // create line with field values
@@ -82,10 +81,12 @@
     $csv_export.= '
     ';
     }
+    ob_end_clean();
     // Export the data and prompt a csv file for download
     header("Content-type: text/x-csv");
     header("Content-Disposition: attachment; filename=".$csv_filename."");
     echo($csv_export);
+    exit();
 }
 ?>
 

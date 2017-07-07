@@ -25,17 +25,16 @@ include("connect.php");
                     <div class="col-md-12">
                         <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                            <span id="bars" class="fa fa-bars"></span>
+                            <span class="fa fa-bars"></span>
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
                         <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
                             <ul class="nav navbar-nav ">
-                                <li><a href="index.php"><span class="fa fa-user space"></span>List of Students</a></li>
-                                <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
-                                <li class="active"><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
-                                <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="index.php">List of Students</a></li>
+                                <li><a href="add.php">Add Student</a></li>
+                                <li class="active"><a href="company.php">list of Companies</a></li>
+                                <li><a href="addcompany.php">Add Company</a></li>
                             </ul>
                         </div>
                     </div>
@@ -77,12 +76,14 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-11">
 
                    
-                <div class="input-group dropdown-toggle">
-                    <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
-                    <select name="filter" class="form-control touch" onchange="form.submit()">
+                <div class="form-group input-group">
+                    <span class="input-group-btn">  
+                            <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
+                    </span>
+                    <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
                         <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
                         <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
                         <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
@@ -90,10 +91,12 @@ include("connect.php");
                     </select>
                 </div>
 
-                <div class="input-group dropdown-toggle">
-                    <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
-                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
-                                    <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
+                <div class="form-group input-group dropdown-toggle">
+                                <span class="input-group-btn">  
+                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
+                                 </span>
+                                <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
+                                    <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
                                     <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
@@ -108,55 +111,32 @@ include("connect.php");
                                     $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
                                     ?>
                                     <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="form-control"><span class="fa fa-search space"></span>Search</button>
+                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
                                 </span>
                             </div>
+            </form>
+
                     </div>
-                    <div class="col-md-2 text-center paddingTopSlight">
+                    <div class="col-md-1 text-center paddingTopSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>
             </div>
 
-            <div class="table-responsive paddingTopSlight">
+            <div class="table-responsive">
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th>No</th>
-                            <th width="1%" class="text-right">
-                                <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="coname" value="&#9660;">
-                                </div>
-                            </th>
-                            <th class="align-middle">Company Name</th>
-                            <th class="text-center">Address</th>
-                            <th width="1%" class="text-right">
-                                <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
-                                </div>
-                            </th>
-                            <th class="text-center">Type</th>
-                            <th class="text-center">Company Head</th>
-                            <th class="text-center">Position</th>
-                            <th width="1%" class="text-right">
-                                <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="countstudent" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="countstudent" value="&#9660;">
-                                </div>
-                            </th>
+                            <th class="text-center touch">No</th>
+                            <th class="text-center touch">Company Name<input type="submit" name="coname" value="&#9650;"><input type="submit" name="coname" value="&#9660;"></th>
+                            <th class="text-center">Address<input type="submit" name="coaddress" value="&#9650;"><input type="submit" name="coaddress" value="&#9660;"></th>
+                            <th class="text-center touch">Type<input type="submit" name="typeofcompany" value="&#9650;"><input type="submit" name="typeofcompany" value="&#9660;"></th>
+                            <th class="text-center">Company Head<input type="submit" name="company_head" value="&#9650;"><input type="submit" name="idncompany_headum" value="&#9660;"></th>
+                            <th class="text-center">Position<input type="submit" name="position" value="&#9650;"><input type="submit" name="position" value="&#9660;"></th>
                             <th class="text-center touch">Number of OJT Student/s</th>
-                            <th width="1%" class="text-right">
-                                <div class="btn-group-vertical">
-                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9650;">
-                                    <input class="btn arrowSort" type="submit" name="moa" value="&#9660;">
-                                </div>
-                            </th>
-                            <th class="text-center touch">MOA</th>
-                            <th class="text-center col-sm-1">Action</th>
+                            <th class="text-center touch">MOA<input type="submit" name="moa" value="&#9650;"><input type="submit" name="moa" value="&#9660;"></th>
+                            <th class="text-center">Action</th>
                         </tr>
-
                     </thead>
                     <?php 
                      $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
@@ -165,10 +145,7 @@ include("connect.php");
                     $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
                     $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
                     $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
-                    $countstudent = (isset($_GET['countstudent']) ? strtolower($_GET['countstudent']) : NULL);
-
                     $sort = 'coname';
-
                                 switch ($coname) {
                                     case "▲":
                                         $sort = 'coname';
@@ -178,7 +155,6 @@ include("connect.php");
                                         $sort = 'coname DESC';
                                         break;
                                 }
-
                                 switch ($coaddress) {
                                     case "▲":
                                         $sort = 'coaddress, coname';
@@ -188,7 +164,6 @@ include("connect.php");
                                         $sort = 'coaddress DESC, coname';
                                         break;
                                 }
-
                                 switch ($typeofcompany) {
                                     case "▲":
                                         $sort = 'typeofcompany, coname';
@@ -198,7 +173,6 @@ include("connect.php");
                                         $sort = 'typeofcompany DESC, coname';
                                         break;
                                 }
-
                                 switch ($company_head) {
                                     case "▲":
                                         $sort = 'company_head, coname';
@@ -208,7 +182,6 @@ include("connect.php");
                                         $sort = 'company_head DESC, coname';
                                         break;
                                 }
-
                                 switch ($position) {
                                     case "▲":
                                         $sort = 'position, coname';
@@ -218,35 +191,19 @@ include("connect.php");
                                         $sort = 'position DESC, coname';
                                         break;
                                 }
-
                                  switch ($moa) {
-                                    case "▼":
+                                    case "▲":
                                         $sort = 'moa, coname';
                                         break;
                                     
-                                    case "▲":
+                                    case "▼":
                                         $sort = 'moa DESC, coname';
                                         break;
                                 }
-
-                                switch ($countstudent) {
-                                    case "▼":
-                                        $sort = 'countstudent, coname';
-                                        break;
-                                    
-                                    case "▲":
-                                        $sort = 'countstudent DESC, coname';
-                                        break;
-                                }
-
-
-
-
-                        $t=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany FROM company NATURAL JOIN students WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany");
+                        $t=mysqli_query($connect,"SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                         $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
-
                         if($viewperpage == "all") {
                             $limit = $total;
                         } else {
@@ -259,18 +216,17 @@ include("connect.php");
                         } else {
                             $id=1;
                         }
-
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT count(students.coid) as 'countstudent', coid,  coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa");
+                            $all=mysqli_query($connect,"SELECT * from company WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
                             $allrows=mysqli_num_rows($all);
                             if (!$viewperpage) {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                             }else if ($viewperpage == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'ORDER BY ".$sort." LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$viewperpage");
+                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$viewperpage");
                                 $page=ceil($allrows/$viewperpage);
                             }
                         } else if($filter){
@@ -281,40 +237,37 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT count(students.coid) as 'countstudent',coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa FROM company NATURAL JOIN students WHERE typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'"." GROUP BY coid, coname, coaddress, company_head, position, typeofcompany, moa, remark_moa, release_moa, receive_moa ORDER BY ".$sort." LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
                     ?>
 
                     
                             <?php 
-
-                                    if ($page > 1){
-                                        if($id > 1) {
-                                        echo ' <div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
+           
+                                if ($page > 1){
+                                    if($id > 1) {
+                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
+                                    } else {
+                                        echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
+                                    }
+                                    for($i=1; $i <= $page; $i++){
+                                     echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
+                                        if($id == $i) {
+                                            echo 'class="list-group-item active">'.$i.'</a></li>';
                                         } else {
-                                            echo '<div class="text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
-                                        }
-
-                                        for($i=1; $i <= $page; $i++){
-                                         echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
-                                            if($id == $i) {
-                                                echo 'class="list-group-item active">'.$i.'</a></li>';
-                                            } else {
-                                                echo '>'.$i.'</a></li>';
-                                            }
-                                        }
-
-                                        if (!$id) {
-                                            $id = 1;
-                                        }
-
-                                        if($id!=$page) {
-                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
-                                        } else {
-                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
+                                            echo '>'.$i.'</a></li>';
                                         }
                                     }
-                                ?> 
+                                    if (!$id) {
+                                        $id = 1;
+                                    }
+                                    if($id!=$page) {
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                    } else {
+                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
+                                    }
+                                }
+                            ?>
                         <?php
                         if(mysqli_num_rows($sql) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
@@ -328,10 +281,10 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td colspan="2" class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                    <td>'.strip_tags(htmlentities($row['coaddress'])).'</td>';
+                                    <td class="col-md-2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                    <td class="col-md-4">'.strip_tags(htmlentities($row['coaddress'])).'</td>';
                                             echo '
-                                    <td colspan="2" class = "text-center">';
+                                    <td class = "text-center">';
                                     if ($row['typeofcompany'] == 'Private'){
                                         echo '<span class="label label-primary">Private</span> <br>';
                                     } else if ($row['typeofcompany'] == 'Government'){
@@ -339,9 +292,13 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td class="col-md-1">'.strip_tags(htmlentities($row['company_head'])).'</td>
-                                <td class="col-md-2" >'.strip_tags(htmlentities($row['position'])).'</td>
-                                        <td colspan="2" class="text-center col-md-1"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudent'].'</span></a></td>
+                                <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
+                                <td class="col-md-1">'.strip_tags(htmlentities($row['position'])).'</td>
+                                ';
+                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
+                                while ($row1 = mysqli_fetch_assoc($con)) {
+                                    echo '
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
@@ -368,8 +325,9 @@ include("connect.php");
                                               </div>
                                             </div>
                                         ';
+                                    } 
                                         echo '
-                                            <td colspan="2" class="text-center">
+                                            <td>
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
                                                     title=" 
                                                         Date Released: '.$row ['release_moa'].' 
@@ -390,21 +348,14 @@ include("connect.php");
                                         </td>';
                                 }
                                 echo '
-                                    <td class="text-center">
+                                    <td>
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
                                 $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
-                                echo '  class="confirm btn btn-danger btn-sm" 
-                                        data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
-                                        '" data-confirm-button="Yes"
-                                        data-cancel-button="No"
-                                        data-confirm-button-class= "btn-success"
-                                        data-cancel-button-class= "btn-danger"
-                                        data-title="Delete Student">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
+                                echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
                                 }
                                 echo 'class="confirm btn btn-danger btn-sm" >
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -426,7 +377,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/newLogo.png">
+                <img class="footerLogo img-responsive" src="img/NewLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |
@@ -461,7 +412,6 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
-    <script src="js/jquery.confirm.js"></script>
   
   </body>
 </html>
