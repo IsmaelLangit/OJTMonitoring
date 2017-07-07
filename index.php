@@ -21,6 +21,7 @@ include("connect.php");
 
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
+
             <!--nav-->
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
@@ -841,7 +842,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/scisLogo.png">
+                <img class="footerLogo img-responsive" src="img/newLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

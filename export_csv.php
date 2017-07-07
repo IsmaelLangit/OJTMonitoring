@@ -80,7 +80,7 @@ ob_start();
 
     <footer class="footer-distributed footer navbar-fixed-bottom">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/scisLogo.png">
+                <img class="footerLogo img-responsive" src="img/newLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

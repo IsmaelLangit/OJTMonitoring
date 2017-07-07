@@ -241,7 +241,7 @@ include("connect.php");
                                         </div>
                                         
                                         <div class="col-sm-8">
-                                            <select name="coid" class="form-control">
+                                            <select name="coid" class="form-control touch">
                                             <option value="<?php echo $row ['coid']; ?>">
                                                 <?php echo strip_tags(htmlentities($row ['coname'])); ?>
                                             </option>
@@ -455,7 +455,7 @@ include("connect.php");
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/scisLogo.png">
+                <img class="footerLogo img-responsive" src="img/newLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |
