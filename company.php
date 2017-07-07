@@ -3,19 +3,19 @@ include("connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Company</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="icon" href="img/scisLogo.png">
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Company</title>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="icon" href="img/scisLogo.png">
+    </head>
+<body>
 
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
@@ -45,14 +45,11 @@ include("connect.php");
         </div>
     </header>
     <!--/ header-->
-
     <section class="section-padding">
         <form class="form-inline" method="get">
         <div class="container-fluid">
-
             <div class="col text-center">
-                <h1 class="top-title">List of Practicum 2 <span class="title">Companies </span></h1>
-                
+                <h1 class="top-title">List of Practicum 2 <span class="title">Companies </span></h1>  
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -74,53 +71,47 @@ include("connect.php");
                 }
             }
             ?>
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-11">
-
-                   
-                <div class="form-group input-group">
-                    <span class="input-group-btn">  
-                            <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
-                    </span>
-                    <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
-                        <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                        <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
-                        <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
-                        <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
-                    </select>
+                        <div class="form-group input-group">
+                            <span class="input-group-btn">  
+                                    <input style="width:90px;" type="text" class=" form-control" placeholder="Filter By:" readonly> 
+                            </span>
+                            <select name="filter" class="btn btn-default form-control touch" onchange="form.submit()">
+                                <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                                <option value="none" <?php if($filter == 'none'){ echo 'selected'; } ?>>None</option>
+                                <option value="Government" <?php if($filter == 'government'){ echo 'selected'; } ?>>Government</option>
+                                <option value="Private" <?php if($filter == 'private'){ echo 'selected'; } ?>>Private</option>
+                            </select>
+                        </div>
+                        <div class="form-group input-group dropdown-toggle">
+                            <span class="input-group-btn">  
+                            <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
+                            </span>
+                            <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
+                                <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
+                                <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
+                                <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
+                                <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
+                                <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
+                                <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                            <?php
+                                $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
+                            ?>
+                            <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
+                            <button class="btn btn-default form-control" style="width:75px;">Search</button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="form-group input-group dropdown-toggle">
-                                <span class="input-group-btn">  
-                                    <input style="width:150px;" type="text" class="form-control black" placeholder="Number of rows:" readonly>
-                                 </span>
-                                <select name="sort" class="btn btn-default form-control touch" onchange="form.submit()">
-                                    <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
-                                    <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
-                                    <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
-                                    <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
-                                    <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
-                                    <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
-                                </select>
+                <div class="col-md-1 text-center paddingTopSlight">
+                    <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                 </div>
-
-                <div class="input-group">
-                                <span class="input-group-btn">
-                                    <?php
-                                    $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
-                                    ?>
-                                    <input placeholder = "Search" onchange="form.submit()" name = "search_input" type="text" class="form-control input-xxlarge" value = "<?php echo $search_input ?>">
-                                    <button class="btn btn-default form-control" style="width:75px;">Search</button>
-                                </span>
-                            </div>
-            </form>
-
-                    </div>
-                    <div class="col-md-1 text-center paddingTopSlight">
-                        <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
-                    </div>
                 </div>
             </div>
 
@@ -240,36 +231,31 @@ include("connect.php");
                             }
                             $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
-                    ?>
-
-                    
-                            <?php 
            
-                                if ($page > 1){
-                                    if($id > 1) {
-                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
-                                    } else {
-                                        echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
-                                    }
-                                    for($i=1; $i <= $page; $i++){
-                                     echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
-                                        if($id == $i) {
-                                            echo 'class="list-group-item active">'.$i.'</a></li>';
-                                        } else {
-                                            echo '>'.$i.'</a></li>';
-                                        }
-                                    }
-                                    if (!$id) {
-                                        $id = 1;
-                                    }
-                                    if($id!=$page) {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
-                                    } else {
-                                        echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
-                                    }
+                        if ($page > 1){
+                            if($id > 1) {
+                            echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
+                            } else {
+                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
+                            }
+                            for($i=1; $i <= $page; $i++){
+                             echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
+                                if($id == $i) {
+                                    echo 'class="list-group-item active">'.$i.'</a></li>';
+                                } else {
+                                    echo '>'.$i.'</a></li>';
                                 }
-                            ?>
-                        <?php
+                            }
+                            if (!$id) {
+                                $id = 1;
+                            }
+                            if($id!=$page) {
+                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
+                            } else {
+                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
+                            }
+                        }
+
                         if(mysqli_num_rows($sql) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                         }else{
@@ -370,7 +356,6 @@ include("connect.php");
                         ?>
                 </table>
             </div>
-
         </div> <!--End of Container Fluid-->
         </form>
     </section>
