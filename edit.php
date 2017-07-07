@@ -241,7 +241,7 @@ include("connect.php");
                                         </div>
                                         
                                         <div class="col-sm-8">
-                                            <select name="coid" class="form-control">
+                                            <select name="coid" class="form-control touch">
                                             <option value="<?php echo $row ['coid']; ?>">
                                                 <?php echo strip_tags(htmlentities($row ['coname'])); ?>
                                             </option>
