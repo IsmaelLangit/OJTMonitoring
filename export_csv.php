@@ -204,7 +204,7 @@
                         <hr class="style-four">
 
                         <div class="form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <h4> COMPANY TYPE </h4>  
                                 <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
                                 <input type="radio" name="typeofcompany" value="Private" required> Private<br>
@@ -213,7 +213,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <h4> MEMORANDUM OF AGREEMENT </h4>  
                                 <input type="radio" name="moa" value="All" required checked> All<br>    
                                 <input type="radio" name="moa" value="yes" required> Submitted<br>
@@ -235,7 +235,7 @@
     <!---->
     <footer class="footer-distributed footer">
             <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/scisLogo.png">
+                <img class="footerLogo img-responsive" src="img/newLogo.png">
                 <p class="footer-links">
                     <a href="index.php">Students</a>
                     |

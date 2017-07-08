@@ -78,22 +78,22 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             
+
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=$coid");
-                if(mysqli_num_rows($con) != 0){
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You <strong> cannot delete a Company </strong> with OJT students.</div>';
-                }else{
+                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$coid);
+                if (mysqli_num_rows($con) == 0) {
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
                                 </div>';
-                    }else{
-                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    }  
+                } else {
+                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
+    
                     }
                 }
-            }
             ?>
 
             <table class="table table-striped table-bordered table-hover">
@@ -196,21 +196,21 @@ include("connect.php");
             <a href="<?= $previous ?>" class="btn btn-md btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <?php
-            echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
-            $con = mysqli_query($connect, "SELECT * FROM company JOIN students ON company.coid = students.coid WHERE company.coid=".$row['coid']);
+            echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';
+            $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
             if(mysqli_num_rows($con) == 0){
-                echo 'class="confirm btn btn-danger btn-md" 
-                    data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
-                    '" data-confirm-button="Yes"
-                    data-cancel-button="No"
-                    data-confirm-button-class= "btn-success"
-                    data-cancel-button-class= "btn-danger"
-                    data-title="Delete Student">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
+            echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
+                '" data-confirm-button="Yes"
+                data-cancel-button="No"
+                data-confirm-button-class= "btn-success"
+                data-cancel-button-class= "btn-danger"
+                data-title="Delete Company" class="confirm btn btn-danger btn-sm">'; 
+            } else {
+                echo '
+                class="btn btn-danger btn-sm">';
             }
-            echo 'class="btn btn-danger btn-md">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                    </a>
+            echo '<span class="glyphicon glyphicon-trash space" aria-hidden="true"></span>
+                    Delete</a>
             ';
             ?>
             </div>
@@ -263,6 +263,9 @@ include("connect.php");
     $('.date').datepicker({
         format: 'yyyy-mm-dd',
     })
+    </script>
+        <script>
+        $(".confirm").confirm();
     </script>
     
   </body>

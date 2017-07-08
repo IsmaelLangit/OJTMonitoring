@@ -56,20 +56,19 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $coid = $_GET['coid'];
-                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=$coid");
-                if(mysqli_num_rows($con) != 0){
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
-                }else{
+                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$coid);
+                if (mysqli_num_rows($con) == 0) {
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
                                 </div>';
-                    }else{
-                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    }  
+                } else {
+                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
+    
                     }
                 }
-            }
             ?>
             <div class="container-fluid">
                 <div class="row">
@@ -359,13 +358,20 @@ include("connect.php");
                                         <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
-                                        <a href="company.php?action=delete&coid='.$row['coid'].'" title="Remove Company" ';
+                                         <a href="company.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';
                                 $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
                                 if(mysqli_num_rows($con) == 0){
-                                echo 'onclick="return confirm(\'Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).'?\')"';
+                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
+                                    '" data-confirm-button="Yes"
+                                    data-cancel-button="No"
+                                    data-confirm-button-class= "btn-success"
+                                    data-cancel-button-class= "btn-danger"
+                                    data-title="Delete Company" class="confirm btn btn-danger btn-sm">'; 
+                                } else {
+                                    echo '
+                                    class="btn btn-danger btn-sm">';
                                 }
-                                echo 'class="confirm btn btn-danger btn-sm" >
-                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                echo '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </a>
                                     </td>
                                 </tr>
@@ -418,6 +424,10 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
+    <script>
+        $(".confirm").confirm();
+    </script>
   
   </body>
 </html>
