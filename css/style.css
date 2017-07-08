@@ -44,10 +44,10 @@ a:hover{
     text-decoration: none;
 }
 ::selection {
-  background: #a8ffff; /* WebKit/Blink Browsers */
+  background: #75f4f4; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #a8ffff; /* Gecko Browsers */
+  background: #75f4f4; /* Gecko Browsers */
 }
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
