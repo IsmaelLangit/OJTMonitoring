@@ -227,17 +227,15 @@ include("connect.php");
                         } else {
                             $id=1;
                         }
+
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT * from company WHERE CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'");
+                            $all=mysqli_query($connect,"SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.coid");
                             $allrows=mysqli_num_rows($all);
-                            if (!$viewperpage) {
+                            if (!$viewperpage || $viewperpage == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
-                            }else if ($viewperpage == "all") {
-                                $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%'ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.coid ORDER BY ".$sort." LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$viewperpage");
+                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.coid ORDER BY ".$sort." LIMIT $start,$viewperpage");
                                 $page=ceil($allrows/$viewperpage);
                             }
                         } else if($filter){
@@ -248,7 +246,7 @@ include("connect.php");
                             if($total != 0) {
                                 $page=ceil($total/$limit);
                             }
-                            $sql = mysqli_query($connect, "SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '$filter' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.coid ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
            
                         if ($page > 1){
@@ -301,10 +299,12 @@ include("connect.php");
                                 <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
                                 <td class="col-md-2">'.strip_tags(htmlentities($row['position'])).'</td>
                                 ';
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."'");
-                                while ($row1 = mysqli_fetch_assoc($con)) {
+
+                                if ($row['countstudents'] == '') {
+                                    $row['countstudents'] = 0;
+                                }
                                     echo '
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row1['countidnum'].'</span></a></td>
+                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
@@ -331,7 +331,7 @@ include("connect.php");
                                               </div>
                                             </div>
                                         ';
-                                    } 
+        
                                         echo '
                                             <td coslpan="1" class="text-center" colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
@@ -359,8 +359,7 @@ include("connect.php");
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                          <a href="company.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';
-                                $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
-                                if(mysqli_num_rows($con) == 0){
+                                if($row['countstudents'] == 0){
                                 echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
                                     '" data-confirm-button="Yes"
                                     data-cancel-button="No"
