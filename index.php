@@ -244,76 +244,77 @@ include("connect.php");
                                 <thead>
                                     <tr class="info">
                                         <th>No</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="align-middle text-right">ID Number</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
                                                 <input title="Sort by Descending" class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th class="align-middle">ID Number</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="align-middle text-right">Name</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="last_name" value="&#9650;">
                                                 <input title="Sort by Descending" class="btn arrowSort" type="submit" name="last_name" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th class="align-middle">Name</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="align-middle text-right">Course & Year</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by BSCS" class="btn arrowSort" type="submit" name="courseyear" value="&#9650;">
                                                 <input title="Sort by BSIT" class="btn arrowSort" type="submit" name="courseyear" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Course & Year</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Endorsement</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by with Endorsement" class="btn arrowSort" type="submit" name="endorsement" value="&#9650;">
                                                 <input title="Sort by without Endorsement" class="btn arrowSort" type="submit" name="endorsement" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Endorsement</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Waiver</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by with Waiver" class="btn arrowSort" type="submit" name="waiver" value="&#9650;">
                                                 <input title="Sort by without Waiver" class="btn arrowSort" type="submit" name="waiver" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Waiver</th>
-                                        <th width="0.5%" class="text-right">   
+                                        <th class="text-right">MOA</th>
+                                        <th width="0.5%" class="text-left">   
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
                                                 <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>MOA</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Evaluation</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by with Evaluation" class="btn arrowSort" type="submit" name="evaluation" value="&#9650;">
                                                 <input title="Sort by without Evaluation" class="btn arrowSort" type="submit" name="evaluation" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Evaluation</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Requirement Status</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Complete Requirements" class="btn arrowSort" type="submit" name="status" value="&#9650;">
                                                 <input title="Sort by Incomplete Requirements" class="btn arrowSort" type="submit" name="status" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Requirement Status</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Company Name</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">
                                                 <input title="Sort by Descending" class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Company Name</th>
-                                        <th width="0.5%" class="text-right">
+                                        <th class="text-right">Type</th>
+                                        <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Government" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
                                                 <input title="Sort by Private" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th>Type</th>
+                                        
                                         <th class="col-sm-1 text-center">Action</th>
                                     </tr>
                                 </thead>
