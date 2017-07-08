@@ -38,7 +38,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
                     </div>
@@ -251,14 +251,14 @@ include("connect.php");
                                                 <input title="Sort by Descending" class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th class="align-middle text-right">Name</th>
+                                        <th width="7%" class="align-middle text-right">Name</th>
                                         <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="last_name" value="&#9650;">
                                                 <input title="Sort by Descending" class="btn arrowSort" type="submit" name="last_name" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th class="align-middle text-right">Course & Year</th>
+                                        <th width="8%" class="align-middle text-right">Course & Year</th>
                                         <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by BSCS" class="btn arrowSort" type="submit" name="courseyear" value="&#9650;">
@@ -300,7 +300,7 @@ include("connect.php");
                                                 <input title="Sort by Incomplete Requirements" class="btn arrowSort" type="submit" name="status" value="&#9660;">
                                             </div>
                                         </th>
-                                        <th class="text-right">Company Name</th>
+                                        <th width="10%" class="text-right">Company Name</th>
                                         <th width="0.5%" class="text-left">
                                             <div class="btn-group-vertical">
                                                 <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">

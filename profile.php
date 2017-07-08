@@ -35,7 +35,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ include("connect.php");
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum'");
                 if($delete){
                     echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the student!
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
                                 </div>';
                 }else{
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
@@ -281,37 +281,8 @@ include("connect.php");
         </div> <!--End of Container Fluid-->
     </section>
     <!---->
-    <!---->
-    <footer class="footer-distributed footer">
-            <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/newLogo.png">
-                <p class="footer-links">
-                    <a href="index.php">Students</a>
-                    |
-                    <a href="company.php">Company</a>
-                </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
-            </div>
-            <div class="footer-center">
-                <div>
-                    <i class="glyphicon glyphicon-globe"></i>
-                    <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
-                </div>
-                <div>
-                    <i class="glyphicon glyphicon-earphone"></i>
-                    <p>(063) 74 444 8246 to 48</p>
-                </div>
-            </div>
-            <div class="footer-right">
-                <p class="footer-company-about">
-                    <span>Vision of SLU</span>
-                    "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-                </p>
-            </div>
-        </footer>
-    <!---->
     <!-- end-->
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="row text-center">
             <img class="footerLogo" src="img/newLogo.png">
             <p class="credits">Designed and Developed by OJT2 2016-2017</p>
