@@ -36,7 +36,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li class="active"><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ include("connect.php");
                                                             VALUES('$coname','$coaddress', '$company_head','$position','$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
-                                  <span class = "fa fa-check-circle"></span><strong> Great!</strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to list of companies.</a>.
+                                  <strong> <span class = "fa fa-check-circle"></span></strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to list of companies.</a>.
                                 </div>';
                         }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';

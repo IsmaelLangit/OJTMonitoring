@@ -35,7 +35,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ include("connect.php");
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the company!
                                 </div>';
                     }  
                 } else {

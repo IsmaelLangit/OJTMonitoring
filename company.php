@@ -35,7 +35,7 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li class="active"><a href="company.php"><span class="fa fa-building space"></span>list of Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export</a></li>
+                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ include("connect.php");
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> You have successfully <strong> deleted </strong> the company!
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the company!
                                 </div>';
                     }  
                 } else {
@@ -121,31 +121,39 @@ include("connect.php");
                     <thead>
                         <tr class="info">
                             <th class="text-center">No</th>
-                            <th width="0.5%" class="text-right">
+                            <th width="10%" class="text-right">Company Name</th>
+                            <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">
                                     <input title="Sort Descending" class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                 </div>
                             </th>
-                            <th class="text-left">Company Name</th>
                             <th class="text-center">Address</th>
-                            <th width="0.5%" class="text-right">
+                            <th class="text-right">Type</th>
+                            <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by Government" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9650;">
                                     <input title="Sort by Private" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
                                 </div>
                             </th>
-                            <th class="text-left">Type</th>
+                            
                             <th class="text-center">Company Head</th>
                             <th class="text-center">Position</th>
-                            <th class="text-center">Number of OJT Student/s</th>
-                            <th width="0.5%" class="text-right">
+                            <th width="7%" class="text-center">Number of OJT Student/s</th>
+                            <th width="0.5%" class="text-left">
+                                <div class="btn-group-vertical">
+                                    <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="countstudents" value="&#9650;">
+                                    <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="countstudents" value="&#9660;">
+                                </div>
+                            </th>
+                            <th class="text-right">MOA</th>
+                            <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
                                     <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                 </div>
                             </th>
-                            <th class="text-left">MOA</th>
+                            
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -307,7 +315,7 @@ include("connect.php");
                                 ';
 
                                     echo '
-                                        <td class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+                                        <td colspan="2" class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
