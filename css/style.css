@@ -7,6 +7,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+img{
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 .table > tbody > tr > td {
     vertical-align: middle;
 }
@@ -35,7 +43,12 @@ a:hover{
     color: #c10b0b;
     text-decoration: none;
 }
-
+::selection {
+  background: #a8ffff; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #a8ffff; /* Gecko Browsers */
+}
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
     height: 65px !important;
