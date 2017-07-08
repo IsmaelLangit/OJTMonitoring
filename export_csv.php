@@ -7,7 +7,8 @@
     $waiver           = $_POST['waiver'];
     $moa           = $_POST['moa'];
     $evaluation           = $_POST['evaluation'];
-    $courseyear           = $_POST['courseyear'];
+    $course           = $_POST['course'];
+    $year           = $_POST['year'];
     $selecttable           = $_POST['selecttable'];
     // filename for export
     $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
@@ -42,21 +43,27 @@
         $where_typeofcompany = ' typeofcompany = "'.$typeofcompany.'" ';
     }
 
-    if($courseyear == "All") {
-       $where_courseyear = 'courseyear LIKE "BS%"';
+    if($course == "All") {
+       $where_course = 'courseyear LIKE "BS%"';
     }else {
-        $where_courseyear = 'courseyear LIKE "'.$courseyear.'%"';
+        $where_course = 'courseyear LIKE "'.$courseyear.'%"';
+    }
+
+    if($year == "All") {
+       $where_year = 'courseyear LIKE "BS%"';
+    }else {
+        $where_year = 'courseyear LIKE "%'.$year.'"';
     }
 
     if ($selecttable == "Students") {
         $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status, coname, typeofcompany';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear." ORDER BY last_name, first_name";     
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY last_name, first_name";     
     } else if ($selecttable == "Company") { 
         $selecttable = 'count(students.coid) as "countstudent",coid, coname, coaddress, company_head, position, typeofcompany';
         $where = 'WHERE coname != "No Company AND '.$where_moa.' AND '.$where_typeofcompany." ORDER BY coname";
     } else {
         $selecttable = '*';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_courseyear." ORDER BY coname, last_name, first_name";
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
     }
     // create empty variable to be filled with export data
     $csv_export = '';
@@ -165,9 +172,18 @@
                         <div class="form-group">
                             <div class="col-md-3">
                                 <h4> COURSE </h4>
-                                <input type="radio" name="courseyear" value="All" required checked> All<br>    
-                                <input type="radio" name="courseyear" value="BSCS" required> BSCS<br>
-                                <input type="radio" name="courseyear" value="BSIT" required> BSIT<br>
+                                <input type="radio" name="course" value="All" required checked> All<br>    
+                                <input type="radio" name="course" value="BSCS" required> BSCS<br>
+                                <input type="radio" name="course" value="BSIT" required> BSIT<br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <h4> YEAR LEVEL </h4>
+                                <input type="radio" name="year" value="All" required checked> All<br>    
+                                <input type="radio" name="year" value="BSCS" required> 3rd year<br>
+                                <input type="radio" name="year" value="BSIT" required> 4th year<br>
                             </div>
                         </div>
 

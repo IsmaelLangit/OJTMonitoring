@@ -88,8 +88,19 @@ include("connect.php");
                 $receive_moa         = $_POST['receive_moa'];
                 $remark_moa     = mysqli_real_escape_string($connect,$_POST['remark_moa']);
                 
+                
+
+                $result = mysqli_query($connect, "SELECT idnum, endorsement, waiver, moa, status FROM students NATURAL JOIN  company WHERE coid=$coid");
+                while($row_status = mysqli_fetch_array($result)) { 
+                    if($row_status['endorsement'] == 'yes' AND $row_status['waiver'] == 'yes' AND $moa  == 'yes') {
+                         $update2 = mysqli_query($connect, "UPDATE students SET status ='Complete' WHERE idnum = ".$row_status['idnum']) or die(mysqli_error());
+                    } else {
+                        $update2 = mysqli_query($connect, "UPDATE students SET status ='Incomplete' WHERE idnum = ".$row_status['idnum']) or die(mysqli_error());
+                    }
+                }
                 $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
-                if($update){
+
+                if($update && $update2){
                     header("Location: editcompany.php?coid=".$coid."&message=success");
                 }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
