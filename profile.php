@@ -311,15 +311,12 @@ include("connect.php");
         </footer>
     <!---->
     <!-- end-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/smoothScroll.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/jquery.confirm.js"></script>
+    <footer class="footer">
+        <div class="row text-center">
+            <img class="footerLogo" src="img/newLogo.png">
+            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
+        </div>
+    </footer>
 
     <script>
         $(".confirm").confirm();

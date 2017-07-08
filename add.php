@@ -335,33 +335,12 @@
     <!---->
     <!---->
 
-    <footer class="footer-distributed footer">
-            <div class="footer-left">
-                <img class="footerLogo img-responsive" src="img/newLogo.png">
-                <p class="footer-links">
-                    <a href="index.php">Students</a>
-                    |
-                    <a href="company.php">Company</a>
-                </p>
-                <p class="footer-company-name">&copy; Designed by OJT2 2016-2017</p>
-            </div>
-            <div class="footer-center">
-                <div>
-                    <i class="glyphicon glyphicon-globe"></i>
-                    <p><span>A. Bonifacio Street</span> Baguio City, Philippines 2600</p>
-                </div>
-                <div>
-                    <i class="glyphicon glyphicon-earphone"></i>
-                    <p>(063) 74 444 8246 to 48</p>
-                </div>
-            </div>
-            <div class="footer-right">
-                <p class="footer-company-about">
-                    <span>Vision of SLU</span>
-                    "We envision Saint Louis University as an excellent missionary and transformative educational institution zealous in developing human resources imbued with the Christian Spirit and who are creative, competent and socially involved."
-                </p>
-            </div>
-        </footer>
+    <footer class="footer">
+        <div class="row text-center">
+            <img class="footerLogo" src="img/newLogo.png">
+            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
+        </div>
+    </footer>
     <!---->
     <!-- end-->
     <script src="js/jquery.min.js"></script>
