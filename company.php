@@ -49,6 +49,7 @@ include("connect.php");
     <!--/ header-->
     <section class="section-padding">
         <form class="form-inline" method="get">
+
         <div class="container-fluid">
             <div class="col text-center">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Companies </span></h1>  
@@ -172,6 +173,7 @@ include("connect.php");
                         $sortvar = "&coname=";
                         $sortval = $coname;
 
+
                         switch ($coname) {
                             case "▲":
                                 $sort = 'coname';
@@ -277,12 +279,15 @@ include("connect.php");
                             $sortval = $countstudents;
                         }
 
+                        $sql_total = $pdo->prepare("SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE ? t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
 
+                        $sql_total->bindValue(1, "%$search_input%", PDO::PARAM_STR);
+                        $sql_total->execute();
+                        $total = $sql_total->fetch(PDO::FETCH_ASSOC);
 
-                        $t=mysqli_query($connect,"SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
-                        $total=mysqli_num_rows($t);
                         $start=0;
                         $page=0;
+
                         if($viewperpage == "all") {
                             $limit = $total;
                         } else {
