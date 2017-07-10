@@ -74,7 +74,7 @@ include("connect.php");
             ?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-10">
 
 
                    
@@ -112,7 +112,7 @@ include("connect.php");
             </form>
 
                     </div>
-                    <div class="col-md-1 text-center paddingTopSlight">
+                    <div class="col-md-2 text-center paddingTopSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>

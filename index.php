@@ -82,7 +82,7 @@ include("connect.php");
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                        
                             <div class="input-group dropdown-toggle">
                                 <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
@@ -128,7 +128,7 @@ include("connect.php");
                             </div>
                     </div>
 
-                    <div class="col-md-6 text-center paddingTopSlight">
+                    <div class="col-md-3 text-center paddingTopSlight">
                     <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                         <a href="add.php" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
                     </div>
