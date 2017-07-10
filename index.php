@@ -911,5 +911,6 @@ include("connect.php");
     <script>
         $(".confirm").confirm();
     </script>
+    
   </body>
 </html>

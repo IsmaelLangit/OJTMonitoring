@@ -216,59 +216,90 @@
                 <form method="post" action="">
 
                     <div class="row">
-                        <div class="form-group">
-                            <h2 class="head-title titleFont">Tables</h2>
+                        <h2 class="head-title titleFont">Columns</h2>
+                        <hr class="style-four">
 
-                            <div class="col-md-2 text-center">
-                                <select name="selecttable" class="form-control touch">
-                                    <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                                    <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
-                                    <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-                                    <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-                                </select>
+                            <div class="row">
+                                <div class="form-group">  
+                                    <h4>STUDENT COLUMN</h4>
+                                    <div class="col-md-4">
+                                        <input class="space" type = "checkbox" name = "col_idnum" value = "yes" checked> <span>ID No.</span> 
+                                            <br>
+                                            <input type = "checkbox" name = "col_name" value = "yes" checked> <span>Name</span> 
+                                            <br>
+                                            <input type = "checkbox" name ="col_courseyear" value = "yes" checked><span> Course And Year</span> 
+                                            <br>
+                                            <input type = "checkbox" name ="col_mobile_number" value = "yes" checked> <span>Mobile No.</span> 
+                                            <br>
+                                            <input type = "checkbox" name ="col_email" value = "yes" checked> <span>Email</span>
+                                    </div>  
+                                        
+                                            
+                                </div>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <h3>STUDENT COLUMN</h3>
-                                <input type = "checkbox" name = "col_idnum" value = "yes" checked> <span>ID No.</span> <br>
-                                <input type = "checkbox" name = "col_name" value = "yes" checked> <span>Name</span> <br>
-                                <input type = "checkbox" name ="col_courseyear" value = "yes" checked><span> Course And Year</span> <br>
-                                <input type = "checkbox" name ="col_mobile_number" value = "yes" checked> <span>Mobile No.</span> <br>
-                                <input type = "checkbox" name ="col_email" value = "yes" checked> <span>Email</span> <br>
-                                <h4>REQUIREMENT COLUMN</h4>
-                                <input type = "checkbox" name ="col_status" value = "yes"> <span>Overall Status</span> <br>
-                                <h5>ENDORSEMENT</h5>
-                                <input type = "checkbox" name ="col_release_endorsement" value = "yes"> <span> Date Released</span> <br>
-                                <input type = "checkbox" name ="col_receive_endorsement" value = "yes"> <span> Date Received </span> <br>
-                                <input type = "checkbox" name ="col_remark_endorsement" value = "yes"> <span> Remarks </span> <br>
-                                <input type = "checkbox" name ="col_endorsement" value = "yes" checked> <span>Status</span> <br>
-                                <h5>WAIVER</h5>
-                                <input type = "checkbox" name ="col_release_waiver" value = "yes"> <span>Date Released</span> <br>
-                                <input type = "checkbox" name ="col_receive_waiver" value = "yes"> <span>Date Received</span> <br>
-                                <input type = "checkbox" name ="col_remark_waiver" value = "yes"> <span>Remarks</span> <br>
-                                <input type = "checkbox" name ="col_waiver" value = "yes" checked> <span>  </span>Status<br>
-                                <h5>EVALUATION</h5>
-                                <input type = "checkbox" name ="col_release_evaluation" value = "yes"> <span>Date Released</span> <br>
-                                <input type = "checkbox" name ="col_receive_evaluation" value = "yes"> <span>Date Received</span> <br>
-                                <input type = "checkbox" name ="col_remark_evaluation" value = "yes"> <span>Remarks</span> <br>
-                                <input type = "checkbox" name ="col_evaluation" value = "yes" checked> <span>  </span>Status<br>
-                            
 
+                            <div class="row">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <h4>REQUIREMENT COLUMN</h4>
+                                        <div class="form-group">
+                                            <input type = "checkbox" name ="col_status" value = "yes"> <span>Overall Status</span>
+                                        </div>
+                                        
 
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h4>Endorsement</h4>
+                                                        <input type = "checkbox" name ="col_release_endorsement" value = "yes"> <span> Date Released</span> <br>
+                                                        <input type = "checkbox" name ="col_receive_endorsement" value = "yes"> <span> Date Received </span> <br>
+                                                        <input type = "checkbox" name ="col_remark_endorsement" value = "yes"> <span> Remarks </span> <br>
+                                                        <input type = "checkbox" name ="col_endorsement" value = "yes" checked> <span>Status</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h4>Waiver</h4>
+                                                        <input type = "checkbox" name ="col_release_waiver" value = "yes"> <span>Date Released</span> <br>
+                                                        <input type = "checkbox" name ="col_receive_waiver" value = "yes"> <span>Date Received</span> <br>
+                                                        <input type = "checkbox" name ="col_remark_waiver" value = "yes"> <span>Remarks</span> <br>
+                                                        <input type = "checkbox" name ="col_waiver" value = "yes" checked> <span>  </span>Status<br>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h4>Evaluation</h4>
+                                                        <input type = "checkbox" name ="col_release_evaluation" value = "yes"> <span>Date Released</span> <br>
+                                                        <input type = "checkbox" name ="col_receive_evaluation" value = "yes"> <span>Date Received</span> <br>
+                                                        <input type = "checkbox" name ="col_remark_evaluation" value = "yes"> <span>Remarks</span> <br>
+                                                        <input type = "checkbox" name ="col_evaluation" value = "yes" checked> <span>  </span>Status<br>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3 text-center">
-                                <h4>COMPANY COLUMN</h4>
-                                <input type = "checkbox" name "col_coname" value = "yes" checked> <span> Company Name </span> <br>
-                                <input type = "checkbox" name "col_coaddress" value = "yes" checked> <span> Address </span> <br>
-                                <input type = "checkbox" name "col_company_head" value = "yes"> <span> Company Head </span> <br>
-                                <input type = "checkbox" name "col_position" value = "yes"> <span>  </span> CH Position <br>
-                                <input type = "checkbox" name "col_contact_person" value = "yes" checked> <span> Contact Person </span> <br>
-                                <input type = "checkbox" name "col_cp_position" value = "yes" checked> <span> CP Position </span> <br>
-                                <input type = "checkbox" name "col_typeofcompany" value = "yes"> Type of Company <span>  </span> <br>
-                                <h5>MOA</h5>
-                                <input type = "checkbox" name "col_release_moa" value = "yes"> <span>Date Released </span> <br>
-                                <input type = "checkbox" name "col_receive_moa" value = "yes"> <span>Date Received</span> <br>
-                                <input type = "checkbox" name "col_remark_moa" value = "yes"> <span>Remarks</span> <br>
-                                <input type = "checkbox" name "col_moa" value = "yes"> <span> </span>Status<br>
+
+                            <div class="row">
+                            <h4>COMPANY COLUMN</h4>
+                                <div class="col-md-4">
+                                    <h4>Company Information</h4>
+                                    <input type = "checkbox" name "col_coname" value = "yes" checked> <span> Company Name </span> <br>
+                                    <input type = "checkbox" name "col_coaddress" value = "yes" checked> <span> Address </span> <br>
+                                    <input type = "checkbox" name "col_company_head" value = "yes"> <span> Company Head </span> <br>
+                                    <input type = "checkbox" name "col_position" value = "yes"> <span>  </span> CH Position <br>
+                                    <input type = "checkbox" name "col_contact_person" value = "yes" checked> <span> Contact Person </span> <br>
+                                    <input type = "checkbox" name "col_cp_position" value = "yes" checked> <span> Contact Person Position </span> <br>
+                                    <input type = "checkbox" name "col_typeofcompany" value = "yes"> Type of Company 
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4>Memorandum of Agreement</h4>
+                                        <input type = "checkbox" name "col_release_moa" value = "yes"> <span>Date Released </span> <br>
+                                        <input type = "checkbox" name "col_receive_moa" value = "yes"> <span>Date Received</span> <br>
+                                        <input type = "checkbox" name "col_remark_moa" value = "yes"> <span>Remarks</span> <br>
+                                        <input type = "checkbox" name "col_moa" value = "yes"> <span> </span>Status
+                                </div>
                             </div>
                         </div>
                     </div>
