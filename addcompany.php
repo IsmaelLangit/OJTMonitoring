@@ -65,8 +65,9 @@ include("connect.php");
                 $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
                 $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
                 $position        = mysqli_real_escape_string($connect,$_POST['position']);
+                $contact_person        = mysqli_real_escape_string($connect,$_POST['contact_person']);
+                $cp_position        = mysqli_real_escape_string($connect,$_POST['cp_position']);
                 $typeofcompany       = mysqli_real_escape_string($connect,$_POST['typeofcompany']);
-
                 $moa         = $_POST['moa'];
                 $release_moa         = $_POST['release_moa'];
                 $receive_moa         = $_POST['receive_moa'];
@@ -74,8 +75,8 @@ include("connect.php");
                
                 $con = mysqli_query($connect, "SELECT * from company WHERE coname='$coname'");
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, typeofcompany, release_moa, receive_moa, remark_moa, moa)
-                                                            VALUES('$coname','$coaddress', '$company_head','$position','$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO company(coname, coaddress, company_head, position, contact_person, cp_position, typeofcompany, release_moa, receive_moa, remark_moa, moa)
+                                                            VALUES('$coname','$coaddress', '$company_head','$position', '$contact_person','$cp_position', '$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
                                   <strong> <span class = "fa fa-check-circle"></span></strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to list of companies.</a>.
@@ -144,6 +145,32 @@ include("connect.php");
                                     </div>
                                     <div class="col-sm-8">
                                         <input maxlength = '120' type="text" name="position" class="form-control" placeholder="Position">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Contact Person</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" maxlength = '70' name="contact_person" class="form-control" placeholder="Contact Person">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Position</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input maxlength = '120' type="text" name="cp_position" class="form-control" placeholder="Position">
                                     </div>
                                 </div>
                             </div>
