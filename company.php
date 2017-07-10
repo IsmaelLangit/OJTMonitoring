@@ -90,8 +90,8 @@ include("connect.php");
 
                 <div class="input-group dropdown-toggle">
                                 <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
-                                <select name="sort" class="form-control touch" onchange="form.submit()">
-                                    <?php $viewperpage = (isset($_GET['sort']) ? strtolower($_GET['sort']) : NULL);  ?>
+                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
+                                    <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
                                     <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
                                     <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
                                     <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
@@ -320,12 +320,12 @@ include("connect.php");
            
                         if ($page > 1){
                             if($id > 1) {
-                            echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id-1).'">Previous</a></li>';
+                            echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id-1).'">Previous</a></li>';
                             } else {
-                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id=1">Previous</a></li>';
+                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id=1">Previous</a></li>';
                             }
                             for($i=1; $i <= $page; $i++){
-                             echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$i.'" ';
+                             echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$i.'" ';
                                 if($id == $i) {
                                     echo 'class="list-group-item active">'.$i.'</a></li>';
                                 } else {
@@ -336,9 +336,9 @@ include("connect.php");
                                 $id = 1;
                             }
                             if($id!=$page) {
-                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id+1).'">Next</a></li></ul></div>';
                             } else {
-                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
+                                echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
                             }
                         }
 

@@ -336,6 +336,8 @@ include("connect.php");
                                 $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
 
                                 $sort = 'last_name, first_name';
+                                $sortvar = "&last_name=";
+                                $sortval = $last_name;
 
                                 switch ($idnum) {
                                     case "▲":
@@ -345,6 +347,11 @@ include("connect.php");
                                     case "▼":
                                         $sort = 'idnum DESC';
                                         break;
+                                }
+
+                                if($idnum) {
+                                    $sortvar = "&idnum=";
+                                    $sortval = $idnum;
                                 }
 
                                 switch ($last_name) {
@@ -357,6 +364,11 @@ include("connect.php");
                                         break;
                                 }
 
+                                if($last_name) {
+                                    $sortvar = "&last_name=";
+                                    $sortval = $last_name;
+                                }
+
                                 switch ($courseyear) {
                                     case "▲":
                                         $sort = 'courseyear, last_name, first_name';
@@ -365,6 +377,11 @@ include("connect.php");
                                     case "▼":
                                         $sort = 'courseyear DESC, last_name, first_name';
                                         break;
+                                }
+
+                                if($courseyear) {
+                                    $sortvar = "&courseyear=";
+                                    $sortval = $courseyear;
                                 }
 
                                 switch ($endorsement) {
@@ -377,6 +394,11 @@ include("connect.php");
                                         break;
                                 }
 
+                                if($endorsement) {
+                                    $sortvar = "&endorsement=";
+                                    $sortval = $endorsement;
+                                }
+
                                 switch ($waiver) {
                                     case "▲":
                                         $sort = 'waiver DESC, last_name, first_name';
@@ -385,6 +407,11 @@ include("connect.php");
                                     case "▼":
                                         $sort = 'waiver, last_name, first_name';
                                         break;
+                                }
+
+                                if($waiver) {
+                                    $sortvar = "&waiver=";
+                                    $sortval = $waiver;
                                 }
 
                                  switch ($moa) {
@@ -397,6 +424,11 @@ include("connect.php");
                                         break;
                                 }
 
+                                if($moa) {
+                                    $sortvar = "&moa=";
+                                    $sortval = $moa;
+                                }
+
                                 switch ($evaluation) {
                                    case "▲":
                                         $sort = 'evaluation DESC, last_name, first_name';
@@ -405,6 +437,11 @@ include("connect.php");
                                     case "▼":
                                         $sort = 'evaluation, last_name, first_name';
                                         break;
+                                }
+
+                                if($evaluation) {
+                                    $sortvar = "&evaluation=";
+                                    $sortval = $evaluation;
                                 }
 
                                 switch ($status) {
@@ -417,6 +454,11 @@ include("connect.php");
                                         break;
                                 }
 
+                                if($status) {
+                                    $sortvar = "&status=";
+                                    $sortval = $status;
+                                }
+
                                 switch ($coname) {
                                     case "▲":
                                         $sort = 'coname, last_name, first_name';
@@ -427,6 +469,11 @@ include("connect.php");
                                         break;
                                 }
 
+                                if($coname) {
+                                    $sortvar = "&coname=";
+                                    $sortval = $coname;
+                                }
+
                                 switch ($typeofcompany) {
                                     case "▲":
                                         $sort = 'typeofcompany, last_name, first_name';
@@ -435,6 +482,11 @@ include("connect.php");
                                     case "▼":
                                         $sort = 'typeofcompany DESC, last_name, first_name';
                                         break;
+                                }
+
+                                if($typeofcompany) {
+                                    $sortvar = "&typeofcompany=";
+                                    $sortval = $typeofcompany;
                                 }
 
                                 $t=mysqli_query($connect,"SELECT * from students NATURAL JOIN company WHERE (status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter') and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%')");
@@ -607,37 +659,32 @@ include("connect.php");
                                     $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
                                 }
 
-                                ?>
-                                <?php 
+                              
 
-                                    if ($page > 1){
-                                        if($id > 1) {
-                                        echo ' <div class="container-fluid text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
-                                        } else {
-                                            echo '<div class="container-fluid text-center"><ul class="pagination list-group"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id=1">Previous</a></li>';
-                                        }
-
-                                        for($i=1; $i <= $page; $i++){
-                                         echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
-                                            if($id == $i) {
-                                                echo 'class="list-group-item active">'.$i.'</a></li>';
-                                            } else {
-                                                echo '>'.$i.'</a></li>';
-                                            }
-                                        }
-
-                                        if (!$id) {
-                                            $id = 1;
-                                        }
-
-                                        if($id!=$page) {
-                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
-                                        } else {
-                                            echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
-                                        }
+                                    
+                            if ($page > 1){
+                                if($id > 1) {
+                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id-1).'">Previous</a></li>';
+                                } else {
+                                    echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id=1">Previous</a></li>';
+                                }
+                                for($i=1; $i <= $page; $i++){
+                                 echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$i.'" ';
+                                    if($id == $i) {
+                                        echo 'class="list-group-item active">'.$i.'</a></li>';
+                                    } else {
+                                        echo '>'.$i.'</a></li>';
                                     }
-                                ?> 
-                                <?php 
+                                }
+                                if (!$id) {
+                                    $id = 1;
+                                }
+                                if($id!=$page) {
+                                    echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                } else {
+                                    echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
+                                }
+                            }
 
                                     if(mysqli_num_rows($sql) == 0){
                                         echo '<tr class="nothingToDisplay text-center"><td colspan="22"><span class="fa fa-ban space"></span>Nothing to Display</td></tr>';
