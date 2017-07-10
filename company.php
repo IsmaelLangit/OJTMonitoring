@@ -137,9 +137,6 @@ include("connect.php");
                                     <input title="Sort by Private" class="btn arrowSort" type="submit" name="typeofcompany" value="&#9660;">
                                 </div>
                             </th>
-                            
-                            <th class="text-center">Company Head</th>
-                            <th class="text-center">Position</th>
                             <th class="text-center">Contact Person</th>
                             <th class="text-center">Position</th>
                             <th width="7%" class="text-center">Number of OJT Student/s</th>
@@ -165,7 +162,6 @@ include("connect.php");
                         $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
                         $coaddress = (isset($_GET['coaddress']) ? strtolower($_GET['coaddress']) : NULL);
                         $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
-                        $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
                         $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
                         $contact_person = (isset($_GET['contact_person']) ? strtolower($_GET['contact_person']) : NULL);
                         $cp_position = (isset($_GET['cp_position']) ? strtolower($_GET['cp_position']) : NULL);                 
@@ -220,37 +216,7 @@ include("connect.php");
                             $sortvar = "&typeofcompany=";
                             $sortval = $typeofcompany;
                         }
-
-                        switch ($company_head) {
-                            case "▲":
-                                $sort = 'company_head, coname';
-                                break;
-                            
-                            case "▼":
-                                $sort = 'company_head DESC, coname';
-                                break;
-                        }
-
-                        if($company_head) {
-                            $sortvar = "&company_head=";
-                            $sortval = $company_head;
-                        }
-
-                        switch ($position) {
-                            case "▲":
-                                $sort = 'position, coname';
-                                break;
-                            
-                            case "▼":
-                                $sort = 'position DESC, coname';
-                                break;
-                        }
-
-                        if($position) {
-                            $sortvar = "&position=";
-                            $sortval = $position;
-                        }
-                                           
+                        
                         switch ($contact_person) {
                             case "▲":
                                 $sort = 'contact_person, coname';
@@ -311,7 +277,7 @@ include("connect.php");
                             $sortval = $countstudents;
                         }
 
-                        $sql_total = $pdo->prepare("SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE ? t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
+                        $sql_total = $pdo->prepare("SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, contact_person, cp_position, typeofcompany) LIKE ? t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
 
                         $sql_total->bindValue(1, "%$search_input%", PDO::PARAM_STR);
                         $sql_total->execute();
@@ -334,13 +300,13 @@ include("connect.php");
                         }
 
                         if ($filter == 'none' || !$filter) {
-                            $all=mysqli_query($connect,"SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
+                            $all=mysqli_query($connect,"SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress,  contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
                             $allrows=mysqli_num_rows($all);
                             if (!$viewperpage || $viewperpage == "all") {
                                 $limit = $allrows;
-                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$limit");
+                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress,  contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$limit");
                             } else {
-                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$viewperpage");
+                                $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$viewperpage");
                                 $page=ceil($allrows/$viewperpage);
                             }
                         } else if($filter){
@@ -352,7 +318,7 @@ include("connect.php");
                                 $page=ceil($total/$limit);
                             }
 
-                            $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '".$filter."' AND CONCAT_WS('', coname, coaddress, company_head, position, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$limit");
+                            $sql = mysqli_query($connect, "SELECT * from (SELECT * from company WHERE coname != 'No Company' AND typeofcompany = '".$filter."' AND CONCAT_WS('', coname, coaddress, contact_person, cp_position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid ORDER BY ".$sort." LIMIT $start,$limit");
                         } 
            
                         if ($page > 1){
@@ -407,8 +373,6 @@ include("connect.php");
                                     }
                           
                                 echo '
-                                <td >'.strip_tags(htmlentities($row['company_head'])).'</td>
-                                <td class="col-md-2">'.strip_tags(htmlentities($row['position'])).'</td>
                                 <td >'.strip_tags(htmlentities($row['contact_person'])).'</td>
                                 <td class="col-md-2">'.strip_tags(htmlentities($row['cp_position'])).'</td>
                                 ';
