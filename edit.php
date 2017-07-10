@@ -18,6 +18,8 @@ include("connect.php");
   </head>
   <body>
 
+    <div class="main-container">
+
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
             <!--nav-->
@@ -460,6 +462,7 @@ include("connect.php");
         </div>
     </footer>
     <!---->
+    </div>
     <!-- end-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
