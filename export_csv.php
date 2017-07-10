@@ -112,6 +112,7 @@
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
+
       <header class="main-header" id="header">
         <div class="bg-color wrapper">
             <!--nav-->
@@ -139,7 +140,11 @@
             <!--/ nav-->
         </div>
     </header>
+
   <body>
+
+    <div class="main-container">
+
     <section class="section-padding">
     <div class="container">
         <div class="row">
@@ -260,6 +265,7 @@
         </div>
     </footer>
     <!---->
+    </div>
     <!-- end-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
