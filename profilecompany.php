@@ -118,6 +118,14 @@ include("connect.php");
                 <tr>
                     <th scope="row" class="info">Position</th>
                     <td><?php echo strip_tags(htmlentities($row['position'])); ?></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="info">Contact Person</th>
+                    <td><?php echo strip_tags(htmlentities($row['contact_person'])); ?></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="info">Position</th>
+                    <td><?php echo strip_tags(htmlentities($row['cp_position'])); ?></td>
                 </tr> 
                 <tr>
                     <th scope="row" class="info">Number of Students</th>

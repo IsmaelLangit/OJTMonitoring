@@ -10,6 +10,74 @@
     $course           = $_POST['course'];
     $year           = $_POST['year'];
     $selecttable           = $_POST['selecttable'];
+    $col_idnum= $_POST['col_idnum'];
+    $col_name= $_POST['col_name'];
+    $col_courseyear= $_POST['col_courseyear'];
+    $col_mobile_number= $_POST['col_mobile_number'];
+    $col_email= $_POST['col_email'];
+    $col_status= $_POST['col_status'];
+    $col_release_endorsement= $_POST['col_release_endorsement'];
+    $col_receive_endorsement= $_POST['col_receive_endorsement'];
+    $col_remark_endorsement= $_POST['col_remark_endorsement'];
+    $col_endorsement= $_POST['col_endorsement'];
+    $col_release_waiver= $_POST['col_release_waiver'];
+    $col_receive_waiver= $_POST['col_receive_waiver'];
+    $col_remark_waiver= $_POST['col_remark_waiver'];
+    $col_waiver= $_POST['col_waiver'];
+    $col_release_evaluation= $_POST['col_release_evaluation'];
+    $col_receive_evaluation= $_POST['col_receive_evaluation'];
+    $col_remark_evaluation= $_POST['col_remark_evaluation'];
+    $col_evaluation= $_POST['col_evaluation'];   
+    $col_coname= $_POST['col_coname'];
+    $col_coaddress= $_POST['col_coaddress'];
+    $col_company_head= $_POST['col_company_head'];
+    $col_position= $_POST['col_position'];
+    $col_contact_person= $_POST['col_contact_person'];
+    $col_cp_position= $_POST['col_cp_position'];
+    $col_typeofcompany= $_POST['col_typeofcompany'];
+    $col_release_moa= $_POST['col_release_moa'];
+    $col_receive_moa= $_POST['col_receive_moa'];
+    $col_remark_moa= $_POST['col_remark_moa'];
+    $col_moa= $_POST['col_moa'];
+
+    if($col_idnum == "yes") { $selectable1 = "id_num AS 'ID No.'";} 
+    if($col_name == "yes") { $selectable2 = "concat(last_name, ', ', first_name) AS Name";} 
+    if($col_courseyear == "yes") { $selectable3 = "courseyear AS 'Course - Year'";} 
+    if($col_mobile_number == "yes") {$selectable4 = "mobile_number AS 'Mobile No.'";} 
+    if($col_email == "yes") { $selectable5 = "Email";} 
+    if($col_status == "yes") { $selectable6 = "Status";} 
+    if($col_release_endorsement == "yes") { $selectable7 = "release_endorsement AS Released'";} 
+    if($col_receive_endorsement == "yes") { $selectable8 = "receive_endorsement AS Received";}
+    if($col_remark_endorsement == "yes") { $selectable9 = "remark_endorsement AS Remarks";}
+    if($col_endorsement == "yes") { $selectable10 = "endorsement AS Endorsement";}
+    if($col_release_waiver == "yes") { $selectable11 = "release_waiver AS Released";} 
+    if($col_receive_waiver == "yes") { $selectable12 = "receive_waiver AS Received"; } 
+    if($col_remark_waiver == "yes") { $selectable13 = "remark_waiver AS Remarks";} 
+    if($col_waiver == "yes") { $selectable14 = "waiver AS Waiver";} 
+    if($col_release_evaluation == "yes") {$selectable15 = "release_evaluation AS Released";} 
+    if($col_receive_evaluation == "yes") {$selectable16 = "receive_evaluation AS Received";} 
+    if($col_remark_evaluation == "yes") {$selectable17 = "remark_evaluation AS Remarks";} 
+    if($col_evaluation == "yes") {$selectable18 = "evaluation AS Evaluation";} 
+    if($col_coname == "yes") {$selectable19 = "coname AS 'Company Name'";} 
+    if($col_coaddress == "yes") {$selectable20 = "coaddress AS Address";} 
+    if($col_company_head == "yes") {$selectable21 = "company_head AS 'Company Head'";} 
+    if($col_position == "yes") {$selectable22 = "position AS Position";} 
+    if($col_contact_person == "yes") {$selectable23 = "contact_person AS 'Contact Person'";} 
+    if($col_cp_position == "yes") {$selectable24 = "cp_position AS Position";} 
+    if($col_typeofcompany == "yes") {$selectable25 = "typeofcompany AS 'Company Type'";} 
+    if($col_release_moa == "yes") {$selectable26 = "release_moa AS Released";}
+    if($col_receive_moa == "yes") {$selectable27 = "receive_moa AS Received";} 
+    if($col_remark_moa == "yes") {$selectable28 = "remark_moa AS Remarks";} 
+    if($col_moa == "yes") {$selectable29 = "MOA";}
+
+    $selecttable = "";
+
+    for($i = 1 ; $i < 30 ; $i++) {
+        if($selectable.$i) {
+
+        }
+    }
+
     // filename for export
     $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
 
@@ -26,7 +94,7 @@
     }
 
     if($moa == "All") {
-        $where_moa = '(moa = "yes" or moa = "no" or moa = "")';
+        $where_moa = '(moa = "yes" or moa = "no") or moa = ""';
     }else {
         $where_moa = ' moa = "'.$moa.'" ';
     }
@@ -56,22 +124,19 @@
     }
 
     if ($selecttable == "Students") {
-        $selecttable = 'coname, coaddress, company_head, typeofcompany, idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, status, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa';
-        $where = $where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY last_name, first_name"; 
-        $from = 'students LEFT JOIN company on students.coid = company.coid';    
+        $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status, coname, typeofcompany';
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY last_name, first_name";     
     } else if ($selecttable == "Company") { 
-        $selecttable = 'coname, coaddress, company_head, position, typeofcompany';
-        $where = 'coname != "No Company" AND '.$where_moa.' AND '.$where_typeofcompany;
-        $from = 'company';
+        $selecttable = 'count(students.coid) as "countstudent",coid, coname, coaddress, company_head, position, typeofcompany';
+        $where = 'WHERE coname != "No Company AND '.$where_moa.' AND '.$where_typeofcompany." ORDER BY coname";
     } else {
-        $selecttable = 'coname, coaddress, company_head, position, typeofcompany, idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, status, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa';
-        $where = $where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
-        $from = 'students LEFT JOIN company on students.coid = company.coid';
+        $selecttable = '*';
+        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
     }
     // create empty variable to be filled with export data
     $csv_export = '';
     // query to get data from database
-    $query = mysqli_query($connect, "SELECT ".$selecttable." FROM ".$from." WHERE ".$where);
+    $query = mysqli_query($connect, "SELECT ".$selecttable." FROM students LEFT JOIN company on students.coid = company.coid ".$where);
     $field = mysqli_field_count($connect);
     // create line with field names
     for($i = 0; $i < $field; $i++) {
@@ -148,8 +213,6 @@
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-                <div class="container-fluid">
-                
                 <form method="post" action="">
 
                     <div class="row">
@@ -163,6 +226,49 @@
                                     <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
                                     <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
                                 </select>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h3>STUDENT COLUMN</h3>
+                                <input type = "checkbox" name = "col_idnum" value = "yes" checked> <span>ID No.</span> <br>
+                                <input type = "checkbox" name = "col_name" value = "yes" checked> <span>Name</span> <br>
+                                <input type = "checkbox" name ="col_courseyear" value = "yes" checked><span> Course And Year</span> <br>
+                                <input type = "checkbox" name ="col_mobile_number" value = "yes" checked> <span>Mobile No.</span> <br>
+                                <input type = "checkbox" name ="col_email" value = "yes" checked> <span>Email</span> <br>
+                                <h4>REQUIREMENT COLUMN</h4>
+                                <input type = "checkbox" name ="col_status" value = "yes"> <span>Overall Status</span> <br>
+                                <h5>ENDORSEMENT</h5>
+                                <input type = "checkbox" name ="col_release_endorsement" value = "yes"> <span> Date Released</span> <br>
+                                <input type = "checkbox" name ="col_receive_endorsement" value = "yes"> <span> Date Received </span> <br>
+                                <input type = "checkbox" name ="col_remark_endorsement" value = "yes"> <span> Remarks </span> <br>
+                                <input type = "checkbox" name ="col_endorsement" value = "yes" checked> <span>Status</span> <br>
+                                <h5>WAIVER</h5>
+                                <input type = "checkbox" name ="col_release_waiver" value = "yes"> <span>Date Released</span> <br>
+                                <input type = "checkbox" name ="col_receive_waiver" value = "yes"> <span>Date Received</span> <br>
+                                <input type = "checkbox" name ="col_remark_waiver" value = "yes"> <span>Remarks</span> <br>
+                                <input type = "checkbox" name ="col_waiver" value = "yes" checked> <span>  </span>Status<br>
+                                <h5>EVALUATION</h5>
+                                <input type = "checkbox" name ="col_release_evaluation" value = "yes"> <span>Date Released</span> <br>
+                                <input type = "checkbox" name ="col_receive_evaluation" value = "yes"> <span>Date Received</span> <br>
+                                <input type = "checkbox" name ="col_remark_evaluation" value = "yes"> <span>Remarks</span> <br>
+                                <input type = "checkbox" name ="col_evaluation" value = "yes" checked> <span>  </span>Status<br>
+                            
+
+
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h4>COMPANY COLUMN</h4>
+                                <input type = "checkbox" name "col_coname" value = "yes" checked> <span> Company Name </span> <br>
+                                <input type = "checkbox" name "col_coaddress" value = "yes" checked> <span> Address </span> <br>
+                                <input type = "checkbox" name "col_company_head" value = "yes"> <span> Company Head </span> <br>
+                                <input type = "checkbox" name "col_position" value = "yes"> <span>  </span> CH Position <br>
+                                <input type = "checkbox" name "col_contact_person" value = "yes" checked> <span> Contact Person </span> <br>
+                                <input type = "checkbox" name "col_cp_position" value = "yes" checked> <span> CP Position </span> <br>
+                                <input type = "checkbox" name "col_typeofcompany" value = "yes"> Type of Company <span>  </span> <br>
+                                <h5>MOA</h5>
+                                <input type = "checkbox" name "col_release_moa" value = "yes"> <span>Date Released </span> <br>
+                                <input type = "checkbox" name "col_receive_moa" value = "yes"> <span>Date Received</span> <br>
+                                <input type = "checkbox" name "col_remark_moa" value = "yes"> <span>Remarks</span> <br>
+                                <input type = "checkbox" name "col_moa" value = "yes"> <span> </span>Status<br>
                             </div>
                         </div>
                     </div>
@@ -246,19 +352,13 @@
                     </div>
 
                 </form>
-                </div>
 
         </div>
     </div>
     </section>
     <!---->
     <!---->
-    <footer class="footer">
-        <div class="row text-center">
-            <img class="footerLogo" src="img/newLogo.png">
-            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
-        </div>
-    </footer>
+
     <!---->
     <!-- end-->
     <script src="js/jquery.min.js"></script>
