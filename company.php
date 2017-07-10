@@ -157,68 +157,126 @@ include("connect.php");
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
+
                     <?php 
-                     $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
-                    $coaddress = (isset($_GET['coaddress']) ? strtolower($_GET['coaddress']) : NULL);
-                    $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
-                    $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
-                    $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
-                    $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
-                    $sort = 'coname';
-                                switch ($coname) {
-                                    case "▲":
-                                        $sort = 'coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'coname DESC';
-                                        break;
-                                }
-                                switch ($coaddress) {
-                                    case "▲":
-                                        $sort = 'coaddress, coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'coaddress DESC, coname';
-                                        break;
-                                }
-                                switch ($typeofcompany) {
-                                    case "▲":
-                                        $sort = 'typeofcompany, coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'typeofcompany DESC, coname';
-                                        break;
-                                }
-                                switch ($company_head) {
-                                    case "▲":
-                                        $sort = 'company_head, coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'company_head DESC, coname';
-                                        break;
-                                }
-                                switch ($position) {
-                                    case "▲":
-                                        $sort = 'position, coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'position DESC, coname';
-                                        break;
-                                }
-                                 switch ($moa) {
-                                    case "▲":
-                                        $sort = 'moa, coname';
-                                        break;
-                                    
-                                    case "▼":
-                                        $sort = 'moa DESC, coname';
-                                        break;
-                                }
+                        $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
+                        $coaddress = (isset($_GET['coaddress']) ? strtolower($_GET['coaddress']) : NULL);
+                        $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
+                        $company_head = (isset($_GET['company_head']) ? strtolower($_GET['company_head']) : NULL);
+                        $position = (isset($_GET['position']) ? strtolower($_GET['position']) : NULL);
+                        $moa = (isset($_GET['moa']) ? strtolower($_GET['moa']) : NULL);
+                        $countstudents = (isset($_GET['countstudents']) ? strtolower($_GET['countstudents']) : NULL);
+                        $sort = 'coname';
+                        $sortvar = "&coname=";
+                        $sortval = $coname;
+
+                        switch ($coname) {
+                            case "▲":
+                                $sort = 'coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'coname DESC';
+                                break;
+                        }
+
+                        if($coname) {
+                            $sortvar = "&coname=";
+                            $sortval = $coname;
+                        }
+
+                        switch ($coaddress) {
+                            case "▲":
+                                $sort = 'coaddress, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'coaddress DESC, coname';
+                                break;
+                        }
+
+                        if($coaddress) {
+                            $sortvar = "&coaddress=";
+                            $sortval = $coaddress;
+                        }
+
+                        switch ($typeofcompany) {
+                            case "▲":
+                                $sort = 'typeofcompany, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'typeofcompany DESC, coname';
+                                break;
+                        }
+
+                        if($typeofcompany) {
+                            $sortvar = "&typeofcompany=";
+                            $sortval = $typeofcompany;
+                        }
+
+                        switch ($company_head) {
+                            case "▲":
+                                $sort = 'company_head, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'company_head DESC, coname';
+                                break;
+                        }
+
+                        if($company_head) {
+                            $sortvar = "&company_head=";
+                            $sortval = $company_head;
+                        }
+
+                        switch ($position) {
+                            case "▲":
+                                $sort = 'position, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'position DESC, coname';
+                                break;
+                        }
+
+                        if($position) {
+                            $sortvar = "&position=";
+                            $sortval = $position;
+                        }
+
+                         switch ($moa) {
+                            case "▲":
+                                $sort = 'moa DESC, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'moa , coname';
+                                break;
+                        }
+
+                        if($moa) {
+                            $sortvar = "&moa=";
+                            $sortval = $moa;
+                        }
+
+                        switch ($countstudents) {
+                            case "▲":
+                                $sort = 'countstudents DESC, coname';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'countstudents, coname';
+                                break;
+                        }
+
+                        if($countstudents) {
+                            $sortvar = "&countstudents=";
+                            $sortval = $countstudents;
+                        }
+
+
+
                         $t=mysqli_query($connect,"SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, company_head, position, typeofcompany) LIKE '%".$search_input."%') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
                         $total=mysqli_num_rows($t);
                         $start=0;
@@ -260,12 +318,12 @@ include("connect.php");
            
                         if ($page > 1){
                             if($id > 1) {
-                            echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id-1).'">Previous</a></li>';
+                            echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id-1).'">Previous</a></li>';
                             } else {
-                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id=1">Previous</a></li>';
+                                echo '<div class="text-center"><ul class="pagination"><li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id=1">Previous</a></li>';
                             }
                             for($i=1; $i <= $page; $i++){
-                             echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$i.'&search_input='.$search_input.'" ';
+                             echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$i.'" ';
                                 if($id == $i) {
                                     echo 'class="list-group-item active">'.$i.'</a></li>';
                                 } else {
@@ -276,9 +334,9 @@ include("connect.php");
                                 $id = 1;
                             }
                             if($id!=$page) {
-                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.($id+1).'">Next</a></li></ul></div>';
+                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.($id+1).'">Next</a></li></ul></div>';
                             } else {
-                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&id='.$page.'">Next</a></li></ul></div>';
+                                echo '<li><a href="?filter='.$filter.'&sort='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
                             }
                         }
 
