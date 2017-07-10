@@ -1,10 +1,13 @@
 .footer{
 	background-color: #161616;
-	padding: 10px;
+	padding: 8px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 .footerLogo{
-	height: 55px;
+	height: 45px;
 }
 
 .credits{

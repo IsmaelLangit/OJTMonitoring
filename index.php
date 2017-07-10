@@ -19,6 +19,8 @@ include("connect.php");
     </head>
   <body>
 
+  <div class="main-container">
+
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
 
@@ -847,6 +849,8 @@ include("connect.php");
             <p class="credits">Designed and Developed by OJT2 2016-2017</p>
         </div>
     </footer>
+
+    </div> <!--End of main-container-->
     <!---->
     <!--contact ends-->
     <script src="js/jquery.min.js"></script>

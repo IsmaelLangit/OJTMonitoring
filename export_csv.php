@@ -137,6 +137,9 @@
         </div>
     </header>
   <body>
+
+    <div class="main-container">
+
     <section class="section-padding">
     <div class="container">
         <div class="row">
@@ -256,6 +259,7 @@
         </div>
     </footer>
     <!---->
+    </div>
     <!-- end-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>

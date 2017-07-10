@@ -17,6 +17,8 @@
         <link rel="icon" href="img/scisLogo.png">
     </head>
     <body>
+
+    <div class="main-container">
     
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
@@ -343,6 +345,9 @@
     </footer>
     <!---->
     <!-- end-->
+
+    </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
