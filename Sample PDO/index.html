@@ -1,0 +1,89 @@
+<html>
+<body>
+search:
+<form action="display.php" method="POST">
+Artist: <br>
+  <input type="text" name="artist" required> <br>
+Year: <br>
+<input type="text" name="songs" required> <br>
+
+<input type="submit" value="search" name="search"> 
+                                                        
+</form>   
+    
+add:
+<form action="insert.php" method="POST">
+Artist: <br>
+  <input type="text" name="artist_name"> <br>
+Gender: <br>
+  <input type="text" name="gender"> <br>
+Title: <br>
+<input type="text" name="title"> <br>
+Year Released: <br>
+  <input type="text" name="year_released"> <br>
+Album: <br>
+<input type="text" name="album"> <br>
+
+<input type="submit" value="add" name="add">
+</form>
+    
+</body>
+</html>
+
+<!--
+<?php
+
+    $artist = $_POST ['artist_name'];
+    $title = $_POST ['title'];
+    $year = $_POST ['year_released'];
+    $album = $_POST ['album'];
+    $gender = $_POST ['gender'];
+    $pdo = new PDO("mysql:host=localhost;dbname=music3","root","");
+
+    // Validation if the artist is already existing
+    $stmt = $pdo-> prepare ("SELECT * FROM artist WHERE artist_name = ? and gender = ?");
+    $stmt->bindValue(1, $artist, PDO::PARAM_STR);
+    $stmt->bindValue(2, $gender, PDO::PARAM_STR);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if(isset($_POST['add'])){ 
+        if ($row  == 0) {
+            $stmt = $pdo->prepare("INSERT INTO artist (artist_name, gender) VALUES (?,?)");
+            $stmt -> bindValue (1, $artist, PDO::PARAM_STR);
+            $stmt -> bindValue (2, $gender, PDO::PARAM_STR);
+            $stmt->execute();
+            echo "Added new Artist! <br>";
+            
+            $stmt = $pdo-> prepare ("SELECT * FROM artist WHERE artist_name = ? ");
+            $stmt->bindValue(1, $artist, PDO::PARAM_STR);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                      
+        } else {
+            echo "The Artist already exists. <br>";
+        }
+        
+        //Validation if the title to be added have duplication
+        $stmt2 = $pdo-> prepare ("SELECT * FROM songs WHERE title = ?");
+        $stmt2->bindValue(1, $title, PDO::PARAM_STR);
+        $stmt2->execute();
+        $row_title = $stmt2->fetch(PDO::FETCH_ASSOC);
+        
+        if ($row_title == 0) {
+            while($row) {
+                $artist_id = $row['artist_id'];
+                break;
+            } 
+            $stmt3 = $pdo->prepare("INSERT INTO songs (artist_id, title, year_released ,album) VALUES (?,?,?,?)");
+            $stmt3 -> bindParam (1, $artist_id, PDO::PARAM_STR);
+            $stmt3 -> bindParam (2, $title, PDO::PARAM_STR);
+            $stmt3 -> bindParam (3, $year, PDO::PARAM_STR);
+            $stmt3 -> bindParam (4, $album, PDO::PARAM_STR);
+            $stmt3->execute();
+            echo "Added the new song of the Artist!";     
+        } else {
+            echo "The song of the Artist already exists!";     
+        }     
+    } 
+?>-->
