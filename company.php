@@ -74,10 +74,8 @@ include("connect.php");
             ?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-10">
-
-
-                   
+                    <div class="col-md-10 paddingBottomSlight">
+                    
                 <div class="input-group dropdown-toggle">
                                 <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
                     <select name="filter" class="form-control touch" onchange="form.submit()">
@@ -112,13 +110,13 @@ include("connect.php");
             </form>
 
                     </div>
-                    <div class="col-md-2 text-center paddingTopSlight">
+                    <div class="col-md-2 text-center paddingBottomSlight">
                         <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>
             </div>
 
-            <div class="table-responsive paddingTopSlight">
+            <div class="table-responsive">
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr class="info">

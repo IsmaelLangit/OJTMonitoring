@@ -107,6 +107,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/dragAndDrop.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
       <header class="main-header" id="header">
@@ -148,107 +149,109 @@
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-                <div class="container-fluid">
-                
-                <form method="post" action="">
+                <!-- JJ -->
+                <div id="page">
+                    <div id="workarea">
+                        <div id="completed-tasks">
+                            <h3>
+                                <em class="icon-ok icon-large"></em> Select Data to Export
+                            </h3>   
+                        </div><!-- #completed-tasks -->
+                        <div id="users" class="user-panels">
+                            <div id="user-1" class="user-panel">
+                                <h4 class="user-name">Data Column</h4>
+                                <div class="toolbar">
+                                    <a href="#" class="add-task icon icon-plus"></a>
+                                </div>
+                                <div class="task-list">
+                                    <div id="task-1" class="task">
+                                        <p>task 1</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                    <div id="task-2" class="task">
+                                        <p>task 2</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
 
-                    <div class="row">
-                        <div class="form-group">
-                            <h2 class="head-title titleFont">Tables</h2>
+                                    </div>
+                                    <div id="task-3" class="task">
+                                        <p>task 3</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
 
-                            <div class="col-md-2 text-center">
-                                <select name="selecttable" class="form-control touch">
-                                    <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                                    <option value="Students" <?php if($selecttable == 'students'){ echo 'selected'; } ?>>Students</option>
-                                    <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-                                    <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-                                </select>
+                                    </div>
+                                    <div id="task-4" class="task">
+                                        <p>task 4</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="row">
-
-                        <h2 class="head-title titleFont">Student Information</h2>
-                        <hr class="style-four">
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> COURSE </h4>
-                                <input type="radio" name="course" value="All" required checked> All<br>    
-                                <input type="radio" name="course" value="BSCS" required> BSCS<br>
-                                <input type="radio" name="course" value="BSIT" required> BSIT<br>
+                            <div id="user-2" class="user-panel">
+                                <h4 class="user-name">Rearrange Data</h4>
+                                <div class="toolbar">
+                                    <a href="#" class="add-task icon icon-plus"></a>
+                                </div>
+                                <div class="task-list">
+                                    <div id="task-5" class="task">
+                                        <p>task 5</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                    <div id="task-6" class="task">
+                                        <p>task 6</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                    <div id="task-7" class="task">
+                                        <p>task 7</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                    <div id="task-8" class="task">
+                                        <p>task 8</p>
+                                        <div class="actions">
+                                            <a href="#" class="icon-caret-right"></a>
+                                            <a href="#" class="icon-ok"></a>
+                                            <a href="#" class="icon-pencil"></a>
+                                            <a href="#" class="icon-trash"></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> YEAR LEVEL </h4>
-                                <input type="radio" name="year" value="All" required checked> All<br>    
-                                <input type="radio" name="year" value="BSCS" required> 3rd year<br>
-                                <input type="radio" name="year" value="BSIT" required> 4th year<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> ENDORSEMENT </h4>
-                                <input type="radio" name="endorsement" value="All" required checked> All<br>    
-                                <input type="radio" name="endorsement" value="yes" required> Submitted<br>
-                                <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> WAIVER </h4>                                  
-                                <input type="radio" name="waiver" value="All" required checked> All<br>    
-                                <input type="radio" name="waiver" value="yes" required> Submitted<br>
-                                <input type="radio" name="waiver" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> EVALUATION </h4>                                     
-                                <input type="radio" name="evaluation" value="All" required checked> All<br>    
-                                <input type="radio" name="evaluation" value="yes" required> Submitted<br>
-                                <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <h2 class="head-title titleFont paddingTopSlight">Company Information</h2>
-                        <hr class="style-four">
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> COMPANY TYPE </h4>  
-                                <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
-                                <input type="radio" name="typeofcompany" value="Private" required> Private<br>
-                                <input type="radio" name="typeofcompany" value="Government" required> Government<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> MEMORANDUM OF AGREEMENT </h4>  
-                                <input type="radio" name="moa" value="All" required checked> All<br>    
-                                <input type="radio" name="moa" value="yes" required> Submitted<br>
-                                <input type="radio" name="moa" value="no" required> Not Submitted<br> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group text-center paddingTopSlight">
-                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
-                    </div>
-
-                </form>
-                </div>
+                        </div><!-- #users -->
+                    </div><!-- #workarea -->
+                </div><!-- #page -->
+                <!-- SDG -->
 
         </div>
     </div>
@@ -273,6 +276,7 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/dragAndDrop.js"></script>
 
     <script>
         $('form').areYouSure();

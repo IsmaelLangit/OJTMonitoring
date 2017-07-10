@@ -382,6 +382,9 @@ h4.modal-title{
 .paddingTopSlight{
     padding-top: 10px;
 }
+.paddingBottomSlight{
+  padding-bottom: 10px;
+}
 button.disabled{
     cursor: default !important;
 }
