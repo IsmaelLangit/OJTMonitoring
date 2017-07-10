@@ -77,12 +77,13 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $coname          = mysqli_real_escape_string($connect,$_POST['coname']);
+                $coname              = mysqli_real_escape_string($connect,$_POST['coname']);
                 $coaddress           = mysqli_real_escape_string($connect,$_POST['coaddress']);
                 $company_head        = mysqli_real_escape_string($connect,$_POST['company_head']);
-                $position        = mysqli_real_escape_string($connect,$_POST['position']);
+                $position            = mysqli_real_escape_string($connect,$_POST['position']);
+                $contact_person      = mysqli_real_escape_string($connect,$_POST['contact_person']);
+                $cp_position         = mysqli_real_escape_string($connect,$_POST['cp_position']);      
                 $typeofcompany       = $_POST['typeofcompany'];
-
                 $moa         = $_POST['moa'];
                 $release_moa         = $_POST['release_moa'];
                 $receive_moa         = $_POST['receive_moa'];
@@ -98,7 +99,7 @@ include("connect.php");
                         $update2 = mysqli_query($connect, "UPDATE students SET status ='Incomplete' WHERE idnum = ".$row_status['idnum']) or die(mysqli_error());
                     }
                 }
-                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position', contact_person='$contact_person', cp_position='$cp_position' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
 
                 if($update && $update2){
                     header("Location: editcompany.php?coid=".$coid."&message=success");
@@ -169,6 +170,32 @@ include("connect.php");
                                     </div>
                                     <div class="col-sm-8">
                                         <input maxlength = '120' type="text" name="position" value="<?php echo strip_tags(htmlentities($row ['position'])); ?>" class="form-control" placeholder="Position">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Contact Person</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input maxlength = '70' type="text" name="contact_person" value="<?php echo strip_tags(htmlentities($row ['contact_person'])); ?>" class="form-control" placeholder="Contact Person">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Position</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input maxlength = '120' type="text" name="cp_position" value="<?php echo strip_tags(htmlentities($row ['cp_position'])); ?>" class="form-control" placeholder="Position">
                                     </div>
                                 </div>
                             </div>
