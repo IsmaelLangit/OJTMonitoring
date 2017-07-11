@@ -414,81 +414,78 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="col-md-8">
+                            <h2 class="head-title titleFont">Student and Company Information</h2>
+                            <hr class="style-four">
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> COURSE </h4>
+                                    <input type="radio" name="course" value="All" required checked> All<br>    
+                                    <input type="radio" name="course" value="BSCS" required> BSCS<br>
+                                    <input type="radio" name="course" value="BSIT" required> BSIT<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> YEAR LEVEL </h4>
+                                    <input type="radio" name="year" value="All" required checked> All<br>    
+                                    <input type="radio" name="year" value="BSCS" required> 3rd year<br>
+                                    <input type="radio" name="year" value="BSIT" required> 4th year<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> ENDORSEMENT </h4>
+                                    <input type="radio" name="endorsement" value="All" required checked> All<br>    
+                                    <input type="radio" name="endorsement" value="yes" required> Submitted<br>
+                                    <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> WAIVER </h4>                                  
+                                    <input type="radio" name="waiver" value="All" required checked> All<br>    
+                                    <input type="radio" name="waiver" value="yes" required> Submitted<br>
+                                    <input type="radio" name="waiver" value="no" required> Not Submitted<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> EVALUATION </h4>                                     
+                                    <input type="radio" name="evaluation" value="All" required checked> All<br>    
+                                    <input type="radio" name="evaluation" value="yes" required> Submitted<br>
+                                    <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> COMPANY TYPE </h4>  
+                                    <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
+                                    <input type="radio" name="typeofcompany" value="Private" required> Private<br>
+                                    <input type="radio" name="typeofcompany" value="Government" required> Government<br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <h4> MEMORANDUM OF AGREEMENT </h4>  
+                                    <input type="radio" name="moa" value="All" required checked> All<br>    
+                                    <input type="radio" name="moa" value="yes" required> Submitted<br>
+                                    <input type="radio" name="moa" value="no" required> Not Submitted<br> 
+                                </div>
+                            </div>
+
+                        </div><!--End of col-md-8-->
                     </div>
 
-                    <div class="row">
-
-                        <h2 class="head-title titleFont">Student Information</h2>
-                        <hr class="style-four">
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> COURSE </h4>
-                                <input type="radio" name="course" value="All" required checked> All<br>    
-                                <input type="radio" name="course" value="BSCS" required> BSCS<br>
-                                <input type="radio" name="course" value="BSIT" required> BSIT<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> YEAR LEVEL </h4>
-                                <input type="radio" name="year" value="All" required checked> All<br>    
-                                <input type="radio" name="year" value="BSCS" required> 3rd year<br>
-                                <input type="radio" name="year" value="BSIT" required> 4th year<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> ENDORSEMENT </h4>
-                                <input type="radio" name="endorsement" value="All" required checked> All<br>    
-                                <input type="radio" name="endorsement" value="yes" required> Submitted<br>
-                                <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> WAIVER </h4>                                  
-                                <input type="radio" name="waiver" value="All" required checked> All<br>    
-                                <input type="radio" name="waiver" value="yes" required> Submitted<br>
-                                <input type="radio" name="waiver" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> EVALUATION </h4>                                     
-                                <input type="radio" name="evaluation" value="All" required checked> All<br>    
-                                <input type="radio" name="evaluation" value="yes" required> Submitted<br>
-                                <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <h2 class="head-title titleFont paddingTopSlight">Company Information</h2>
-                        <hr class="style-four">
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> COMPANY TYPE </h4>  
-                                <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
-                                <input type="radio" name="typeofcompany" value="Private" required> Private<br>
-                                <input type="radio" name="typeofcompany" value="Government" required> Government<br>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <h4> MEMORANDUM OF AGREEMENT </h4>  
-                                <input type="radio" name="moa" value="All" required checked> All<br>    
-                                <input type="radio" name="moa" value="yes" required> Submitted<br>
-                                <input type="radio" name="moa" value="no" required> Not Submitted<br> 
-                            </div>
-                        </div>
-                    </div>
+                        
 
                     <div class="form-group text-center paddingTopSlight">
                         <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
