@@ -74,11 +74,10 @@
 
     $selecttable1 = ltrim($selecttable1, ',');
 
-
     // filename for export
     $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
 
-     if($endorsement == "All") {
+    if($endorsement == "All") {
         $where_endorsement = '(endorsement = "yes" or endorsement = "no" or endorsement = "")';
     } else {
         $where_endorsement = ' endorsement = "'.$endorsement.'" ';
