@@ -40,43 +40,96 @@
     $col_remark_moa= $_POST['col_remark_moa'];
     $col_moa= $_POST['col_moa'];
 
-    if($col_idnum == "yes") { $selectable1 = "id_num AS 'ID No.'";} 
-    if($col_name == "yes") { $selectable2 = "concat(last_name, ', ', first_name) AS Name";} 
-    if($col_courseyear == "yes") { $selectable3 = "courseyear AS 'Course - Year'";} 
-    if($col_mobile_number == "yes") {$selectable4 = "mobile_number AS 'Mobile No.'";} 
-    if($col_email == "yes") { $selectable5 = "Email";} 
-    if($col_status == "yes") { $selectable6 = "Status";} 
-    if($col_release_endorsement == "yes") { $selectable7 = "release_endorsement AS Released'";} 
-    if($col_receive_endorsement == "yes") { $selectable8 = "receive_endorsement AS Received";}
-    if($col_remark_endorsement == "yes") { $selectable9 = "remark_endorsement AS Remarks";}
-    if($col_endorsement == "yes") { $selectable10 = "endorsement AS Endorsement";}
-    if($col_release_waiver == "yes") { $selectable11 = "release_waiver AS Released";} 
-    if($col_receive_waiver == "yes") { $selectable12 = "receive_waiver AS Received"; } 
-    if($col_remark_waiver == "yes") { $selectable13 = "remark_waiver AS Remarks";} 
-    if($col_waiver == "yes") { $selectable14 = "waiver AS Waiver";} 
-    if($col_release_evaluation == "yes") {$selectable15 = "release_evaluation AS Released";} 
-    if($col_receive_evaluation == "yes") {$selectable16 = "receive_evaluation AS Received";} 
-    if($col_remark_evaluation == "yes") {$selectable17 = "remark_evaluation AS Remarks";} 
-    if($col_evaluation == "yes") {$selectable18 = "evaluation AS Evaluation";} 
-    if($col_coname == "yes") {$selectable19 = "coname AS 'Company Name'";} 
-    if($col_coaddress == "yes") {$selectable20 = "coaddress AS Address";} 
-    if($col_company_head == "yes") {$selectable21 = "company_head AS 'Company Head'";} 
-    if($col_position == "yes") {$selectable22 = "position AS Position";} 
-    if($col_contact_person == "yes") {$selectable23 = "contact_person AS 'Contact Person'";} 
-    if($col_cp_position == "yes") {$selectable24 = "cp_position AS Position";} 
-    if($col_typeofcompany == "yes") {$selectable25 = "typeofcompany AS 'Company Type'";} 
-    if($col_release_moa == "yes") {$selectable26 = "release_moa AS Released";}
-    if($col_receive_moa == "yes") {$selectable27 = "receive_moa AS Received";} 
-    if($col_remark_moa == "yes") {$selectable28 = "remark_moa AS Remarks";} 
-    if($col_moa == "yes") {$selectable29 = "MOA";}
+    $selecttable1 = "coname";
 
-    $selecttable = "";
-
-    for($i = 1 ; $i < 30 ; $i++) {
-        if($selectable.$i) {
-
-        }
+    if($col_coname == "yes") {
+        $selecttable1 = $selecttable1.", coname AS 'Company Name'";
+    } 
+    if($col_coaddress == "yes") {
+        $selecttable1 = $selecttable1.", coaddress AS Address";
+    } 
+    if($col_company_head == "yes") {
+        $selecttable1 = $selecttable1.", company_head AS 'Company Head'";
+    } 
+    if($col_position == "yes") {
+        $selecttable1 = $selecttable1.", Position";
+    } 
+    if($col_contact_person == "yes") {
+        $selecttable1 = $selecttable1.", contact_person AS 'Contact Person'";
+    } 
+    if($col_cp_position == "yes") {
+        $selecttable1 = $selecttable1.", cp_position AS Position";
+    } 
+    if($col_typeofcompany == "yes") {
+        $selecttable1 = $selecttable1.", typeofcompany AS 'Company Type'";
+    } 
+    if($col_idnum == "yes") { 
+        $selecttable1 = $selecttable1.", idnum AS 'ID No.'";
+    } 
+    if($col_name == "yes") { 
+        $selecttable1 = $selecttable1.", concat(last_name, ', ', first_name) AS Name";
+    } 
+    if($col_courseyear == "yes") { 
+        $selecttable1 = $selecttable1.", courseyear AS 'Course - Year'";
+    } 
+    if($col_mobile_number == "yes") { 
+        $selecttable1 = $selecttable1.", mobile_number as 'Mobile No.'";
+    } 
+    if($col_email == "yes") { 
+        $selecttable1 = $selecttable1.", Email";
+    } 
+    if($col_status == "yes") { 
+        $selecttable1 = $selecttable1.", Status";
+    } 
+    if($col_release_endorsement == "yes") { 
+        $selecttable1 = $selecttable1.", release_endorsement AS Released";
+    } 
+    if($col_receive_endorsement == "yes") { 
+        $selecttable1 = $selecttable1.", receive_endorsement AS Received";
     }
+    if($col_remark_endorsement == "yes") { 
+        $selecttable1 = $selecttable1.", remark_endorsement AS Remarks";
+    }
+    if($col_endorsement == "yes") { 
+        $selecttable1 = $selecttable1.", endorsement AS Endorsement";
+    }
+    if($col_release_waiver == "yes") { 
+        $selecttable1 = $selecttable1.", release_waiver AS Released";
+    } 
+    if($col_receive_waiver == "yes") { 
+        $selecttable1 = $selecttable1.", receive_waiver AS Received"; 
+    } 
+    if($col_remark_waiver == "yes") { 
+        $selecttable1 = $selecttable1.", remark_waiver AS Remarks";
+    } 
+    if($col_waiver == "yes") { 
+        $selecttable1 = $selecttable1.", waiver AS Waiver";
+    } 
+    if($col_release_evaluation == "yes") {
+        $selecttable1 = $selecttable1.", release_evaluation AS Released";
+    } 
+    if($col_receive_evaluation == "yes") {
+        $selecttable1 = $selecttable1.", receive_evaluation AS Received";
+    } 
+    if($col_remark_evaluation == "yes") {
+        $selecttable1 = $selecttable1.", remark_evaluation AS Remarks";
+    } 
+    if($col_evaluation == "yes") {
+        $selecttable1 = $selecttable1.", Evaluation";
+    } 
+    if($col_release_moa == "yes") {
+        $selecttable1 = $selecttable1.", release_moa AS Released";
+    }
+    if($col_receive_moa == "yes") {
+        $selecttable1 = $selecttable1.", receive_moa AS Received";
+    } 
+    if($col_remark_moa == "yes") {
+        $selecttable1 = $selecttable1.", remark_moa AS Remarks";
+    } 
+    if($col_moa == "yes") {
+        $selecttable1 = $selecttable1.", MOA";
+    }
+
 
     // filename for export
     $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
@@ -136,7 +189,7 @@
     // create empty variable to be filled with export data
     $csv_export = '';
     // query to get data from database
-    $query = mysqli_query($connect, "SELECT ".$selecttable." FROM students LEFT JOIN company on students.coid = company.coid ".$where);
+    $query = mysqli_query($connect, "SELECT ".$selecttable1." FROM students LEFT JOIN company on students.coid = company.coid ".$where);
     $field = mysqli_field_count($connect);
     // create line with field names
     for($i = 0; $i < $field; $i++) {
@@ -214,6 +267,34 @@
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
                 <form method="post" action="">
+                    <input type = "hidden" name ="col_idnum" value = "">
+                    <input type = "hidden" name ="col_name" value = "">
+                    <input type = "hidden" name ="col_courseyear" value = "">
+                    <input type = "hidden" name ="col_mobile_number" value = "">
+                    <input type = "hidden" name ="col_email" value = "">
+                    <input type = "hidden" name ="col_status" value = "">
+                    <input type = "hidden" name ="col_release_endorsement" value = "">
+                    <input type = "hidden" name ="col_receive_endorsement" value = "">
+                    <input type = "hidden" name ="col_remark_endorsement" value = "">
+                    <input type = "hidden" name ="col_endorsement" value = "">
+                    <input type = "hidden" name ="col_release_waiver" value = "">
+                    <input type = "hidden" name ="col_receive_waiver" value = "">
+                    <input type = "hidden" name ="col_remark_waiver" value = "">
+                    <input type = "hidden" name ="col_release_evaluation" value = "">
+                    <input type = "hidden" name ="col_receive_evaluation" value = "">
+                    <input type = "hidden" name ="col_remark_evaluation" value = "">
+                    <input type = "hidden" name ="col_evaluation" value = "">
+                    <input type = "hidden" name ="col_coname" value = "">
+                    <input type = "hidden" name ="col_coaddress" value = "">
+                    <input type = "hidden" name ="col_company_head" value = "">
+                    <input type = "hidden" name ="col_position" value = "">
+                    <input type = "hidden" name ="col_contact_person" value = "">
+                    <input type = "hidden" name ="col_cp_position" value = "">
+                    <input type = "hidden" name ="col_typeofcompany" value = "">
+                    <input type = "hidden" name ="col_release_moa" value = "">
+                    <input type = "hidden" name ="col_receive_moa" value = "">
+                    <input type = "hidden" name ="col_remark_moa" value = "">
+                    <input type = "hidden" name ="col_moa" value = "">
 
                     <div class="row">
                         <h2 class="head-title titleFont">Columns</h2>
@@ -237,7 +318,7 @@
                                             
                                 </div>
                             </div>
-
+                         
                             <div class="row">
                                 <div class="form">
                                     <div class="form-group">
