@@ -241,13 +241,22 @@
 
                     <div class="row">
 
+                    <div class="form-group text-center">
+                            <h2 class="head-title titleFont">Select Table to Export</h2>
+                            <select name="selecttable" class="btn btn-default input-small touch">
+                                <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
+                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+                                <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
+                            </select>
+                        </div>
+
                         <div class="col-md-5">
                             <h2 class="head-title titleFont">Columns</h2>
                             <hr class="style-four">
 
                                 <div class="col-md-6">
                                 <h4 class="exportColor"> Student Column </h4>
-                                    <div class="form-group" style="height: 500px; overflow:auto;">
+                                    <div class="form-group" style="height: 300px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
                                                 <td width="50"><input type = "checkbox" name = "col_idnum" value = "yes" checked></td>
@@ -336,7 +345,7 @@
 
                                 <div class="col-md-6">
                                 <h4 class="exportColor"> Company Column </h4>
-                                    <div class="form-group" style="height: 500px; overflow:auto;">
+                                    <div class="form-group" style="height: 300px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
@@ -391,15 +400,6 @@
                         </div>
 
                         <div class="col-md-7">
-
-                        <div class="form-group">
-                            <h2 class="head-title titleFont">Select Table to Export</h2>
-                            <select name="selecttable" class="btn btn-default input-small touch">
-                                <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
-                                <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
-                            </select>
-                        </div>
 
                             <div class="dropdown-menu">
                               <a class="dropdown-item" href="#">Action</a>
