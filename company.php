@@ -142,15 +142,15 @@ include("connect.php");
                             <th width="7%" class="text-center">Number of OJT Student/s</th>
                             <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="countstudents" value="&#9650;">
-                                    <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="countstudents" value="&#9660;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="countstudents" value="&#9650;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="countstudents" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-right">MOA</th>
                             <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
-                                    <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
+                                    <input title="Sort by with MOA" class="btn arrowSort" type="submit" name="moa" value="&#9650;">
+                                    <input title="Sort by without MOA" class="btn arrowSort" type="submit" name="moa" value="&#9660;">
                                 </div>
                             </th>
                             
@@ -378,7 +378,7 @@ include("connect.php");
                                 ';
 
                                     echo '
-                                        <td colspan="2" class="text-center"><a class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+                                        <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
                                             <div id="'.$row['coid'].'" class="modal fade" role="dialog">
                                               <div class="modal-dialog">
                                                 <!-- Modal content-->
