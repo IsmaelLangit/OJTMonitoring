@@ -245,7 +245,7 @@
                             <h2 class="head-title titleFont">Columns</h2>
                             <hr class="style-four">
 
-                            <div class="form-group" style="height: 280px; overflow:auto;">
+                            <div class="form-group" style="height: 300px; overflow:auto;">
                                 <table class="table table-responsive table-bordered table-hover">
                                     <tr class="info">
                                         <td ></td>
