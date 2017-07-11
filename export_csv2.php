@@ -40,43 +40,6 @@
     $col_remark_moa= $_POST['col_remark_moa'];
     $col_moa= $_POST['col_moa'];
 
-    $selecttable1 = "";
-
-    if($col_coname == "yes") {$selecttable1 = $selecttable1.", coname AS 'Company Name'";} 
-    if($col_coaddress == "yes") {$selecttable1 = $selecttable1.", coaddress AS Address";} 
-    if($col_company_head == "yes") {$selecttable1 = $selecttable1.", company_head AS 'Company Head'";} 
-    if($col_position == "yes") {$selecttable1 = $selecttable1.", Position";} 
-    if($col_contact_person == "yes") {$selecttable1 = $selecttable1.", contact_person AS 'Contact Person'";} 
-    if($col_cp_position == "yes") {$selecttable1 = $selecttable1.", cp_position AS Position";} 
-    if($col_typeofcompany == "yes") {$selecttable1 = $selecttable1.", typeofcompany AS 'Company Type'";} 
-    if($col_idnum == "yes") { $selecttable1 = $selecttable1.", idnum AS 'ID No.'";} 
-    if($col_name == "yes") { $selecttable1 = $selecttable1.", concat(last_name, ', ', first_name) AS Name";} 
-    if($col_courseyear == "yes") { $selecttable1 = $selecttable1.", courseyear AS 'Course - Year'";} 
-    if($col_mobile_number == "yes") { $selecttable1 = $selecttable1.", mobile_number as 'Mobile No.'";} 
-    if($col_email == "yes") {  $selecttable1 = $selecttable1.", Email";} 
-    if($col_status == "yes") { $selecttable1 = $selecttable1.", Status";} 
-    if($col_release_endorsement == "yes") { $selecttable1 = $selecttable1.", release_endorsement AS Released";} 
-    if($col_receive_endorsement == "yes") { $selecttable1 = $selecttable1.", receive_endorsement AS Received";}
-    if($col_remark_endorsement == "yes") { $selecttable1 = $selecttable1.", remark_endorsement AS Remarks";}
-    if($col_endorsement == "yes") { $selecttable1 = $selecttable1.", endorsement AS Endorsement";}
-    if($col_release_waiver == "yes") { $selecttable1 = $selecttable1.", release_waiver AS Released";} 
-    if($col_receive_waiver == "yes") { $selecttable1 = $selecttable1.", receive_waiver AS Received"; } 
-    if($col_remark_waiver == "yes") { $selecttable1 = $selecttable1.", remark_waiver AS Remarks";} 
-    if($col_waiver == "yes") { $selecttable1 = $selecttable1.", waiver AS Waiver";} 
-    if($col_release_evaluation == "yes") {$selecttable1 = $selecttable1.", release_evaluation AS Released";} 
-    if($col_receive_evaluation == "yes") {$selecttable1 = $selecttable1.", receive_evaluation AS Received";} 
-    if($col_remark_evaluation == "yes") {$selecttable1 = $selecttable1.", remark_evaluation AS Remarks";} 
-    if($col_evaluation == "yes") {$selecttable1 = $selecttable1.", Evaluation";} 
-    if($col_release_moa == "yes") { $selecttable1 = $selecttable1.", release_moa AS Released";}
-    if($col_receive_moa == "yes") {$selecttable1 = $selecttable1.", receive_moa AS Received";} 
-    if($col_remark_moa == "yes") {$selecttable1 = $selecttable1.", remark_moa AS Remarks";} 
-    if($col_moa == "yes") {$selecttable1 = $selecttable1.", MOA";}
-
-    $selecttable1 = ltrim($selecttable1, ',');
-
-    // filename for export
-    $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
-
     if($endorsement == "All") {
         $where_endorsement = '(endorsement = "yes" or endorsement = "no" or endorsement = "")';
     } else {
@@ -90,7 +53,7 @@
     }
 
     if($moa == "All") {
-        $where_moa = '(moa = "yes" or moa = "no") or moa = ""';
+        $where_moa = '(moa = "yes" or moa = "no" or moa = "")';
     }else {
         $where_moa = ' moa = "'.$moa.'" ';
     }
@@ -107,32 +70,69 @@
         $where_typeofcompany = ' typeofcompany = "'.$typeofcompany.'" ';
     }
 
-    if($course == "All") {
-       $where_course = 'courseyear LIKE "BS%"';
-    }else {
-        $where_course = 'courseyear LIKE "'.$courseyear.'%"';
+    if($course == "All" || $year == "All") {
+        $where_course = 'courseyear LIKE "BS%"';
+        $where_year = 'courseyear LIKE "BS%"';
     }
 
-    if($year == "All") {
-       $where_year = 'courseyear LIKE "BS%"';
-    }else {
+    if($course != "All") {
+        $where_course = 'courseyear LIKE "'.$course.'%"';
+    }
+
+    if($year != "All") {
         $where_year = 'courseyear LIKE "%'.$year.'"';
     }
 
-    if ($selecttable == "Students") {
-        $selecttable = 'idnum, concat(last_name, ", ", first_name) as name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, release_moa, receive_moa, remark_moa, moa, status, coname, typeofcompany';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY last_name, first_name";     
-    } else if ($selecttable == "Company") { 
-        $selecttable = 'count(students.coid) as "countstudent",coid, coname, coaddress, company_head, position, typeofcompany';
-        $where = 'WHERE coname != "No Company AND '.$where_moa.' AND '.$where_typeofcompany." ORDER BY coname";
-    } else {
-        $selecttable = '*';
-        $where = 'WHERE '.$where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
+    $from = "students LEFT JOIN company on students.coid = company.coid";
+    $where = $where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
+    $select_column = "";
+
+    if ($selecttable == "Company"  || $selecttable == "Students+Company") {
+        if ($selecttable == "Company") {$where = 'coname != "No Company" AND '.$where_moa.' AND '.$where_typeofcompany.' ORDER BY coname'; $from = "company";}
+        if($col_coname == "yes") {$select_column = $select_column.", coname AS 'Company Name'";} 
+        if($col_coaddress == "yes") {$select_column = $select_column.", coaddress AS Address";} 
+        if($col_company_head == "yes") {$select_column = $select_column.", company_head AS 'Company Head'";} 
+        if($col_position == "yes") {$select_column = $select_column.", Position";} 
+        if($col_contact_person == "yes") {$select_column = $select_column.", contact_person AS 'Contact Person'";} 
+        if($col_cp_position == "yes") {$select_column = $select_column.", cp_position AS Position";} 
+        if($col_typeofcompany == "yes") {$select_column = $select_column.", typeofcompany AS 'Company Type'";} 
     }
+
+    if ($selecttable == "Students+Company") {
+        if($col_idnum == "yes") { $select_column = $select_column.", idnum AS 'ID No.'";} 
+        if($col_name == "yes") { $select_column = $select_column.", concat(last_name, ', ', first_name) AS Name";} 
+        if($col_courseyear == "yes") { $select_column = $select_column.", courseyear AS 'Course - Year'";} 
+        if($col_mobile_number == "yes") { $select_column = $select_column.", mobile_number as 'Mobile No.'";} 
+        if($col_email == "yes") {  $select_column = $select_column.", Email";} 
+        if($col_status == "yes") { $select_column = $select_column.", Status";} 
+        if($col_release_endorsement == "yes") { $select_column = $select_column.", release_endorsement AS Released";} 
+        if($col_receive_endorsement == "yes") { $select_column = $select_column.", receive_endorsement AS Received";}
+        if($col_remark_endorsement == "yes") { $select_column = $select_column.", remark_endorsement AS Remarks";}
+        if($col_endorsement == "yes") { $select_column = $select_column.", endorsement AS Endorsement";}
+        if($col_release_waiver == "yes") { $select_column = $select_column.", release_waiver AS Released";} 
+        if($col_receive_waiver == "yes") { $select_column = $select_column.", receive_waiver AS Received"; } 
+        if($col_remark_waiver == "yes") { $select_column = $select_column.", remark_waiver AS Remarks";} 
+        if($col_waiver == "yes") { $select_column = $select_column.", waiver AS Waiver";} 
+        if($col_release_evaluation == "yes") {$select_column = $select_column.", release_evaluation AS Released";} 
+        if($col_receive_evaluation == "yes") {$select_column = $select_column.", receive_evaluation AS Received";} 
+        if($col_remark_evaluation == "yes") {$select_column = $select_column.", remark_evaluation AS Remarks";} 
+        if($col_evaluation == "yes") {$select_column = $select_column.", Evaluation";} 
+    }
+
+    if ($selecttable == "Company"  || $selecttable == "Students+Company") { 
+        if($col_release_moa == "yes") { $select_column = $select_column.", release_moa AS Released";}
+        if($col_receive_moa == "yes") {$select_column = $select_column.", receive_moa AS Received";} 
+        if($col_remark_moa == "yes") {$select_column = $select_column.", remark_moa AS Remarks";} 
+        if($col_moa == "yes") {$select_column = $select_column.", MOA";}
+    }
+
+    $select_column = ltrim($select_column, ',');
+    // filename for export
+    $csv_filename = 'db_export_'.$selecttable .'_'.date('Y-m-d').'.csv';
     // create empty variable to be filled with export data
     $csv_export = '';
     // query to get data from database
-    $query = mysqli_query($connect, "SELECT ".$selecttable1." FROM students LEFT JOIN company on students.coid = company.coid ".$where);
+    $query = mysqli_query($connect, "SELECT ".$select_column." FROM ".$from." WHERE ".$where);
     $field = mysqli_field_count($connect);
     // create line with field names
     for($i = 0; $i < $field; $i++) {
@@ -395,12 +395,12 @@
                         <div class="col-md-7">
 
                         <div class="form-group">
-                          <h2 class="head-title titleFont">Select Table to Export</h2>
-                          <select class="btn btn-default input-small touch">
-                            <option>Student</option>
-                            <option>Company</option>
-                            <option>Student and Company</option>
-                          </select>
+                            <h2 class="head-title titleFont">Select Table to Export</h2>
+                            <select name="selecttable" class="btn btn-default input-small touch">
+                                <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
+                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+                                <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
+                            </select>
                         </div>
 
                             <div class="dropdown-menu">
@@ -427,8 +427,8 @@
                                 <div class="col-md-3">
                                     <h4 class="exportColor"> YEAR LEVEL </h4>
                                     <input type="radio" name="year" value="All" required checked> All<br>    
-                                    <input type="radio" name="year" value="BSCS" required> 3rd year<br>
-                                    <input type="radio" name="year" value="BSIT" required> 4th year<br>
+                                    <input type="radio" name="year" value="3" required> 3rd year<br>
+                                    <input type="radio" name="year" value="4" required> 4th year<br>
                                 </div>
                             </div>
 
