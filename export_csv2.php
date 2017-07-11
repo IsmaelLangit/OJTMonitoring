@@ -277,6 +277,10 @@
                                                 <td colspan="2" class="danger">Endorsement</td>
                                             </tr>
                                             <tr>
+                                                <td><input type = "checkbox" name ="col_endorsement" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
                                                 <td><input type = "checkbox" name ="col_release_endorsement" value = "yes"></td>
                                                 <td>Date Released</td>
                                             </tr>
@@ -289,11 +293,11 @@
                                                 <td>Remarks</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name ="col_endorsement" value = "yes" checked></td>
-                                                <td>Status</td>
+                                                <td colspan="2" class="danger">Waiver</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Waiver</td>
+                                                <td><input type = "checkbox" name ="col_waiver" value = "yes" checked></td>
+                                                <td>Status</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_release_waiver" value = "yes"></td>
@@ -308,11 +312,11 @@
                                                 <td>Remarks</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name ="col_waiver" value = "yes" checked></td>
-                                                <td>Status</td>
+                                                <td colspan="2" class="danger">Evaluation</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Evaluation</td>
+                                                <td><input type = "checkbox" name ="col_evaluation" value = "yes" checked></td>
+                                                <td>Status</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_release_evaluation" value = "yes"></td>
@@ -325,10 +329,6 @@
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_remark_evaluation" value = "yes"></td>
                                                 <td>Remarks</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name ="col_evaluation" value = "yes" checked></td>
-                                                <td>Status</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -370,6 +370,10 @@
                                                 <td colspan="2" class="danger">Memorandum of Agreement</td>
                                             </tr>
                                             <tr>
+                                                <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
                                                 <td><input type = "checkbox" name = "col_release_moa" value = "yes"></td>
                                                 <td>Date Released</td>
                                             </tr>
@@ -380,10 +384,6 @@
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_remark_moa" value = "yes"></td>
                                                 <td>Remarks</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
-                                                <td>Status</td>
                                             </tr>
                                         </table>
                                     </div>
