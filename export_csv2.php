@@ -173,6 +173,8 @@
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
+
+  <div class="main-container">
       <header class="main-header" id="header">
         <div class="bg-color wrapper">
             <!--nav-->
@@ -201,7 +203,7 @@
         </div>
     </header>
   <body>
-    <section class="section-padding">
+    <section class="section-padding paddingExport">
     <div class="container-fluid">
         <div class="row">
                 <div class="col text-center">
@@ -240,187 +242,166 @@
                     <input type = "hidden" name ="col_moa" value = "">
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <h2 class="head-title titleFont">Columns</h2>
                             <hr class="style-four">
 
-                            <div class="form-group" style="height: 300px; overflow:auto;">
-                                <table class="table table-responsive table-bordered table-hover">
-                                    <tr class="info">
-                                        <td ></td>
-                                        <td colspan="3">Student Column</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="50"><input type = "checkbox" name = "col_idnum" value = "yes" checked></td>
-                                        <td colspan="2">ID Number</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type = "checkbox" name = "col_name" value = "yes" checked></td>
-                                        <td colspan="2">Name</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type = "checkbox" name ="col_courseyear" value = "yes" checked></td>
-                                        <td colspan="2">Course and Year</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type = "checkbox" name ="col_mobile_number" value = "yes" checked></td>
-                                        <td colspan="2">Mobile Number</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type = "checkbox" name ="col_email" value = "yes" checked></td>
-                                        <td colspan="2">Email</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td colspan="3">Requirement Column</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type = "checkbox" name ="col_status" value = "yes"></td>
-                                        <td colspan="2">Overall Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="danger">Endorsement</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_release_endorsement" value = "yes"></td>
-                                        <td>Date Released</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_receive_endorsement" value = "yes"></td>
-                                        <td>Date Received</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_remark_endorsement" value = "yes"></td>
-                                        <td>Remarks</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_endorsement" value = "yes" checked></td>
-                                        <td>Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="danger">Waiver</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_release_waiver" value = "yes"></td>
-                                        <td>Date Released</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_receive_waiver" value = "yes"></td>
-                                        <td>Date Received</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_remark_waiver" value = "yes"></td>
-                                        <td>Remarks</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_waiver" value = "yes" checked></td>
-                                        <td>Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="danger">Evaluation</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_release_evaluation" value = "yes"></td>
-                                        <td>Date Released</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_receive_evaluation" value = "yes"></td>
-                                        <td>Date Received</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_remark_evaluation" value = "yes"></td>
-                                        <td>Remarks</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name ="col_evaluation" value = "yes" checked></td>
-                                        <td>Status</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td colspan="3">Company Column</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="danger">Company Information</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_coname" value = "yes" checked></td>
-                                        <td>Company Name </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td> <input type = "checkbox" name "col_coaddress" value = "yes" checked></td>
-                                        <td>Address </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_company_head" value = "yes"></td>
-                                        <td>Company Head</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_position" value = "yes"></td>
-                                        <td>Position of Company Head</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_contact_person" value = "yes" checked></td>
-                                        <td>Contact Person </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_cp_position" value = "yes" checked></td>
-                                        <td>Position of Contact Person </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_typeofcompany" value = "yes"></td>
-                                        <td>Type of Company</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="danger">Memorandum of Agreement</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_release_moa" value = "yes"></td>
-                                        <td>Date Released</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_receive_moa" value = "yes"></td>
-                                        <td>Date Received</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_remark_moa" value = "yes"></td>
-                                        <td>Remarks</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><input type = "checkbox" name "col_moa" value = "yes"></td>
-                                        <td>Status</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" style="height: 300px; overflow:auto;">
+                                        <table class="table table-responsive table-hover table-condensed">
+                                            <tr class="info">
+                                                <td colspan="3">Student Column</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="50"><input type = "checkbox" name = "col_idnum" value = "yes" checked></td>
+                                                <td colspan="2">ID Number</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_name" value = "yes" checked></td>
+                                                <td colspan="2">Name</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_courseyear" value = "yes" checked></td>
+                                                <td colspan="2">Course and Year</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_mobile_number" value = "yes" checked></td>
+                                                <td colspan="2">Mobile Number</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_email" value = "yes" checked></td>
+                                                <td colspan="2">Email</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_status" value = "yes"></td>
+                                                <td colspan="2">Overall Status</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="danger">Endorsement</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_release_endorsement" value = "yes"></td>
+                                                <td>Date Released</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_receive_endorsement" value = "yes"></td>
+                                                <td>Date Received</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_remark_endorsement" value = "yes"></td>
+                                                <td>Remarks</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_endorsement" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="danger">Waiver</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_release_waiver" value = "yes"></td>
+                                                <td>Date Released</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_receive_waiver" value = "yes"></td>
+                                                <td>Date Received</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_remark_waiver" value = "yes"></td>
+                                                <td>Remarks</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_waiver" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="danger">Evaluation</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_release_evaluation" value = "yes"></td>
+                                                <td>Date Released</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_receive_evaluation" value = "yes"></td>
+                                                <td>Date Received</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_remark_evaluation" value = "yes"></td>
+                                                <td>Remarks</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_evaluation" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group" style="height: 300px; overflow:auto;">
+                                        <table class="table table-responsive table-hover table-condensed">
+                                            <tr class="info">
+                                                <td colspan="2">Company Column</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_coname" value = "yes" checked></td>
+                                                <td>Company Name </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <input type = "checkbox" name "col_coaddress" value = "yes" checked></td>
+                                                <td>Address </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_company_head" value = "yes"></td>
+                                                <td>Company Head</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_position" value = "yes"></td>
+                                                <td>Position of Company Head</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_contact_person" value = "yes" checked></td>
+                                                <td>Contact Person </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_cp_position" value = "yes" checked></td>
+                                                <td>Position of Contact Person </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_typeofcompany" value = "yes"></td>
+                                                <td>Type of Company</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="danger">Memorandum of Agreement</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_release_moa" value = "yes"></td>
+                                                <td>Date Released</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_receive_moa" value = "yes"></td>
+                                                <td>Date Received</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_remark_moa" value = "yes"></td>
+                                                <td>Remarks</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name "col_moa" value = "yes"></td>
+                                                <td>Status</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                         </div>
 
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <h2 class="head-title titleFont">Student and Company Information</h2>
                             <hr class="style-four">
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> COURSE </h4>
+                                    <h4 class="exportColor"> COURSE </h4>
                                     <input type="radio" name="course" value="All" required checked> All<br>    
                                     <input type="radio" name="course" value="BSCS" required> BSCS<br>
                                     <input type="radio" name="course" value="BSIT" required> BSIT<br>
@@ -429,7 +410,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> YEAR LEVEL </h4>
+                                    <h4 class="exportColor"> YEAR LEVEL </h4>
                                     <input type="radio" name="year" value="All" required checked> All<br>    
                                     <input type="radio" name="year" value="BSCS" required> 3rd year<br>
                                     <input type="radio" name="year" value="BSIT" required> 4th year<br>
@@ -438,7 +419,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> ENDORSEMENT </h4>
+                                    <h4 class="exportColor"> ENDORSEMENT </h4>
                                     <input type="radio" name="endorsement" value="All" required checked> All<br>    
                                     <input type="radio" name="endorsement" value="yes" required> Submitted<br>
                                     <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
@@ -447,7 +428,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> WAIVER </h4>                                  
+                                    <h4 class="exportColor"> WAIVER </h4>                                  
                                     <input type="radio" name="waiver" value="All" required checked> All<br>    
                                     <input type="radio" name="waiver" value="yes" required> Submitted<br>
                                     <input type="radio" name="waiver" value="no" required> Not Submitted<br>
@@ -456,7 +437,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> EVALUATION </h4>                                     
+                                    <h4 class="exportColor paddingTopSlight"> EVALUATION </h4>                                     
                                     <input type="radio" name="evaluation" value="All" required checked> All<br>    
                                     <input type="radio" name="evaluation" value="yes" required> Submitted<br>
                                     <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
@@ -465,7 +446,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <h4> COMPANY TYPE </h4>  
+                                    <h4 class="exportColor paddingTopSlight"> COMPANY TYPE </h4>  
                                     <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
                                     <input type="radio" name="typeofcompany" value="Private" required> Private<br>
                                     <input type="radio" name="typeofcompany" value="Government" required> Government<br>
@@ -473,8 +454,8 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-3">
-                                    <h4> MEMORANDUM OF AGREEMENT </h4>  
+                                <div class="col-md-6">
+                                    <h4 class="exportColor paddingTopSlight"> MEMORANDUM OF AGREEMENT </h4>  
                                     <input type="radio" name="moa" value="All" required checked> All<br>    
                                     <input type="radio" name="moa" value="yes" required> Submitted<br>
                                     <input type="radio" name="moa" value="no" required> Not Submitted<br> 
@@ -483,8 +464,6 @@
 
                         </div><!--End of col-md-8-->
                     </div>
-
-                        
 
                     <div class="form-group text-center paddingTopSlight">
                         <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
@@ -495,10 +474,16 @@
         </div>
     </div>
     </section>
+    <!----> 
     <!---->
+    <footer class="footer">
+        <div class="row text-center">
+            <img class="footerLogo" src="img/newLogo.png">
+            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
+        </div>
+    </footer>
     <!---->
-
-    <!---->
+    </div>
     <!-- end-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>

@@ -301,6 +301,16 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+.paddingExport{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.table-condensed{
+  font-size: 13.5px;
+}
+.exportColor{
+  color: #01618e!important;
+}
 .selectWidth{
     width: auto;
 }
