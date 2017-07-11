@@ -88,7 +88,7 @@
     $select_column = "";
 
     if ($selecttable == "Company"  || $selecttable == "Students+Company") {
-        if ($selecttable == "Company") {$where = 'coname != "No Company" AND '.$where_moa.' AND '.$where_typeofcompany.' ORDER BY coname'; $from = "company";}
+        if ($selecttable == "Company") {$from = "company";$where = 'coname != "No Company" AND '.$where_moa.' AND '.$where_typeofcompany.' ORDER BY coname';}
         if($col_coname == "yes") {$select_column = $select_column.", coname AS 'Company Name'";} 
         if($col_coaddress == "yes") {$select_column = $select_column.", coaddress AS Address";} 
         if($col_company_head == "yes") {$select_column = $select_column.", company_head AS 'Company Head'";} 
@@ -96,30 +96,28 @@
         if($col_contact_person == "yes") {$select_column = $select_column.", contact_person AS 'Contact Person'";} 
         if($col_cp_position == "yes") {$select_column = $select_column.", cp_position AS Position";} 
         if($col_typeofcompany == "yes") {$select_column = $select_column.", typeofcompany AS 'Company Type'";} 
-    }
 
-    if ($selecttable == "Students+Company") {
-        if($col_idnum == "yes") { $select_column = $select_column.", idnum AS 'ID No.'";} 
-        if($col_name == "yes") { $select_column = $select_column.", concat(last_name, ', ', first_name) AS Name";} 
-        if($col_courseyear == "yes") { $select_column = $select_column.", courseyear AS 'Course - Year'";} 
-        if($col_mobile_number == "yes") { $select_column = $select_column.", mobile_number as 'Mobile No.'";} 
-        if($col_email == "yes") {  $select_column = $select_column.", Email";} 
-        if($col_status == "yes") { $select_column = $select_column.", Status";} 
-        if($col_release_endorsement == "yes") { $select_column = $select_column.", release_endorsement AS Released";} 
-        if($col_receive_endorsement == "yes") { $select_column = $select_column.", receive_endorsement AS Received";}
-        if($col_remark_endorsement == "yes") { $select_column = $select_column.", remark_endorsement AS Remarks";}
-        if($col_endorsement == "yes") { $select_column = $select_column.", endorsement AS Endorsement";}
-        if($col_release_waiver == "yes") { $select_column = $select_column.", release_waiver AS Released";} 
-        if($col_receive_waiver == "yes") { $select_column = $select_column.", receive_waiver AS Received"; } 
-        if($col_remark_waiver == "yes") { $select_column = $select_column.", remark_waiver AS Remarks";} 
-        if($col_waiver == "yes") { $select_column = $select_column.", waiver AS Waiver";} 
-        if($col_release_evaluation == "yes") {$select_column = $select_column.", release_evaluation AS Released";} 
-        if($col_receive_evaluation == "yes") {$select_column = $select_column.", receive_evaluation AS Received";} 
-        if($col_remark_evaluation == "yes") {$select_column = $select_column.", remark_evaluation AS Remarks";} 
-        if($col_evaluation == "yes") {$select_column = $select_column.", Evaluation";} 
-    }
+        if ($selecttable == "Students+Company") {
+            if($col_idnum == "yes") { $select_column = $select_column.", idnum AS 'ID No.'";} 
+            if($col_name == "yes") { $select_column = $select_column.", concat(last_name, ', ', first_name) AS Name";} 
+            if($col_courseyear == "yes") { $select_column = $select_column.", courseyear AS 'Course - Year'";} 
+            if($col_mobile_number == "yes") { $select_column = $select_column.", mobile_number as 'Mobile No.'";} 
+            if($col_email == "yes") {  $select_column = $select_column.", Email";} 
+            if($col_status == "yes") { $select_column = $select_column.", Status";} 
+            if($col_release_endorsement == "yes") { $select_column = $select_column.", release_endorsement AS Released";} 
+            if($col_receive_endorsement == "yes") { $select_column = $select_column.", receive_endorsement AS Received";}
+            if($col_remark_endorsement == "yes") { $select_column = $select_column.", remark_endorsement AS Remarks";}
+            if($col_endorsement == "yes") { $select_column = $select_column.", endorsement AS Endorsement";}
+            if($col_release_waiver == "yes") { $select_column = $select_column.", release_waiver AS Released";} 
+            if($col_receive_waiver == "yes") { $select_column = $select_column.", receive_waiver AS Received"; } 
+            if($col_remark_waiver == "yes") { $select_column = $select_column.", remark_waiver AS Remarks";} 
+            if($col_waiver == "yes") { $select_column = $select_column.", waiver AS Waiver";} 
+            if($col_release_evaluation == "yes") {$select_column = $select_column.", release_evaluation AS Released";} 
+            if($col_receive_evaluation == "yes") {$select_column = $select_column.", receive_evaluation AS Received";} 
+            if($col_remark_evaluation == "yes") {$select_column = $select_column.", remark_evaluation AS Remarks";} 
+            if($col_evaluation == "yes") {$select_column = $select_column.", Evaluation";} 
+        }
 
-    if ($selecttable == "Company"  || $selecttable == "Students+Company") { 
         if($col_release_moa == "yes") { $select_column = $select_column.", release_moa AS Released";}
         if($col_receive_moa == "yes") {$select_column = $select_column.", receive_moa AS Received";} 
         if($col_remark_moa == "yes") {$select_column = $select_column.", remark_moa AS Remarks";} 
