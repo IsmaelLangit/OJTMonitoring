@@ -341,50 +341,50 @@
                                     <div class="form-group" style="height: 300px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
-                                                <td><input type = "checkbox" name "col_coname" value = "yes" checked></td>
+                                                <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
                                                 <td>Company Name </td>
                                             </tr>
                                             <tr>
-                                                <td> <input type = "checkbox" name "col_coaddress" value = "yes" checked></td>
+                                                <td> <input type = "checkbox" name = "col_coaddress" value = "yes" checked></td>
                                                 <td>Address </td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_company_head" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_company_head" value = "yes"></td>
                                                 <td>Company Head</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_position" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_position" value = "yes"></td>
                                                 <td>Position of Company Head</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_contact_person" value = "yes" checked></td>
+                                                <td><input type = "checkbox" name = "col_contact_person" value = "yes" checked></td>
                                                 <td>Contact Person </td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_cp_position" value = "yes" checked></td>
+                                                <td><input type = "checkbox" name = "col_cp_position" value = "yes" checked></td>
                                                 <td>Position of Contact Person </td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_typeofcompany" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_typeofcompany" value = "yes"></td>
                                                 <td>Type of Company</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" class="danger">Memorandum of Agreement</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_release_moa" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_release_moa" value = "yes"></td>
                                                 <td>Date Released</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_receive_moa" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_receive_moa" value = "yes"></td>
                                                 <td>Date Received</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_remark_moa" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_remark_moa" value = "yes"></td>
                                                 <td>Remarks</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name "col_moa" value = "yes"></td>
+                                                <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
                                                 <td>Status</td>
                                             </tr>
                                         </table>
