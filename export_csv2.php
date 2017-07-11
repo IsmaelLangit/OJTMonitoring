@@ -274,7 +274,7 @@
                                                 <td colspan="2">Overall Status</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Endorsement</td>
+                                                <td colspan="2" class="info">Endorsement</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_endorsement" value = "yes" checked></td>
@@ -293,7 +293,7 @@
                                                 <td>Remarks</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Waiver</td>
+                                                <td colspan="2" class="info">Waiver</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_waiver" value = "yes" checked></td>
@@ -312,7 +312,7 @@
                                                 <td>Remarks</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Evaluation</td>
+                                                <td colspan="2" class="info">Evaluation</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_evaluation" value = "yes" checked></td>
@@ -367,7 +367,7 @@
                                                 <td>Type of Company</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2" class="danger">Memorandum of Agreement</td>
+                                                <td colspan="2" class="info">Memorandum of Agreement</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
@@ -415,7 +415,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> ENDORSEMENT </h4>
+                                            <h4 class="exportColor"> Endorsement </h4>
                                             <input type="radio" name="endorsement" value="All" required checked> All<br>    
                                             <input type="radio" name="endorsement" value="yes" required> Submitted<br>
                                             <input type="radio" name="endorsement" value="no" required> Not Submitted<br>
@@ -424,7 +424,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> WAIVER </h4>                                  
+                                            <h4 class="exportColor"> Waiver </h4>                                  
                                             <input type="radio" name="waiver" value="All" required checked> All<br>    
                                             <input type="radio" name="waiver" value="yes" required> Submitted<br>
                                             <input type="radio" name="waiver" value="no" required> Not Submitted<br>
@@ -433,7 +433,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> EVALUATION </h4>                     
+                                            <h4 class="exportColor"> Evaluation </h4>                     
                                             <input type="radio" name="evaluation" value="All" required checked> All<br>    
                                             <input type="radio" name="evaluation" value="yes" required> Submitted<br>
                                             <input type="radio" name="evaluation" value="no" required> Not Submitted<br>
@@ -442,7 +442,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> MEMORANDUM OF AGREEMENT </h4>  
+                                            <h4 class="exportColor"> Memorandum of Agreement </h4>  
                                             <input type="radio" name="moa" value="All" required checked> All<br>    
                                             <input type="radio" name="moa" value="yes" required> Submitted<br>
                                             <input type="radio" name="moa" value="no" required> Not Submitted<br> 
@@ -453,7 +453,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> COURSE </h4>
+                                            <h4 class="exportColor"> Course </h4>
                                             <input type="radio" name="course" value="All" required checked> All<br>    
                                             <input type="radio" name="course" value="BSCS" required> BSCS<br>
                                             <input type="radio" name="course" value="BSIT" required> BSIT<br>
@@ -462,7 +462,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> YEAR LEVEL </h4>
+                                            <h4 class="exportColor"> Year Level </h4>
                                             <input type="radio" name="year" value="All" required checked> All<br>    
                                             <input type="radio" name="year" value="3" required> 3rd year<br>
                                             <input type="radio" name="year" value="4" required> 4th year<br>
@@ -471,7 +471,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> COMPANY TYPE </h4>  
+                                            <h4 class="exportColor"> Company Type </h4>  
                                             <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
                                             <input type="radio" name="typeofcompany" value="Private" required> Private<br>
                                             <input type="radio" name="typeofcompany" value="Government" required> Government<br>
