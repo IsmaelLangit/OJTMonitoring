@@ -511,10 +511,5 @@
     <script>
         $('form').areYouSure();
     </script>
-    <script>
-    $('.date').datepicker({
-        format: 'MM dd yyyy',
-    })
-    </script>
   </body>
 </html>
