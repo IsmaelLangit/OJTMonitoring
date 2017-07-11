@@ -349,7 +349,7 @@
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
-                                                <td>Company Name </td>
+                                                <td>Company Name</td>
                                             </tr>
                                             <tr>
                                                 <td> <input type = "checkbox" name = "col_coaddress" value = "yes" checked></td>
@@ -365,11 +365,11 @@
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_contact_person" value = "yes" checked></td>
-                                                <td>Contact Person </td>
+                                                <td>Contact Person</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_cp_position" value = "yes" checked></td>
-                                                <td>Position of Contact Person </td>
+                                                <td>Position of Contact Person</td>
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_typeofcompany" value = "yes"></td>
