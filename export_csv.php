@@ -247,7 +247,7 @@
 
                                 <div class="col-md-6">
                                 <h4 class="exportColor"> Student Column </h4>
-                                    <div class="form-group" style="height: 300px; overflow:auto;">
+                                    <div class="form-group" style="height: 500px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
                                                 <td width="50"><input type = "checkbox" name = "col_idnum" value = "yes" checked></td>
@@ -336,7 +336,7 @@
 
                                 <div class="col-md-6">
                                 <h4 class="exportColor"> Company Column </h4>
-                                    <div class="form-group" style="height: 300px; overflow:auto;">
+                                    <div class="form-group" style="height: 500px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
                                             <tr>
                                                 <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
