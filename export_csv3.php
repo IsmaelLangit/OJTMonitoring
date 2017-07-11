@@ -220,7 +220,7 @@
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-                <form method="post" action="">
+                <form id="form" method="post" action="">
 
                     <div class="row tablecontainer">
 
