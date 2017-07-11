@@ -242,6 +242,7 @@
                     <input type = "hidden" name ="col_moa" value = "">
 
                     <div class="row">
+
                         <div class="col-md-5">
                             <h2 class="head-title titleFont">Columns</h2>
                             <hr class="style-four">
@@ -396,6 +397,24 @@
                         </div>
 
                         <div class="col-md-7">
+
+                        <div class="form-group">
+                          <h2 class="head-title titleFont">Select Table to Export</h2>
+                          <select class="btn btn-default input-small touch">
+                            <option>Student</option>
+                            <option>Company</option>
+                            <option>Student and Company</option>
+                          </select>
+                        </div>
+
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+
                             <h2 class="head-title titleFont">Student and Company Information</h2>
                             <hr class="style-four">
 
