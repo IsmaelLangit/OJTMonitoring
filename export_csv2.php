@@ -270,7 +270,7 @@
                                                 <td colspan="2">Email</td>
                                             </tr>
                                             <tr>
-                                                <td><input type = "checkbox" name ="col_status" value = "yes"></td>
+                                                <td><input type = "checkbox" name ="col_status" value = "yes" checked></td>
                                                 <td colspan="2">Overall Status</td>
                                             </tr>
                                             <tr>
