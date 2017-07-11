@@ -62,12 +62,12 @@ a:hover{
     text-decoration: none;
 }
 ::selection {
-  background: #4c4c4c; /* WebKit/Blink Browsers */
-  color: #efefef;
+  background: rgba(29, 165, 120, 0.89); /* WebKit/Blink Browsers */
+  color: #FFF;
 }
 ::-moz-selection {
-  background: #4c4c4c; /* Gecko Browsers */
-  color: #efefef;
+  background: rgba(29, 165, 120, 0.89); /* Gecko Browsers */
+  color: rgba(44, 186, 169, 0.89);
 }
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
@@ -548,3 +548,16 @@ span.indexIcon{
   border-color: #e74c3c;
 }
 
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(44, 186, 169, 0.89);
+  border: 1px solid rgba(44, 186, 169, 0.89);
+}
