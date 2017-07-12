@@ -120,8 +120,8 @@ include("connect.php");
             
             if(isset($_GET['message']) == 'success'){
                 echo '<div class="alert alert-success" role="alert">
-                                  <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
-                                </div>';
+                      <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
+                    </div>';
             }
             ?>
             
