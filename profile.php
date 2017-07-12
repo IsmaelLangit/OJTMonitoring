@@ -73,10 +73,9 @@ include("connect.php");
 
             <?php
             $idnum = $_GET['idnum'];
-            
             $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
             if(mysqli_num_rows($sql) == 0){
-                header("Location: index.php");
+                header("Location: profile.php");
             }else{
                 $row = mysqli_fetch_assoc($sql);
             }
@@ -91,11 +90,8 @@ include("connect.php");
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
                 }
             }
-            ?>
 
-            <?php
             if(isset($_GET['action']) == 'delete'){
-                $idnum = $_GET['idnum'];
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
                 if($delete){
                     echo '<div class="alert alert-danger alert-dismissable">
