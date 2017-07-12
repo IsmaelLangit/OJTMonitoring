@@ -105,7 +105,7 @@
             if($col_email == "yes") {  $select_column = $select_column.", Email";} 
             if($col_status == "yes") { $select_column = $select_column.", Status";} 
             if($col_release_endorsement == "yes") { $select_column = $select_column.", release_endorsement AS Released";} 
-            if($col_receive_endorsement == "yes") { $select_column = $select_column.", receive_endorsement AS Received";}
+            if($col_receive_endorsement == "yes") { $select_c65olumn = $select_column.", receive_endorsement AS Received";}
             if($col_remark_endorsement == "yes") { $select_column = $select_column.", remark_endorsement AS Remarks";}
             if($col_endorsement == "yes") { $select_column = $select_column.", endorsement AS Endorsement";}
             if($col_release_waiver == "yes") { $select_column = $select_column.", release_waiver AS Released";} 
