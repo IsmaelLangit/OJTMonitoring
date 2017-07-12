@@ -509,15 +509,15 @@
     <script>
         $("#tableSelect").change(function(){
             if($('select[name=selecttable] option:selected').val() == "Company" ) {
-            $("#companyColumn").slideDown("fast");
-                $("#studentColumn").slideUp("fast");
+            $("#companyColumn").fadeIn(100);
+                $("#studentColumn").fadeOut(100);
             } 
             else {
-                $("#tabText").slideUp("fast");
+                $("#tabText").fadeIn(100);
                 if($('select[name=selecttable] option:selected').val() == "Students+Company" ) {    
-                    $("#studentColumn").slideDown("fast");
+                    $("#studentColumn").fadeIn(100);
                 } else {
-                $("#companyColumn").slideUp("fast");
+                $("#companyColumn").fadeOut(100);
                 }
             } 
         });

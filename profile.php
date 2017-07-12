@@ -290,15 +290,9 @@ include("connect.php");
                 }
 
                 ?>
-<<<<<<< HEAD
                 <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
                 <a href="profile.php?action=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm btn btn-danger btn-md" 
-=======
-                <a href="<?= $previous ?>" class="btn btn-md btn-primary disableHighlight"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
-                <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success disableHighlight"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm disableHighlight btn btn-danger btn-md" 
->>>>>>> 60aec325722cfcd11dcdad22cb36107981f7fea9
                                                             data-text="Are you sure you want to delete <?php echo strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name']));
                                                             ?>" data-confirm-button="Yes"
                                                             data-cancel-button="No"
