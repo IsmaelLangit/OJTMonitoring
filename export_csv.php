@@ -241,18 +241,18 @@
 
                     <div class="row">
 
-                    <div class="form-group text-center">
-                            <h2 class="head-title titleFont">Select Table to Export</h2>
+                        <div class="col-md-5">
+
+                        <div class="form-group form-inline">
+                            <label class="exportTitle head-title titleFont paddingTopSlight space">Select Table to Export</label>
                             <select name="selecttable" class="btn btn-default input-small touch">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                 <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
                             </select>
                         </div>
-
-                        <div class="col-md-5">
-                            <h2 class="head-title titleFont">Columns</h2>
-                            <hr class="style-four">
+                        <hr class="style-four">
+                            
 
                                 <div class="col-md-6">
                                 <h4 class="exportColor"> Student Column </h4>
@@ -401,15 +401,7 @@
 
                         <div class="col-md-7">
 
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-
-                            <h2 class="head-title titleFont">Student and Company Information</h2>
+                            <label class="exportTitle head-title titleFont paddingTopSlight">Student and Company Information</label>
                             <hr class="style-four">
 
                             <div class="row">
