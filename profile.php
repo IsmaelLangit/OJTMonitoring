@@ -158,10 +158,6 @@ include("connect.php");
                             <td><?php echo strip_tags(htmlentities($row['coaddress'])); ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Adviser</th>
-                            <td><?php echo strip_tags(htmlentities($row['name'])); ?></td>
-                        </tr>
-                        <tr>
                             <th scope="row" class="bg-danger text-white">Status</th>
                             <?php
                                 if ($row ['status'] == "Complete") {

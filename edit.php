@@ -276,10 +276,10 @@ include("connect.php");
                                             </option>
                                             ";
                                             <?php
-                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY name ASC");
+                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
                                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                                     if($row ['ad_id'] != $row2 ['ad_id'])
-                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["name"]))."</option>";
+                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["adviser"]))."</option>";
                                                 }
                                                 echo "</select>";
                                                 ?>
