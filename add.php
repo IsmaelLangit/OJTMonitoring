@@ -233,9 +233,9 @@
                                             <select name="ad_id" class="form-control touch">
                                                 <option value='1'>No Current Adviser</option>
                                                 <?php
-                                                    $con = mysqli_query($connect, "SELECT * FROM advisers where name != 'No Adviser' ORDER BY name ASC");
+                                                    $con = mysqli_query($connect, "SELECT * FROM advisers where adviser != 'No Adviser' ORDER BY adviser ASC");
                                                     while ($row = mysqli_fetch_assoc($con)) {
-                                                        echo "<option value='".$row["ad_id"]."'>".htmlentities($row["name"])."</option>";
+                                                        echo "<option value='".$row["ad_id"]."'>".htmlentities($row["adviser"])."</option>";
                                                     }
                                                     echo "</select>";
                                                     ?>

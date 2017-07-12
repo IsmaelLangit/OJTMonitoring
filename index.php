@@ -65,14 +65,13 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $idnum = $_GET['idnum'];
-
-                    $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
-                    if($delete){
-                        echo '<div class="alert alert-danger alert-dismissable">
+                $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
+                if($delete){
+                    echo '<div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
                                 </div>';
-                    }else{
-                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                }else{
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
                 }
             }
             ?>

@@ -57,7 +57,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
                             echo htmlentities($row ['last_name'])."'s";
                         ?> 
@@ -99,6 +99,7 @@ include("connect.php");
                 $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
                 $coid        = $_POST['coid'];
+                $ad_id        = $_POST['ad_id'];
 
                 $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
                 $company_moa = mysqli_fetch_assoc($company_query);
@@ -110,7 +111,7 @@ include("connect.php");
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
@@ -245,22 +246,24 @@ include("connect.php");
                                         
                                         <div class="col-sm-8">
                                             <select name="coid" class="form-control touch">
-                                            <option value="<?php echo $row ['coid']; ?>">
-                                                <?php echo strip_tags(htmlentities($row ['coname'])); ?>
-                                            </option>
-                                            ";
                                             <?php
-                                                $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
-                                                while ($row2 = mysqli_fetch_assoc($con)) {
-                                                    if($row ['coid'] != $row2 ['coid'])
-                                                    echo "<option value='".$row2["coid"]."'>".strip_tags(htmlentities($row2["coname"]))."</option>";
-                                                }
-                                                echo "</select>";
-                                                ?>
+                                            $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
+                                            while ($row2 = mysqli_fetch_assoc($con)) {
+                                                echo "
+                                                <option value='".$row2['coid']."'";
+                                                if($row['coid'] == $row2['coid']){ echo 'selected'; } 
+                                                echo "
+                                                >".$row2['coname']."</option>
+                                                ";
+                                            }
+                                            ?>
+                                        </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
 
                             <div class="form-group">
                                 <div class="container-fluid">
@@ -276,10 +279,10 @@ include("connect.php");
                                             </option>
                                             ";
                                             <?php
-                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY name ASC");
+                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
                                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                                     if($row ['ad_id'] != $row2 ['ad_id'])
-                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["name"]))."</option>";
+                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["adviser"]))."</option>";
                                                 }
                                                 echo "</select>";
                                                 ?>
