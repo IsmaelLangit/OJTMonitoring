@@ -209,7 +209,7 @@
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-                <form method="post" action="">
+                <form id="export" method="post" action="">
                     <input type = "hidden" name ="col_idnum" value = "">
                     <input type = "hidden" name ="col_name" value = "">
                     <input type = "hidden" name ="col_courseyear" value = "">
@@ -243,18 +243,72 @@
 
                         <div class="col-md-5">
 
-                        <div class="form-group form-inline">
+                        <div class="form-group form-inline ">
                             <label class="exportTitle head-title titleFont paddingTopSlight space">Select Table to Export</label>
-                            <select name="selecttable" class="btn btn-default input-small touch">
+                            <select name="selecttable" class="btn btn-default input-small touch" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                 <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
                             </select>
                         </div>
                         <hr class="style-four">
-                            
 
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="companyColumn">
+                                <h4 class="exportColor"> Company Column </h4>
+                                    <div class="form-group" style="height: 300px; overflow:auto;">
+                                        <table class="table table-responsive table-hover table-condensed">
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
+                                                <td>Company Name</td>
+                                            </tr>
+                                            <tr>
+                                                <td> <input type = "checkbox" name = "col_coaddress" value = "yes" checked></td>
+                                                <td>Address </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_company_head" value = "yes"></td>
+                                                <td>Company Head</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_position" value = "yes"></td>
+                                                <td>Position of Company Head</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_contact_person" value = "yes" checked></td>
+                                                <td>Contact Person</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_cp_position" value = "yes" checked></td>
+                                                <td>Position of Contact Person</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_typeofcompany" value = "yes"></td>
+                                                <td>Type of Company</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="info">Memorandum of Agreement</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_release_moa" value = "yes"></td>
+                                                <td>Date Released</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_receive_moa" value = "yes"></td>
+                                                <td>Date Received</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name = "col_remark_moa" value = "yes"></td>
+                                                <td>Remarks</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="studentColumn">
                                 <h4 class="exportColor"> Student Column </h4>
                                     <div class="form-group" style="height: 300px; overflow:auto;">
                                         <table class="table table-responsive table-hover table-condensed">
@@ -337,61 +391,6 @@
                                             </tr>
                                             <tr>
                                                 <td><input type = "checkbox" name ="col_remark_evaluation" value = "yes"></td>
-                                                <td>Remarks</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                <h4 class="exportColor"> Company Column </h4>
-                                    <div class="form-group" style="height: 300px; overflow:auto;">
-                                        <table class="table table-responsive table-hover table-condensed">
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_coname" value = "yes" checked></td>
-                                                <td>Company Name</td>
-                                            </tr>
-                                            <tr>
-                                                <td> <input type = "checkbox" name = "col_coaddress" value = "yes" checked></td>
-                                                <td>Address </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_company_head" value = "yes"></td>
-                                                <td>Company Head</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_position" value = "yes"></td>
-                                                <td>Position of Company Head</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_contact_person" value = "yes" checked></td>
-                                                <td>Contact Person</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_cp_position" value = "yes" checked></td>
-                                                <td>Position of Contact Person</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_typeofcompany" value = "yes"></td>
-                                                <td>Type of Company</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" class="info">Memorandum of Agreement</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_moa" value = "yes" checked></td>
-                                                <td>Status</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_release_moa" value = "yes"></td>
-                                                <td>Date Released</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_receive_moa" value = "yes"></td>
-                                                <td>Date Received</td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type = "checkbox" name = "col_remark_moa" value = "yes"></td>
                                                 <td>Remarks</td>
                                             </tr>
                                         </table>
@@ -505,6 +504,23 @@
 
     <script>
         $('form').areYouSure();
+    </script>
+
+    <script>
+        $("#tableSelect").change(function(){
+            if($('select[name=selecttable] option:selected').val() == "Company" ) {
+            $("#companyColumn").slideDown("fast");
+                $("#studentColumn").slideUp("fast");
+            } 
+            else {
+                $("#tabText").slideUp("fast");
+                if($('select[name=selecttable] option:selected').val() == "Students+Company" ) {    
+                    $("#studentColumn").slideDown("fast");
+                } else {
+                $("#companyColumn").slideUp("fast");
+                }
+            } 
+        });
     </script>
   </body>
 </html>
