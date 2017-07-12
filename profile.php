@@ -74,14 +74,14 @@ include("connect.php");
             <?php
             $idnum = $_GET['idnum'];
             
-            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
             if(mysqli_num_rows($sql) == 0){
                 header("Location: index.php");
             }else{
                 $row = mysqli_fetch_assoc($sql);
             }
             
-            if(isset($_GET['aksi']) == 'delete'){
+            if(isset($_GET['action']) == 'delete'){
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum'");
                 if($delete){
                     echo '<div class="alert alert-danger alert-dismissable">
@@ -89,6 +89,20 @@ include("connect.php");
                                 </div>';
                 }else{
                     echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data not deleted successfully.</div>';
+                }
+            }
+            ?>
+
+            <?php
+            if(isset($_GET['action']) == 'delete'){
+                $idnum = $_GET['idnum'];
+                $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
+                if($delete){
+                    echo '<div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
+                                </div>';
+                }else{
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
                 }
             }
             ?>
@@ -138,6 +152,10 @@ include("connect.php");
                         <tr>
                             <th scope="row" class="bg-danger text-white">Address</th>
                             <td><?php echo strip_tags(htmlentities($row['coaddress'])); ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="bg-danger text-white">Adviser</th>
+                            <td><?php echo strip_tags(htmlentities($row['name'])); ?></td>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white">Status</th>
@@ -270,7 +288,7 @@ include("connect.php");
                 ?>
                 <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm btn btn-danger btn-md" 
+                <a href="profile.php?action=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm btn btn-danger btn-md" 
                                                             data-text="Are you sure you want to delete <?php echo strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name']));
                                                             ?>" data-confirm-button="Yes"
                                                             data-cancel-button="No"
