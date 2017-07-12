@@ -486,6 +486,9 @@ span.indexIcon{
     text-align: center;
 }
 /**--------------------------BUTTONS--------------------------**/
+.removeButton{
+  border-radius: 4.5px !important;
+}
 .btn {
   text-transform: uppercase;
   padding: 0.35em 1em;

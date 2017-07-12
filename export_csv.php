@@ -245,7 +245,7 @@
 
                         <div class="form-group form-inline ">
                             <label class="exportTitle head-title titleFont paddingTopSlight space">Select Table to Export</label>
-                            <select name="selecttable" class="btn btn-default input-small touch disableHighlight" id="tableSelect">
+                            <select name="selecttable" class="btn btn-default input-small touch disableHighlight removeButton" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                 <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Company & Students</option>
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
