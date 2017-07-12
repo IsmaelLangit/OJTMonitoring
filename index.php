@@ -125,7 +125,7 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-2 text-center">
-                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
+                    <button type="button" class="btn btn-primary disableHighlight" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
                 </div>

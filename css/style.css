@@ -301,6 +301,9 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+.disableHighlight{
+  outline: none !important;
+}
 .paddingExport{
   padding-left: 50px;
   padding-right: 50px;

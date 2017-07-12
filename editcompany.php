@@ -270,8 +270,8 @@ include("connect.php");
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" name="save" class="btn btn-md btn-success" value="Save"><span class="fa fa-save space"></span>Save</button>
-                    <a href="company.php" class="btn btn-md btn-danger"><span class="fa fa-times space"></span>Cancel</a> 
+                    <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
+                    <a href="company.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a> 
                 </div>
                 
             </form>
