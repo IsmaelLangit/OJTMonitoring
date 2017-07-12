@@ -56,7 +56,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
                             echo htmlentities($row ['last_name'])."'s";
                         ?> 
@@ -271,7 +271,7 @@ include("connect.php");
                                         <div class="col-sm-8">
                                             <select name="ad_id" class="form-control touch">
                                             <option value="<?php echo $row ['ad_id']; ?>">
-                                                <?php echo strip_tags(htmlentities($row ['name'])); ?>
+                                                <?php echo strip_tags(htmlentities($row ['adviser'])); ?>
                                             </option>
                                             ";
                                             <?php
