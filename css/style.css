@@ -140,6 +140,9 @@ a:hover{
 }
 
 /*---------------------------TYPOGRAPHY---------------------------*/
+.reduceFont{
+  font-size: 10px !important;
+}
 .wrapper{
 	padding: 65px 0px;
 }
@@ -313,6 +316,10 @@ a:hover{
 }
 .exportColor{
   color: #01618e!important;
+}
+.titleExport{
+  font-size: 18.5px !important;
+  letter-spacing: 2.5px !important;
 }
 .selectWidth{
     width: auto;
