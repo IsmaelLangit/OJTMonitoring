@@ -112,7 +112,7 @@ include("connect.php");
 
                     </div>
                     <div class="col-md-2 text-center paddingBottomSlight">
-                        <a class="btn btn-success" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
+                        <a class="btn btn-success disableHighlight" href="addcompany.php" role="button"> <span class="glyphicon glyphicon-plus space"></span>Add Company</a>
                     </div>
                 </div>
             </div>

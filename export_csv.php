@@ -245,9 +245,9 @@
 
                         <div class="form-group form-inline ">
                             <label class="exportTitle head-title titleFont paddingTopSlight space">Select Table to Export</label>
-                            <select name="selecttable" class="btn btn-default input-small touch" id="tableSelect">
+                            <select name="selecttable" class="btn btn-default input-small touch disableHighlight removeButton" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Students + Company</option>
+                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Company & Students</option>
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
                             </select>
                         </div>
@@ -473,7 +473,7 @@
                     </div>
 
                     <div class="form-group text-center paddingTopSlight">
-                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
+                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight disableHighlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
                     </div>
 
                 </form>
