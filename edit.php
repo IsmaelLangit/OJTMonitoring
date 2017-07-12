@@ -245,22 +245,24 @@ include("connect.php");
                                         
                                         <div class="col-sm-8">
                                             <select name="coid" class="form-control touch">
-                                            <option value="<?php echo $row ['coid']; ?>">
-                                                <?php echo strip_tags(htmlentities($row ['coname'])); ?>
-                                            </option>
-                                            ";
                                             <?php
-                                                $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
-                                                while ($row2 = mysqli_fetch_assoc($con)) {
-                                                    if($row ['coid'] != $row2 ['coid'])
-                                                    echo "<option value='".$row2["coid"]."'>".strip_tags(htmlentities($row2["coname"]))."</option>";
-                                                }
-                                                echo "</select>";
-                                                ?>
+                                            $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
+                                            while ($row2 = mysqli_fetch_assoc($con)) {
+                                                echo "
+                                                <option value='".$row2['coid']."'";
+                                                if($row['coid'] == $row2['coid']){ echo 'selected'; } 
+                                                echo "
+                                                >".$row2['coname']."</option>
+                                                ";
+                                            }
+                                            ?>
+                                        </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
 
                             <div class="form-group">
                                 <div class="container-fluid">
