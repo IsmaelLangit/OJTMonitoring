@@ -244,7 +244,7 @@
                         <div class="col-md-5">
 
                         <div class="form-group form-inline ">
-                            <label class="exportTitle head-title titleFont paddingTopSlight space">Select Table to Export</label>
+                            <label class="exportTitle head-title titleFont paddingTopSlight space titleExport">Select Table to Export</label>
                             <select name="selecttable" class="btn btn-default input-small touch disableHighlight removeButton" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                 <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Company & Students</option>
@@ -400,7 +400,7 @@
 
                         <div class="col-md-7">
 
-                            <label class="exportTitle head-title titleFont paddingTopSlight">Student and Company Information</label>
+                            <label class="exportTitle head-title titleFont paddingTopSlight titleExport">Student and Company Information</label>
                             <hr class="style-four">
 
                             <div class="row">
