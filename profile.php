@@ -55,7 +55,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
 
                             if (substr($row ['last_name'], -1) == "s") {
@@ -73,7 +73,7 @@ include("connect.php");
 
             <?php
             $idnum = $_GET['idnum'];
-            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
+            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
             if(mysqli_num_rows($sql) == 0){
                 header("Location: profile.php");
             }else{

@@ -56,7 +56,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
                             echo htmlentities($row ['last_name'])."'s";
                         ?> 
