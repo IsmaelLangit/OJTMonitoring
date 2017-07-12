@@ -55,7 +55,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
                             $row = mysqli_fetch_assoc($sql);
 
                             if (substr($row ['last_name'], -1) == "s") {
@@ -74,7 +74,7 @@ include("connect.php");
             <?php
             $idnum = $_GET['idnum'];
             
-            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
+            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid JOIN advisers ON students.ad_id = advisers.ad_id WHERE idnum='$idnum'");
             if(mysqli_num_rows($sql) == 0){
                 header("Location: index.php");
             }else{
@@ -135,6 +135,10 @@ include("connect.php");
                         <tr>
                             <th scope="row" class="bg-info">Email</th>
                             <td class="col-md-10"><?php echo $row['email']; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="bg-info">Adviser</th>
+                            <td class="col-md-10"><?php echo $row['adviser']; ?></td>
                         </tr>
                     </table>
                 </div>
@@ -286,9 +290,15 @@ include("connect.php");
                 }
 
                 ?>
+<<<<<<< HEAD
                 <a href="<?= $previous ?>" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
                 <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
                 <a href="profile.php?action=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm btn btn-danger btn-md" 
+=======
+                <a href="<?= $previous ?>" class="btn btn-md btn-primary disableHighlight"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span>Back</a>
+                <a href="edit.php?idnum=<?php echo $row['idnum']; ?>" class="btn btn-md btn-success disableHighlight"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
+                <a href="profile.php?aksi=delete&idnum=<?php echo $row['idnum']; ?>" class="confirm disableHighlight btn btn-danger btn-md" 
+>>>>>>> 60aec325722cfcd11dcdad22cb36107981f7fea9
                                                             data-text="Are you sure you want to delete <?php echo strip_tags(htmlentities($row['last_name'])).", ".strip_tags(htmlentities($row['first_name']));
                                                             ?>" data-confirm-button="Yes"
                                                             data-cancel-button="No"

@@ -124,7 +124,7 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-2 text-center">
-                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
+                    <button type="button" class="btn btn-primary disableHighlight" data-toggle="collapse" data-target="#summary"><span class="fa fa-bar-chart space"></span>QUICK SUMMARY</button>
                     </div>
 
                 </div>
@@ -794,9 +794,9 @@ include("connect.php");
                                             echo '
                                                 <td colspan="2">';
                                                 if($row['status'] == 'Complete'){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm">Complete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm removeButton reduceFont">Complete</span>';
                                                 } else if ($row['status'] == 'Incomplete' ){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm">Incomplete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm removeButton reduceFont">Incomplete</span>';
                                                 }
 
                                             echo '

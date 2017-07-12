@@ -203,8 +203,8 @@ include("connect.php");
                     $previous = $_SERVER['HTTP_REFERER'];
                 }
                 ?>
-            <a href="<?= $previous ?>" class="btn btn-md btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
-            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
+            <a href="<?= $previous ?>" class="disableHighlight btn btn-md btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
+            <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="disableHighlight btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <?php
             echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';
             $con = mysqli_query($connect, "SELECT * FROM company NATURAL JOIN students WHERE company.coid=".$row['coid']);
@@ -217,7 +217,7 @@ include("connect.php");
                 data-title="Delete Company" class="confirm btn btn-danger btn-sm">'; 
             } else {
                 echo '
-                class="btn btn-danger btn-sm">';
+                class="btn btn-danger btn-sm disableHighlight">';
             }
             echo '<span class="glyphicon glyphicon-trash space" aria-hidden="true"></span>
                     Delete</a>

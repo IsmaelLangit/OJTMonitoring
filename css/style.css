@@ -140,6 +140,9 @@ a:hover{
 }
 
 /*---------------------------TYPOGRAPHY---------------------------*/
+.reduceFont{
+  font-size: 10px !important;
+}
 .wrapper{
 	padding: 65px 0px;
 }
@@ -301,6 +304,9 @@ a:hover{
 }
 
 /*-------------------------OTHER STYLES----------------------------*/
+.disableHighlight{
+  outline: none !important;
+}
 .paddingExport{
   padding-left: 50px;
   padding-right: 50px;
@@ -310,6 +316,10 @@ a:hover{
 }
 .exportColor{
   color: #01618e!important;
+}
+.titleExport{
+  font-size: 18.5px !important;
+  letter-spacing: 2.5px !important;
 }
 .selectWidth{
     width: auto;
@@ -483,6 +493,9 @@ span.indexIcon{
     text-align: center;
 }
 /**--------------------------BUTTONS--------------------------**/
+.removeButton{
+  border-radius: 4.5px !important;
+}
 .btn {
   text-transform: uppercase;
   padding: 0.35em 1em;
