@@ -62,7 +62,7 @@ CREATE TABLE `company` (
   `remark_moa` varchar(300) DEFAULT NULL,
   `moa` varchar(45) NOT NULL DEFAULT 'no',
   PRIMARY KEY (`coid`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-12 14:42:21
+-- Dump completed on 2017-07-12 17:40:51
