@@ -68,7 +68,7 @@ include("connect.php");
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
             <?php
             $idnum = $_GET['idnum'];
-            $sql = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
             if(mysqli_num_rows($sql) == 0){
                 header("Location: index.php");
             }else{
@@ -253,6 +253,32 @@ include("connect.php");
                                                 while ($row2 = mysqli_fetch_assoc($con)) {
                                                     if($row ['coid'] != $row2 ['coid'])
                                                     echo "<option value='".$row2["coid"]."'>".strip_tags(htmlentities($row2["coname"]))."</option>";
+                                                }
+                                                echo "</select>";
+                                                ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label">Adviser</label>
+                                        </div>
+                                        
+                                        <div class="col-sm-8">
+                                            <select name="ad_id" class="form-control touch">
+                                            <option value="<?php echo $row ['ad_id']; ?>">
+                                                <?php echo strip_tags(htmlentities($row ['name'])); ?>
+                                            </option>
+                                            ";
+                                            <?php
+                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY name ASC");
+                                                while ($row2 = mysqli_fetch_assoc($con)) {
+                                                    if($row ['ad_id'] != $row2 ['ad_id'])
+                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["name"]))."</option>";
                                                 }
                                                 echo "</select>";
                                                 ?>

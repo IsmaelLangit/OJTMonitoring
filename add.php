@@ -66,6 +66,7 @@
                 $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
                 $courseyear      = $_POST['courseyear'];
                 $mobile_number       = $_POST['mobile_number'];
+                $ad_id      = $_POST['ad_id'];
 
                 $email       = mysqli_real_escape_string($connect,$_POST['email']);
 
@@ -87,7 +88,7 @@
                 $coid        = $_POST['coid'];
 
  
-                $con = mysqli_query($connect, "SELECT * from students JOIN company ON students.coid = company.coid WHERE idnum='$idnum'");
+                $con = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE idnum='$idnum'");
 
                 if(mysqli_num_rows($con) == 0){
                     $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
@@ -99,8 +100,8 @@
                         $status = "Incomplete";
                     }
                 
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status)
-                                                            VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id)
+                                                            VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
                                   <span class = "fa fa-check-circle"></span><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
@@ -213,6 +214,27 @@
                                                     $con = mysqli_query($connect, "SELECT * FROM company ORDER BY coname ASC");
                                                     while ($row = mysqli_fetch_assoc($con)) {
                                                         echo "<option value='".$row["coid"]."'>".htmlentities($row["coname"])."</option>";
+                                                    }
+                                                    echo "</select>";
+                                                    ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label">Adviser</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select name="ad_id" class="form-control touch">
+                                                <option value='1'>No Current Adviser</option>
+                                                <?php
+                                                    $con = mysqli_query($connect, "SELECT * FROM advisers where name != 'No Adviser' ORDER BY name ASC");
+                                                    while ($row = mysqli_fetch_assoc($con)) {
+                                                        echo "<option value='".$row["ad_id"]."'>".htmlentities($row["name"])."</option>";
                                                     }
                                                     echo "</select>";
                                                     ?>
