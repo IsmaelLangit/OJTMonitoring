@@ -84,7 +84,41 @@ include("connect.php");
                     }
                 }
 
-            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id");
+            $adviser = (isset($_GET['adviser']) ? strtolower($_GET['adviser']) : NULL);
+            $countstudents = (isset($_GET['countstudents']) ? strtolower($_GET['countstudents']) : NULL);
+            $sort = 'adviser';
+                        
+            switch ($adviser) {
+                case "▲":
+                    $sort = 'adviser';
+                    break;
+                
+                case "▼":
+                    $sort = 'adviser DESC';
+                    break;
+            }
+
+            if($adviser) {
+                $sortvar = "&adviser=";
+                $sortval = $adviser;
+            }
+
+            switch ($countstudents) {
+                case "▲":
+                    $sort = 'countstudents, adviser';
+                    break;
+                
+                case "▼":
+                    $sort = 'countstudents DESC, adviser';
+                    break;
+            }
+
+            if($countstudents) {
+                $sortvar = "&countstudents=";
+                $sortval = $countstudents;
+            }
+
+            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
             ?>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -104,21 +138,22 @@ include("connect.php");
 
             <div class="row paddingTopSlight">
                 <table class="table table-hover table-responsive">
+                    <form>
                     <thead>
                         <tr class="info">
                             <th>No</th>
                             <th width="25%" class="text-right">Name of Adviser</th>
                             <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
-                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
                                 </div>
                             </th>
                             <th width="25%" class="text-right">Total Students</th>
                             <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
-                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="countstudents" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="countstudents" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-center">Tools</th>
@@ -196,6 +231,7 @@ include("connect.php");
                            
                      
                     </tbody>
+                    </form>
                 </table>
             </div>
         </div> <!--End of Container Fluid-->
