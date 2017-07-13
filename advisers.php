@@ -98,11 +98,6 @@ include("connect.php");
                     break;
             }
 
-            if($adviser) {
-                $sortvar = "&adviser=";
-                $sortval = $adviser;
-            }
-
             switch ($countstudents) {
                 case "▲":
                     $sort = 'countstudents, adviser';
@@ -113,10 +108,6 @@ include("connect.php");
                     break;
             }
 
-            if($countstudents) {
-                $sortvar = "&countstudents=";
-                $sortval = $countstudents;
-            }
 
             $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
             ?>
