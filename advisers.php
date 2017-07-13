@@ -115,13 +115,12 @@ include("connect.php");
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="row text-center ">
-                <button class="btn btn-primary removeButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add an Adviser</button>
  
-                <div class="form-group row collapse paddingTopSlight" id="collapseExample">
+                <div class="form-group row  paddingTopSlight">
                     <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                       <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser">
-                      <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add</button>
+                      <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add Adviser</button>
                     </form>
                 </div>
 
