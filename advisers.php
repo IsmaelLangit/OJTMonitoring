@@ -106,15 +106,15 @@ include("connect.php");
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr class="info">
-                            <th>No</th>
-                            <th width="25%" class="text-right">Name of Adviser</th>
-                            <th width="0.5%" class="text-left">
+                            <th width="20%">No</th>
+                            <th width="12%" class="text-left">Name of Adviser</th>
+                            <th width="10%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
                                     <input title="Sort by Descending" class="btn arrowSort" type="submit" name="idnum" value="&#9660;">
                                 </div>
                             </th>
-                            <th width="25%" class="text-right">Total Students</th>
+                            <th width="20%" class="text-right">Total Students</th>
                             <th width="0.5%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="idnum" value="&#9650;">
@@ -166,7 +166,7 @@ include("connect.php");
                                           </div>
                                         </div>
                             
-                                    <td>
+                                    <td class="text-center">
                                         <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
