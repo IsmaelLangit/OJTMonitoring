@@ -56,10 +56,10 @@ include("connect.php");
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
-            <div class="row text-center">
+            <div class="row text-center ">
                 <button class="btn btn-primary removeButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add an Adviser</button>
 
-                <div class="form-group row collapse paddingTopSlight" id="collapseExample">
+                <div class="form-group row panel-collapse collapse" id="collapseExample">
                   <form class="form-inline">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                       <input type="text" class="form-control" id="inlineFormInput" placeholder="Enter Name of Adviser">
