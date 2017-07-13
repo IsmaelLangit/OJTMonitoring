@@ -187,10 +187,12 @@ include("connect.php");
                                                 <h2 class="infoStudent">Practicum Student/s</h2>
                                             ';
                             $con1 = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students where ad_id = '".mysqli_real_escape_string($connect,$row['ad_id'])."' ORDER BY last_name, first_name");
+                            $no1 = 1;
                             while ($row2 = mysqli_fetch_assoc($con1)) {
                                     echo '
-                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
+                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$no1.'. '.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
                                                     ';
+                                        $no1++;
                                                 }
                                     echo '
                                               </div>
