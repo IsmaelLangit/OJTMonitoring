@@ -54,17 +54,49 @@ include("connect.php");
                 <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
             </div>
 
+            <?php
+            if(isset($_POST['add'])){
+                $adviser           = $_POST['adviser'];
+                $con = mysqli_query($connect, "SELECT * from advisers WHERE adviser='$adviser'");
+                if(mysqli_num_rows($con) == 0){
+                    $insert = mysqli_query($connect, "INSERT INTO advisers (adviser) VALUES('$adviser')") or die('Error: ' . mysqli_error($connect));
+                    echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added an adviser.
+                        </div>';
+                } else {
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
+                    }
+                
+            }
+
+            if(isset($_GET['action']) == 'delete'){
+                $ad_id = $_GET['ad_id'];
+                $con = mysqli_query($connect, "SELECT * FROM advisers NATURAL JOIN students WHERE ad_id=".$ad_id);
+                if (mysqli_num_rows($con) == 0) {
+                    $delete = mysqli_query($connect, "DELETE FROM advisers WHERE ad_id=".$ad_id);
+                    if($delete){
+                        echo '<div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the company!
+                                </div>';
+                    }  
+                } else {
+                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
+    
+                    }
+                }
+
+            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id");
+            ?>
+
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="row text-center ">
                 <button class="btn btn-primary removeButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add an Adviser</button>
 
-                <div class="form-group row panel-collapse collapse" id="collapseExample">
-                  <form class="form-inline">
+                <div class="form-group row collapse paddingTopSlight" id="collapseExample">
+                    <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
-                      <input type="text" class="form-control" id="inlineFormInput" placeholder="Enter Name of Adviser">
-
-                      <button type="submit" class="btn btn-success removeButton">Add</button>
+                      <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser">
+                      <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add</button>
                     </form>
                 </div>
 
@@ -93,51 +125,76 @@ include("connect.php");
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td colspan="2" class="text-center">Ma. Concepcion Clemente</td>
-                            <td colspan="2" class="text-center"> 
-                                <a class="touch "title="View Adviser Students touch" data-toggle="modal" data-target="#myModal"><span class="countNumber">1</span></a>
-                            </td>
-                            <td class="text-center">
-                                <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
-                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </a>
+                    <?php
+                        if(mysqli_num_rows($sql) == 0){
+                            echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
+                        }else{
+                            $no = 1;
+                            while($row = mysqli_fetch_assoc($sql)){
+                                if($row['countstudents'] == "") {
+                                    $row['countstudents'] = 0;
+                                }
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h4 class="modal-title text-center">Adviser's Name</h4>
-                                      </div>
-                                      <div class="modal-body text-center">
-                                        <h2 class="infoStudent">Practicum Student/s</h2>
-                                        <p class="student">
-                                            <a href="">Ismael Langit</a>
-                                        </p>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                                echo '
+                                <tr>
+                                    <td>'.$no.'</td>
+                                    <td colspan="2">'.$row['adviser'].'</td>
+                                    <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['ad_id'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+                                        <div id="'.$row['ad_id'].'" class="modal fade" role="dialog">
+                                          <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['adviser'])).'</h4>
+                                              </div>
+                                              <div class="modal-body text-center">
+                                                <h2 class="infoStudent">Practicum Student/s</h2>
+                                            ';
+                            $con1 = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students where ad_id = '".mysqli_real_escape_string($connect,$row['ad_id'])."' ORDER BY last_name, first_name");
+                            while ($row2 = mysqli_fetch_assoc($con1)) {
+                                    echo '
+                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
+                                                    ';
+                                                }
+                                    echo '
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                            
+                                    <td>
+                                        <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        </a>
+                                         <a href="advisers.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Company" ';
+                                if($row['countstudents'] == 0){
+                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['adviser'])).
+                                    '" data-confirm-button="Yes"
+                                    data-cancel-button="No"
+                                    data-confirm-button-class= "btn-success"
+                                    data-cancel-button-class= "btn-danger"
+                                    data-title="Delete Company" class="confirm btn btn-danger btn-sm">'; 
+                                } else {
+                                    echo '
+                                    class="btn btn-danger btn-sm">';
+                                }
+                                echo '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                ';
+                                $no++;
+                            }
+                        }
+                    ?>
 
-                                <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm" 
-                                        data-text="Are you sure you want to delete (NAME)" 
-                                        data-confirm-button="Yes"
-                                        data-cancel-button="No"
-                                        data-confirm-button-class= "btn-success"
-                                        data-cancel-button-class= "btn-danger"
-                                        data-title="Delete Adviser">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                </a>
-                            </td>
-                        </tr>
+              
+                           
+                     
                     </tbody>
                 </table>
             </div>
