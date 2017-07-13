@@ -75,11 +75,11 @@ include("connect.php");
                     $delete = mysqli_query($connect, "DELETE FROM advisers WHERE ad_id=".$ad_id);
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the company!
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the adviser!
                                 </div>';
                     }  
                 } else {
-                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
+                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete an adviser </strong> with present OJT students.</div>';
     
                     }
                 }
@@ -91,7 +91,7 @@ include("connect.php");
 
             <div class="row text-center ">
                 <button class="btn btn-primary removeButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add an Adviser</button>
-
+ 
                 <div class="form-group row collapse paddingTopSlight" id="collapseExample">
                     <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
