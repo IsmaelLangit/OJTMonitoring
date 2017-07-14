@@ -41,7 +41,7 @@ CREATE TABLE `advisers` (
 
 LOCK TABLES `advisers` WRITE;
 /*!40000 ALTER TABLE `advisers` DISABLE KEYS */;
-INSERT INTO `advisers` VALUES (1,'','No Adviser','No Adviser','No Adviser'),(2,'Ms.','Maria Concepcion  Clemente','Maria Concepcion',' Clemente'),(3,'Mr.','Carlos Ben Montes','Carlos Ben','Montes'),(4,'Mr.','Lambert Famorca','Lambert ','Famorca'),(5,'Mr.','Randy Domantay','Randy','Domantay'),(6,'Mr.','Roderick Makil','Roderick','Makil'),(7,'Mrs.','Beverly Ferrer','Beverly','Ferrer'),(8,'Ms.','Ria Andrea Nana','Ria Andrea ','Nana'),(9,'Mr.','Dalos Miguel','Dalos ','Miguel'),(10,'Mr.','Laurence Balmeo','Laurence ','Balmeo'),(11,'Mr.','Ronald Ali Mangaliag','Ronald Ali','Mangaliag'),(12,'Mr.','Benedict Bacani','Benedict ','Bacani');
+INSERT INTO `advisers` VALUES (1,'','No Adviser','No Adviser','No Adviser'),(2,'Ms.','Maria Concepcion  Clemente','Maria Concepcion','Clemente'),(3,'Mr.','Carlos Ben Montes','Carlos Ben','Montes'),(4,'Mr.','Lambert Famorca','Lambert ','Famorca'),(5,'Mr.','Randy Domantay','Randy','Domantay'),(6,'Mr.','Roderick Makil','Roderick','Makil'),(7,'Mrs.','Beverly Ferrer','Beverly','Ferrer'),(8,'Ms.','Ria Andrea Nana','Ria Andrea ','Nana'),(9,'Mr.','Dalos Miguel','Dalos ','Miguel'),(10,'Mr.','Laurence Balmeo','Laurence ','Balmeo'),(11,'Mr.','Ronald Ali Mangaliag','Ronald Ali','Mangaliag'),(12,'Mr.','Benedict Bacani','Benedict ','Bacani');
 /*!40000 ALTER TABLE `advisers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-14 11:17:31
+-- Dump completed on 2017-07-14 14:37:32
