@@ -56,19 +56,24 @@ include("connect.php");
 
             <?php
             if(isset($_POST['add'])){
-                $adviser           = $_POST['adviser'];
-                $con = mysqli_query($connect, "SELECT * from advisers WHERE adviser='$adviser'");
+            //    $adviser       = $_POST['adviser'];
+                $lname        = $_POST['lname'];
+                $fname        = $_POST['fname'];
+             //   $con = mysqli_query($connect, "SELECT * from advisers WHERE adviser='$adviser'");
+                $con = mysqli_query($connect, "SELECT * from advisers WHERE lname='$lname', fname='$fname', adviser='$adviser'");
+                
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO advisers (adviser) VALUES('$adviser')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO advisers (title, lname, fname) VALUES('$title', '$lname', '$fname')") or die('Error: ' . mysqli_error($connect));
+                    
                     echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added an adviser.
                         </div>';
                 } else {
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
-            }
-
-            if(isset($_GET['action']) == 'delete'){
+            }  
+            
+                if(isset($_GET['action']) == 'delete'){
                 $ad_id = $_GET['ad_id'];
                 $con = mysqli_query($connect, "SELECT * FROM advisers NATURAL JOIN students WHERE ad_id=".$ad_id);
                 if (mysqli_num_rows($con) == 0) {
@@ -84,17 +89,39 @@ include("connect.php");
                     }
                 }
 
-            $adviser = (isset($_GET['adviser']) ? strtolower($_GET['adviser']) : NULL);
+          //  $adviser = (isset($_GET['adviser']) ? strtolower($_GET['adviser']) : NULL);
+            $lname = (isset($_GET['lname']) ? strtolower($_GET['lname']) : NULL);
+            $fname = (isset($_GET['fname']) ? strtolower($_GET['fname']) : NULL);
             $countstudents = (isset($_GET['countstudents']) ? strtolower($_GET['countstudents']) : NULL);
-            $sort = 'adviser';
+            $sort = 'lname';
                         
-            switch ($adviser) {
+//            switch ($adviser) {
+//                case "▲":
+//                    $sort = 'adviser';
+//                    break;
+//                
+//                case "▼":
+//                    $sort = 'adviser DESC';
+//                    break;
+//            }
+//
+//            switch ($countstudents) {
+//                case "▲":
+//                    $sort = 'countstudents, adviser';
+//                    break;
+//                
+//                case "▼":
+//                    $sort = 'countstudents DESC, adviser';
+//                    break;
+//            }
+            
+            switch ($lname) {
                 case "▲":
-                    $sort = 'adviser';
+                    $sort = 'lname, fname';
                     break;
                 
                 case "▼":
-                    $sort = 'adviser DESC';
+                    $sort = 'lname DESC, fname';
                     break;
             }
 
@@ -107,9 +134,9 @@ include("connect.php");
                     $sort = 'countstudents DESC, adviser';
                     break;
             }
+            
 
-
-            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
+            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE lname != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE lname != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
             ?>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -163,8 +190,9 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td colspan="2">'.$row['adviser'].'</td>
+                                    <td colspan="2" class="text-left"><a href="profileadviser.php?ad_id='.$row['ad_id'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['fname'])).", ".strip_tags($row['lname']).'</a></td>
                                     <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['ad_id'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+ 
                                         <div id="'.$row['ad_id'].'" class="modal fade" role="dialog">
                                           <div class="modal-dialog">
                                             <!-- Modal content-->

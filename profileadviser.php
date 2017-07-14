@@ -53,9 +53,19 @@ include("connect.php");
 
             <div class="col text-center">
                 <h1 class="top-title">
-                    <span class="title">
-                    Mr. Bacani's
-                    </span> 
+                      <span class="title">
+                        <?php 
+                            $ad_id = $_GET['ad_id'];
+                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE ad_id='$ad_id'");
+                            $row = mysqli_fetch_assoc($sql);
+                            if (substr($row ['lname'], -1) == "s") {
+                                echo htmlentities($row ['lname'])."'";
+                            } else if (substr($row ['lname'], -1) != "s"){
+                                 echo htmlentities($row ['lname'])."'s";
+                            }
+                            
+                        ?>
+                    </span>  
                 Profile</h1>
             </div>
 
