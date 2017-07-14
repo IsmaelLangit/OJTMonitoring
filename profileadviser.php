@@ -77,9 +77,21 @@ include("connect.php");
                         <thead>
                            <tr class="info">
                             <th width="10%">No</th>
-                            <th width="25%" class="text-left">Student Name</th>
-                            <th width="20%" class="text-right">Company Name</th>
-                            <th width="20%" class="text-right">Visit Status</th>
+                            <th width="12%" class="text-left">Student Name</th>
+                            <th width="10%" class="text-left">
+                                <div class="btn-group-vertical">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                </div>
+                            </th>
+                            <th width="12%" class="text-right">Company Name</th>
+                            <th width="10%" class="text-left">
+                                <div class="btn-group-vertical">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                </div>
+                            </th>
+                            <th width="12%" class="text-right">Visit Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
