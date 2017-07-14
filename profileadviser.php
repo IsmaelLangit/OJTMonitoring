@@ -75,20 +75,21 @@ include("connect.php");
                 <div class="col" style="height: 300px; overflow:auto;">
                     <table class="table table-hover table-responsive">
                         <thead>
-                            <tr class="info">
-                                <th>No</th>
-                                <th>Student Name</th>
-                                <th>Company Name</th>
-                                <th>Visit Status</th>
-                                <th>Action</th>
-                            </tr>
+                           <tr class="info">
+                            <th width="10%">No</th>
+                            <th width="25%" class="text-left">Student Name</th>
+                            <th width="20%" class="text-right">Company Name</th>
+                            <th width="20%" class="text-right">Visit Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
                         </thead>
-
+             
                         <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>Ismael Langit</td>
                                 <td>SLU SCIS IT/CS Department</td>
+                                
                                 <td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></td>
                                 <td>
                                     <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStudent"> <span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
