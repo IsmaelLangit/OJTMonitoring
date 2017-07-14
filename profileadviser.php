@@ -151,7 +151,7 @@ include("connect.php");
 
 
                                     <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
-                                            data-text="Are you sure you want to delete (NAME)"                                            '" data-confirm-button="Yes"
+                                            data-text="Are you sure you want to delete (NAME)"'" data-confirm-button="Yes"
                                             data-cancel-button="No"
                                             data-confirm-button-class= "btn-success"
                                             data-cancel-button-class= "btn-danger"
