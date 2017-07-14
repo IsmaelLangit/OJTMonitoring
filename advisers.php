@@ -72,7 +72,6 @@ include("connect.php");
                     }
                 
             }  
-            
                 if(isset($_GET['action']) == 'delete'){
                 $ad_id = $_GET['ad_id'];
                 $con = mysqli_query($connect, "SELECT * FROM advisers NATURAL JOIN students WHERE ad_id=".$ad_id);
@@ -190,7 +189,7 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td colspan="2" class="text-left"><a href="profileadviser.php?ad_id='.$row['ad_id'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['fname'])).", ".strip_tags($row['lname']).'</a></td>
+                                    <td colspan="2" class="text-left"><a href="profileadviser.php?ad_id='.$row['ad_id'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['fname']))." ".strip_tags($row['lname']).'</a></td>
                                     <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['ad_id'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
  
                                         <div id="'.$row['ad_id'].'" class="modal fade" role="dialog">
