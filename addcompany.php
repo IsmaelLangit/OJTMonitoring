@@ -258,6 +258,7 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/bootstrap-notify.js"></script>
 
     <script>
         $('form').areYouSure();
@@ -267,6 +268,63 @@ include("connect.php");
     $('.date').datepicker({
         format: 'MM dd yyyy',
     })
+    </script>
+
+    <script>
+        $(function success(){
+          $(".btn").on("click",function(){
+            $.notify({
+              title: '<strong>Success!</strong>',
+              icon: 'fa fa-check-circle',
+              message: "You have successfully added a company. <a href='company.php'><span class='fa fa-arrow-circle-left'></span> Go back to the list of companies.</a>"
+            },{
+              type: 'success',
+              animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: {
+                    x: 20,
+                    y: 150
+               },
+              mouse_over: "pause",
+              spacing: 10,
+              z_index: 1031,
+            });
+          });
+        });
+    </script>
+
+    <script>
+        $(function error(){
+          $(".btn").on("click",function(){
+            $.notify({
+              icon: 'fa fa-exclamation-circle',
+              message: "The company you are adding <strong> already exists in the database.</a>"
+            },{
+              type: 'danger',
+              animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: {
+                    x: 20,
+                    y: 150
+               },
+              mouse_over: "pause",
+              spacing: 10,
+              z_index: 1031,
+            });
+          });
+        });
     </script>
     
   </body>
