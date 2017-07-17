@@ -74,7 +74,7 @@ include("connect.php");
                 <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
             </div>
             <?php               
-            $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
+            $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser, coid from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
             $sql2 = mysqli_query($connect, "SELECT count(students.coid) as countstudents, coname, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2,3");
             ?>
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -123,8 +123,8 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$row['idnum'].'</td>
-                                    <td>'.$row['Name'].'</td>
-                                    <td>'.$row['coname'].'</td>
+                                    <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['Name'])).'</a></td>
+                                    <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
                                     <td>'.$row['adviser'].'</td>
                                     <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
                                 </tr>
