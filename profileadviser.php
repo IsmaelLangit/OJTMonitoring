@@ -59,8 +59,10 @@ include("connect.php");
                             $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE ad_id='$ad_id'");
                             $row = mysqli_fetch_assoc($sql);
                             if (substr($row ['lname'], -1) == "s") {
+                                echo htmlentities($row ['title'])." ";
                                 echo htmlentities($row ['lname'])."'";
                             } else if (substr($row ['lname'], -1) != "s"){
+                                 echo htmlentities($row ['title'])." ";
                                  echo htmlentities($row ['lname'])."'s";
                             }
                             
