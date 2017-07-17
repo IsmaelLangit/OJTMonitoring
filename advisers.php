@@ -177,7 +177,7 @@ include("connect.php");
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['adviser'])).'</h4>
+                                                <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['title']))." ".strip_tags($row['fname'])." ".strip_tags($row['lname']).'</h4>
                                               </div>
                                               <div class="modal-body text-center">
                                                 <h2 class="infoStudent">Practicum Student/s</h2>
@@ -200,12 +200,12 @@ include("connect.php");
                                         </div>
                             
                                     <td class="text-center">
-                                        <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                        <a href="editadviser.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                          <a href="advisers.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Company" ';
                                 if($row['countstudents'] == 0){
-                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['adviser'])).
+                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['title']))." ".strip_tags($row['fname'])." ".strip_tags($row['lname']).
                                     '" data-confirm-button="Yes"
                                     data-cancel-button="No"
                                     data-confirm-button-class= "btn-success"
