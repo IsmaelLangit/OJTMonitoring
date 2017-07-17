@@ -16,6 +16,25 @@ include("connect.php");
         <link rel="icon" href="img/scisLogo.png">
     </head>
 <body>
+    <?php
+    if(isset($_POST['change'])){
+        $ad_id  = $_POST['ad_id'];
+        $con = mysqli_query($connect, "SELECT idnum FROM students");
+        $row = mysqli_num_rows($con);
+
+        if(!empty($_POST['check_list'])) {
+            foreach($_POST['check_list'] as $check) {
+                $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where idnum = ".$check) or die(mysqli_error()); 
+            }
+        }
+
+        if(!empty($_POST['company_list'])) {
+            foreach($_POST['company_list'] as $check_company) {
+                $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where coid = ".$check_company) or die(mysqli_error()); 
+            }
+        }
+    }
+    ?>
 
     <div class="main-container">
 
@@ -54,15 +73,10 @@ include("connect.php");
             <div class="col text-center">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
             </div>
-
-            <?php
-            $adviser = (isset($_GET['adviser']) ? strtolower($_GET['adviser']) : NULL);
-                        
-
+            <?php               
             $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
             $sql2 = mysqli_query($connect, "SELECT count(students.coid) as countstudents, coname, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2,3");
             ?>
-
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="form-group">
@@ -115,7 +129,7 @@ include("connect.php");
                                     <td>'.$row['Name'].'</td>
                                     <td>'.$row['coname'].'</td>
                                     <td>'.$row['adviser'].'</td>
-                                    <td><input type = "checkbox" name = "changebygroup" value = "'.$row['idnum'].'"></td>
+                                    <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
                                 </tr>
                                 ';
                                 $no++;
@@ -183,7 +197,7 @@ include("connect.php");
                                                 </div>
                                               </div>
                                             </div>
-                                     <td><input type = "checkbox" name = "changebygroup" value = "'.$row['coid'].'"></td>           
+                                    <td><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
                                 </tr>
                                 ';
                                 $no++;
