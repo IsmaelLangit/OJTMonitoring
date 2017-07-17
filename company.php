@@ -496,8 +496,8 @@ include("connect.php");
             },{
               type: 'warning',
               animate: {
-                    enter: 'animated fadeInDown',
-                    exit: 'animated fadeOutUp'
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
               },
               placement: {
                 from: "top",

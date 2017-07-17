@@ -280,8 +280,8 @@ include("connect.php");
             },{
               type: 'success',
               animate: {
-                    enter: 'animated fadeInDown',
-                    exit: 'animated fadeOutUp'
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
               },
               placement: {
                 from: "top",
@@ -308,8 +308,8 @@ include("connect.php");
             },{
               type: 'danger',
               animate: {
-                    enter: 'animated fadeInDown',
-                    exit: 'animated fadeOutUp'
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutRight'
               },
               placement: {
                 from: "top",
