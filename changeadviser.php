@@ -106,7 +106,6 @@ include("connect.php");
                 <table class="table table-hover table-responsive" id="myTable">
                     <thead>
                         <tr class="info">
-                            <th>No</th>
                             <th>ID No.</th>
                             <th>Name</th>
                             <th>Company</th>
@@ -120,11 +119,9 @@ include("connect.php");
                         if(mysqli_num_rows($sql1) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                         }else{
-                            $no = 1;
                             while($row = mysqli_fetch_assoc($sql1)){
                                 echo '
                                 <tr>
-                                    <td>'.$no.'</td>
                                     <td>'.$row['idnum'].'</td>
                                     <td>'.$row['Name'].'</td>
                                     <td>'.$row['coname'].'</td>
@@ -132,7 +129,6 @@ include("connect.php");
                                     <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
                                 </tr>
                                 ';
-                                $no++;
                             }
                         }
                     ?>
@@ -147,7 +143,6 @@ include("connect.php");
                 <table class="table table-hover" id="myTable2">
                     <thead>
                         <tr class="info">
-                            <th>No</th>
                             <th>Company Name</th>
                             <th>Total Students</th>
                             <th>Change</th>
@@ -159,12 +154,9 @@ include("connect.php");
                         if(mysqli_num_rows($sql2) == 0){
                             echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                         }else{
-                            $no = 1;
-
                             while($row = mysqli_fetch_assoc($sql2)){
                                 echo '
                                 <tr>
-                                    <td>'.$no.'</td>
                                     <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
                                     ';
                           
@@ -200,7 +192,6 @@ include("connect.php");
                                     <td><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
                                 </tr>
                                 ';
-                                $no++;
                             }
                         }
                         ?>
