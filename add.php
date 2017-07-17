@@ -102,11 +102,12 @@
                     }
                 
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id) VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id')") or die('Error: ' . mysqli_error($connect));
+
                         echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                                 </div>';
                     
                 } else {
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The student you are adding <strong> already exists in the database. </strong></div>';
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The student you are adding <strong> already exists in the database.</strong></div>';
                     }
                 
             }
@@ -343,7 +344,7 @@
                     </div> <!--end of practicum 2 requirements col-md-6-->
                     <div class="form-group text-center">
                         <div class="col">
-                            <button type="submit" name="add" class="btn btn-md btn-success disableHighlight" value="Add Student"><span class="fa fa-plus space"></span>Add</button>
+                            <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight" value="Add Student"><span class="fa fa-plus space"></span>Add</button>
                             <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
                         </div>
                     </div>
@@ -378,6 +379,7 @@
     <script type="js/Gruntfile.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/bootstrap-notify.js"></script>
 
     <script>
         $('form').areYouSure();
@@ -388,6 +390,63 @@
     $('.date').datepicker({
         format: 'MM dd yyyy',
     })
+    </script>
+
+    <script>
+        $(function success(){
+          $(".btn").on("click",function(){
+            $.notify({
+              title: '<strong>Success!</strong>',
+              icon: 'fa fa-check-circle',
+              message: "You have successfully added a student. <a href='index.php'><span class='fa fa-arrow-circle-left'></span> Go back to list of students.</a>"
+            },{
+              type: 'success',
+              animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: {
+                    x: 20,
+                    y: 150
+               },
+              mouse_over: "pause",
+              spacing: 10,
+              z_index: 1031,
+            });
+          });
+        });
+    </script>
+
+    <script>
+        $(function error(){
+          $(".btn").on("click",function(){
+            $.notify({
+              icon: 'fa fa-exclamation-circle',
+              message: "The student you are adding <strong> already exists in the database.</a>"
+            },{
+              type: 'danger',
+              animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+              },
+              placement: {
+                from: "top",
+                align: "right"
+              },
+              offset: {
+                    x: 20,
+                    y: 150
+               },
+              mouse_over: "pause",
+              spacing: 10,
+              z_index: 1031,
+            });
+          });
+        });
     </script>
     
   </body>

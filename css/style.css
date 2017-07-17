@@ -12,7 +12,6 @@ body {
   height: 100%;
   position: relative;
 }
-
 .main-container {
  min-height: 100vh; /* will cover the 100% of viewport */
  overflow: hidden;
@@ -20,7 +19,6 @@ body {
  position: relative;
  padding-bottom: 100px; /* height of your footer */
 }
-
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -32,6 +30,7 @@ img{
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  pointer-events: none;
 }
 .table > tbody > tr > td {
     vertical-align: middle;
@@ -559,18 +558,4 @@ span.indexIcon{
 .btn-danger:hover {
   background-color: #c0392b;
   border-color: #e74c3c;
-}
-
-input[type=text], textarea {
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  border: 1px solid #DDDDDD;
-}
- 
-input[type=text]:focus, textarea:focus {
-  box-shadow: 0 0 5px rgba(44, 186, 169, 0.89);
-  border: 1px solid rgba(44, 186, 169, 0.89);
 }

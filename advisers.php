@@ -56,19 +56,22 @@ include("connect.php");
 
             <?php
             if(isset($_POST['add'])){
-                $adviser           = $_POST['adviser'];
-                $con = mysqli_query($connect, "SELECT * from advisers WHERE adviser='$adviser'");
+                $title        = $_POST['lname'];
+                $lname        = $_POST['lname'];
+                $fname        = $_POST['fname'];
+                $con = mysqli_query($connect, "SELECT * from advisers WHERE lname='$lname', fname='$fname'");
+                
                 if(mysqli_num_rows($con) == 0){
-                    $insert = mysqli_query($connect, "INSERT INTO advisers (adviser) VALUES('$adviser')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO advisers (title, lname, fname) VALUES('$title', '$lname', '$fname')") or die('Error: ' . mysqli_error($connect));
+                    
                     echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added an adviser.
                         </div>';
                 } else {
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
-            }
-
-            if(isset($_GET['action']) == 'delete'){
+            }  
+                if(isset($_GET['action']) == 'delete'){
                 $ad_id = $_GET['ad_id'];
                 $con = mysqli_query($connect, "SELECT * FROM advisers NATURAL JOIN students WHERE ad_id=".$ad_id);
                 if (mysqli_num_rows($con) == 0) {
@@ -84,17 +87,19 @@ include("connect.php");
                     }
                 }
 
-            $adviser = (isset($_GET['adviser']) ? strtolower($_GET['adviser']) : NULL);
+            $title = (isset($_GET['title']) ? strtolower($_GET['title']) : NULL);
+            $lname = (isset($_GET['lname']) ? strtolower($_GET['lname']) : NULL);
+            $fname = (isset($_GET['fname']) ? strtolower($_GET['fname']) : NULL);
             $countstudents = (isset($_GET['countstudents']) ? strtolower($_GET['countstudents']) : NULL);
-            $sort = 'adviser';
-                        
-            switch ($adviser) {
+            $sort = 'lname';
+                                
+            switch ($lname) {
                 case "▲":
-                    $sort = 'adviser';
+                    $sort = 'lname, fname';
                     break;
                 
                 case "▼":
-                    $sort = 'adviser DESC';
+                    $sort = 'lname DESC, fname';
                     break;
             }
 
@@ -107,9 +112,9 @@ include("connect.php");
                     $sort = 'countstudents DESC, adviser';
                     break;
             }
+            
 
-
-            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE adviser != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE adviser != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
+            $sql =mysqli_query($connect,"SELECT * from (SELECT * from advisers WHERE lname != 'No Adviser') t1 LEFT JOIN (SELECT count(ad_id) as countstudents, ad_id AS studad_id from advisers NATURAL JOIN students WHERE lname != 'No Adviser' GROUP BY 2) t2 ON t1.ad_id = t2.studad_id ORDER BY ".$sort);
             ?>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -163,15 +168,16 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td colspan="2">'.$row['adviser'].'</td>
+                                    <td colspan="2" class="text-left"><a href="profileadviser.php?ad_id='.$row['ad_id'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['title']))." ".strip_tags($row['fname'])." ".strip_tags($row['lname']).'</a></td>
                                     <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['ad_id'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+ 
                                         <div id="'.$row['ad_id'].'" class="modal fade" role="dialog">
                                           <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['adviser'])).'</h4>
+                                                <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['title']))." ".strip_tags($row['fname'])." ".strip_tags($row['lname']).'</h4>
                                               </div>
                                               <div class="modal-body text-center">
                                                 <h2 class="infoStudent">Practicum Student/s</h2>
@@ -194,12 +200,12 @@ include("connect.php");
                                         </div>
                             
                                     <td class="text-center">
-                                        <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                        <a href="editadviser.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                          <a href="advisers.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
                                 if($row['countstudents'] == 0){
-                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['adviser'])).
+                                echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['title']))." ".strip_tags($row['fname'])." ".strip_tags($row['lname']).
                                     '" data-confirm-button="Yes"
                                     data-cancel-button="No"
                                     data-confirm-button-class= "btn-success"
