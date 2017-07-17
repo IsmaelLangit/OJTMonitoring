@@ -252,6 +252,7 @@
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
                             </select>
                         </div>
+                        
                         <hr class="style-four">
 
                                 <div class="col-md-6" id="companyColumn">

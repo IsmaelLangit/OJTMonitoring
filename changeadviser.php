@@ -69,141 +69,178 @@ include("connect.php");
     <!--/ header-->
     <section class="section-padding">
         <form method = "post">
-        <div class="container">
-            <div class="col text-center">
-                <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
-            </div>
-            <?php               
-            $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser, coid from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
-            $sql2 = mysqli_query($connect, "SELECT count(students.coid) as countstudents, coname, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2,3");
-            ?>
-            <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-
-            <div class="form-group">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label class="control-label">Set adviser</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <select name="ad_id" class="form-control touch">
-                                                <option value='1'>No Current Adviser</option>
-                                                <?php
-                                                    $con = mysqli_query($connect, "SELECT * FROM advisers where adviser != 'No Adviser' ORDER BY adviser ASC");
-                                                    while ($row = mysqli_fetch_assoc($con)) {
-                                                        echo "<option value='".$row["ad_id"]."'>".htmlentities($row["adviser"])."</option>";
-                                                    }
-                                                    echo "</select>";
-                                                    ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-            <div class="row paddingTopSlight">
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-                <table class="table table-hover table-responsive" id="myTable">
-                    <thead>
-                        <tr class="info">
-                            <th>ID No.</th>
-                            <th>Name</th>
-                            <th>Company</th>
-                            <th>Current Adviser</th>
-                            <th>Change</th>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                        if(mysqli_num_rows($sql1) == 0){
-                            echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
-                        }else{
-                            while($row = mysqli_fetch_assoc($sql1)){
-                                echo '
-                                <tr>
-                                    <td>'.$row['idnum'].'</td>
-                                    <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['Name'])).'</a></td>
-                                    <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                    <td>'.$row['adviser'].'</td>
-                                    <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
-                                </tr>
-                                ';
-                            }
-                        }
-                    ?>
-  
-                    </tbody>
-                </table>
-            </div>
-
-
-            <div class="table-responsive">
-                <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." title="Type in a name">
-                <table class="table table-hover" id="myTable2">
-                    <thead>
-                        <tr class="info">
-                            <th>Company Name</th>
-                            <th>Total Students</th>
-                            <th>Change</th>
-                        </tr>
-                    </thead>
-
-                    <?php 
-
-                        if(mysqli_num_rows($sql2) == 0){
-                            echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
-                        }else{
-                            while($row = mysqli_fetch_assoc($sql2)){
-                                echo '
-                                <tr>
-                                    <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
-                                    ';
-                          
-                                    echo '
-                                        <td class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
-                                            <div id="'.$row['coid'].'" class="modal fade" role="dialog">
-                                              <div class="modal-dialog">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['coname'])).'</h4>
-                                                  </div>
-                                                  <div class="modal-body text-center">
-                                                    <h2 class="infoStudent">Practicum Student/s</h2>
-                                                ';
-                                $con1 = mysqli_query($connect, "SELECT * from company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
-                                $no1 = 1;
-                                while ($row2 = mysqli_fetch_assoc($con1)) {
-                                    echo '
-                                        <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$no1.". ".strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
-                                        ';
-                                        $no1++;
-                                }
-                                        echo '
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                    <td><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
-                                </tr>
-                                ';
-                            }
-                        }
-                        ?>
-                </table>
-            </div>
-            <div class="form-group text-center">
-                <div class="col">
-                    <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" value="Change Adviser"><span class="fa fa-plus space"></span>Change Adviser</button>
+            <div class="container form-group">
+                <div class="col text-center">
+                    <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
                 </div>
-            </div>
-        </div> <!--End of Container Fluid-->
-    </form>
+                <?php               
+                $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser, coid from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
+                $sql2 = mysqli_query($connect, "SELECT count(students.coid) as countstudents, coname, coid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2,3");
+                ?>
+                <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <div class="form-group input-group dropdown-toggle">
+                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Advisee for: </span>
+                                <select name="ad_id" class="form-control touch">
+                                    <option value='1'>No Current Adviser</option>
+                                    <?php
+                                        $con = mysqli_query($connect, "SELECT * FROM advisers where adviser != 'No Adviser' ORDER BY adviser ASC");
+                                        while ($row = mysqli_fetch_assoc($con)) {
+                                            echo "<option value='".$row["ad_id"]."'>".htmlentities($row["adviser"])."</option>";
+                                        }
+                                        echo "</select>";
+                                        ?>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 text-center">
+                        <div class="form-group input-group dropdown-toggle">
+                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Adviser by: </span>
+                                <select name="selecttable" class="form-control touch" id="tableSelect">
+                                    <option value="Group">Group</option>
+                                    <option value="Company">Company</option>
+                                </select>
+                        </div>
+                    </div>
+                </div> <!--End of Row-->
+
+                <div class="row paddingTopSlight" id="groupColumn">
+                    <h2 class="top-title text-center">By Group</h2>
+
+                    <div class="form-group paddingBottomSlight">
+                        <div class="input-group">
+                          <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
+                          <span class="input-group-btn">
+                            <button class="form-control" type="button"><span class="fa fa-search space"></span>Search</button>
+                          </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="height: 400px; overflow:auto;">
+
+                        <table class="table table-hover table-responsive" id="myTable">
+                            <thead>
+                                <tr class="info">
+                                    <th>ID No.</th>
+                                    <th>Name</th>
+                                    <th>Company</th>
+                                    <th>Current Adviser</th>
+                                    <th>Change</th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                if(mysqli_num_rows($sql1) == 0){
+                                    echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
+                                }else{
+                                    while($row = mysqli_fetch_assoc($sql1)){
+                                        echo '
+                                        <tr>
+                                            <td>'.$row['idnum'].'</td>
+                                            <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['Name'])).'</a></td>
+                                            <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                            <td>'.$row['adviser'].'</td>
+                                            <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
+                                        </tr>
+                                        ';
+                                    }
+                                }
+                            ?>
+          
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row" id="companyColumn">
+                    <h2 class="top-title text-center">By Company</h2>
+
+                    <div class="paddingBottomSlight">
+                        <div class="input-group">
+                          <input type="text" id="myInput2" class="form-control" title="Type in a name" onkeyup="myFunction2()" placeholder="Search for names...">
+                          <span class="input-group-btn">
+                            <button class="form-control" type="button"><span class="fa fa-search space"></span>Search</button>
+                          </span>
+                        </div>
+                    </div>
+
+                    <div style="height: 400px; overflow:auto;">
+
+                        <table class="table table-hover" id="myTable2">
+                            <thead>
+                                <tr class="info">
+                                    <th>No</th>
+                                    <th>Company Name</th>
+                                    <th>Total Students</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+
+                            <?php 
+
+                                if(mysqli_num_rows($sql2) == 0){
+                                    echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
+                                }else{
+                                    $no = 1;
+
+                                    while($row = mysqli_fetch_assoc($sql2)){
+                                        echo '
+                                        <tr>
+                                            <td>'.$no.'</td>
+                                            <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
+                                            ';
+                                  
+                                            echo '
+                                                <td class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['coid'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
+                                                    <div id="'.$row['coid'].'" class="modal fade" role="dialog">
+                                                      <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title text-center">'.strip_tags(htmlentities($row['coname'])).'</h4>
+                                                          </div>
+                                                          <div class="modal-body text-center">
+                                                            <h2 class="infoStudent">Practicum Student/s</h2>
+                                                        ';
+                                        $con1 = mysqli_query($connect, "SELECT * from company NATURAL JOIN students where coname = '".mysqli_real_escape_string($connect,$row['coname'])."' ORDER BY last_name, first_name");
+                                        $no1 = 1;
+                                        while ($row2 = mysqli_fetch_assoc($con1)) {
+                                            echo '
+                                                <p class="student"><a href="profile.php?idnum='.$row2['idnum'].'">'.$no1.". ".strip_tags(htmlentities($row2['last_name'])).", ".strip_tags(htmlentities($row2['first_name'])).'</a></p>
+                                                ';
+                                                $no1++;
+                                        }
+                                                echo '
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                            <td><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
+                                        </tr>
+                                        ';
+                                        $no++;
+                                    }
+                                }
+                                ?>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-group text-center">
+                    <div class="col">
+                        <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" value="Change Adviser"><span class="fa fa-plus space"></span>Change Adviser</button>
+                    </div>
+                </div>
+            </div> <!--End of Container Fluid-->
+        </form>
     </section>
     <!---->
     <!---->
@@ -268,6 +305,23 @@ include("connect.php");
             }       
           }
         }
+    </script>
+
+    <script>
+        $("#tableSelect").change(function(){
+            if($('select[name=selecttable] option:selected').val() == "Group" ) {
+            $("#groupColumn").fadeIn(100);
+                $("#companyColumn").fadeOut(100);
+            } 
+            else {
+                $("#tabText").fadeIn(100);
+                if($('select[name=selecttable] option:selected').val() == "Company" ) {    
+                    $("#companyColumn").fadeIn(100);
+                } else {
+                $("#groupColumn").fadeOut(100);
+                }
+            } 
+        });
     </script>
   </body>
 </html>
