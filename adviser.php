@@ -198,7 +198,7 @@ include("connect.php");
                                         <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
-                                         <a href="advisers.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
+                                         <a href="adviser.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
                                 if($row['countstudents'] == 0){
                                 echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['adviser'])).
                                     '" data-confirm-button="Yes"
