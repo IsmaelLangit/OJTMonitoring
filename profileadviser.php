@@ -49,6 +49,28 @@ include("connect.php");
     </header>
     <!--/ header-->
 
+    <?php
+        if(isset($_GET['save'])){
+        $ad_id           = $_GET['ad_id'];
+        $idnum           = $_GET['idnum'];
+        $vis_status           = $_GET['vis_status'];
+        $remark_visit          = mysqli_real_escape_string($connect,$_GET['remark_visit']);
+
+        $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
+        if($update){
+            header("Location: profileadviser.php?ad_id=".$ad_id."&message=success");
+        }else{
+            echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+        }
+    }
+    
+    if(isset($_GET['message']) == 'success'){
+                echo '<div class="alert alert-success" role="alert">
+                      <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
+                    </div>';
+            }
+            ?>
+
     <section class="section-padding">
         <div class="container">
 
@@ -147,37 +169,36 @@ include("connect.php");
                                     ';
 
                                     ?>
-                                      <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
-                                          <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title text-center"><?php echo strip_tags(htmlentities($row ['Name'])) ?></h4>
-                                          </div>
-                                          <div class="modal-body">
-                                                <form>
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title text-center"><?php echo strip_tags(htmlentities($row ['Name'])) ?></h4>
+                                            </div>
+                                            <form method = "get">
+                                                <div class="modal-body">
                                                     <div class="form-group">
                                                         <label class="control-label">Visited</label>
                                                         <div class="form-check form-check-inline">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes
-                                                          </label>
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No
-                                                          </label>
+                                                            <label class="form-check-label">
+                                                            <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>">
+                                                            <input type = "hidden" name = "idnum" value = "<?php echo strip_tags(htmlentities($row ['idnum'])) ?>">
+                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes </label>
+                                                            <label class="form-check-label">
+                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
                                                         </div>
                                                         <label class='control-label'>Remark/s</label>
-                                                        <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
+                                                        <textarea maxlength = '200' rows="5" class="form-control" name="remark_visit" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
                                                     </div>
-                                                </form>
-                                          </div>
-                                          <div class="modal-footer">
-                                                <button type="button" class="btn btn-success">Edit</button>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                          </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success" name = "save">Save</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                      </div>
                                     </div>
-
+                                </div>
                                     <!--Deleting Student-->
                                     <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
                                             data-text="Are you sure you want to delete (NAME)" data-confirm-button="Yes"
@@ -227,4 +248,4 @@ include("connect.php");
     </script>
     
   </body>
-</html>
+</html>       

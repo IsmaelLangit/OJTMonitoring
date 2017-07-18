@@ -52,8 +52,8 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
-            <div class="col text-center wow fadeInDown">
-                <h1 class="top-title">
+            <div class="col text-center">
+                <h1 class="top-title wow fadeInDown">
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];

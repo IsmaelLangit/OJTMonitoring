@@ -128,7 +128,7 @@ include("connect.php");
             ?>
             
             <div class="container-fluid">
-                <form action="" method="post">
+                <form method="post">
                     <div class="row">
                         <div class="col-md-3">
                             <h2 class="head-title titleFont">Basic Information</h2>
