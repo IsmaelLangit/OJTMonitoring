@@ -181,7 +181,7 @@ include("connect.php");
              
                         <tbody>
                             <?php
-                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY ".$sort);
+                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id, coid from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY ".$sort);
                                 if(mysqli_num_rows($sql) == 0){
                                     echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                                 }else{
@@ -191,9 +191,18 @@ include("connect.php");
                             <tr>
                                 <td><?php echo $no ?></td>
                                 <!--Student Name Column-->
-                                <td colspan="2"><?php echo strip_tags(htmlentities($row ['Name'])) ?></td>
+                                <?php
+                                echo '
+                                <td colspan="2"><a href="profile.php?idnum='.$row['idnum'].'">'.strip_tags(htmlentities($row ['Name'])).'</td>
+                                ';
+                                ?>
+
                                 <!--Company Column-->
-                                <td colspan="2"><?php echo strip_tags(htmlentities($row ['coname'])) ?></td>
+                                <?php
+                                echo '
+                                <td colspan="2"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row ['coname'])).'</td>
+                                ';
+                                ?>
                                 <!--Visit Status Column-->
                                 <td colspan="2" class="text-center">
                                 <?php
