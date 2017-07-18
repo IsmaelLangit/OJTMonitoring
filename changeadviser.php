@@ -17,20 +17,20 @@ include("connect.php");
     </head>
 <body>
     <?php
-    if(isset($_GET['change'])){
-        $ad_id  = $_GET['ad_id'];
+    if(isset($_POST['change'])){
+        $ad_id  = $_POST['ad_id'];
         $con = mysqli_query($connect, "SELECT idnum FROM students");
         $row = mysqli_num_rows($con);
 
-        if(!empty($_GET['check_list'])) {
-            foreach($_GET['check_list'] as $check) {
+        if(!empty($_POST['check_list'])) {
+            foreach($_POST['check_list'] as $check) {
                 $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where idnum = ".$check) or die(mysqli_error()); 
             }
 
         }
 
-        if(!empty($_GET['company_list'])) {
-            foreach($_GET['company_list'] as $check_company) {
+        if(!empty($_POST['company_list'])) {
+            foreach($_POST['company_list'] as $check_company) {
                 $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where coid = ".$check_company) or die(mysqli_error()); 
             }
         }
@@ -70,7 +70,7 @@ include("connect.php");
     </header>
     <!--/ header-->
     <section class="section-padding">
-        <form method = "get">
+        <form method = "post">
             <div class="container form-group">
                 <div class="col text-center">
                     <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
@@ -102,9 +102,10 @@ include("connect.php");
                         <div class="form-group input-group dropdown-toggle">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Adviser by: </span>
                                 <select name="selecttable" class="form-control touch" id="tableSelect" onchange="form.submit()">
-                                    <?php $selecttable = (isset($_GET['selecttable']) ? strtolower($_GET['selecttable']) : NULL);  ?>
-                                    <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
+                                    <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                     <option value="Group" <?php if($selecttable == 'group'){ echo 'selected'; } ?>>Group</option>
+                                    <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
+                                    
                                     
                                 </select>
                         </div>
@@ -116,7 +117,7 @@ include("connect.php");
                 if(!$selecttable) {
                     $selecttable = "Group";
                 } else {
-                    $selecttable = $_GET['selecttable'];
+                    $selecttable = $_POST['selecttable'];
                 }
 
                 if($selecttable == "Group") {
