@@ -95,14 +95,19 @@ include("connect.php");
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <!--Student Name Column-->
                                 <td colspan="2">Ismael Langit</td>
+                                <!--Company Column-->
                                 <td colspan="2">SLU SCIS IT/CS Department</td>
-                                
+                                <!--Visit Status Column-->
                                 <td colspan="2" class="text-center"><span class="glyphicon glyphicon-remove fontGlyphiconNo"></td>
+                                <!--Action Column-->
                                 <td class="text-center">
+
                                     <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStudent"> <span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
                                     </button>
 
+                                    <!--Modal for Edit Student-->
                                     <div class="modal fade" id="editStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
@@ -145,7 +150,7 @@ include("connect.php");
                                       </div>
                                     </div>
 
-
+                                    <!--Deleting Student-->
                                     <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
                                             data-text="Are you sure you want to delete (NAME)"'" data-confirm-button="Yes"
                                             data-cancel-button="No"
@@ -158,8 +163,8 @@ include("connect.php");
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                </div> <!--End of Col-->
+            </div> <!--End of Row-->
 
             
         </div> <!--End of Container Fluid-->
