@@ -136,7 +136,13 @@ include("connect.php");
                         </tr>
                         <tr>
                             <th scope="row" class="bg-info">Adviser</th>
-                            <td class="col-md-10"><?php echo $row['adviser']; ?></td>
+                            <td class="col-md-10">
+                            <?php
+                            if(strip_tags(htmlentities($row['adviser'])) != "No Adviser") {
+                                echo '<a href="profileadviser.php?ad_id='.$row['ad_id'].'">';
+                            }
+                              echo $row['adviser']; ?>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -164,6 +170,29 @@ include("connect.php");
                                     echo '<td><span class="label label-warning">'.$row ['status'].'</span></td><br>';
                                 }
                                 ?>
+                        </tr>
+                         <tr>
+                            <th scope="row" class="bg-danger text-white">Visited</th>
+                            <?php
+                                echo '
+                                <td>
+                                        <a class="help" data-html="true" data-toggle="tooltip" 
+                                            title=" Remarks: '.strip_tags($row ['remark_visit']).' " >
+                                ';
+                                if($row['vis_status'] == 'yes'){
+                                    echo '  
+                                            <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        </a>
+                                    </td>';
+                                
+                                }
+                                else if ($row['vis_status'] == 'no' ){
+                                    echo '  
+                                            <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                        </a>
+                                    </td>';
+                                            }
+                                    ?>
                         </tr>
                         <tr>
                             <th scope="row" class="bg-danger text-white">Endorsement</th>
