@@ -164,7 +164,7 @@ include("connect.php");
                                 echo '
                                 <tr>
                                     <td>'.$no.'</td>
-                                    <td colspan="2">'.$row['adviser'].'</td>
+                                    <td colspan="2"><a href="profileadviser.php?ad_id='.$row['ad_id'].'">'.$row['adviser'].'</a></td>
                                     <td colspan="2" class="text-center"><a title="View Company Students" class="touch" type="button" data-toggle="modal" data-target="#'.$row['ad_id'].'"><span class="countNumber">'.$row['countstudents'].'</span></a></td>
                                         <div id="'.$row['ad_id'].'" class="modal fade" role="dialog">
                                           <div class="modal-dialog">
