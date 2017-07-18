@@ -106,8 +106,8 @@ include("connect.php");
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="row">
-                <div class="col" style="height: 300px; overflow:auto;">
-                    <table class="table table-hover table-responsive">
+                <div class="col">
+                    <table class="table table-hover table-striped table-responsive">
                     <form method = "get">
                         <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>">
                         <thead>
@@ -195,7 +195,7 @@ include("connect.php");
                                 <!--Company Column-->
                                 <td colspan="2"><?php echo strip_tags(htmlentities($row ['coname'])) ?></td>
                                 <!--Visit Status Column-->
-                                <td colspan="2">
+                                <td colspan="2" class="text-center">
                                 <?php
                                 if($row['vis_status'] == 'yes'){
                                     echo ' 
@@ -259,7 +259,7 @@ include("connect.php");
                                 echo '
                                     <a href="profileadviser.php?ad_id='.$row['ad_id'].'&action=remove&idnum='.$row['idnum'].'" title="Remove Student" class="confirm btn btn-danger btn-sm" 
                                         data-text="Are you sure you want to remove '.strip_tags(htmlentities($row['Name'])).
-                                        '" data-confirm-button="Yes"
+                                        ' from this adviser?" data-confirm-button="Yes"
                                         data-cancel-button="No"
                                         data-confirm-button-class= "btn-success"
                                         data-cancel-button-class= "btn-danger"
