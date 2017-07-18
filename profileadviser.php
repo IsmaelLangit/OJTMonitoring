@@ -55,7 +55,16 @@ include("connect.php");
             <div class="col text-center wow fadeInDown">
                 <h1 class="top-title">
                       <span class="title">
-                        Carlos Ben Montes'
+                        <?php 
+                            $ad_id = $_GET['ad_id'];
+                            $sql = mysqli_query($connect, "SELECT * from advisers WHERE ad_id='$ad_id'");
+                            $row = mysqli_fetch_assoc($sql);
+                            if (substr($row ['adviser'], -1) == "s") {
+                                echo htmlentities($row ['adviser'])."'";
+                            } else if (substr($row ['adviser'], -1) != "s"){
+                                 echo htmlentities($row ['adviser'])."'s";
+                            }
+                        ?>
                     </span>  
                 Profile</h1>
             </div>
@@ -94,52 +103,70 @@ include("connect.php");
                         </thead>
              
                         <tbody>
+                            <?php
+                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY last_name, first_name");
+                                if(mysqli_num_rows($sql) == 0){
+                                    echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
+                                }else{
+                                    $no = 1;
+                                    while($row = mysqli_fetch_assoc($sql)){
+                            ?>
                             <tr>
-                                <td>1</td>
+                                <td><?php echo $no ?></td>
                                 <!--Student Name Column-->
-                                <td colspan="2">Ismael Langit</td>
+                                <td colspan="2"><?php echo strip_tags(htmlentities($row ['Name'])) ?></td>
                                 <!--Company Column-->
-                                <td colspan="2">SLU SCIS IT/CS Department</td>
+                                <td colspan="2"><?php echo strip_tags(htmlentities($row ['coname'])) ?></td>
                                 <!--Visit Status Column-->
-                                <td colspan="2" class="text-center"><span class="glyphicon glyphicon-remove fontGlyphiconNo"></td>
+                                <td colspan="2">
+                                <?php
+                                if($row['vis_status'] == 'yes'){
+                                    echo ' 
+                                        <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
+                                        </a>
+                                     </td>';
+                                }
+                                else if ($row['vis_status'] == 'no' ){
+                                    echo '  
+                                        <span class="glyphicon glyphicon-remove fontGlyphiconNo"></span>
+                                            </a>
+                                        </td>';
+                                }
+                                ?>
                                 <!--Action Column-->
                                 <td class="text-center">
 
-                                    <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStudent"> <span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
+                                    <?php
+                                    echo '
+
+                                    <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#'.$row['idnum'].'"><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
                                     </button>
 
                                     <!--Modal for Edit Student-->
-                                    <div class="modal fade" id="editStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div id="'.$row['idnum'].'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    ';
+
+                                    ?>
                                       <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title text-center">Ismael Langit</h4>
+                                            <h4 class="modal-title text-center"><?php echo strip_tags(htmlentities($row ['Name'])) ?></h4>
                                           </div>
                                           <div class="modal-body">
                                                 <form>
                                                     <div class="form-group">
-                                                        <label class="control-label">Name</label>
-                                                        <input type="text" class="form-control" name="" value="" class="form-control" placeholder="Student Name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Company Name</label>
-                                                        <select name="coid" class="form-control touch">
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label class="control-label">Visited</label>
                                                         <div class="form-check form-check-inline">
                                                           <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Yes
+                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes
                                                           </label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
                                                           <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> No
+                                                            <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No
                                                           </label>
                                                         </div>
+                                                        <label class='control-label'>Remark/s</label>
+                                                        <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
                                                     </div>
                                                 </form>
                                           </div>
@@ -153,7 +180,7 @@ include("connect.php");
 
                                     <!--Deleting Student-->
                                     <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
-                                            data-text="Are you sure you want to delete (NAME)"'" data-confirm-button="Yes"
+                                            data-text="Are you sure you want to delete (NAME)" data-confirm-button="Yes"
                                             data-cancel-button="No"
                                             data-confirm-button-class= "btn-success"
                                             data-cancel-button-class= "btn-danger"
@@ -162,6 +189,11 @@ include("connect.php");
                                     </a>
                                 </td>
                             </tr>
+                            <?php
+                            $no++;
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div> <!--End of Col-->
@@ -192,12 +224,6 @@ include("connect.php");
 
     <script>
         $(".confirm").confirm();
-    </script>
-
-    <script>
-    $('.date').datepicker({
-        format: 'yyyy-mm-dd',
-    })
     </script>
     
   </body>
