@@ -50,11 +50,11 @@ include("connect.php");
     <!--/ header-->
 
     <?php
-        if(isset($_GET['save'])){
-        $ad_id           = $_GET['ad_id'];
-        $idnum           = $_GET['idnum'];
-        $vis_status           = $_GET['vis_status'];
-        $remark_visit          = mysqli_real_escape_string($connect,$_GET['remark_visit']);
+        if(isset($_POST['save'])){
+        $ad_id           = $_POST['ad_id'];
+        $idnum           = $_POST['idnum'];
+        $vis_status           = $_POST['vis_status'];
+        $remark_visit          = mysqli_real_escape_string($connect,$_POST['remark_visit']);
 
         $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
         if($update){
@@ -69,7 +69,19 @@ include("connect.php");
                       <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                     </div>';
             }
-            ?>
+
+    if(isset($_GET['action']) == 'remove'){
+        $idnum = $_GET['idnum'];
+        $remove = mysqli_query($connect, "UPDATE students SET ad_id = 1 WHERE idnum=$idnum");
+        if($remove){
+            echo '  <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> removed </strong> the student from the list of Advisee!
+                    </div>';
+        }else{
+            echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+        }
+    }
+    ?>
 
     <section class="section-padding">
         <div class="container">
@@ -96,37 +108,80 @@ include("connect.php");
             <div class="row">
                 <div class="col" style="height: 300px; overflow:auto;">
                     <table class="table table-hover table-responsive">
+                    <form method = "get">
+                        <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>">
                         <thead>
                            <tr class="info">
                             <th width="5%">No</th>
                             <th width="10.5%" class="text-right">Student Name</th>
                             <th width="15%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
-                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="studname" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="studname" value="&#9660;">
                                 </div>
                             </th>
                             <th width="11.5%" class="text-left">Company Name</th>
                             <th width="25%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
-                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="coname" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="coname" value="&#9660;">
                                 </div>
                             </th>
                             <th width="12%" class="text-right">Visit Status</th>
                             <th width="7%" class="text-left">
                                 <div class="btn-group-vertical">
-                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
-                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="vstatus" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="vstatus" value="&#9660;">
                                 </div>
                             </th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
+                    </form>
+
+                        <?php 
+                        $studname = (isset($_GET['studname']) ? strtolower($_GET['studname']) : NULL);
+                        $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
+                        $vstatus = (isset($_GET['vstatus']) ? strtolower($_GET['vstatus']) : NULL);
+                        $sort = 'last_name, first_name';
+                        switch ($studname) {
+                            case "▲":
+                                $sort = 'last_name, first_name';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'last_name DESC, first_name';
+                                break;
+                        }
+
+
+                        switch ($coname) {
+                            case "▲":
+                                $sort = 'coname, last_name, first_name';
+                                break;
+                            
+                            case "▼":
+                                $sort = 'coname DESC, last_name, first_name';
+                                break;
+                        }
+
+
+                        switch ($vstatus) {
+                            case "▼":
+                                $sort = 'vis_status, last_name, first_name';
+                                break;
+                            
+                            case "▲":
+                                $sort = 'vis_status DESC, last_name, first_name';
+                                break;
+                        }
+
+                        ?>
+
              
                         <tbody>
                             <?php
-                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY last_name, first_name");
+                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY ".$sort);
                                 if(mysqli_num_rows($sql) == 0){
                                     echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                                 }else{
@@ -175,7 +230,7 @@ include("connect.php");
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title text-center"><?php echo strip_tags(htmlentities($row ['Name'])) ?></h4>
                                             </div>
-                                            <form method = "get">
+                                            <form method = "post">
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label class="control-label">Visited</label>
@@ -200,17 +255,20 @@ include("connect.php");
                                     </div>
                                 </div>
                                     <!--Deleting Student-->
-                                    <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
-                                            data-text="Are you sure you want to delete (NAME)" data-confirm-button="Yes"
-                                            data-cancel-button="No"
-                                            data-confirm-button-class= "btn-success"
-                                            data-cancel-button-class= "btn-danger"
-                                            data-title="Delete Student">
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                    </a>
+                                <?php
+                                echo '
+                                    <a href="profileadviser.php?ad_id='.$row['ad_id'].'&action=remove&idnum='.$row['idnum'].'" title="Remove Student" class="confirm btn btn-danger btn-sm" 
+                                        data-text="Are you sure you want to remove '.strip_tags(htmlentities($row['Name'])).
+                                        '" data-confirm-button="Yes"
+                                        data-cancel-button="No"
+                                        data-confirm-button-class= "btn-success"
+                                        data-cancel-button-class= "btn-danger"
+                                        data-title="remove Student">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </a>
                                 </td>
                             </tr>
-                            <?php
+                            ';
                             $no++;
                                 }
                             }
