@@ -416,13 +416,13 @@ button.disabled{
     transition: all .3s;
 }
 .countNumber{
-    background-color: #08a8a6;
+    background-color: #0ea08a;
     padding: 3px 8px;
     border-radius: 100px;
     color: #fff
 }
 .countNumber:hover{
-    background-color: #067a78;
+    background-color: #0c787a;
     padding: 3px 8px;
     border-radius: 100px;
     color: #fff;

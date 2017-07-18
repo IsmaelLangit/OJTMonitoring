@@ -144,7 +144,7 @@ include("connect.php");
                                     <th>Name</th>
                                     <th>Company</th>
                                     <th>Current Adviser</th>
-                                    <th>Change</th>
+                                    <th class="text-center">Change</th>
                                     </th>
                                 </tr>
                             </thead>
@@ -160,7 +160,7 @@ include("connect.php");
                                             <td class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['Name'])).'</a></td>
                                             <td><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
                                             <td>'.$row['adviser'].'</td>
-                                            <td><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
+                                            <td class="text-center"><input type = "checkbox" name = "check_list[]"  value = "'.$row['idnum'].'"></td>
                                         </tr>
                                         ';
                                     }
@@ -199,7 +199,7 @@ include("connect.php");
                             <thead>
                                 <tr class="info">
                                     <th width="50%">Company Name</th>
-                                    <th class="text-center">Total Students</th>
+                                    <th class="text-center">Total Number of Students</th>
                                     <th class="text-center">Change</th>
                                 </tr>
                             </thead>
@@ -262,7 +262,7 @@ include("connect.php");
 
                 <div class="form-group text-center">
                     <div class="col">
-                        <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" value="Change Adviser"><span class="fa fa-plus space"></span>Change Adviser</button>
+                        <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" value="Change Adviser"><span class="fa fa-exchange space"></span>Change Adviser</button>
                     </div>
                 </div>
             </div> <!--End of Container Fluid-->
