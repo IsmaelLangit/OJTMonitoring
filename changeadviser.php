@@ -57,7 +57,8 @@ include("connect.php");
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>Companies</a></li>
                                 <li><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li class="active"><a href="advisers.php"><span class="fa fa-address-book space"></span>Advisers</a></li>
+                                <li><a href="adviser.php"><span class="fa fa-address-book space"></span>Advisers</a></li>
+                                <li class="active"><a href="changeadviser.php"><span class="fa fa-exchange space"></span>Change Adviser</a></li>
                                 <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
                             </ul>
                         </div>
@@ -71,6 +72,7 @@ include("connect.php");
     <section class="section-padding">
         <form method = "post">
             <div class="container form-group">
+
                 <div class="col text-center">
                     <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
                 </div>
@@ -81,7 +83,7 @@ include("connect.php");
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
                 <div class="row">
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6">
                         <div class="form-group input-group dropdown-toggle">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Advisee for: </span>
                                 <select name="ad_id" class="form-control touch">
@@ -97,15 +99,13 @@ include("connect.php");
                         </div>
                     </div>
 
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6">
                         <div class="form-group input-group dropdown-toggle">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Adviser by: </span>
                                 <select name="selecttable" class="form-control touch" id="tableSelect" onchange="form.submit()">
                                     <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                     <option value="Group" <?php if($selecttable == 'group'){ echo 'selected'; } ?>>Group</option>
                                     <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option>
-                                    
-                                    
                                 </select>
                         </div>
                     </div>
@@ -123,15 +123,13 @@ include("connect.php");
 
                 ?>
 
-                <div class="row paddingTopSlight" id="groupColumn">
-                    <h2 class="top-title text-center">By Group</h2>
+                <div class="row" id="groupColumn">
+                    <h2 class="top-title text-center changeBy">By Group</h2>
 
-                    <div class="form-group paddingBottomSlight">
-                        <div class="input-group">
-                          <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
-                          <span class="input-group-btn">
-                            <button class="form-control" type="button"><span class="fa fa-search space"></span>Search</button>
-                          </span>
+                    <div class="form-group">
+                        <div class="form-group  input-group col-md-5">
+                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
+                            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
                         </div>
                     </div>
 
@@ -176,24 +174,22 @@ include("connect.php");
                     }
                 ?>
 
-                 <?php 
+                <?php 
                 if($selecttable == "Company") {
 
                 ?>
 
                 <div class="row" id="companyColumn">
-                    <h2 class="top-title text-center">By Company</h2>
+                    <h2 class="top-title text-center changeBy">By Company</h2>
 
-                    <div class="paddingBottomSlight">
-                        <div class="input-group">
-                          <input type="text" id="myInput2" class="form-control" title="Type in a name" onkeyup="myFunction2()" placeholder="Search for names...">
-                          <span class="input-group-btn">
-                            <button class="form-control" type="button"><span class="fa fa-search space"></span>Search</button>
-                          </span>
+                    <div class="form-group">
+                        <div class="form-group  input-group col-md-5">
+                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
+                            <input type="text" id="myInput2" class="form-control" title="Type in a name" onkeyup="myFunction2()" placeholder="Search for names...">
                         </div>
                     </div>
 
-                    <div style="height: 400px; overflow:auto;">
+                    <div class="form-group" style="height: 400px; overflow:auto;">
 
                         <table class="table table-hover" id="myTable2">
                             <thead>
@@ -256,6 +252,7 @@ include("connect.php");
                         </table>
                     </div>
                 </div>
+
                 <?php 
                     }
                 ?>

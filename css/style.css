@@ -179,6 +179,11 @@ a:hover{
     padding: 88px 0 67px 0;
     display: block;
 }
+.changeBy{
+  font-size: 20px !important;
+  color: #000;
+  margin-top: 0px;
+}
 
 /**--------------------------MEDIA QUERIES--------------------------------**/
 @media (min-width: 35px) and (max-width: 500px){
