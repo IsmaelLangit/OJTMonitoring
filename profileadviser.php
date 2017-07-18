@@ -99,7 +99,7 @@ include("connect.php");
                             }
                         ?>
                     </span>  
-                Profile</h1>
+                Advisees</h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
