@@ -195,7 +195,7 @@ include("connect.php");
                                         </div>
                             
                                     <td class="text-center">
-                                        <a href="editcompany.php?coid='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                        <a href="profileadviser.php?ad_id='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                          <a href="adviser.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
