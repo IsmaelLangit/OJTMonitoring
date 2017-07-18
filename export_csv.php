@@ -504,6 +504,7 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
         $('form').areYouSure();
