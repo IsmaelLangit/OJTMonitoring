@@ -93,7 +93,7 @@
     <section class="section-padding">
         <div class="container-fluid">
 
-            <div class="col text-center wow fadeInDown">
+            <div class="col text-center">
                 <h1 class="top-title"><span class="title">Add </span>a Student</h1>
                 
             </div>

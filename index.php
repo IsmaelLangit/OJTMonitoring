@@ -57,8 +57,8 @@ include("connect.php");
          <form class="form-inline" method="get">
         <div class="container-fluid">
 
-            <div class="col text-center wow fadeInDown">
-                <h1 class="top-title">List of Practicum 2 <span class="title">Students</span></h1>
+            <div class="col text-center">
+                <h1 class="top-title"><span class="fa fa-user space"></span>List of Practicum 2 <span class="title">Students</span></h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -683,7 +683,7 @@ include("connect.php");
                             }
 
                                     if(mysqli_num_rows($sql) == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22"><span class="fa fa-ban space"></span>Nothing to Display</td></tr>';
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NO RESULTS FOUND <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
                                     }else{
                                         if($id == 1) {
                                             $no = 1;

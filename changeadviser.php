@@ -73,8 +73,8 @@ include("connect.php");
         <form method = "post">
             <div class="container form-group">
 
-                <div class="col text-center wow fadeInDown">
-                    <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
+                <div class="col text-center">
+                    <h1 class="top-title"> <span class="fa fa-exchange space"></span>Change <span class="title">Adviser </span></h1>  
                 </div>
                 <?php               
                 $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser, coid, ad_id from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
@@ -123,17 +123,16 @@ include("connect.php");
 
                 ?>
 
-                <div class="row" id="groupColumn">
-                    <h2 class="top-title text-center changeBy">By Group</h2>
+                <div class="col" id="form">
 
                     <div class="form-group">
-                        <div class="form-group  input-group col-md-5">
+                        <div class="form-group input-group col-md-5">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
                             <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
                         </div>
                     </div>
 
-                    <div class="form-group" style="height: 400px; overflow:auto;">
+                    <div class="form-group" style="height: 465px; overflow:auto;">
 
                         <table class="table table-hover table-responsive" id="myTable">
                             <thead>
@@ -186,8 +185,7 @@ include("connect.php");
 
                 ?>
 
-                <div class="row" id="companyColumn">
-                    <h2 class="top-title text-center changeBy">By Company</h2>
+                <div class="col" id="form">
 
                     <div class="form-group">
                         <div class="form-group  input-group col-md-5">
@@ -196,7 +194,7 @@ include("connect.php");
                         </div>
                     </div>
 
-                    <div class="form-group" style="height: 400px; overflow:auto;">
+                    <div class="form-group" style="height: 465px; overflow:auto;">
 
                         <table class="table table-hover" id="myTable2">
                             <thead>
@@ -292,9 +290,11 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+
     <script>
         $(".confirm").confirm();
     </script>
+
     <script>
         function myFunction() {
           var input, filter, table, tr, td, i;
@@ -336,5 +336,6 @@ include("connect.php");
           }
         }
     </script>
+
   </body>
 </html>

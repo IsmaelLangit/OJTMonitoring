@@ -51,8 +51,8 @@ include("connect.php");
     <!--/ header-->
     <section class="section-padding">
         <div class="container">
-            <div class="col text-center wow fadeInDown">
-                <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
+            <div class="col text-center">
+                <h1 class="top-title"><span class="fa fa-address-book space"></span>List of Practicum 2 <span class="title">Advisers </span></h1>  
             </div>
 
             <?php

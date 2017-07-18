@@ -52,7 +52,7 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
-            <div class="col text-center wow fadeInDown">
+            <div class="col text-center">
                 <h1 class="top-title">
                       <span class="title">
                         <?php 
