@@ -100,7 +100,7 @@ include("connect.php");
                     </div>
 
                     <div class="col-md-6">
-                        <div class="form-group input-group dropdown-toggle">
+                        <div class="form-group input-group dropdown-toggle col-md-7">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Adviser by: </span>
                                 <select name="selecttable" class="form-control touch" id="tableSelect" onchange="form.submit()">
                                     <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
