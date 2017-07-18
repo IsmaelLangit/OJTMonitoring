@@ -16,26 +16,6 @@ include("connect.php");
         <link rel="icon" href="img/scisLogo.png">
     </head>
 <body>
-    <?php
-    if(isset($_POST['change'])){
-        $ad_id  = $_POST['ad_id'];
-        $con = mysqli_query($connect, "SELECT idnum FROM students");
-        $row = mysqli_num_rows($con);
-
-        if(!empty($_POST['check_list'])) {
-            foreach($_POST['check_list'] as $check) {
-                $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where idnum = ".$check) or die(mysqli_error()); 
-            }
-
-        }
-
-        if(!empty($_POST['company_list'])) {
-            foreach($_POST['company_list'] as $check_company) {
-                $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where coid = ".$check_company) or die(mysqli_error()); 
-            }
-        }
-    }
-    ?>
 
     <div class="main-container">
 
@@ -74,6 +54,40 @@ include("connect.php");
             <div class="container form-group">
 
                 <div class="col text-center">
+                        <?php
+                        if(isset($_POST['change'])){
+                            $ad_id  = $_POST['ad_id'];
+                            $con = mysqli_query($connect, "SELECT idnum FROM students");
+                            $row = mysqli_num_rows($con);
+
+                            if(!empty($_POST['check_list'])) {
+                                foreach($_POST['check_list'] as $check) {
+                                    $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where idnum = ".$check) or die(mysqli_error()); 
+                                }
+
+                            }
+
+                            if(!empty($_POST['company_list'])) {
+                                foreach($_POST['company_list'] as $check_company) {
+                                    $update = mysqli_query($connect, "UPDATE students SET ad_id = ".$ad_id." where coid = ".$check_company) or die(mysqli_error()); 
+                                }
+                            }
+
+                            if($update){
+                                        header("Location: changeadviser.php?message=success");
+                                    }else{
+                                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+                                    }
+                                }
+                                
+                                if(isset($_GET['message']) == 'success'){
+                                    echo '<div class="alert alert-success" role="alert">
+                                                      <strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
+                                                    </div>';
+                                }
+
+                        ?>
+
                     <h1 class="top-title"> <span class="fa fa-exchange space"></span>Change <span class="title">Adviser </span></h1>  
                 </div>
                 <?php               

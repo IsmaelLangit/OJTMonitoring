@@ -49,44 +49,43 @@ include("connect.php");
     </header>
     <!--/ header-->
 
-    <?php
-        if(isset($_POST['save'])){
-        $ad_id           = $_POST['ad_id'];
-        $idnum           = $_POST['idnum'];
-        $vis_status           = $_POST['vis_status'];
-        $remark_visit          = mysqli_real_escape_string($connect,$_POST['remark_visit']);
-
-        $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
-        if($update){
-            header("Location: profileadviser.php?ad_id=".$ad_id."&message=success");
-        }else{
-            echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
-        }
-    }
-    
-    if(isset($_GET['message']) == 'success'){
-                echo '<div class="alert alert-success" role="alert">
-                      <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
-                    </div>';
-            }
-
-    if(isset($_GET['action']) == 'remove'){
-        $idnum = $_GET['idnum'];
-        $remove = mysqli_query($connect, "UPDATE students SET ad_id = 1 WHERE idnum=$idnum");
-        if($remove){
-            echo '  <div class="alert alert-danger alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> removed </strong> the student from the list of Advisee!
-                    </div>';
-        }else{
-            echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
-        }
-    }
-    ?>
-
     <section class="section-padding">
         <div class="container">
 
             <div class="col text-center">
+                <?php
+                    if(isset($_POST['save'])){
+                    $ad_id           = $_POST['ad_id'];
+                    $idnum           = $_POST['idnum'];
+                    $vis_status           = $_POST['vis_status'];
+                    $remark_visit          = mysqli_real_escape_string($connect,$_POST['remark_visit']);
+
+                    $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
+                    if($update){
+                        header("Location: profileadviser.php?ad_id=".$ad_id."&message=success");
+                    }else{
+                        echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+                    }
+                }
+                
+                if(isset($_GET['message']) == 'success'){
+                            echo '<div class="alert alert-success" role="alert">
+                                  <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
+                                </div>';
+                        }
+
+                if(isset($_GET['action']) == 'remove'){
+                    $idnum = $_GET['idnum'];
+                    $remove = mysqli_query($connect, "UPDATE students SET ad_id = 1 WHERE idnum=$idnum");
+                    if($remove){
+                        echo '  <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> removed </strong> the student from the list of Advisee!
+                                </div>';
+                    }else{
+                        echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    }
+                }
+                ?>
                 <h1 class="top-title">
                       <span class="title">
                         <?php 
