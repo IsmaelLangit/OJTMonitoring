@@ -54,19 +54,7 @@ include("connect.php");
             <div class="col text-center">
                 <h1 class="top-title">
                       <span class="title">
-                        <?php 
-                            $ad_id = $_GET['ad_id'];
-                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE ad_id='$ad_id'");
-                            $row = mysqli_fetch_assoc($sql);
-                            if (substr($row ['lname'], -1) == "s") {
-                                echo htmlentities($row ['title'])." ";
-                                echo htmlentities($row ['lname'])."'";
-                            } else if (substr($row ['lname'], -1) != "s"){
-                                 echo htmlentities($row ['title'])." ";
-                                 echo htmlentities($row ['lname'])."'s";
-                            }
-                            
-                        ?>
+                        Carlos Ben Montes'
                     </span>  
                 Profile</h1>
             </div>
@@ -78,22 +66,28 @@ include("connect.php");
                     <table class="table table-hover table-responsive">
                         <thead>
                            <tr class="info">
-                            <th width="10%">No</th>
-                            <th width="12%" class="text-left">Student Name</th>
-                            <th width="10%" class="text-left">
+                            <th width="5%">No</th>
+                            <th width="10.5%" class="text-right">Student Name</th>
+                            <th width="15%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
                                     <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
                                 </div>
                             </th>
-                            <th width="20%" class="text-right">Company Name</th>
-                            <th width="10%" class="text-left">
+                            <th width="11.5%" class="text-left">Company Name</th>
+                            <th width="25%" class="text-left">
                                 <div class="btn-group-vertical">
                                     <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
                                     <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
                                 </div>
                             </th>
                             <th width="12%" class="text-right">Visit Status</th>
+                            <th width="7%" class="text-left">
+                                <div class="btn-group-vertical">
+                                    <input title="Sort by Ascending" class="btn arrowSort" type="submit" name="adviser" value="&#9650;">
+                                    <input title="Sort by Descending" class="btn arrowSort" type="submit" name="adviser" value="&#9660;">
+                                </div>
+                            </th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -101,14 +95,19 @@ include("connect.php");
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Ismael Langit</td>
-                                <td>SLU SCIS IT/CS Department</td>
-                                
-                                <td><span class="glyphicon glyphicon-remove fontGlyphiconNo"></td>
-                                <td>
+                                <!--Student Name Column-->
+                                <td colspan="2">Ismael Langit</td>
+                                <!--Company Column-->
+                                <td colspan="2">SLU SCIS IT/CS Department</td>
+                                <!--Visit Status Column-->
+                                <td colspan="2" class="text-center"><span class="glyphicon glyphicon-remove fontGlyphiconNo"></td>
+                                <!--Action Column-->
+                                <td class="text-center">
+
                                     <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStudent"> <span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
                                     </button>
 
+                                    <!--Modal for Edit Student-->
                                     <div class="modal fade" id="editStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
@@ -151,7 +150,7 @@ include("connect.php");
                                       </div>
                                     </div>
 
-
+                                    <!--Deleting Student-->
                                     <a href="" title="Remove Student" class="confirm btn btn-danger btn-sm"
                                             data-text="Are you sure you want to delete (NAME)"'" data-confirm-button="Yes"
                                             data-cancel-button="No"
@@ -164,8 +163,8 @@ include("connect.php");
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                </div> <!--End of Col-->
+            </div> <!--End of Row-->
 
             
         </div> <!--End of Container Fluid-->

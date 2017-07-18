@@ -197,9 +197,9 @@ include("connect.php");
                         <table class="table table-hover" id="myTable2">
                             <thead>
                                 <tr class="info">
-                                    <th>Company Name</th>
-                                    <th>Total Students</th>
-                                    <th>Change</th>
+                                    <th width="50%">Company Name</th>
+                                    <th class="text-center">Total Students</th>
+                                    <th class="text-center">Change</th>
                                 </tr>
                             </thead>
 
@@ -245,7 +245,7 @@ include("connect.php");
                                                         </div>
                                                       </div>
                                                     </div>
-                                            <td><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
+                                            <td class="text-center"><input type = "checkbox" name = "company_list[]"  value = "'.$row['coid'].'"></td>           
                                         </tr>
                                         ';
                                         $no++;
