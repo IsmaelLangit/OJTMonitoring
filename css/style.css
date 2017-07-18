@@ -179,14 +179,14 @@ a:hover{
     padding: 88px 0 67px 0;
     display: block;
 }
-.changeBy{
+.goBack{
   font-size: 20px !important;
   color: #000;
   margin-top: 0px;
 }
 
 /**--------------------------MEDIA QUERIES--------------------------------**/
-@media (min-width: 35px) and (max-width: 500px){
+@media (min-width: 10px) and (max-width: 500px){
     .section-title{
         margin-bottom: 15px;
     }
@@ -344,11 +344,10 @@ textarea {
     max-width: 100%; 
 }
 .nothingToDisplay{
-    font-size: 1.8em;
-    font-style: italic;
+    font-size: 1.7em;
     color: #b20e00;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
 }
 .fontGlyphiconOk{
   color: #01a34a;

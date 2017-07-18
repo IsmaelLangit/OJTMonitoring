@@ -206,8 +206,8 @@
     <section class="section-padding paddingExport">
     <div class="container-fluid">
         <div class="row">
-                <div class="col text-center wow fadeInDown">
-                    <h1 class="top-title"><span class="title">Export </span>Data</h1>
+                <div class="col text-center">
+                    <h1 class="top-title"><span class="title"><span class="fa fa-download space"></span>Export </span>Data</h1>
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
@@ -246,7 +246,7 @@
                         <div class="col-md-5">
 
                         <div class="form-group form-inline ">
-                            <label class="exportTitle head-title titleFont paddingTopSlight space titleExport">Select Table to Export</label>
+                            <label class="exportTitle head-title titleFont paddingTopSlight space titleExport"><span class="fa fa-table space"></span>Select Table to Export</label>
                             <select name="selecttable" class="btn btn-default input-small touch disableHighlight removeButton" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
                                 <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Company & Students</option>

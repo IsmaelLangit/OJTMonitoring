@@ -52,7 +52,7 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
 
-            <div class="col text-center wow fadeInDown">
+            <div class="col text-center">
                 <h1 class="top-title">
                     <span class="title">
                         <?php 
@@ -308,6 +308,15 @@ include("connect.php");
     </footer>
 
     </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/smoothScroll.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
 
     <script>
         $(".confirm").confirm();
