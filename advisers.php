@@ -116,17 +116,17 @@ include("connect.php");
 
             <div class="row text-center ">
  
-                <div class="form-group row  paddingTopSlight">
+                <div class="form-group row">
                     <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
-                      <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser">
+                      <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser" required>
                       <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add Adviser</button>
                     </form>
                 </div>
 
             </div> <!--End of Row-->
 
-            <div class="row paddingTopSlight">
+            <div class="row">
                 <table class="table table-hover table-responsive">
                     <form>
                     <thead>
