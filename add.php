@@ -16,44 +16,6 @@
         <link rel="stylesheet" type="text/css" href="css/footer.css">
         <link rel="stylesheet" type="text/css" href="css/datepicker.css">
         <link rel="icon" href="img/scisLogo.png">
-
-        <script src="js/bootstrap-notify.js"></script>
-
-
-        <script type="text/javascript">
-            function success(){
-
-            }
-        </script>
-
-        <script type="text/javascript">
-            $(function error(){
-              $(".btn").on("click",function(){
-                $.notify({
-                  icon: 'fa fa-exclamation-circle',
-                  message: "The student you are adding <strong> already exists in the database.</a>"
-                },{
-                  type: 'danger',
-                  animate: {
-                        enter: 'animated fadeInUp',
-                        exit: 'animated fadeOutRight'
-                  },
-                  placement: {
-                    from: "top",
-                    align: "right"
-                  },
-                  offset: {
-                        x: 20,
-                        y: 150
-                   },
-                  mouse_over: "pause",
-                  spacing: 10,
-                  z_index: 1031,
-                });
-              });
-            });
-        </script>
-
     </head>
     <body>
 
@@ -143,10 +105,11 @@
                 
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id) VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id')") or die('Error: ' . mysqli_error($connect));
 
-                       echo '<script type="text/javascript">success()</script>';
+                       echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
+                                </div>';
                     
                 } else {
-                    echo '<script type="text/javascript">error()</script>';
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The student you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
             }
