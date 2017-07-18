@@ -206,7 +206,7 @@
     <section class="section-padding paddingExport">
     <div class="container-fluid">
         <div class="row">
-                <div class="col text-center">
+                <div class="col text-center wow fadeInDown">
                     <h1 class="top-title"><span class="title">Export </span>Data</h1>
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>

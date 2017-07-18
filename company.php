@@ -53,7 +53,7 @@ include("connect.php");
         <form class="form-inline" method="get">
 
         <div class="container-fluid">
-            <div class="col text-center">
+            <div class="col text-center wow fadeInDown">
                 <h1 class="top-title">List of Practicum 2 <span class="title">Companies </span></h1>  
             </div>
 

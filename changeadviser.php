@@ -73,7 +73,7 @@ include("connect.php");
         <form method = "post">
             <div class="container form-group">
 
-                <div class="col text-center">
+                <div class="col text-center wow fadeInDown">
                     <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
                 </div>
                 <?php               

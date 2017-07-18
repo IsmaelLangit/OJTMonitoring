@@ -57,8 +57,8 @@ include("connect.php");
          <form class="form-inline" method="get">
         <div class="container-fluid">
 
-            <div class="col text-center">
-                <h1 class="top-title">List of Practicum 2 <span class="title">Students </span></h1>
+            <div class="col text-center wow fadeInDown">
+                <h1 class="top-title">List of Practicum 2 <span class="title">Students</span></h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -68,11 +68,11 @@ include("connect.php");
                 $idnum = $_GET['idnum'];
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
                 if($delete){
-                    echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
-                                </div>';
+                    echo '  <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
+                            </div>';
                 }else{
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
                 }
             }
             ?>
@@ -81,7 +81,7 @@ include("connect.php");
                 <div class="row">
                     <div class="col-md-10 paddingBottomSlight">
                        
-                            <div class="input-group dropdown-toggle ">
+                            <div class="input-group dropdown-toggle">
                                 <span class="input-group-addon" id="basic-addon1"><span class="fa fa-filter space"></span>Filter By:</span>
                                 <select name="filter" class="form-control touch" onchange="form.submit()">
                                     <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>

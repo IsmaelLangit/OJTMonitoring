@@ -54,7 +54,7 @@ include("connect.php");
         <div class="container-fluid">
 
             <div class="col text-center">
-                <h1 class="top-title">Edit 
+                <h1 class="top-title wow fadeInDown">Edit 
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
