@@ -340,7 +340,7 @@ include("connect.php");
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <p class="subLabel"><strong>Memorandum of Agreement</strong></p>
+                                        <p class="subLabel"><strong>Memorandum of Agreement</strong> <a href = "editcompany.php?coid=<?php echo $row ['coid']; ?>">(edit)</a></p>
                                         <div class="col">
                                             <?php 
                                                 if($row['moa'] == 'yes'){
