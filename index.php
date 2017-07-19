@@ -136,6 +136,10 @@ include("connect.php");
                 </div>
             </div>
 
+            <?php
+                $count_students = $pdo->prepare("SELECT count(idnum) AS countidnum FROM students") or die(mysql_error());
+            ?>
+
             <div class="container-fluid">
                 <div id="summary" class="row row-centered paddingTopSlight panel-collapse collapse">
 
@@ -144,27 +148,32 @@ include("connect.php");
                         <span class="indexIcon fa fa-users"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="colorInfo">Total Students</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                     ';
                                 }
                             ?>  
                         </div>
                     </a>
 
+                    <?php
+                        $count_students = $pdo->prepare("SELECT count(idnum) AS countidnum FROM students where status = ?") or die(mysql_error());
+                    ?>
+
                     <a href="index.php?filter=Complete&viewperpage=all">
                         <div class="col-sm-2 well wellHeight green col-centered text-center">
                         <span class="indexIcon fa fa-check"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Complete'");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students->bindValue(1, "Complete", PDO::PARAM_STR);
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="text-center colorInfo">Complete Requirements</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                 ';
                                 }
                             ?>  
@@ -176,27 +185,33 @@ include("connect.php");
                         <span class="indexIcon fa fa-remove"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students where status = 'Incomplete'");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students->bindValue(1, "Incomplete", PDO::PARAM_STR);
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="text-center colorInfo">Incomplete Requirements</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                 ';
                                 }
                             ?>  
                         </div>
                     </a>
 
+                    <?php
+                        $count_students = $pdo->prepare("SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where typeofcompany = ?") or die(mysql_error());
+                    ?>
+
                      <a href="index.php?filter=Private&viewperpage=all">
                         <div class="col-sm-2 well wellHeight blue col-centered text-center">
                         <span class="indexIcon fa fa-building"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where typeofcompany = 'Private'");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students->bindValue(1, "Private", PDO::PARAM_STR);
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="text-center colorInfo">Private</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                     ';
                                 }
                             ?>  
@@ -209,11 +224,12 @@ include("connect.php");
                         <span class="indexIcon fa fa-institution"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where typeofcompany = 'Government'");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students->bindValue(1, "Government", PDO::PARAM_STR);
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="text-center colorInfo">Government</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                     ';
                                 }
                             ?>  
@@ -225,11 +241,13 @@ include("connect.php");
                         <span class="indexIcon fa fa-warning"></span>
                         <hr class="style-four">
                             <?php
-                                $con = mysqli_query($connect, "SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where coname = 'No Company'");
-                                while ($row = mysqli_fetch_assoc($con)) {
+                                $count_students = $pdo->prepare("SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where coname = ?") or die(mysql_error());
+                                $count_students->bindValue(1, "coname = 'No Company'", PDO::PARAM_STR);
+                                $count_students->execute();
+                                while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
                                     <p class="text-center colorInfo">No Company</p>
-                                    <p class = "number text-center">'.$row["countidnum"].'</p>
+                                    <p class = "number text-center">'.$total_students["countidnum"].'</p>
                                     ';
                                 }
                             ?>  
