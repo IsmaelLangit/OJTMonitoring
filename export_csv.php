@@ -526,5 +526,16 @@
             } 
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.table tr').click(function(event) {
+                if (event.target.type !== 'checkbox') {
+                    $(':checkbox', this).trigger('click');
+                }
+            });
+        });
+    </script>
+    
   </body>
 </html>

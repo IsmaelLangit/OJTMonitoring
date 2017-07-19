@@ -489,33 +489,5 @@ include("connect.php");
         $(".confirm").confirm();
     </script>
 
-    <script>
-        $(function error(){
-          $(".btn").on("click",function(){
-            $.notify({
-              icon: 'fa fa-exclamation-triangle',
-              message: "You <strong> cannot delete a company </strong> with present OJT students.</a>"
-            },{
-              type: 'warning',
-              animate: {
-                    enter: 'animated fadeInUp',
-                    exit: 'animated fadeOutRight'
-              },
-              placement: {
-                from: "top",
-                align: "right"
-              },
-              offset: {
-                    x: 20,
-                    y: 150
-               },
-              mouse_over: "pause",
-              spacing: 10,
-              z_index: 1031,
-            });
-          });
-        });
-    </script>
-
   </body>
 </html>
