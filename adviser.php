@@ -64,7 +64,7 @@ include("connect.php");
                     echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added an adviser.
                         </div>';
                 } else {
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
             }
@@ -249,6 +249,9 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/alertFade.js"></script>
+    <script src="js/alertFade.js"></script>
+    
     <script>
         $(".confirm").confirm();
     </script>

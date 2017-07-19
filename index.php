@@ -16,6 +16,8 @@ include("connect.php");
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/hover.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" type="text/css" href="css/preloader.css">
+
     </head>
   <body>
 
@@ -52,6 +54,8 @@ include("connect.php");
         </div>
     </header>
     <!--/ header-->
+
+    
 
     <section class="section-padding">
          <form class="form-inline" method="get">
@@ -923,6 +927,8 @@ include("connect.php");
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
     <script src="js/bootstrap-notify.js"></script>
+    <script src="js/alertFade.js"></script>
+    <script src="js/preloader.js"></script>
 
     <script>
         $(".confirm").confirm();

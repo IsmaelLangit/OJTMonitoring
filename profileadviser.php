@@ -99,7 +99,7 @@ include("connect.php");
                             }
                         ?>
                     </span>  
-                Profile</h1>
+                Advisees</h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -308,6 +308,7 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
         $(".confirm").confirm();

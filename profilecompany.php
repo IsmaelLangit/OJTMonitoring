@@ -250,6 +250,7 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
     $('.date').datepicker({

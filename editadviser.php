@@ -96,6 +96,7 @@ include("connect.php");
     <script src="js/smoothScroll.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
         $(".confirm").confirm();

@@ -504,6 +504,7 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
         $('form').areYouSure();
@@ -525,5 +526,16 @@
             } 
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.table tr').click(function(event) {
+                if (event.target.type !== 'checkbox') {
+                    $(':checkbox', this).trigger('click');
+                }
+            });
+        });
+    </script>
+    
   </body>
 </html>

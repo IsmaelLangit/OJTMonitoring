@@ -97,7 +97,7 @@ include("connect.php");
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group input-group dropdown-toggle">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Advisee for: </span>
                                 <select name="ad_id" class="form-control touch">
@@ -113,8 +113,8 @@ include("connect.php");
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group input-group dropdown-toggle col-md-7">
+                    <div class="col-md-4">
+                        <div class="form-group input-group dropdown-toggle">
                             <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle space"></span>Set Adviser by: </span>
                                 <select name="selecttable" class="form-control touch" id="tableSelect" onchange="form.submit()">
                                     <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
@@ -123,7 +123,8 @@ include("connect.php");
                                 </select>
                         </div>
                     </div>
-                </div> <!--End of Row-->
+
+                    
 
                 <?php 
                  
@@ -136,19 +137,21 @@ include("connect.php");
                 if($selecttable == "Group") {
 
                 ?>
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
+                                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--End of Row-->
 
                 <div class="col" id="form">
 
-                    <div class="form-group">
-                        <div class="form-group input-group col-md-5">
-                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
-                            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names...">
-                        </div>
-                    </div>
+                    <div class="form-group" style="height: 500px; overflow:auto;">
 
-                    <div class="form-group" style="height: 465px; overflow:auto;">
-
-                        <table class="table table-hover table-responsive" id="myTable">
+                        <table class="table table-hover table-responsive fixed_headers" id="myTable">
                             <thead>
                                 <tr class="info">
                                     <th>ID No.</th>
@@ -199,18 +202,21 @@ include("connect.php");
 
                 ?>
 
-                <div class="col" id="form">
-
-                    <div class="form-group">
-                        <div class="form-group  input-group col-md-5">
-                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
-                            <input type="text" id="myInput2" class="form-control" title="Type in a name" onkeyup="myFunction2()" placeholder="Search for names...">
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-search space"></span>Search</span>
+                                <input type="text" id="myInput2" class="form-control" onkeyup="myFunction2()" placeholder="Search for names...">
+                            </div>
                         </div>
                     </div>
+                </div> <!--End of Row-->
 
-                    <div class="form-group" style="height: 465px; overflow:auto;">
+                <div class="col" id="form">
 
-                        <table class="table table-hover" id="myTable2">
+                    <div class="form-group" style="height: 500px; overflow:auto;">
+
+                        <table class="table table-hover fixed_headers" id="myTable2">
                             <thead>
                                 <tr class="info">
                                     <th width="50%">Company Name</th>
@@ -304,6 +310,7 @@ include("connect.php");
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/alertFade.js"></script>
 
     <script>
         $(".confirm").confirm();
@@ -351,5 +358,15 @@ include("connect.php");
         }
     </script>
 
+
+    <script>
+        $(document).ready(function() {
+            $('.table tr').click(function(event) {
+                if (event.target.type !== 'checkbox') {
+                    $(':checkbox', this).trigger('click');
+                }
+            });
+        });
+    </script>    
   </body>
 </html>
