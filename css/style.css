@@ -184,6 +184,10 @@ a:hover{
   color: #000;
   margin-top: 0px;
 }
+.editButton{
+  font-size: 12px !important;
+  font-style: italic;
+}
 
 /**--------------------------MEDIA QUERIES--------------------------------**/
 @media (min-width: 10px) and (max-width: 500px){
