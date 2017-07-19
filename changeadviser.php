@@ -76,13 +76,13 @@ include("connect.php");
                             if($update){
                                         header("Location: changeadviser.php?message=success");
                                     }else{
-                                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+                                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> Data could not be saved, please try again.</div>';
                                     }
                                 }
                                 
                                 if(isset($_GET['message']) == 'success'){
                                     echo '<div class="alert alert-success" role="alert">
-                                                      <strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
+                                                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have updated the information.
                                                     </div>';
                                 }
 
