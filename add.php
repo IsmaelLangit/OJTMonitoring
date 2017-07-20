@@ -251,7 +251,7 @@
                             <h2 class="titleFont">Practicum 2 Requirements</h2>
                             <hr class="style-four">
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Endorsement</strong></p>
                                     <div class="col">
@@ -283,7 +283,7 @@
                                 </div>
                             </div> <!--End of col for Endorsement-->
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Waiver</strong></p>
                                     <div class="col">
@@ -314,7 +314,7 @@
                                 </div>
                             </div> <!--End of col for Waiver-->
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Evaluation</strong></p>
                                 <div class="col">
@@ -341,6 +341,23 @@
                                 </div>
                                 </div>
                             </div> <!--End of col for Evaluation-->
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                <p class="subLabel"><strong>Advisory Visit</strong></p>
+                                <div class="col">
+                                    <?php
+
+                                        echo  "<input type='hidden' name='vis_status' value='no'>";
+                                        
+                                        echo  " <input type='checkbox' name='vis_status' value='yes'>
+                                                <label class='control-label'> <span class='space'></span> Yes</label> <br>" ;
+                                        echo  " <label class='control-label'>Remarks</label>
+                                                <textarea maxlength = '200' rows='13' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                        ?>
+                                </div>
+                                </div>
+                            </div> <!--End of col for Visit-->
 
                         </div> <!--End of ROW-->
                     </div> <!--end of practicum 2 requirements col-md-6-->
