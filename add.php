@@ -243,6 +243,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label">Advisory Visit</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <?php
+                                                echo  "<input type='hidden' name='vis_status' value='no'>";
+                                                
+                                                echo  " <input type='checkbox' name='vis_status' value='yes'>
+                                                        <label class='control-label'> <span class='space'></span> Yes</label> <br>" ;
+                                                echo  " <label class='control-label'>Remarks</label>
+                                                        <textarea maxlength = '200' rows='3' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div> <!--end of basic information col-md-6-->
 
                     <div class="col-md-9">
@@ -251,7 +270,7 @@
                             <h2 class="titleFont">Practicum 2 Requirements</h2>
                             <hr class="style-four">
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Endorsement</strong></p>
                                     <div class="col">
@@ -262,14 +281,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-9'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-9'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -283,7 +302,7 @@
                                 </div>
                             </div> <!--End of col for Endorsement-->
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Waiver</strong></p>
                                     <div class="col">
@@ -294,14 +313,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
 
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-9'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
 
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-9'>
+                                                        <div class='input-group date col-sm-7'>
                                                             <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -314,7 +333,7 @@
                                 </div>
                             </div> <!--End of col for Waiver-->
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Evaluation</strong></p>
                                 <div class="col">
@@ -324,13 +343,13 @@
                                         echo  " <input type='checkbox' name='evaluation' value='yes'>
                                                 <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                         echo  " <label class='control-label'>Date Released</label>
-                                                    <div class='input-group date col-sm-9'>
+                                                    <div class='input-group date col-sm-7'>
                                                         <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                 <br>" ;
                                         echo  " <label class='control-label'>Date Received</label>
-                                                    <div class='input-group date col-sm-9'>
+                                                    <div class='input-group date col-sm-7'>
                                                         <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -341,23 +360,6 @@
                                 </div>
                                 </div>
                             </div> <!--End of col for Evaluation-->
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <p class="subLabel"><strong>Advisory Visit</strong></p>
-                                <div class="col">
-                                    <?php
-
-                                        echo  "<input type='hidden' name='vis_status' value='no'>";
-                                        
-                                        echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                <label class='control-label'> <span class='space'></span> Yes</label> <br>" ;
-                                        echo  " <label class='control-label'>Remarks</label>
-                                                <textarea maxlength = '200' rows='13' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
-                                        ?>
-                                </div>
-                                </div>
-                            </div> <!--End of col for Visit-->
 
                         </div> <!--End of ROW-->
                     </div> <!--end of practicum 2 requirements col-md-6-->

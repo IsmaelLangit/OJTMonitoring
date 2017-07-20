@@ -6,7 +6,7 @@ include("connect.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Student Profile</title>
+    <title>View Adviser Profile</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -87,7 +87,7 @@ include("connect.php");
                 }
                 ?>
                 <h1 class="top-title">
-                      <span class="title">
+                  <span class="title">
                         <?php 
                             $ad_id = $_GET['ad_id'];
                             $sql = mysqli_query($connect, "SELECT * from advisers WHERE ad_id='$ad_id'");
@@ -99,7 +99,39 @@ include("connect.php");
                             }
                         ?>
                     </span>  
-                Advisees</h1>
+                Advisees 
+
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#EditName"><span class="glyphicon glyphicon-edit"></span></button>
+
+                </h1>
+
+                <div id="EditName" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-sm">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label for="example-text-input" class="col-2 col-form-label">Adviser's Name</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" value="<?php echo strip_tags(htmlentities($row ['adviser'])) ?>" id="example-text-input">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Decline</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>

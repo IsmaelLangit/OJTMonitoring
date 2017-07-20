@@ -314,21 +314,22 @@ include("connect.php");
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label">Advisory Visitation</label>
+                                            <label class="control-label">Advisory Visit</label>
+
                                         </div>
                                         
                                         <div class="col-sm-8">
                                             <div class="form-group">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                    <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>">
-                                                    <input type = "hidden" name = "idnum" value = "<?php echo strip_tags(htmlentities($row ['idnum'])) ?>">
-                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes </label>
+                                                    <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>" >
+                                                    <input type = "hidden" name = "idnum" value = "<?php echo strip_tags(htmlentities($row ['idnum'])) ?>" >
+                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes </label>
                                                     <label class="form-check-label">
-                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
+                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
                                                 </div>
                                                 <label class='control-label'>Remark/s</label>
-                                                <textarea maxlength = '200' rows="3" class="form-control" name="remark_visit" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
+                                                <textarea maxlength = '200' rows="3" class="form-control" name="remark_visit" class="form-control" > <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -348,7 +349,7 @@ include("connect.php");
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-sm-3"> 
-                                                <label class="control-label">Requirement Status</label>
+                                                <label class="control-label space">Requirement Status</label>
                                                 <?php
                                                     if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
                                                         echo "<span class='label label-success' style='font-size: 13px'>Complete</span>";
@@ -505,13 +506,16 @@ include("connect.php");
                                 </div>
 
                             </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
+                                <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                            </div>
+
                         </div> <!--End of practicum 2 requirements col-md-9-->
                     </div> <!--End of row-->
 
-                    <div class="form-group text-center">
-                        <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
-                        <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
-                    </div>
+                    
                 </form>
             </div> <!--End of Form Container Fluid-->
 
