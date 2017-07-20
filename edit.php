@@ -264,7 +264,25 @@ include("connect.php");
                                 </div>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label" >Type of OJT</label>
+                                        </div>
+                                        
+                                        <div class="col-sm-8" style="font-size: 18px">
+                                            <?php
+                                                if ($row ['typeofcompany'] == "Private") {
+                                                    echo "<span class='label label-info'>Private</span>";
+                                                } else {
+                                                    echo "<span class='label label-primary'>Government</span>";
+                                                }
+                                                ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="container-fluid">
@@ -296,21 +314,28 @@ include("connect.php");
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" >Type of OJT</label>
+                                            <label class="control-label">Advisory Visitation</label>
                                         </div>
                                         
-                                        <div class="col-sm-8" style="font-size: 18px">
-                                            <?php
-                                                if ($row ['typeofcompany'] == "Private") {
-                                                    echo "<span class='label label-info'>Private</span>";
-                                                } else {
-                                                    echo "<span class='label label-primary'>Government</span>";
-                                                }
-                                                ?>
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                    <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>">
+                                                    <input type = "hidden" name = "idnum" value = "<?php echo strip_tags(htmlentities($row ['idnum'])) ?>">
+                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes </label>
+                                                    <label class="form-check-label">
+                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
+                                                </div>
+                                                <label class='control-label'>Remark/s</label>
+                                                <textarea maxlength = '200' rows="3" class="form-control" name="remark_visit" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div> <!--End of Basic information col-md-3-->
 
                         <div class="col-md-9">
@@ -360,11 +385,19 @@ include("connect.php");
                                                 ?>
                                             <br>
                                             <label class='control-label'>Date Released</label>
-                                            <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" readonly>
+                                            <div class="input-group col-sm-9">
+                                                <input type="text" class="form-control " name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control " readonly>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
                                             <br>
+
                                             <label class='control-label'>Date Received</label>
-                                            <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                                            <div class="input-group col-sm-9">
+                                                <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
                                             <br>
+
                                             <label class='control-label'>Remark/s</label>
                                             <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                         </div>
