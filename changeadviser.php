@@ -149,7 +149,7 @@ include("connect.php");
 
                 <div class="col" id="form">
 
-                    <div class="form-group" style="height: 500px; overflow:auto;">
+                    <div class="form-group" style="height: 515px; overflow:auto;">
 
                         <table class="table table-hover table-responsive fixed_headers" id="myTable">
                             <thead>

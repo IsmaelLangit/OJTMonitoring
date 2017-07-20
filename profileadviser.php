@@ -205,6 +205,10 @@ include("connect.php");
                                 <!--Visit Status Column-->
                                 <td colspan="2" class="text-center">
                                 <?php
+                                echo '
+                                        <a class="help" data-html="true" data-toggle="tooltip" 
+                                            title=" Remarks: '.strip_tags($row ['remark_visit']).' " >
+                                ';
                                 if($row['vis_status'] == 'yes'){
                                     echo ' 
                                         <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
