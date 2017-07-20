@@ -254,7 +254,7 @@
                                                 echo  "<input type='hidden' name='vis_status' value='no'>";
                                                 
                                                 echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                        <label class='control-label'> <span class='space'></span> Yes</label> <br>" ;
+                                                        <label class='control-label'> <span class='space'></span>Visited</label> <br>" ;
                                                 echo  " <label class='control-label'>Remarks</label>
                                                         <textarea maxlength = '200' rows='3' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                             ?>
@@ -412,7 +412,6 @@
         format: 'MM dd yyyy',
     })
     </script>
-
-    
+        
   </body>
 </html>

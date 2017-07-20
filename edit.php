@@ -77,34 +77,36 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $idnum           = $_POST['idnum'];
-                $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
-                $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
-                $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number'];
-                $email       = mysqli_real_escape_string($connect,$_POST['email']);
+                $idnum                  = $_POST['idnum'];
+                $last_name              = mysqli_real_escape_string($connect,$_POST['last_name']);
+                $first_name             = mysqli_real_escape_string($connect,$_POST['first_name']);
+                $courseyear             = $_POST['courseyear'];
+                $mobile_number          = $_POST['mobile_number'];
+                $email                  = mysqli_real_escape_string($connect,$_POST['email']);
+                $vis_status             = $_POST['vis_status'];
+                $remark_visit           = mysqli_real_escape_string($connect,$_POST['remark_visit']);
 
-                $endorsement         = $_POST['endorsement'];
-                $release_endorsement         = $_POST['release_endorsement'];
-                $receive_endorsement         = $_POST['receive_endorsement'];
-                $remark_endorsement      = mysqli_real_escape_string($connect,$_POST['remark_endorsement']);
+                $endorsement            = $_POST['endorsement'];
+                $release_endorsement    = $_POST['release_endorsement'];
+                $receive_endorsement    = $_POST['receive_endorsement'];
+                $remark_endorsement     = mysqli_real_escape_string($connect,$_POST['remark_endorsement']);
 
-                $waiver      = $_POST['waiver'];
-                $release_waiver      = $_POST['release_waiver'];
-                $receive_waiver      = $_POST['receive_waiver'];
-                $remark_waiver     = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
+                $waiver                 = $_POST['waiver'];
+                $release_waiver         = $_POST['release_waiver'];
+                $receive_waiver         = $_POST['receive_waiver'];
+                $remark_waiver          = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
 
-                $evaluation      = $_POST['evaluation'];
-                $release_evaluation      = $_POST['release_evaluation'];
-                $receive_evaluation      = $_POST['receive_evaluation'];
-                $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
+                $evaluation             = $_POST['evaluation'];
+                $release_evaluation     = $_POST['release_evaluation'];
+                $receive_evaluation     = $_POST['receive_evaluation'];
+                $remark_evaluation      = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
-                $coid        = $_POST['coid'];
-                $ad_id        = $_POST['ad_id'];
+                $coid                   = $_POST['coid'];
+                $ad_id                  = $_POST['ad_id'];
 
-                $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
-                $company_moa = mysqli_fetch_assoc($company_query);
-                $moa  = $company_moa["moa"];
+                $company_query          = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                $company_moa            = mysqli_fetch_assoc($company_query);
+                $moa                    = $company_moa["moa"];
 
                 if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
                     $status = "Complete";
@@ -112,7 +114,7 @@ include("connect.php");
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', vis_status='$vis_status', remark_visit='$remark_visit', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
@@ -322,11 +324,8 @@ include("connect.php");
                                             <div class="form-group">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                    <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])) ?>" >
-                                                    <input type = "hidden" name = "idnum" value = "<?php echo strip_tags(htmlentities($row ['idnum'])) ?>" >
-                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox1" value="yes"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Yes </label>
-                                                    <label class="form-check-label">
-                                                    <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
+                                                    <input type = "hidden" name = "vis_status" value = "no" >
+                                                    <input class="form-check-input" name = "vis_status" type="checkbox" id="inlineCheckbox1" value="yes"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Visited </label>
                                                 </div>
                                                 <label class='control-label'>Remark/s</label>
                                                 <textarea maxlength = '200' rows="3" class="form-control" name="remark_visit" class="form-control" > <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>

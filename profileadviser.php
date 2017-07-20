@@ -88,7 +88,7 @@ include("connect.php");
 
                  if(isset($_GET['adviser']) == 'success'){
                     echo '<div class="alert alert-success" role="alert">
-                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this adviser has been updated
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The display name of this adviser has been updated
                         </div>';
                 }
 
