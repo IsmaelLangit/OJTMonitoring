@@ -62,7 +62,7 @@ include("connect.php");
         <div class="container-fluid">
 
             <div class="col text-center">
-                <h1 class="top-title"><span class="fa fa-user space"></span>List of Practicum 2 <span class="title">Students</span></h1>
+                <h1 class="top-title">List of Practicum 2 <span class="title">Students</span></h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>

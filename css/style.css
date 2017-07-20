@@ -348,10 +348,11 @@ textarea {
     max-width: 100%; 
 }
 .nothingToDisplay{
-    font-size: 1.7em;
+    font-size: 1.5em;
     color: #b20e00;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 10px;
+    font-style: italic;
 }
 .fontGlyphiconOk{
   color: #01a34a;

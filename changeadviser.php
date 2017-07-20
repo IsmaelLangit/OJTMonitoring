@@ -88,7 +88,7 @@ include("connect.php");
 
                         ?>
 
-                    <h1 class="top-title"> <span class="fa fa-exchange space"></span>Change <span class="title">Adviser </span></h1>  
+                    <h1 class="top-title">Change <span class="title">Adviser </span></h1>  
                 </div>
                 <?php               
                 $sql1 =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, adviser, coid, ad_id from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
