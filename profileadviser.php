@@ -119,7 +119,7 @@ include("connect.php");
                     </span>  
                 Advisees 
 
-                <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><span class="glyphicon glyphicon-edit"></span></button>
+                <button type="button" class="btn btn-success btn-md btn-collapsible" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><i class="glyphicon glyphicon-edit space"></i><span>Edit Name</span></button>
 
                 </h1>
 
