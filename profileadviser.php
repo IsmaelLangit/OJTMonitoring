@@ -62,17 +62,35 @@ include("connect.php");
 
                     $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
                     if($update){
-                        header("Location: profileadviser.php?ad_id=".$ad_id."&message=success");
+                        header("Location: profileadviser.php?ad_id=".$ad_id."&student=success");
+                    }else{
+                        echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+                    }
+                }
+
+                if(isset($_POST['saveAdviser'])){
+                    $adviser            = $_POST['adviser'];
+                    $ad_id = $_GET['ad_id'];
+
+                    $updateadviser = mysqli_query($connect, "UPDATE advisers SET adviser ='$adviser' WHERE ad_id= '$ad_id'") or die(mysqli_error());
+                    if($updateadviser){
+                        header("Location: profileadviser.php?ad_id=".$ad_id."&adviser=success");
                     }else{
                         echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                     }
                 }
                 
-                if(isset($_GET['message']) == 'success'){
-                            echo '<div class="alert alert-success" role="alert">
-                                  <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
-                                </div>';
-                        }
+                if(isset($_GET['student']) == 'success'){
+                    echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
+                        </div>';
+                }
+
+                 if(isset($_GET['adviser']) == 'success'){
+                    echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this adviser has been updated
+                        </div>';
+                }
 
                 if(isset($_GET['action']) == 'remove'){
                     $idnum = $_GET['idnum'];
@@ -101,7 +119,7 @@ include("connect.php");
                     </span>  
                 Advisees 
 
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#EditName"><span class="glyphicon glyphicon-edit"></span></button>
+                <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><span class="glyphicon glyphicon-edit"></span></button>
 
                 </h1>
 
@@ -109,29 +127,30 @@ include("connect.php");
                   <div class="modal-dialog modal-sm">
 
                     <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit</h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label for="example-text-input" class="col-2 col-form-label">Adviser's Name</label>
-                          <div class="col-10">
-                            <input class="form-control" type="text" value="<?php echo strip_tags(htmlentities($row ['adviser'])) ?>" id="example-text-input">
+                    
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit</h4>
                           </div>
+                          <form method="post">
+                          <div class="modal-body">
+                            <div class="form-group">
+                              <label for="example-text-input" class="col-2 col-form-label">Adviser's Name</label>
+                              <div class="col-10">
+                                <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])); ?>">
+                                <input class="form-control" name="adviser" type="text" value="<?php echo strip_tags(htmlentities($row ['adviser'])); ?>" id="example-text-input">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" name="saveAdviser" class="btn btn-success">Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                          </div>
+                          </form>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Decline</button>
-                      </div>
-                    </div>
-
                   </div>
-                </div>
-
-                
+                </div>  
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
