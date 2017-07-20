@@ -36,8 +36,8 @@ include("connect.php");
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav ">
+                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                            <ul class="nav navbar-nav">
                                 <li class="active"><a href="index.php"><span class="fa fa-user space"></span>Students</a></li>
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>Companies</a></li>

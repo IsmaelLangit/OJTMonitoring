@@ -346,8 +346,8 @@
                     </div> <!--end of practicum 2 requirements col-md-6-->
                     <div class="form-group text-center">
                         <div class="col">
-                            <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight" value="Add Student"><span class="fa fa-plus space"></span>Add</button>
-                            <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                            <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight btn-collapsible" value="Add Student"><i class="fa fa-plus space"></i><span>Add</span></button>
+                            <a href="index.php" class="btn btn-md btn-danger disableHighlight btn-collapsible"><i class="fa fa-times space"></i><span>Cancel</span></a>
                         </div>
                     </div>
                 </form>

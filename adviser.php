@@ -121,7 +121,7 @@ include("connect.php");
                     <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                       <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser" required>
-                      <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add Adviser</button>
+                      <button type="submit" class="btn btn-success removeButton btn-collapsible" name = "add" value="Add Adviser"><i class="fa fa-plus space"></i><span>Add Adviser</span></button>
                     </form>
                 </div>
 

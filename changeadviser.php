@@ -284,7 +284,7 @@ include("connect.php");
 
                 <div class="form-group text-center">
                     <div class="col">
-                        <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" value="Change Adviser"><span class="fa fa-exchange space"></span>Change Adviser</button>
+                        <button type="submit" name="change" class="btn btn-md btn-success disableHighlight" btn-collapsible alue="Change Adviser"><i class="fa fa-exchange space"></i><span>Change Adviser</span></button>
                     </div>
                 </div>
             </div> <!--End of Container Fluid-->

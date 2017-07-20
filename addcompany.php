@@ -232,8 +232,8 @@ include("connect.php");
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" name="add" class="btn btn-md btn-success disableHighlight" value="Add"><span class="fa fa-plus space"></span>Add</button>
-                    <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                    <button type="submit" name="add" class="btn btn-md btn-success disableHighlight btn-collapsible" value="Add"><i class="fa fa-plus space"></i><span>Add</span></button>
+                    <a href="index.php" class="btn btn-md btn-danger disableHighlight btn-collapsible"><i class="fa fa-times space"></i><span>Cancel</span></a>
                 </div>
                 
             </form>
