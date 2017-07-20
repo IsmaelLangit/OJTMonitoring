@@ -705,7 +705,7 @@ include("connect.php");
                             }
 
                                     if(mysqli_num_rows($sql) == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NO RESULTS FOUND <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NOTHING TO DISPLAY <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
                                     }else{
                                         if($id == 1) {
                                             $no = 1;
