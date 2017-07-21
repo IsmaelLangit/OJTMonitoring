@@ -77,34 +77,36 @@ include("connect.php");
                 $row = mysqli_fetch_assoc($sql);
             }
             if(isset($_POST['save'])){
-                $idnum           = $_POST['idnum'];
-                $last_name           = mysqli_real_escape_string($connect,$_POST['last_name']);
-                $first_name          = mysqli_real_escape_string($connect,$_POST['first_name']);
-                $courseyear      = $_POST['courseyear'];
-                $mobile_number       = $_POST['mobile_number'];
-                $email       = mysqli_real_escape_string($connect,$_POST['email']);
+                $idnum                  = $_POST['idnum'];
+                $last_name              = mysqli_real_escape_string($connect,$_POST['last_name']);
+                $first_name             = mysqli_real_escape_string($connect,$_POST['first_name']);
+                $courseyear             = $_POST['courseyear'];
+                $mobile_number          = $_POST['mobile_number'];
+                $email                  = mysqli_real_escape_string($connect,$_POST['email']);
+                $vis_status             = $_POST['vis_status'];
+                $remark_visit           = mysqli_real_escape_string($connect,$_POST['remark_visit']);
 
-                $endorsement         = $_POST['endorsement'];
-                $release_endorsement         = $_POST['release_endorsement'];
-                $receive_endorsement         = $_POST['receive_endorsement'];
-                $remark_endorsement      = mysqli_real_escape_string($connect,$_POST['remark_endorsement']);
+                $endorsement            = $_POST['endorsement'];
+                $release_endorsement    = $_POST['release_endorsement'];
+                $receive_endorsement    = $_POST['receive_endorsement'];
+                $remark_endorsement     = mysqli_real_escape_string($connect,$_POST['remark_endorsement']);
 
-                $waiver      = $_POST['waiver'];
-                $release_waiver      = $_POST['release_waiver'];
-                $receive_waiver      = $_POST['receive_waiver'];
-                $remark_waiver     = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
+                $waiver                 = $_POST['waiver'];
+                $release_waiver         = $_POST['release_waiver'];
+                $receive_waiver         = $_POST['receive_waiver'];
+                $remark_waiver          = mysqli_real_escape_string($connect,$_POST['remark_waiver']);
 
-                $evaluation      = $_POST['evaluation'];
-                $release_evaluation      = $_POST['release_evaluation'];
-                $receive_evaluation      = $_POST['receive_evaluation'];
-                $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
+                $evaluation             = $_POST['evaluation'];
+                $release_evaluation     = $_POST['release_evaluation'];
+                $receive_evaluation     = $_POST['receive_evaluation'];
+                $remark_evaluation      = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
-                $coid        = $_POST['coid'];
-                $ad_id        = $_POST['ad_id'];
+                $coid                   = $_POST['coid'];
+                $ad_id                  = $_POST['ad_id'];
 
-                $company_query = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
-                $company_moa = mysqli_fetch_assoc($company_query);
-                $moa  = $company_moa["moa"];
+                $company_query          = mysqli_query($connect, "SELECT * from company WHERE coid='$coid'");
+                $company_moa            = mysqli_fetch_assoc($company_query);
+                $moa                    = $company_moa["moa"];
 
                 if ($endorsement == "yes" && $waiver == "yes" && $moa == "yes")  {
                     $status = "Complete";
@@ -112,7 +114,7 @@ include("connect.php");
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', vis_status='$vis_status', remark_visit='$remark_visit', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
@@ -264,7 +266,25 @@ include("connect.php");
                                 </div>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label" >Type of OJT</label>
+                                        </div>
+                                        
+                                        <div class="col-sm-8" style="font-size: 18px">
+                                            <?php
+                                                if ($row ['typeofcompany'] == "Private") {
+                                                    echo "<span class='label label-info'>Private</span>";
+                                                } else {
+                                                    echo "<span class='label label-primary'>Government</span>";
+                                                }
+                                                ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="container-fluid">
@@ -296,21 +316,26 @@ include("connect.php");
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" >Type of OJT</label>
+                                            <label class="control-label">Advisory Visit</label>
+
                                         </div>
                                         
-                                        <div class="col-sm-8" style="font-size: 18px">
-                                            <?php
-                                                if ($row ['typeofcompany'] == "Private") {
-                                                    echo "<span class='label label-info'>Private</span>";
-                                                } else {
-                                                    echo "<span class='label label-primary'>Government</span>";
-                                                }
-                                                ?>
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                    <input type = "hidden" name = "vis_status" value = "no" >
+                                                    <input class="form-check-input" name = "vis_status" type="checkbox" id="inlineCheckbox1" value="yes"  <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'yes'){ echo 'checked'; }?>> Visited </label>
+                                                </div>
+                                                <label class='control-label'>Remark/s</label>
+                                                <textarea maxlength = '200' rows="3" class="form-control" name="remark_visit" class="form-control" > <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div> <!--End of Basic information col-md-3-->
 
                         <div class="col-md-9">
@@ -323,7 +348,7 @@ include("connect.php");
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-sm-3"> 
-                                                <label class="control-label">Requirement Status</label>
+                                                <label class="control-label space">Requirement Status</label>
                                                 <?php
                                                     if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
                                                         echo "<span class='label label-success' style='font-size: 13px'>Complete</span>";
@@ -340,7 +365,7 @@ include("connect.php");
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <p class="subLabel"><strong>Memorandum of Agreement</strong> <a href = "editcompany.php?coid=<?php echo $row ['coid']; ?>">(edit)</a></p>
+                                        <p class="subLabel"><strong>Memorandum of Agreement</strong> <a class="editButton" href = "editcompany.php?coid=<?php echo $row ['coid']; ?>">(edit)</a></p>
                                         <div class="col">
                                             <?php 
                                                 if($row['moa'] == 'yes'){
@@ -360,11 +385,19 @@ include("connect.php");
                                                 ?>
                                             <br>
                                             <label class='control-label'>Date Released</label>
-                                            <input type="text" class="form-control" name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control" readonly>
+                                            <div class="input-group col-sm-9">
+                                                <input type="text" class="form-control " name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control " readonly>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
                                             <br>
+
                                             <label class='control-label'>Date Received</label>
-                                            <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                                            <div class="input-group col-sm-9">
+                                                <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
                                             <br>
+
                                             <label class='control-label'>Remark/s</label>
                                             <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                         </div>
@@ -472,13 +505,16 @@ include("connect.php");
                                 </div>
 
                             </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
+                                <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                            </div>
+
                         </div> <!--End of practicum 2 requirements col-md-9-->
                     </div> <!--End of row-->
 
-                    <div class="form-group text-center">
-                        <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
-                        <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
-                    </div>
+                    
                 </form>
             </div> <!--End of Form Container Fluid-->
 

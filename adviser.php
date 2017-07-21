@@ -52,19 +52,19 @@ include("connect.php");
     <section class="section-padding">
         <div class="container">
             <div class="col text-center">
-                <h1 class="top-title"><span class="fa fa-address-book space"></span>List of Practicum 2 <span class="title">Advisers </span></h1>  
+                <h1 class="top-title">List of Practicum 2 <span class="title">Advisers </span></h1>  
             </div>
 
             <?php
             if(isset($_POST['add'])){
-                $adviser           = $_POST['adviser'];
+                $adviser = $_POST['adviser'];
                 $con = mysqli_query($connect, "SELECT * from advisers WHERE adviser='$adviser'");
                 if(mysqli_num_rows($con) == 0){
                     $insert = mysqli_query($connect, "INSERT INTO advisers (adviser) VALUES('$adviser')") or die('Error: ' . mysqli_error($connect));
                     echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added an adviser.
                         </div>';
                 } else {
-                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle"></span> The adviser you are adding <strong> already exists in the database. </strong></div>';
+                    echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="fa fa-exclamation-circle space"></span><strong>Warning!</strong> The adviser you are adding <strong> already exists in the database. </strong></div>';
                     }
                 
             }
@@ -76,7 +76,7 @@ include("connect.php");
                     $delete = mysqli_query($connect, "DELETE FROM advisers WHERE ad_id=".$ad_id);
                     if($delete){
                         echo '<div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the adviser!
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the adviser.
                                 </div>';
                     }  
                 } else {
@@ -121,7 +121,7 @@ include("connect.php");
                     <form class="form-inline" method = "post">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                       <input type="text" class="form-control" id="inlineFormInput" name = "adviser" placeholder="Enter Name of Adviser" required>
-                      <button type="submit" class="btn btn-success removeButton" name = "add" value="Add Adviser">Add Adviser</button>
+                      <button type="submit" class="btn btn-success removeButton btn-collapsible" name = "add" value="Add Adviser"><i class="fa fa-plus space"></i><span>Add Adviser</span></button>
                     </form>
                 </div>
 
@@ -195,8 +195,8 @@ include("connect.php");
                                         </div>
                             
                                     <td class="text-center">
-                                        <a href="profileadviser.php?ad_id='.$row['ad_id'].'" title="Edit Data" class="btn btn-success btn-sm">
-                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        <a href="profileadviser.php?ad_id='.$row['ad_id'].'" title="Edit Data" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-info-circle space" aria-hidden="true"></i> <span>Edit Visit Status</span>
                                         </a>
                                          <a href="adviser.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
                                 if($row['countstudents'] == 0){

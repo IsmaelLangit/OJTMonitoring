@@ -613,9 +613,10 @@ include("connect.php");
                                 } else {
                                     echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
                                 }
-                            }
+                            
                                     if($total == 0){
                                         echo '<tr class="nothingToDisplay text-center"><td colspan="22">NO RESULTS FOUND <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
+
                                     }else{
                                         if($id == 1) {
                                             $no = 1;
@@ -722,9 +723,9 @@ include("connect.php");
                                             echo '
                                                 <td colspan="2">';
                                                 if($row['status'] == 'Complete'){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm removeButton reduceFont">Complete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-success btn btn-sm removeButton ">Complete</span>';
                                                 } else if ($row['status'] == 'Incomplete' ){
-                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm removeButton reduceFont">Incomplete</span>';
+                                                    echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm removeButton ">Incomplete</span>';
                                                 }
                                             echo '
                                                  <div id='.$row['idnum'].' class="modal fade" role="dialog">

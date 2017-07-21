@@ -207,7 +207,7 @@
     <div class="container-fluid">
         <div class="row">
                 <div class="col text-center">
-                    <h1 class="top-title"><span class="title"><span class="fa fa-download space"></span>Export </span>Data</h1>
+                    <h1 class="top-title"><span class="title">Export </span>Data</h1>
                 </div>
                 <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
@@ -456,7 +456,7 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> Year Level </h4>
+                                            <h4 class="exportColor">Year Level</h4>
                                             <input type="radio" name="year" value="All" required checked> All<br>    
                                             <input type="radio" name="year" value="3" required> 3rd year<br>
                                             <input type="radio" name="year" value="4" required> 4th year<br>
@@ -465,10 +465,16 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                            <h4 class="exportColor"> Company Type </h4>  
+                                            <h4 class="exportColor">Company Type</h4>  
                                             <input type="radio" name="typeofcompany" value="All" required checked> All<br>    
                                             <input type="radio" name="typeofcompany" value="Private" required> Private<br>
                                             <input type="radio" name="typeofcompany" value="Government" required> Government<br>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                            <h4 class="exportColor">Advisers</h4>
                                     </div>
                                 </div>
                             </div>
@@ -476,7 +482,7 @@
                     </div>
 
                     <div class="form-group text-center paddingTopSlight">
-                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight disableHighlight" value="Export data"><span class="fa fa-download space"></span> Export Data</button>
+                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight disableHighlight btn-collapsible" value="Export data"><i class="fa fa-download space"></i><span> Export Data</span></button>
                     </div>
 
                 </form>

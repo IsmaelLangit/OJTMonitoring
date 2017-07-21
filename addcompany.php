@@ -81,7 +81,7 @@ include("connect.php");
                                                             VALUES('$coname','$coaddress', '$company_head','$position', '$contact_person','$cp_position', '$typeofcompany', '$release_moa', '$receive_moa', '$remark_moa', '$moa')") or die('Error: ' . mysqli_error($connect));
                     if($insert){
                             echo '<div class="alert alert-success" role="alert">
-                                  <strong> <span class = "fa fa-check-circle"></span></strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to list of companies.</a>.
+                                  <strong> <span class = "fa fa-check-circle"></span></strong> You have successfully added the company. <a href="company.php" class="alert-link"> <span class="fa fa-chevron-circle-left"></span> Go back to the list of companies.</a>.
                                 </div>';
                         }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>ID no.</div>';
@@ -232,8 +232,8 @@ include("connect.php");
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" name="add" class="btn btn-md btn-success disableHighlight" value="Add"><span class="fa fa-plus space"></span>Add</button>
-                    <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                    <button type="submit" name="add" class="btn btn-md btn-success disableHighlight" value="Add"><i class="fa fa-plus space"></i><span>Add</span></button>
+                    <a href="index.php" class="btn btn-md btn-danger disableHighlight "><i class="fa fa-times space"></i><span>Cancel</span></a>
                 </div>
                 
             </form>

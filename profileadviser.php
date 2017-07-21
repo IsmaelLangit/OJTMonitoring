@@ -6,7 +6,7 @@ include("connect.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Student Profile</title>
+    <title>View Adviser Profile</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -62,17 +62,35 @@ include("connect.php");
 
                     $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
                     if($update){
-                        header("Location: profileadviser.php?ad_id=".$ad_id."&message=success");
+                        header("Location: profileadviser.php?ad_id=".$ad_id."&student=success");
+                    }else{
+                        echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
+                    }
+                }
+
+                if(isset($_POST['saveAdviser'])){
+                    $adviser            = $_POST['adviser'];
+                    $ad_id = $_GET['ad_id'];
+
+                    $updateadviser = mysqli_query($connect, "UPDATE advisers SET adviser ='$adviser' WHERE ad_id= '$ad_id'") or die(mysqli_error());
+                    if($updateadviser){
+                        header("Location: profileadviser.php?ad_id=".$ad_id."&adviser=success");
                     }else{
                         echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                     }
                 }
                 
-                if(isset($_GET['message']) == 'success'){
-                            echo '<div class="alert alert-success" role="alert">
-                                  <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
-                                </div>';
-                        }
+                if(isset($_GET['student']) == 'success'){
+                    echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
+                        </div>';
+                }
+
+                 if(isset($_GET['adviser']) == 'success'){
+                    echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The display name of this adviser has been updated
+                        </div>';
+                }
 
                 if(isset($_GET['action']) == 'remove'){
                     $idnum = $_GET['idnum'];
@@ -87,7 +105,7 @@ include("connect.php");
                 }
                 ?>
                 <h1 class="top-title">
-                      <span class="title">
+                  <span class="title">
                         <?php 
                             $ad_id = $_GET['ad_id'];
                             $sql = mysqli_query($connect, "SELECT * from advisers WHERE ad_id='$ad_id'");
@@ -99,7 +117,40 @@ include("connect.php");
                             }
                         ?>
                     </span>  
-                Advisees</h1>
+                Advisees 
+
+                <button type="button" class="btn btn-success btn-md btn-collapsible" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><i class="glyphicon glyphicon-edit space"></i><span>Edit Name</span></button>
+
+                </h1>
+
+                <div id="EditName" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-sm">
+
+                    <!-- Modal content-->
+                    
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit</h4>
+                          </div>
+                          <form method="post">
+                          <div class="modal-body">
+                            <div class="form-group">
+                              <label for="example-text-input" class="col-2 col-form-label">Adviser's Name</label>
+                              <div class="col-10">
+                                <input type = "hidden" name = "ad_id" value = "<?php echo strip_tags(htmlentities($row ['ad_id'])); ?>">
+                                <input class="form-control" name="adviser" type="text" value="<?php echo strip_tags(htmlentities($row ['adviser'])); ?>" id="example-text-input">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" name="saveAdviser" class="btn btn-success">Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                          </div>
+                          </form>
+                        </div>
+                  </div>
+                </div>  
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -205,6 +256,10 @@ include("connect.php");
                                 <!--Visit Status Column-->
                                 <td colspan="2" class="text-center">
                                 <?php
+                                echo '
+                                        <a class="help" data-html="true" data-toggle="tooltip" 
+                                            title=" Remarks: '.strip_tags($row ['remark_visit']).' " >
+                                ';
                                 if($row['vis_status'] == 'yes'){
                                     echo ' 
                                         <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>

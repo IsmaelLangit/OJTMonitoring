@@ -105,7 +105,7 @@
                 
                     $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id) VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id')") or die('Error: ' . mysqli_error($connect));
 
-                       echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class = "fa fa-check-circle"></span> Success!</strong> You have successfully added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
+                       echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class = "fa fa-check-circle"></span> Success!</strong> You have added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                                 </div>';
                     
                 } else {
@@ -243,6 +243,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label">Advisory Visit</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <?php
+                                                echo  "<input type='hidden' name='vis_status' value='no'>";
+                                                
+                                                echo  " <input type='checkbox' name='vis_status' value='yes'>
+                                                        <label class='control-label'> <span class='space'></span>Visited</label> <br>" ;
+                                                echo  " <label class='control-label'>Remarks</label>
+                                                        <textarea maxlength = '200' rows='3' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div> <!--end of basic information col-md-6-->
 
                     <div class="col-md-9">
@@ -346,8 +365,8 @@
                     </div> <!--end of practicum 2 requirements col-md-6-->
                     <div class="form-group text-center">
                         <div class="col">
-                            <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight" value="Add Student"><span class="fa fa-plus space"></span>Add</button>
-                            <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                            <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight" value="Add Student"><i class="fa fa-plus space"></i><span>Add</span></button>
+                            <a href="index.php" class="btn btn-md btn-danger disableHighlight "><i class="fa fa-times space"></i><span>Cancel</span></a>
                         </div>
                     </div>
                 </form>
@@ -393,7 +412,6 @@
         format: 'MM dd yyyy',
     })
     </script>
-
-    
+        
   </body>
 </html>
