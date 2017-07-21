@@ -208,7 +208,7 @@ a:hover{
         height: 50px !important;
     }
 }
-@media (min-width: 20px) and (max-width: 1080px){
+@media (min-width: 20px) and (max-width: 1380px){
     .navbar-default .navbar-nav span{
       color: #fff;
     }
