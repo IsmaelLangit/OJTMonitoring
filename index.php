@@ -613,10 +613,10 @@ include("connect.php");
                                 } else {
                                     echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
                                 }
-                            
-                                    if($total == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NO RESULTS FOUND <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
+                            }
 
+                                    if($total == 0){
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NOTHING TO DISPLAY <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
                                     }else{
                                         if($id == 1) {
                                             $no = 1;
