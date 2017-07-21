@@ -39,6 +39,11 @@
     $col_receive_moa= $_POST['col_receive_moa'];
     $col_remark_moa= $_POST['col_remark_moa'];
     $col_moa= $_POST['col_moa'];
+    $col_vis_adviser= $_POST['col_vis_adviser'];
+    $col_vis_status= $_POST['col_vis_status'];
+    $col_vis_date= $_POST['col_vis_date'];
+    $col_remark_visit= $_POST['col_remark_visit'];
+    $col_adviser= $_POST['col_adviser'];
 
     if($endorsement == "All") {
         $where_endorsement = '(endorsement = "yes" or endorsement = "no" or endorsement = "")';
@@ -83,11 +88,11 @@
         $where_year = 'courseyear LIKE "%'.$year.'"';
     }
 
-    $from = "students LEFT JOIN company on students.coid = company.coid";
+    $from = "(SELECT * FROM students NATURAL JOIN company) t1 JOIN (SELECT idnum ,adviser FROM students JOIN advisers on students.ad_id = advisers.ad_id) t2 JOIN (SELECT idnum,adviser as 'VisitingAdviser' FROM students JOIN advisers on students.vis_ad_id = advisers.ad_id) t3 ON t1.idnum = t2.idnum AND t2.idnum = t3.idnum";
     $where = $where_endorsement.' AND '.$where_waiver.' AND '.$where_moa.' AND '.$where_evaluation.' AND '.$where_typeofcompany.' AND '.$where_course.' AND '.$where_year." ORDER BY coname, last_name, first_name";
     $select_column = "";
 
-    if ($selecttable == "Company"  || $selecttable == "Students+Company") {
+    if ($selecttable == "Company"  || $selecttable == "Students+Company+Adviser") {
         if ($selecttable == "Company") {$from = "company";$where = 'coname != "No Company" AND '.$where_moa.' AND '.$where_typeofcompany.' ORDER BY coname';}
         if($col_coname == "yes") {$select_column = $select_column.", coname AS 'Company Name'";} 
         if($col_coaddress == "yes") {$select_column = $select_column.", coaddress AS Address";} 
@@ -97,12 +102,19 @@
         if($col_cp_position == "yes") {$select_column = $select_column.", cp_position AS Position";} 
         if($col_typeofcompany == "yes") {$select_column = $select_column.", typeofcompany AS 'Company Type'";} 
 
-        if ($selecttable == "Students+Company") {
-            if($col_idnum == "yes") { $select_column = $select_column.", idnum AS 'ID No.'";} 
+        if ($selecttable == "Students+Company+Adviser") {
+            if($col_idnum == "yes") { $select_column = $select_column.", t1.idnum AS 'ID No.'";} 
             if($col_name == "yes") { $select_column = $select_column.", concat(last_name, ', ', first_name) AS Name";} 
             if($col_courseyear == "yes") { $select_column = $select_column.", courseyear AS 'Course - Year'";} 
             if($col_mobile_number == "yes") { $select_column = $select_column.", mobile_number as 'Mobile No.'";} 
             if($col_email == "yes") {  $select_column = $select_column.", Email";} 
+
+            if($col_adviser == "yes") {  $select_column = $select_column.", Adviser";} 
+            if($col_vis_adviser == "yes") {  $select_column = $select_column.", VisitingAdviser";} 
+            if($col_vis_status == "yes") {  $select_column = $select_column.", vis_status 'Visit Status'";} 
+            if($col_vis_date == "yes") {  $select_column = $select_column.", vis_date 'Visit Date'";} 
+            if($col_remark_visit == "yes") {  $select_column = $select_column.", remark_visit 'Visit Remark'";} 
+
             if($col_status == "yes") { $select_column = $select_column.", Status";} 
             if($col_release_endorsement == "yes") { $select_column = $select_column.", release_endorsement AS Released";} 
             if($col_receive_endorsement == "yes") { $select_column = $select_column.", receive_endorsement AS Received";}
@@ -122,6 +134,10 @@
         if($col_receive_moa == "yes") {$select_column = $select_column.", receive_moa AS Received";} 
         if($col_remark_moa == "yes") {$select_column = $select_column.", remark_moa AS Remarks";} 
         if($col_moa == "yes") {$select_column = $select_column.", MOA";}
+    } else {
+        $select_column = "*";
+        $from = "advisers";
+        $where = "1";
     }
 
     $select_column = ltrim($select_column, ',');
@@ -240,6 +256,12 @@
                     <input type = "hidden" name ="col_receive_moa" value = "">
                     <input type = "hidden" name ="col_remark_moa" value = "">
                     <input type = "hidden" name ="col_moa" value = "">
+                    <input type = "hidden" name ="col_adviser" value = "">
+                    <input type = "hidden" name ="col_vis_adviser" value = "">
+                    <input type = "hidden" name ="col_vis_status" value = "">
+                    <input type = "hidden" name ="col_vis_date" value = "">
+                    <input type = "hidden" name ="col_remark_visit" value = "">
+                    
 
                     <div class="row">
 
@@ -249,8 +271,9 @@
                             <label class="exportTitle head-title titleFont paddingTopSlight space titleExport"><span class="fa fa-table space"></span>Select Table to Export</label>
                             <select name="selecttable" class="btn btn-default input-small touch disableHighlight removeButton" id="tableSelect">
                                 <?php $selecttable = (isset($_POST['selecttable']) ? strtolower($_POST['selecttable']) : NULL);  ?>
-                                <option value="Students+Company" <?php if($selecttable == 'students+Company'){ echo 'selected'; } ?>>Company & Students</option>
+                                <option value="Students+Company+Adviser" <?php if($selecttable == 'students+Company+Adviser'){ echo 'selected'; } ?>>Students, Company & Adviser</option>
                                 <option value="Company" <?php if($selecttable == 'company'){ echo 'selected'; } ?>>Company</option> 
+                                <option value="Advisers" <?php if($selecttable == 'advisers'){ echo 'selected'; } ?>>Advisers</option> 
                             </select>
                         </div>
                         
@@ -336,6 +359,10 @@
                                                 <td colspan="2">Email</td>
                                             </tr>
                                             <tr>
+                                                <td><input type = "checkbox" name ="col_adviser" value = "yes" checked></td>
+                                                <td colspan="2">Adviser</td>
+                                            </tr>
+                                            <tr>
                                                 <td><input type = "checkbox" name ="col_status" value = "yes" checked></td>
                                                 <td colspan="2">Overall Status</td>
                                             </tr>
@@ -396,6 +423,25 @@
                                                 <td><input type = "checkbox" name ="col_remark_evaluation" value = "yes"></td>
                                                 <td>Remarks</td>
                                             </tr>
+                                            <tr>
+                                                <td colspan="2" class="info">Visit</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_vis_adviser" value = "yes" checked></td>
+                                                <td>Visiting Adviser</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_vis_status" value = "yes" checked></td>
+                                                <td>Status</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_vis_date" value = "yes"></td>
+                                                <td>Date Visited</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type = "checkbox" name ="col_remark_visit" value = "yes"></td>
+                                                <td>Ramarks</td>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>
@@ -408,7 +454,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
+                                    <div class="form-group ">
                                             <h4 class="exportColor"> Endorsement </h4>
                                             <input type="radio" name="endorsement" value="All" required checked> All<br>    
                                             <input type="radio" name="endorsement" value="yes" required> Submitted<br>
@@ -471,12 +517,6 @@
                                             <input type="radio" name="typeofcompany" value="Government" required> Government<br>
                                     </div>
                                 </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                            <h4 class="exportColor">Advisers</h4>
-                                    </div>
-                                </div>
                             </div>
                         </div><!--End of col-md-8-->
                     </div>
@@ -519,16 +559,14 @@
     <script>
         $("#tableSelect").change(function(){
             if($('select[name=selecttable] option:selected').val() == "Company" ) {
-            $("#companyColumn").fadeIn(100);
+                $("#companyColumn").fadeIn(100);
                 $("#studentColumn").fadeOut(100);
-            } 
-            else {
-                $("#tabText").fadeIn(100);
-                if($('select[name=selecttable] option:selected').val() == "Students+Company" ) {    
-                    $("#studentColumn").fadeIn(100);
-                } else {
+            } else if ($('select[name=selecttable] option:selected').val() == "Advisers" ) {
                 $("#companyColumn").fadeOut(100);
-                }
+                $("#studentColumn").fadeOut(100);
+            } else {
+                $("#studentColumn").fadeIn(100);
+                 $("#companyColumn").fadeIn(100);
             } 
         });
     </script>

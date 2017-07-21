@@ -55,8 +55,6 @@ include("connect.php");
     </header>
     <!--/ header-->
 
-    
-
     <section class="section-padding">
          <form class="form-inline" method="get">
         <div class="container-fluid">
@@ -70,13 +68,19 @@ include("connect.php");
             <?php
             if(isset($_GET['action']) == 'delete'){
                 $idnum = $_GET['idnum'];
-                $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum '");
+
+                $delete_query = $pdo->prepare("DELETE FROM students WHERE idnum= ?") or die(mysql_error());
+                $delete_query->bindValue(1, "$idnum", PDO::PARAM_STR);
+                $delete_query->execute();
+                $delete = $delete_query->rowCount();
+
                 if($delete){
                     echo '  <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the student!
                             </div>';
                 }else{
-                    echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button></div>';
+                    echo '  <div class="alert alert-danger alert-dismissable"><button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button> Already deleted.
+                    </div>';
                 }
             }
             ?>
