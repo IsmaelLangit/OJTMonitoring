@@ -57,7 +57,7 @@ include("connect.php");
                     <span class="title">
                         <?php 
                             $idnum = $_GET['idnum'];
-                            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
+                            $sql = mysqli_query($connect, "SELECT * from (SELECT * FROM students NATURAL JOIN company) t1 JOIN (SELECT idnum ,adviser FROM students JOIN advisers on students.ad_id = advisers.ad_id) t2 JOIN (SELECT idnum,adviser as 'VisitingAdviser' FROM students JOIN advisers on students.vis_ad_id = advisers.ad_id) t3 ON t1.idnum = t2.idnum AND t2.idnum = t3.idnum AND t1.idnum = '$idnum'");
                             $row = mysqli_fetch_assoc($sql);
 
                             if (substr($row ['last_name'], -1) == "s") {
@@ -74,14 +74,6 @@ include("connect.php");
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <?php
-            $idnum = $_GET['idnum'];
-            $sql = mysqli_query($connect, "SELECT * from advisers NATURAL JOIN students NATURAL JOIN company WHERE idnum='$idnum'");
-            if(mysqli_num_rows($sql) == 0){
-                header("Location: profile.php");
-            }else{
-                $row = mysqli_fetch_assoc($sql);
-            }
-            
             if(isset($_GET['action']) == 'delete'){
                 $delete = mysqli_query($connect, "DELETE FROM students WHERE idnum='$idnum'");
                 if($delete){
@@ -139,9 +131,11 @@ include("connect.php");
                             <td class="col-md-10">
                             <?php
                             if(strip_tags(htmlentities($row['adviser'])) != "No Adviser") {
-                                echo '<a href="profileadviser.php?ad_id='.$row['ad_id'].'">';
+                                echo '<a href="profileadviser.php?ad_id='.$row['ad_id'].'">'.$row['adviser'].'</a>';
+                            } else {
+                                echo $row['adviser']; 
                             }
-                              echo $row['adviser']; ?>
+                            ?>
                             </td>
                         </tr>
                     </table>
@@ -171,13 +165,25 @@ include("connect.php");
                                 }
                                 ?>
                         </tr>
+                        <tr>
+                            <th scope="row" class="bg-danger text-white">Visiting Adviser</th>
+                            <td>
+                            <?php
+                            if(strip_tags(htmlentities($row['VisitingAdviser'])) != "No Adviser") {
+                                echo '<a href="profileadviser.php?ad_id='.$row['vis_ad_id'].'">'.$row['VisitingAdviser'].'</a>';
+                            } else {
+                                echo $row['adviser']; 
+                            }
+                            ?>
+                            </td>
+                        </tr>
                          <tr>
                             <th scope="row" class="bg-danger text-white">Visited</th>
                             <?php
                                 echo '
                                 <td>
-                                        <a class="help" data-html="true" data-toggle="tooltip" 
-                                            title=" Remarks: '.strip_tags($row ['remark_visit']).' " >
+                                    <a class="help" data-html="true" data-toggle="tooltip" 
+                                        title=" Remarks: '.strip_tags($row ['remark_visit']).' " >
                                 ';
                                 if($row['vis_status'] == 'yes'){
                                     echo '  
