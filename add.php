@@ -119,8 +119,9 @@
             <form id="form" method="post">
                 <div class="row">
                     <div class="col-md-3">
+                        <div class="col">
                         
-                            <h2 class="titleFont">Basic Information</h2>
+                            <h2 class="titleFont">Information</h2>
                             <hr class="style-four">
                             <div class="form-group">
                                 <div class="container-fluid">
@@ -243,41 +244,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label class="control-label">Advisory Visit</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <?php
-                                                echo  "<input type='hidden' name='vis_status' value='no'>";
-                                                
-                                                echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                        <label class='control-label'> <span class='space'></span>Visited</label> <br>";
-
-                                                echo "  <label class='control-label'>Visiting Adviser</label>
-                                                        <select class='form-control touch'>
-                                                            <option value='1'>No Current Adviser</option>
-                                                        </select>
-                                                        <br>";
-                                                        
-                                                echo  " <label class='control-label'>Date of Visit</label>
-                                                        <div class='input-group date'>
-                                                            <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
-                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div><br>" ;
-                                                echo  " <label class='control-label'>Remarks</label>
-                                                        <textarea maxlength = '200' rows='3' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
                     </div> <!--end of basic information col-md-6-->
 
-                    <div class="col-md-9">
-                        <div class="row">
+                    <div class="col-md-7">
+                        <div class="col">
 
                             <h2 class="titleFont">Practicum 2 Requirements</h2>
                             <hr class="style-four">
@@ -293,14 +264,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-7'>
+                                                        <div class='input-group date'>
                                                             <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
                                             
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-7'>
+                                                        <div class='input-group date'>
                                                             <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -325,14 +296,14 @@
                                                     <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
 
                                             echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date col-sm-7'>
+                                                        <div class='input-group date'>
                                                             <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                     <br>" ;
 
                                             echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date col-sm-7'>
+                                                        <div class='input-group date'>
                                                             <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -355,13 +326,13 @@
                                         echo  " <input type='checkbox' name='evaluation' value='yes'>
                                                 <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
                                         echo  " <label class='control-label'>Date Released</label>
-                                                    <div class='input-group date col-sm-7'>
+                                                    <div class='input-group date'>
                                                         <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                 <br>" ;
                                         echo  " <label class='control-label'>Date Received</label>
-                                                    <div class='input-group date col-sm-7'>
+                                                    <div class='input-group date'>
                                                         <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
                                                         <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
@@ -375,6 +346,43 @@
 
                         </div> <!--End of ROW-->
                     </div> <!--end of practicum 2 requirements col-md-6-->
+
+                    <div class="col-md-2">
+                        <div class="col">
+
+                            <h2 class="titleFont">Visit</h2>
+                            <hr class="style-four">
+
+                            <p class="subLabel"><strong>Visit Status</strong></p>
+                            <div class="form-group">
+                                <div class="col">
+                                    <?php
+                                        echo  "<input type='hidden' name='vis_status' value='no'>";
+                                        
+                                        echo  " <input type='checkbox' name='vis_status' value='yes'>
+                                                <label class='control-label'> <span class='space'></span>Visited</label> <br>";
+
+                                        echo "  <label class='control-label'>Visiting Adviser</label>
+                                                <select class='form-control touch'>
+                                                    <option value='1'>No Current Adviser</option>
+                                                </select>
+                                                <br>";
+                                                
+                                        echo  " <label class='control-label'>Date of Visit</label>
+                                                <div class='input-group date'>
+                                                    <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                </div><br>" ;
+                                        echo  " <label class='control-label'>Remarks</label>
+                                                <textarea maxlength = '200' rows='5' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
+                                    ?>
+                                </div>
+                            </div>
+                            
+                        </div> <!--End of Row-->
+                    </div> <!--End of visit col-md-6-->
+                    </div>
+
                     <div class="form-group text-center">
                         <div class="col">
                             <button type="submit" name="add" class="addStudent btn btn-md btn-success disableHighlight" value="Add Student"><i class="fa fa-plus space"></i><span>Add</span></button>

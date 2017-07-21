@@ -295,7 +295,8 @@ include("connect.php");
                                             </div>
                                             <form method = "post">
                                                 <div class="modal-body">
-                                                    <div class="form-group">
+                                                    <div class="form-group text-left">
+
                                                         <label class="control-label">Visited</label>
                                                         <div class="form-check form-check-inline">
                                                             <label class="form-check-label">
@@ -305,6 +306,21 @@ include("connect.php");
                                                             <label class="form-check-label">
                                                             <input class="form-check-input" name = "vis_status" type="radio" id="inlineCheckbox2" value="no" <?php if(strip_tags(htmlentities($row ['vis_status'])) == 'no'){ echo 'checked'; }?>> No</label>
                                                         </div>
+                                                        <br>
+
+                                                        <label class="control-label">Visiting Adviser</label>
+                                                        <select class='form-control touch'>
+                                                            <option value='1'>No Current Adviser</option>
+                                                        </select>
+                                                        <br>
+
+                                                        <label class="control-label">Date of Visit</label>
+                                                        <div class='input-group date'>
+                                                            <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div>
+                                                        <br>
+
                                                         <label class='control-label'>Remark/s</label>
                                                         <textarea maxlength = '200' rows="5" class="form-control" name="remark_visit" class="form-control"> <?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
                                                     </div>
@@ -361,8 +377,11 @@ include("connect.php");
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/jquery.confirm.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-notify.min.js"></script>
+    <script type="js/Gruntfile.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/jquery.are-you-sure.js"></script>
     <script src="js/alertFade.js"></script>
 
     <script>
