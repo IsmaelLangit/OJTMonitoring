@@ -270,7 +270,7 @@ include("connect.php");
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" >Type of OJT</label>
+                                            <label class="control-label">Type</label>
                                         </div>
                                         
                                         <div class="col-sm-8" style="font-size: 18px">
