@@ -254,7 +254,19 @@
                                                 echo  "<input type='hidden' name='vis_status' value='no'>";
                                                 
                                                 echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                        <label class='control-label'> <span class='space'></span>Visited</label> <br>" ;
+                                                        <label class='control-label'> <span class='space'></span>Visited</label> <br>";
+
+                                                echo "  <label class='control-label'>Visiting Adviser</label>
+                                                        <select class='form-control touch'>
+                                                            <option value='1'>No Current Adviser</option>
+                                                        </select>
+                                                        <br>";
+                                                        
+                                                echo  " <label class='control-label'>Date of Visit</label>
+                                                        <div class='input-group date'>
+                                                            <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                                        </div><br>" ;
                                                 echo  " <label class='control-label'>Remarks</label>
                                                         <textarea maxlength = '200' rows='3' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
                                             ?>
