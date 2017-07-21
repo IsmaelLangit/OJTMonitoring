@@ -88,6 +88,11 @@
                 $receive_evaluation      = $_POST['receive_evaluation'];
                 $remark_evaluation     = mysqli_real_escape_string($connect,$_POST['remark_evaluation']);
 
+                $vis_ad_id      = $_POST['vis_ad_id'];
+                $vis_status      = $_POST['vis_status'];
+                $vis_date      = $_POST['vis_date'];
+                $remark_visit     = mysqli_real_escape_string($connect,$_POST['remark_visit']);
+
                 $coid        = $_POST['coid'];
 
  
@@ -103,7 +108,7 @@
                         $status = "Incomplete";
                     }
                 
-                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id) VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id')") or die('Error: ' . mysqli_error($connect));
+                    $insert = mysqli_query($connect, "INSERT INTO students(idnum, last_name, first_name, courseyear, mobile_number, email, release_endorsement, receive_endorsement, remark_endorsement, endorsement, release_waiver, receive_waiver, remark_waiver, waiver, release_evaluation, receive_evaluation, remark_evaluation, evaluation, coid, status, ad_id, vis_ad_id, vis_status, vis_date, remark_visit) VALUES('$idnum','$last_name', '$first_name','$courseyear','$mobile_number','$email', '$release_endorsement', '$receive_endorsement', '$remark_endorsement', '$endorsement', '$release_waiver', '$receive_waiver', '$remark_waiver', '$waiver', '$release_evaluation', '$receive_evaluation', '$remark_evaluation','$evaluation','$coid','$status','$ad_id' ,'$vis_ad_id','$vis_status','$vis_date','$remark_visit')") or die('Error: ' . mysqli_error($connect));
 
                        echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class = "fa fa-check-circle"></span> Success!</strong> You have added a student.  <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
                                 </div>';
@@ -257,30 +262,25 @@
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Endorsement</strong></p>
                                     <div class="col">
-                                        <?php
-                                            echo  " <input type='hidden' name='endorsement' value='no'>";
-                                            
-                                            echo  " <input type='checkbox' name='endorsement' value='yes'>
-                                                    <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                            
-                                            echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date'>
-                                                            <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
-                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                    <br>" ;
-                                            
-                                            echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date'>
-                                                            <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
-                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                    <br>" ;
-                                            
-                                            echo  " <label class='control-label'>Remarks</label>
-                                                    <textarea maxlength = '200' rows='5' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'></textarea>
-                                                    <br>" ;
-                                        ?>
+                                        <input type='hidden' name='endorsement' value='no'>
+                                        <input type='checkbox' name='endorsement' value='yes'>
+                                        <label class='control-label'> <span class='space'></span> Submitted</label> 
+                                        <br>
+                                        <label class='control-label'>Date Released</label>
+                                        <div class='input-group date'>
+                                            <input type='text' name='release_endorsement' class='input-group date form-control touch' date='' data-date-format='release_endorsement' placeholder ='Date of Release'>
+                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                        </div>
+                                        <br>
+                                        <label class='control-label'>Date Received</label>
+                                        <div class='input-group date'>
+                                            <input type='text' name='receive_endorsement' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                        </div>
+                                        <br>
+                                        <label class='control-label'>Remarks</label>
+                                        <textarea maxlength = '200' rows='5' name='remark_endorsement' class='form-control' placeholder = 'Input remarks'></textarea>
+                                        <br>
                                     </div>
                                 </div>
                             </div> <!--End of col for Endorsement-->
@@ -289,29 +289,25 @@
                                 <div class="form-group">
                                     <p class="subLabel"><strong>Waiver</strong></p>
                                     <div class="col">
-                                        <?php
-                                            echo  "<input type='hidden' name='waiver' value='no'>";
-                                            
-                                            echo  " <input type='checkbox' name='waiver' value='yes'>
-                                                    <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-
-                                            echo  " <label class='control-label'>Date Released</label>
-                                                        <div class='input-group date'>
-                                                            <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
-                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                    <br>" ;
-
-                                            echo  " <label class='control-label'>Date Received</label>
-                                                        <div class='input-group date'>
-                                                            <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
-                                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                    <br>" ;
-
-                                            echo  " <label class='control-label'>Remarks</label>
-                                                    <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea><br>" ;
-                                            ?>
+                                        <input type='hidden' name='waiver' value='no'>
+                                        <input type='checkbox' name='waiver' value='yes'>
+                                        <label class='control-label'> <span class='space'></span> Submitted</label> 
+                                        <br>
+                                        <label class='control-label'>Date Released</label>
+                                            <div class='input-group date'>
+                                                <input type='text' name='release_waiver' class='input-group date form-control touch' date='' data-date-format='release_waiver' placeholder ='Date of Release'>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
+                                        <br>
+                                        <label class='control-label'>Date Received</label>
+                                            <div class='input-group date'>
+                                                <input type='text' name='receive_waiver' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                                <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                            </div>
+                                        <br>
+                                        <label class='control-label'>Remarks</label>
+                                        <textarea maxlength = '200' rows='5' name='remark_waiver' class='form-control' placeholder = 'Input remarks'></textarea>
+                                        <br>
                                     </div>
                                 </div>
                             </div> <!--End of col for Waiver-->
@@ -320,26 +316,24 @@
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Evaluation</strong></p>
                                 <div class="col">
-                                    <?php
-                                        echo  "<input type='hidden' name='evaluation' value='no'>";
-                                        
-                                        echo  " <input type='checkbox' name='evaluation' value='yes'>
-                                                <label class='control-label'> <span class='space'></span> Submitted</label> <br>" ;
-                                        echo  " <label class='control-label'>Date Released</label>
-                                                    <div class='input-group date'>
-                                                        <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
-                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                <br>" ;
-                                        echo  " <label class='control-label'>Date Received</label>
-                                                    <div class='input-group date'>
-                                                        <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
-                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                        </div>
-                                                <br>" ;
-                                        echo  " <label class='control-label'>Remarks</label>
-                                                <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
-                                        ?>
+                                    <input type='hidden' name='evaluation' value='no'>
+                                    <input type='checkbox' name='evaluation' value='yes'>
+                                    <label class='control-label'> <span class='space'></span> Submitted</label> 
+                                    <br>
+                                    <label class='control-label'>Date Released</label>
+                                    <div class='input-group date'>
+                                        <input type='text' name='release_evaluation' class='input-group date form-control touch' date='' data-date-format='release_evaluation' placeholder ='Date of Release'>
+                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                    </div>
+                                    <br>
+                                    <label class='control-label'>Date Received</label>
+                                    <div class='input-group date'>
+                                        <input type='text' name='receive_evaluation' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date Received'>
+                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                    </div>
+                                    <br>
+                                    <label class='control-label'>Remarks</label>
+                                    <textarea maxlength = '200' rows='5' name='remark_evaluation' class='form-control' placeholder = 'Input remarks...'></textarea><br>
                                 </div>
                                 </div>
                             </div> <!--End of col for Evaluation-->
@@ -356,26 +350,30 @@
                             <p class="subLabel"><strong>Visit Status</strong></p>
                             <div class="form-group">
                                 <div class="col">
-                                    <?php
-                                        echo  "<input type='hidden' name='vis_status' value='no'>";
-                                        
-                                        echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                <label class='control-label'> <span class='space'></span>Visited</label> <br>";
-
-                                        echo "  <label class='control-label'>Visiting Adviser</label>
-                                                <select class='form-control touch'>
-                                                    <option value='1'>No Current Adviser</option>
-                                                </select>
-                                                <br>";
-                                                
-                                        echo  " <label class='control-label'>Date of Visit</label>
-                                                <div class='input-group date'>
-                                                    <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
-                                                    <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                </div><br>" ;
-                                        echo  " <label class='control-label'>Remarks</label>
-                                                <textarea maxlength = '200' rows='5' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
-                                    ?>
+                                    <input type='hidden' name='vis_status' value='no'>
+                                    <input type='checkbox' name='vis_status' value='yes'>
+                                    <label class='control-label'> <span class='space'></span>Visited</label> 
+                                    <br>
+                                    <label class='control-label'>Visiting Adviser</label>
+                                    <select name="vis_ad_id" class="form-control touch">
+                                        <option value='1'>No Current Adviser</option>
+                                        <?php
+                                            $con = mysqli_query($connect, "SELECT * FROM advisers where adviser != 'No Adviser' ORDER BY adviser ASC");
+                                            while ($row = mysqli_fetch_assoc($con)) {
+                                                echo "<option value='".$row["ad_id"]."'>".htmlentities($row["adviser"])."</option>";
+                                            }
+                                            echo "</select>";
+                                            ?>
+                                    </select>
+                                    <br>
+                                    <label class='control-label'>Date of Visit</label>
+                                    <div class='input-group date'>
+                                        <input type='text' name='vis_date' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                    </div>
+                                    <br>
+                                    <label class='control-label'>Remarks</label>
+                                    <textarea maxlength = '200' rows='5' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>
                                 </div>
                             </div>
                             
