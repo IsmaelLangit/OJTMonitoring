@@ -14,7 +14,6 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="icon" href="img/scisLogo.png">
-
   </head>
   <body>
 

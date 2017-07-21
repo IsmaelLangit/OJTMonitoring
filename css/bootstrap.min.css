@@ -2429,7 +2429,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	overflow-y:auto}
 
 /*TO CHANGE THE WIDTH OF THE NAVBAR LI*/
-@media (min-width:1380px) {
+@media (min-width:1233px) {
 	.navbar-collapse {
 	width:auto;
 	border-top:0;
@@ -2608,7 +2608,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 
 /*TO CONTROL THE WIDTH OF THE TOGGLE IN THE RIGHT*/
-@media (max-width:1380px) {
+@media (max-width:1233px) {
 	.navbar-header {
 	float:none}
 .navbar-toggle {
