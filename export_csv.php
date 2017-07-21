@@ -522,7 +522,7 @@
                     </div>
 
                     <div class="form-group text-center paddingTopSlight">
-                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight disableHighlight" value="Export data"><i class="fa fa-download space"></i><span> Export Data</span></button>
+                        <button type="submit" name="export" class="btn btn-md btn-success paddingTopSlight disableHighlight" value="Export data"><i class="fa fa-download space"></i><span>Export Data</span></button>
                     </div>
 
                 </form>

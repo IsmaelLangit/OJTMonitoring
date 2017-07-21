@@ -385,6 +385,7 @@ include("connect.php");
     <script src="js/jquery.are-you-sure.js"></script>
     <script src="js/alertFade.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/jquery.confirm.js"></script>
 
     <script>
         $(".confirm").confirm();

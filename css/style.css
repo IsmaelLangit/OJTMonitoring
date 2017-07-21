@@ -90,7 +90,7 @@ a:hover{
     padding: 0px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    color: #82ceff;
+    color: #1cc5ef;
     background-color: transparent;
     text-transform: uppercase;
 }
@@ -100,7 +100,7 @@ a:hover{
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-    color: #22e2d6;
+    color: #1cc5ef;
 }
 .navbar-fixed-top {
     padding: 40px 0;
@@ -264,7 +264,6 @@ a:hover{
       top: 0;
       left: 0;
     }
-    
     .padding-top{
         padding-top: 50px !important;
     }
@@ -274,7 +273,7 @@ a:hover{
     bottom: 50px;
     right: 20px;
     background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.80);
     width: 60px;
     height: 60px;
     display: block;
@@ -307,7 +306,7 @@ a:hover{
     background: rgba(0, 0, 0, 0.90);
 }
 #return-to-top:hover i {
-    color: #37bfce;
+    color: #37b2ce;
     top: 13px;
 }
 
