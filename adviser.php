@@ -201,7 +201,7 @@ include("connect.php");
                                          <a href="adviser.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
                                 if($row['countstudents'] == 0){
                                 echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['adviser'])).
-                                    '" data-confirm-button="Yes"
+                                    ' from the lists of advisers?" data-confirm-button="Yes"
                                     data-cancel-button="No"
                                     data-confirm-button-class= "btn-success"
                                     data-cancel-button-class= "btn-danger"
