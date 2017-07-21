@@ -13,6 +13,7 @@ include("connect.php");
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <link rel="icon" href="img/scisLogo.png">
   </head>
   <body>
@@ -383,9 +384,16 @@ include("connect.php");
     <script src="js/datepicker.js"></script>
     <script src="js/jquery.are-you-sure.js"></script>
     <script src="js/alertFade.js"></script>
+    <script src="js/tooltip.js"></script>
 
     <script>
         $(".confirm").confirm();
+    </script>
+
+    <script>
+    $('.date').datepicker({
+        format: 'MM dd yyyy',
+    })
     </script>
     
   </body>
