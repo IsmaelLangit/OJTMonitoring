@@ -36,8 +36,8 @@ include("connect.php");
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav ">
+                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                            <ul class="nav navbar-nav">
                                 <li class="active"><a href="index.php"><span class="fa fa-user space"></span>Students</a></li>
                                 <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
                                 <li><a href="company.php"><span class="fa fa-building space"></span>Companies</a></li>
@@ -62,7 +62,7 @@ include("connect.php");
         <div class="container-fluid">
 
             <div class="col text-center">
-                <h1 class="top-title"><span class="fa fa-user space"></span>List of Practicum 2 <span class="title">Students</span></h1>
+                <h1 class="top-title">List of Practicum 2 <span class="title">Students</span></h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
@@ -242,7 +242,7 @@ include("connect.php");
                         <hr class="style-four">
                             <?php
                                 $count_students = $pdo->prepare("SELECT count(idnum) AS countidnum FROM students NATURAL JOIN company where coname = ?") or die(mysql_error());
-                                $count_students->bindValue(1, "coname = 'No Company'", PDO::PARAM_STR);
+                                $count_students->bindValue(1, "No Company", PDO::PARAM_STR);
                                 $count_students->execute();
                                 while ($total_students = $count_students->fetch(PDO::FETCH_ASSOC)) {
                                     echo '
@@ -341,7 +341,6 @@ include("connect.php");
 
                                 <?php
                                 $search_input = (isset($_GET['search_input']) ? strtolower($_GET['search_input']) : NULL);
-
                                 $idnum = (isset($_GET['idnum']) ? strtolower($_GET['idnum']) : NULL);
                                 $last_name = (isset($_GET['last_name']) ? strtolower($_GET['last_name']) : NULL);
                                 $courseyear = (isset($_GET['courseyear']) ? strtolower($_GET['courseyear']) : NULL);
@@ -352,7 +351,6 @@ include("connect.php");
                                 $status = (isset($_GET['status']) ? strtolower($_GET['status']) : NULL);
                                 $coname = (isset($_GET['coname']) ? strtolower($_GET['coname']) : NULL);
                                 $typeofcompany = (isset($_GET['typeofcompany']) ? strtolower($_GET['typeofcompany']) : NULL);
-
                                 $sort = 'last_name, first_name';
                                 $sortvar = "&last_name=";
                                 $sortval = $last_name;
@@ -366,12 +364,10 @@ include("connect.php");
                                         $sort = 'idnum DESC';
                                         break;
                                 }
-
                                 if($idnum) {
                                     $sortvar = "&idnum=";
                                     $sortval = $idnum;
                                 }
-
                                 switch ($last_name) {
                                     case "▲":
                                         $sort = 'last_name, first_name';
@@ -381,12 +377,10 @@ include("connect.php");
                                         $sort = 'last_name DESC, first_name';
                                         break;
                                 }
-
                                 if($last_name) {
                                     $sortvar = "&last_name=";
                                     $sortval = $last_name;
                                 }
-
                                 switch ($courseyear) {
                                     case "▲":
                                         $sort = 'courseyear, last_name, first_name';
@@ -396,12 +390,10 @@ include("connect.php");
                                         $sort = 'courseyear DESC, last_name, first_name';
                                         break;
                                 }
-
                                 if($courseyear) {
                                     $sortvar = "&courseyear=";
                                     $sortval = $courseyear;
                                 }
-
                                 switch ($endorsement) {
                                     case "▲":
                                         $sort = 'endorsement DESC, last_name, first_name';
@@ -411,12 +403,10 @@ include("connect.php");
                                         $sort = 'endorsement , last_name, first_name';
                                         break;
                                 }
-
                                 if($endorsement) {
                                     $sortvar = "&endorsement=";
                                     $sortval = $endorsement;
                                 }
-
                                 switch ($waiver) {
                                     case "▲":
                                         $sort = 'waiver DESC, last_name, first_name';
@@ -426,12 +416,10 @@ include("connect.php");
                                         $sort = 'waiver, last_name, first_name';
                                         break;
                                 }
-
                                 if($waiver) {
                                     $sortvar = "&waiver=";
                                     $sortval = $waiver;
                                 }
-
                                  switch ($moa) {
                                     case "▲":
                                         $sort = 'moa DESC, last_name, first_name';
@@ -441,12 +429,10 @@ include("connect.php");
                                         $sort = 'moa, last_name, first_name';
                                         break;
                                 }
-
                                 if($moa) {
                                     $sortvar = "&moa=";
                                     $sortval = $moa;
                                 }
-
                                 switch ($evaluation) {
                                    case "▲":
                                         $sort = 'evaluation DESC, last_name, first_name';
@@ -456,12 +442,10 @@ include("connect.php");
                                         $sort = 'evaluation, last_name, first_name';
                                         break;
                                 }
-
                                 if($evaluation) {
                                     $sortvar = "&evaluation=";
                                     $sortval = $evaluation;
                                 }
-
                                 switch ($status) {
                                     case "▲":
                                         $sort = 'status, last_name, first_name';
@@ -471,12 +455,10 @@ include("connect.php");
                                         $sort = 'status DESC, last_name, first_name';
                                         break;
                                 }
-
                                 if($status) {
                                     $sortvar = "&status=";
                                     $sortval = $status;
                                 }
-
                                 switch ($coname) {
                                     case "▲":
                                         $sort = 'coname, last_name, first_name';
@@ -486,12 +468,10 @@ include("connect.php");
                                         $sort = 'coname DESC, last_name, first_name';
                                         break;
                                 }
-
                                 if($coname) {
                                     $sortvar = "&coname=";
                                     $sortval = $coname;
                                 }
-
                                 switch ($typeofcompany) {
                                     case "▲":
                                         $sort = 'typeofcompany, last_name, first_name';
@@ -501,23 +481,24 @@ include("connect.php");
                                         $sort = 'typeofcompany DESC, last_name, first_name';
                                         break;
                                 }
-
                                 if($typeofcompany) {
                                     $sortvar = "&typeofcompany=";
                                     $sortval = $typeofcompany;
                                 }
-
-                                $t=mysqli_query($connect,"SELECT * from students NATURAL JOIN company WHERE (status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter') and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%')");
-                                $total=mysqli_num_rows($t);
+                                $sql_total = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE (status=? or typeofcompany=? or typeofcompany =? or coname =?) and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?)") or die(mysql_error());
+                                $sql_total->bindValue(1, "$filter", PDO::PARAM_STR);
+                                $sql_total->bindValue(2, "$filter", PDO::PARAM_STR);
+                                $sql_total->bindValue(3, "$filter", PDO::PARAM_STR);
+                                $sql_total->bindValue(4, "$filter", PDO::PARAM_STR);
+                                $sql_total->bindValue(5, "%$search_input%", PDO::PARAM_STR);
+                                $sql_total->execute();
+                                $total = $sql_total->rowCount();
 
                                 $start=0;
                                 $page = 1;
 
-                                if($viewperpage == "all") {
-                                    $limit = $total;
-                                } else {
-                                    $limit=$viewperpage; 
-                                }
+                                if($viewperpage == "all") { $limit = $total; } 
+                                else { $limit=$viewperpage; }
                                 
                                 if(isset($_GET['id'])){
                                     $id=$_GET['id'];
@@ -525,160 +506,90 @@ include("connect.php");
                                 } else {
                                     $id=1;
                                 }
-                                
-                                if($filter == "yes1"){
-                                    $filter = "yes";
-                                     $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
+                         
+                                if($filter == "yes1" || $filter == "no1"){
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE endorsement= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?)") or die(mysql_error());
+                                    $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE endorsement= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ORDER BY $sort LIMIT ? , ?") or die(mysql_error());
 
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
+                                } else if($filter == "yes2" || $filter == "no2"){
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE waiver= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?)") or die(mysql_error());
+                                    $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE waiver= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ORDER BY $sort LIMIT ? , ?") or die(mysql_error());
+                                } else if($filter == "yes3" || $filter == "no3"){
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE moa= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?)") or die(mysql_error());
+                                     $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE moa= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ORDER BY $sort LIMIT ? , ?") or die(mysql_error());
+                                } else if($filter == "yes4" || $filter == "no4"){
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE evaluation= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?)") or die(mysql_error());
+                                    $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE evaluation= ? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ORDER BY $sort LIMIT ? , ?") or die(mysql_error());
+                                } 
 
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
+                                if($filter == "yes1" || $filter == "yes2" || $filter == "yes3" || $filter == "yes4" || $filter == "no1" || $filter == "no2" || $filter == "no3" || $filter == "no4") {
+                                    if($filter == "yes1" || $filter == "yes2" || $filter == "yes3" || $filter == "yes4") { $filter2 = "yes"; } 
+                                    else { $filter2 = "no"; }
 
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort);
-                                    $filter = "yes1";
+                                    $query->bindValue(1, "$filter2", PDO::PARAM_STR);
+                                    $query->bindValue(2, "%$search_input%", PDO::PARAM_STR);
+                                    $query->execute();
+                                    $total = $query->rowCount();
 
-                                } else if($filter == "no1"){
-                                    $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
+                                    if($viewperpage == "all") { $limit = $total;}
+                                    if($total != 0) { $page=ceil($total/$limit);}
 
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
+                                    $query2->bindValue(1, "$filter2", PDO::PARAM_STR);
+                                    $query2->bindValue(2, "%$search_input%", PDO::PARAM_STR);
+                                    $query2->bindValue(3, (int) "$start", PDO::PARAM_INT);
+                                    $query2->bindValue(4, (int) "$limit", PDO::PARAM_INT);
 
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE endorsement='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "no1";
+                                    $query2->execute();
+                                 }
+                                else if($filter){
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE status=? or typeofcompany=? or typeofcompany =? or coname =? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ") or die(mysql_error());
 
-                                } else if($filter == "yes2"){
-                                    $filter = "yes";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
+                                    $query->bindValue(1, "$filter", PDO::PARAM_STR);
+                                    $query->bindValue(2, "$filter", PDO::PARAM_STR);
+                                    $query->bindValue(3, "$filter", PDO::PARAM_STR);
+                                    $query->bindValue(4, "$filter", PDO::PARAM_STR);
+                                    $query->bindValue(5, "%$search_input%", PDO::PARAM_STR);
+                                    $query->execute();
+                                    $total = $query->rowCount();
 
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "yes2";
+                                    if($viewperpage == "all") { $limit = $total; }
+                                    if($total != 0) { $page=ceil($total/$limit);}
 
-                                } else if($filter == "no2"){
-                                    $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
+                                    $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE status=? or typeofcompany=? or typeofcompany =? or coname =? and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?) ORDER BY $sort LIMIT ?, ?") or die(mysql_error());
 
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql = mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE waiver='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "no2";
-
-                                } else if($filter == "yes3"){
-                                    $filter = "yes";
-                                    $t= mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
-
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "yes3";
-
-                                } else if($filter == "no3"){
-                                    $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
-
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE moa='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "no3";
-
-                                } else if($filter == "yes4"){
-                                    $filter = "yes";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
-
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "yes4";
-
-                                } else if($filter == "no4"){
-                                    $filter = "no";
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
-
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE evaluation='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-                                    $filter = "no4";
-
-                                } else if($filter){
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
-
-                                    if($viewperpage == "all") {
-                                        $limit = $total;
-                                    }
-            
-                                    if($total != 0) {
-                                        $page=ceil($total/$limit);
-                                    }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE status='$filter' or typeofcompany='$filter' or typeofcompany ='$filter' or coname ='$filter' and (CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%') ORDER BY ".$sort." LIMIT $start,$limit");
-
+                                    $query2->bindValue(1, "$filter", PDO::PARAM_STR);
+                                    $query2->bindValue(2, "$filter", PDO::PARAM_STR);
+                                    $query2->bindValue(3, "$filter", PDO::PARAM_STR);
+                                    $query2->bindValue(4, "$filter", PDO::PARAM_STR);
+                                    $query2->bindValue(5, "%$search_input%", PDO::PARAM_STR);
+                                    $query2->bindValue(6, (int) "$start", PDO::PARAM_INT);
+                                    $query2->bindValue(7, (int) "$limit", PDO::PARAM_INT);
+                                    $query2->execute();
+                                    $sql = $query->fetch(PDO::FETCH_ASSOC);
 
                                 } else {
-                                    $t=mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY last_name ASC, first_name ASC");
-                                    $total=mysqli_num_rows($t);
+                                    $query = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ?") or die(mysql_error());
+
+                                    $query->bindValue(1, "%$search_input%", PDO::PARAM_STR);
+                                    $query->execute();
+                                    $total = $query->rowCount();
 
                                     if(!$filter && !$viewperpage || $viewperpage == "all") {
                                         $viewperpage = $total;
                                         $limit = $total;
                                     }
-
                                     if($total != 0) {
                                          $page=ceil($total/$limit);
                                     }
-                                    $sql =mysqli_query($connect, "SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE '%".$search_input."%' ORDER BY ".$sort." LIMIT $start,$limit");
+
+                                    $query2 = $pdo->prepare("SELECT * from students NATURAL JOIN company WHERE CONCAT_WS('', idnum, last_name, first_name, courseyear, status, coname, typeofcompany) LIKE ? ORDER BY $sort LIMIT ?,? ") or die(mysql_error());
+
+                                    $query2->bindValue(1, "%$search_input%", PDO::PARAM_STR);
+                                    $query2->bindValue(2,(int) "$start", PDO::PARAM_INT);
+                                    $query2->bindValue(3,(int) "$limit", PDO::PARAM_INT);
+                                    $query2->execute();
                                 }
-
                               
-
                                     
                             if ($page > 1){
                                 if($id > 1) {
@@ -703,8 +614,7 @@ include("connect.php");
                                     echo '<li><a href="?filter='.$filter.'&viewperpage='.$viewperpage.'&search_input='.$search_input.$sortvar.$sortval.'&id='.$page.'">Next</a></li></ul></div>';
                                 }
                             }
-
-                                    if(mysqli_num_rows($sql) == 0){
+                                    if($total == 0){
                                         echo '<tr class="nothingToDisplay text-center"><td colspan="22">NO RESULTS FOUND <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
                                     }else{
                                         if($id == 1) {
@@ -712,8 +622,7 @@ include("connect.php");
                                         } else {
                                             $no = $viewperpage * ($id-1) + 1;
                                         }
-
-                                        while($row = mysqli_fetch_assoc($sql)){
+                                        while($row = $query2->fetch(PDO::FETCH_ASSOC)){
                                             echo '
                                             <tr>
                                                 <td>'.$no.'</td>
@@ -730,10 +639,8 @@ include("connect.php");
                                                     Date Received: '.$row ['receive_endorsement'].' 
                                                     <br> Remarks: '.strip_tags($row ['remark_endorsement']).' " >
                                             ';
-
                                             if($row['endorsement'] == 'yes'){
                                                 echo ' 
-
                                                     <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
                                                     </a>
                                                  </td>';
@@ -755,7 +662,6 @@ include("connect.php");
                                                     Date Received: '.$row ['receive_waiver'].' 
                                                     <br> Remarks: '.strip_tags($row ['remark_waiver']).' " >
                                             ';
-
                                             if($row['waiver'] == 'yes'){
                                                 echo '  
                                                     <span class="glyphicon glyphicon-ok fontGlyphiconOk"></span>
@@ -790,7 +696,6 @@ include("connect.php");
                                                         </a>
                                                     </td>';
                                             }
-
                                             echo '
                                             <td colspan="2">
                                                 <a class="help" data-html="true" data-toggle="tooltip" 
@@ -799,7 +704,6 @@ include("connect.php");
                                                     <br> 
                                                     Date Received: '.$row ['receive_evaluation'].' 
                                                     <br> Remarks: '.strip_tags($row ['remark_evaluation']).' " >
-
                                             ';
                                                 if($row['evaluation'] == 'yes'){
                                                     echo '  
@@ -822,7 +726,6 @@ include("connect.php");
                                                 } else if ($row['status'] == 'Incomplete' ){
                                                     echo '<span type="button" data-toggle="modal" data-target="#'.$row['idnum'].'" class="label label-warning btn btn-sm removeButton reduceFont">Incomplete</span>';
                                                 }
-
                                             echo '
                                                  <div id='.$row['idnum'].' class="modal fade" role="dialog">
                                                     <div class="modal-dialog">
@@ -833,8 +736,6 @@ include("connect.php");
                                                                 <h4 class="modal-title">'.strip_tags(htmlentities($row['last_name'])).', '.strip_tags(htmlentities($row['first_name'])).'</h4>
                                                             </div>
                                                         <div class="modal-body">';
-
-
                                             if ($row ['status'] == "Complete") {
                                                 echo '<h2 class="titleRequirements">Requirement Status: </h2> '.'<span class="label label-success" style = "font-size: 1.2em;">'.$row ['status'].'</span><br>';
                                             } else if ($row ['status'] == "Incomplete") {
@@ -869,7 +770,6 @@ include("connect.php");
                                               </div>
                                             </div>
                                             ';
-
                                             echo '
                                                 <td colspan="2" class="text-left"><a href="profilecompany.php?coid='.$row['coid'].'">'.strip_tags(htmlentities($row['coname'])).'</a></td>
                                                 <td colspan="2" class = "text-center">';
@@ -914,7 +814,6 @@ include("connect.php");
             <p class="credits">Designed and Developed by OJT2 2016-2017</p>
         </div>
     </footer>
-
     </div> <!--End of main-container-->
     <!---->
     <!--contact ends-->

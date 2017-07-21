@@ -279,9 +279,7 @@ include("connect.php");
                             $sortval = $countstudents;
                         }
 
-                        $sql_total = $pdo->prepare("SELECT * from (SELECT * from company WHERE coname != 'No Company' AND CONCAT_WS('', coname, coaddress, contact_person, cp_position, typeofcompany) LIKE ? t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid");
-
-                        $sql_total->bindValue(1, "%$search_input%", PDO::PARAM_STR);
+                        $sql_total = $pdo->prepare("SELECT * from (SELECT * from company WHERE coname != 'No Company') t1 LEFT JOIN (SELECT count(coid) as countstudents, coid AS studcoid from company NATURAL JOIN students WHERE coname != 'No Company' GROUP BY 2) t2 ON t1.coid = t2.studcoid") or die(mysql_error());
                         $sql_total->execute();
                         $total = $sql_total->fetch(PDO::FETCH_ASSOC);
 
