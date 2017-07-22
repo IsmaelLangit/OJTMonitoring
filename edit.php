@@ -83,6 +83,9 @@ include("connect.php");
                 $courseyear             = $_POST['courseyear'];
                 $mobile_number          = $_POST['mobile_number'];
                 $email                  = mysqli_real_escape_string($connect,$_POST['email']);
+
+                $vis_ad_id              = $_POST['vis_ad_id'];
+                $vis_date               = $_POST['vis_date'];
                 $vis_status             = $_POST['vis_status'];
                 $remark_visit           = mysqli_real_escape_string($connect,$_POST['remark_visit']);
 
@@ -295,18 +298,18 @@ include("connect.php");
                                         
                                         <div class="col-sm-8">
                                             <select name="ad_id" class="form-control touch">
-                                            <option value="<?php echo $row ['ad_id']; ?>">
-                                                <?php echo strip_tags(htmlentities($row ['adviser'])); ?>
-                                            </option>
-                                            ";
                                             <?php
-                                                $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
-                                                while ($row2 = mysqli_fetch_assoc($con)) {
-                                                    if($row ['ad_id'] != $row2 ['ad_id'])
-                                                    echo "<option value='".$row2["ad_id"]."'>".strip_tags(htmlentities($row2["adviser"]))."</option>";
-                                                }
-                                                echo "</select>";
-                                                ?>
+                                            $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
+                                            while ($row2 = mysqli_fetch_assoc($con)) {
+                                                echo "
+                                                <option value='".$row2['ad_id']."'";
+                                                if($row['ad_id'] == $row2['ad_id']){ echo 'selected'; } 
+                                                echo "
+                                                >".$row2['adviser']."</option>
+                                                ";
+                                            }
+                                            ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -498,26 +501,24 @@ include("connect.php");
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Advisory Visit</strong></p>
                                     <div class="col">
-                                        <?php
-                                            echo  "<input type='hidden' name='vis_status' value='no'>";
-                                            
-                                            echo  " <input type='checkbox' name='vis_status' value='yes'>
-                                                    <label class='control-label'> <span class='space'></span>Visited</label> <br>";
-
-                                            echo "  <label class='control-label'>Visiting Adviser</label>
-                                                    <select class='form-control touch'>
-                                                        <option value='1'>No Current Adviser</option>
-                                                    </select>
-                                                    <br>";
-                                                    
-                                            echo  " <label class='control-label'>Date of Visit</label>
-                                                    <div class='input-group date'>
-                                                        <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
-                                                        <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
-                                                    </div><br>" ;
-                                            echo  " <label class='control-label'>Remarks</label>
-                                                    <textarea maxlength = '200' rows='5' name='remark_visit' class='form-control' placeholder = 'Input remarks...'></textarea><br>" ;
-                                        ?>
+                                        <input type='hidden' name='vis_status' value='no'>
+                                        <input type='checkbox' name='vis_status' value='yes'>
+                                        <label class='control-label'> <span class='space'></span>Visited</label> 
+                                        <br>
+                                        <label class='control-label'>Visiting Adviser</label>
+                                        <select class='form-control touch'>
+                                            <option value='1'>No Current Adviser</option>
+                                        </select>
+                                        <br>
+                                        <label class='control-label'>Date of Visit</label>
+                                        <div class='input-group date'>
+                                            <input type='text' name='vis_date'  value = "<?php echo $row ['vis_date']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                            <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
+                                        </div>
+                                        <br>
+                                        <label class='control-label'>Remarks</label>
+                                        <textarea maxlength = '200' rows='5' name='remark_visit' class='form-control' placeholder = 'Input remarks...'><?php echo strip_tags(htmlentities($row ['remark_visit'])); ?></textarea>
+                                        <br>
                                     </div>
                                 </div>
                         </div>
