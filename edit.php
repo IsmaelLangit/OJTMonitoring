@@ -513,7 +513,6 @@ include("connect.php");
                                                 echo "<input type='checkbox' name='vis_status' value='yes'><span class='space'></span><strong>Visited</strong> <br>";
                                             }   
                                         ?>
-                                        <label class='control-label'> <span class='space'></span>Visited</label> 
                                         <br>
                                         <label class='control-label'>Visiting Adviser</label>
                                         <select name="vis_ad_id" class="form-control touch">
@@ -528,7 +527,7 @@ include("connect.php");
                                                 ";
                                             }
                                             ?>
-                                            </select>
+                                        </select>
                                         <br>
                                         <label class='control-label'>Date of Visit</label>
                                         <div class='input-group date'>
