@@ -450,6 +450,11 @@ button.disabled{
 .shadowBox{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.pdBottom{
+  background-color: #dbdbdb !important;
+  padding: 5px 2px 2px 2px;
+  border-radius: 5px;
+}
 /*-----------------------------QUICK SUMMARY STYLES-----------------------------*/
 
 .blue,.green,.orange,.red,.violet,.yellow,
