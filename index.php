@@ -786,7 +786,7 @@ include("connect.php");
                                             echo '
                                                 </td>
                                                 <td>
-                                                    <a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                                    <a href="edit.php?idnum='.$row['idnum'].'" title="Edit Data" class="btn btn-primary btn-sm">
                                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                                     </a>
                                                     <a href="index.php?action=delete&idnum='.$row['idnum'].'" title="Remove Student" class="confirm btn btn-danger btn-sm" 

@@ -122,7 +122,7 @@ include("connect.php");
                     </span>  
                 Advisees 
 
-                <button type="button" class="btn btn-success btn-md btn-collapsible" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><i class="glyphicon glyphicon-edit space"></i><span>Edit Name</span></button>
+                <button type="button" class="btn btn-primary btn-md btn-collapsible" data-toggle="modal" data-target="#EditName" title="Edit Adviser Name"><i class="glyphicon glyphicon-edit space"></i><span>Edit Name</span></button>
 
                 </h1>
 
@@ -282,7 +282,7 @@ include("connect.php");
                                     <?php
                                     echo '
 
-                                    <button type="button" title="Edit Data" class="btn btn-success btn-sm" data-toggle="modal" data-target="#'.$row['idnum'].'"><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
+                                    <button type="button" title="Edit Data" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#'.$row['idnum'].'"><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span>
                                     </button>
 
                                     <!--Modal for Edit Student-->

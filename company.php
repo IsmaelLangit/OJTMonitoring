@@ -431,7 +431,7 @@ include("connect.php");
                                 }
                                 echo '
                                     <td>
-                                        <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-success btn-sm">
+                                        <a href="editcompany.php?coid='.$row['coid'].'" title="Edit Data" class="btn btn-primary btn-sm">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                         </a>
                                          <a href="company.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';

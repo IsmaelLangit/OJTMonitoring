@@ -120,7 +120,7 @@ include("connect.php");
                                         <label class="control-label">Address</label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <textarea rows="5" type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required></textarea>
+                                        <textarea rows="3" type="text" maxlength = '300' name="coaddress" class="form-control" placeholder="Address" required></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -205,7 +205,7 @@ include("connect.php");
                     $previous = $_SERVER['HTTP_REFERER'];
                 }
                 ?>
-            <a href="<?= $previous ?>" class="disableHighlight btn btn-md btn-info"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
+            <a href="<?= $previous ?>" class="disableHighlight btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-left space" aria-hidden="true"></span> Back</a>
             <a href="editcompany.php?coid=<?php echo $row['coid']; ?>" class="disableHighlight btn btn-md btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
             <?php
             echo '<a href="profilecompany.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';

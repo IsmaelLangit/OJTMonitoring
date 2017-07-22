@@ -196,7 +196,7 @@ include("connect.php");
                             
                                     <td class="text-center">
                                         <a href="profileadviser.php?ad_id='.$row['ad_id'].'" title="Edit Data" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-info-circle space" aria-hidden="true"></i> <span>Edit Visit Status</span>
+                                            <i class="fa fa-edit" aria-hidden="true"></i>
                                         </a>
                                          <a href="adviser.php?action=delete&ad_id='.$row['ad_id'].'" title="Delete Adviser" ';
                                 if($row['countstudents'] == 0){
