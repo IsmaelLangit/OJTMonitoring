@@ -117,7 +117,7 @@ include("connect.php");
                     $status = "Incomplete";
                 }
                 
-                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', vis_status='$vis_status', remark_visit='$remark_visit', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
+                $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', vis_status='$vis_status', remark_visit='$remark_visit', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id', vis_ad_id='$vis_ad_id', vis_status='$vis_status', vis_date='$vis_date', remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
                     header("Location: edit.php?idnum=".$idnum."&message=success");
                 }else{
@@ -501,14 +501,34 @@ include("connect.php");
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Advisory Visit</strong></p>
                                     <div class="col">
-                                        <input type='hidden' name='vis_status' value='no'>
-                                        <input type='checkbox' name='vis_status' value='yes'>
+                                        <?php
+                                            echo  "<input type='hidden' name='vis_status' value='no'>";
+                                            
+                                            
+                                            if ($row ['vis_status'] == 'yes') {
+                                                echo "<input type='checkbox' name='vis_status' value='yes' checked><span class='space'></span><strong>Visited</strong> <br>";
+                                            } 
+                                            
+                                            if($row ['vis_status'] == 'no') {
+                                                echo "<input type='checkbox' name='vis_status' value='yes'><span class='space'></span><strong>Visited</strong> <br>";
+                                            }   
+                                        ?>
                                         <label class='control-label'> <span class='space'></span>Visited</label> 
                                         <br>
                                         <label class='control-label'>Visiting Adviser</label>
-                                        <select class='form-control touch'>
-                                            <option value='1'>No Current Adviser</option>
-                                        </select>
+                                        <select name="vis_ad_id" class="form-control touch">
+                                            <?php
+                                            $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
+                                            while ($row2 = mysqli_fetch_assoc($con)) {
+                                                echo "
+                                                <option value='".$row2['ad_id']."'";
+                                                if($row['vis_ad_id'] == $row2['ad_id']){ echo 'selected'; } 
+                                                echo "
+                                                >".$row2['adviser']."</option>
+                                                ";
+                                            }
+                                            ?>
+                                            </select>
                                         <br>
                                         <label class='control-label'>Date of Visit</label>
                                         <div class='input-group date'>
