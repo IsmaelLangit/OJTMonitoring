@@ -57,11 +57,13 @@ include("connect.php");
                 <?php
                     if(isset($_POST['save'])){
                     $ad_id           = $_POST['ad_id'];
+                    $vis_ad_id       = $_POST['vis_ad_id'];
                     $idnum           = $_POST['idnum'];
-                    $vis_status           = $_POST['vis_status'];
-                    $remark_visit          = mysqli_real_escape_string($connect,$_POST['remark_visit']);
+                    $vis_date        = $_POST['vis_date'];
+                    $vis_status      = $_POST['vis_status'];
+                    $remark_visit    = mysqli_real_escape_string($connect,$_POST['remark_visit']);
 
-                    $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
+                    $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit',vis_date='$vis_date',vis_ad_id='$vis_ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
                     if($update){
                         header("Location: profileadviser.php?ad_id=".$ad_id."&student=success");
                     }else{
@@ -232,7 +234,7 @@ include("connect.php");
              
                         <tbody>
                             <?php
-                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id, coid from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY ".$sort);
+                            $sql =mysqli_query($connect,"SELECT idnum, concat(last_name, ', ', first_name) as Name, coname, vis_status, remark_visit, ad_id, coid, vis_ad_id, vis_date from company NATURAL JOIN students NATURAL JOIN advisers WHERE ad_id='$ad_id' ORDER BY ".$sort);
                                 if(mysqli_num_rows($sql) == 0){
                                     echo '<tr class="nothingToDisplay text-center"><td colspan="14">Nothing to Display</td></tr>';
                                 }else{
@@ -310,14 +312,24 @@ include("connect.php");
                                                         <br>
 
                                                         <label class="control-label">Visiting Adviser</label>
-                                                        <select class='form-control touch'>
-                                                            <option value='1'>No Current Adviser</option>
+                                                        <select name="vis_ad_id" class="form-control touch">
+                                                        <?php
+                                                        $con = mysqli_query($connect, "SELECT * FROM advisers ORDER BY adviser ASC");
+                                                        while ($row2 = mysqli_fetch_assoc($con)) {
+                                                            echo "
+                                                            <option value='".$row2['ad_id']."'";
+                                                            if($row['vis_ad_id'] == $row2['ad_id']){ echo 'selected'; } 
+                                                            echo "
+                                                            >".$row2['adviser']."</option>
+                                                            ";
+                                                        }
+                                                        ?>
                                                         </select>
                                                         <br>
 
                                                         <label class="control-label">Date of Visit</label>
                                                         <div class='input-group date'>
-                                                            <input type='text' name='' class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
+                                                            <input type='text' name='vis_date' value = "<?php echo strip_tags(htmlentities($row ['vis_date'])); ?>" class='input-group date form-control touch' date='' data-date-format='date_started' placeholder = 'Date of Visit'>
                                                             <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                         </div>
                                                         <br>
