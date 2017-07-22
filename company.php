@@ -65,12 +65,12 @@ include("connect.php");
                 if (mysqli_num_rows($con) == 0) {
                     $delete = mysqli_query($connect, "DELETE FROM company WHERE coid='$coid'");
                     if($delete){
-                        echo '<div class="alert alert-danger alert-dismissable">
+                        echo '<div class="alert alert-danger alert-dismissable text-center">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class = "fa fa-check-circle"></span> You have successfully <strong> deleted </strong> the company!
                                 </div>';
                     }  
                 } else {
-                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
+                     echo '<div class="alert alert-warning alert-dismissable text-center"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <span class="fa fa-exclamation-triangle"></span> You <strong> cannot delete a company </strong> with present OJT students.</div>';
     
                     }
                 }
@@ -90,15 +90,15 @@ include("connect.php");
                 </div>
 
                 <div class="input-group dropdown-toggle">
-                                <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
-                                <select name="viewperpage" class="form-control touch" onchange="form.submit()">
-                                    <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
-                                    <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
-                                    <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
-                                    <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
-                                    <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
-                                    <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
-                                </select>
+                    <span class="input-group-addon" id="basic-addon1"><span class="fa fa-list-ol space"></span>Number of Rows:</span>
+                    <select name="viewperpage" class="form-control touch" onchange="form.submit()">
+                        <?php $viewperpage = (isset($_GET['viewperpage']) ? strtolower($_GET['viewperpage']) : NULL);  ?>
+                        <option value="all" <?php if($viewperpage == 'all'){ echo 'selected'; } ?>>All</option>
+                        <option value="10" <?php if($viewperpage == '10'){ echo 'selected'; } ?>>10</option>
+                        <option value="20" <?php if($viewperpage == '20'){ echo 'selected'; } ?>>20</option>
+                        <option value="50" <?php if($viewperpage == '50'){ echo 'selected'; } ?>>50</option>
+                        <option value="100" <?php if($viewperpage == '100'){ echo 'selected'; } ?>>100</option>   
+                    </select>
                 </div>
 
                 <div class="input-group">
@@ -110,7 +110,7 @@ include("connect.php");
                                     <button class="form-control"><span class="fa fa-search space"></span>Search</button>
                                 </span>
                             </div>
-            </form>
+                        </form>
 
                     </div>
                     <div class="col-md-2 text-center paddingBottomSlight">
@@ -437,7 +437,7 @@ include("connect.php");
                                          <a href="company.php?action=delete&coid='.$row['coid'].'" title="Delete Company" ';
                                 if($row['countstudents'] == 0){
                                 echo ' data-text="Are you sure you want to delete '.strip_tags(htmlentities($row['coname'])).
-                                    '" data-confirm-button="Yes"
+                                    ' from the list of companies?" data-confirm-button="Yes"
                                     data-cancel-button="No"
                                     data-confirm-button-class= "btn-success"
                                     data-cancel-button-class= "btn-danger"

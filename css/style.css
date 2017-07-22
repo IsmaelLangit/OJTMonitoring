@@ -68,6 +68,9 @@ a:hover{
   background: rgba(29, 165, 120, 0.89); /* Gecko Browsers */
   color: rgba(44, 186, 169, 0.89);
 }
+.alert {
+   width:50%;    
+}
 /*--------------------NAVIGATION--------------------------*/
 .logoNav{
     height: 65px !important;

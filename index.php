@@ -632,7 +632,7 @@ include("connect.php");
                                             <tr>
                                                 <td>'.$no.'</td>
                                                 <td colspan="2" class="col-md-1">'.$row['idnum'].'</td>
-                                                <td colspan="2" class="text-left"><a href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
+                                                <td colspan="2" class="text-left"><a title="View Profile" href="profile.php?idnum='.$row['idnum'].'"><span class="glyphicon" aria-hidden="true"></span> '.strip_tags(htmlentities($row['last_name'])).", ".strip_tags($row['first_name']).'</a></td>
                                                 <td colspan="2">'.$row['courseyear'].'</td>';
                                     
                                             echo '
