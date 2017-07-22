@@ -103,8 +103,6 @@ include("connect.php");
                     <h2 class="head-title titleFont">Basic Information</h2>
                     <hr class="style-four">
 
-                    <br>
-
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th scope="row" class="bg-info col-md-3">ID Number</th>
@@ -146,17 +144,17 @@ include("connect.php");
                     <h2 class="head-title titleFont">Practicum 2 Information</h2>
                     <hr class="style-four">
 
-                    <table class="table table-striped table-bordered table-hover">
+                    <table class="table table-striped table-bordered table-hover marginTop">
                         <tr>
-                            <th scope="row" class="bg-danger text-white col-md-3">Company Name</th>
+                            <th scope="row" class="bg-success text-white col-md-4">Company Name</th>
                             <td><a href = "profilecompany.php?coid= <?php echo $row['coid']; ?>"><?php echo strip_tags(htmlentities($row['coname'])); ?></a></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Address</th>
+                            <th scope="row" class="bg-success text-white">Address</th>
                             <td><?php echo strip_tags(htmlentities($row['coaddress'])); ?></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Status</th>
+                            <th scope="row" class="bg-success text-white">Requirement Status</th>
                             <?php
                                 if ($row ['status'] == "Complete") {
                                     echo '<td><span class="label label-success">'.$row ['status'].'</span></td><br>';
@@ -166,7 +164,7 @@ include("connect.php");
                                 ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Visiting Adviser</th>
+                            <th scope="row" class="bg-success text-white">Visiting Adviser</th>
                             <td>
                             <?php
                             if(strip_tags(htmlentities($row['VisitingAdviser'])) != "No Adviser") {
@@ -178,7 +176,7 @@ include("connect.php");
                             </td>
                         </tr>
                          <tr>
-                            <th scope="row" class="bg-danger text-white">Visited</th>
+                            <th scope="row" class="bg-success text-white">Visited</th>
                             <?php
                                 echo '
                                 <td>
@@ -201,7 +199,7 @@ include("connect.php");
                                     ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Endorsement</th>
+                            <th scope="row" class="bg-success text-white">Endorsement</th>
                             <?php
                                 echo '
                                 <td>
@@ -228,7 +226,7 @@ include("connect.php");
                                     ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Waiver</th>
+                            <th scope="row" class="bg-success text-white">Waiver</th>
                             <?php
                                 echo '
                                 <td>
@@ -254,7 +252,7 @@ include("connect.php");
                                 ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Memorandum of Agreement</th>
+                            <th scope="row" class="bg-success text-white">Memorandum of Agreement</th>
                             <?php
                                 echo '
                                 <td>
@@ -280,7 +278,7 @@ include("connect.php");
                                 ?>
                         </tr>
                         <tr>
-                            <th scope="row" class="bg-danger text-white">Evaluation</th>
+                            <th scope="row" class="bg-success text-white">Evaluation</th>
                             <?php
                                 echo '
                                 <td>
@@ -311,7 +309,7 @@ include("connect.php");
                 </div>
             </div>
 
-            <div class="row text-center">
+            <div class="row text-center paddingTopSlight">
                 <?php
                 $previous = "javascript:history.go(-1)";
                 if(isset($_SERVER['HTTP_REFERER'])) {

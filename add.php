@@ -126,7 +126,7 @@
                     <div class="col-md-3">
                         <div class="col">
                         
-                            <h2 class="titleFont">Information</h2>
+                            <h2 class="titleFont">Basic Information</h2>
                             <hr class="style-four">
                             <div class="form-group">
                                 <div class="container-fluid">

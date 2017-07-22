@@ -458,6 +458,9 @@ button.disabled{
   padding: 5px 2px 2px 2px;
   border-radius: 5px;
 }
+.marginTop{
+  margin-top: -21.5px !important;
+}
 /*-----------------------------QUICK SUMMARY STYLES-----------------------------*/
 
 .blue,.green,.orange,.red,.violet,.yellow,
