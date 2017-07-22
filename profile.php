@@ -172,7 +172,7 @@ include("connect.php");
                             if(strip_tags(htmlentities($row['VisitingAdviser'])) != "No Adviser") {
                                 echo '<a href="profileadviser.php?ad_id='.$row['vis_ad_id'].'">'.$row['VisitingAdviser'].'</a>';
                             } else {
-                                echo $row['adviser']; 
+                                echo $row['VisitingAdviser']; 
                             }
                             ?>
                             </td>
