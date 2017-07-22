@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `ojtmonitoring` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ojtmonitoring`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ojtmonitoring
@@ -106,10 +104,10 @@ CREATE TABLE `students` (
   `evaluation` varchar(45) CHARACTER SET latin1 NOT NULL DEFAULT 'no',
   `status` varchar(10) CHARACTER SET latin1 NOT NULL DEFAULT 'Incomplete',
   `ad_id` int(11) NOT NULL,
-  `classcode` int(11) NOT NULL DEFAULT '0',
+  `classcode` int(11) DEFAULT NULL,
   `vis_status` varchar(45) NOT NULL DEFAULT 'no',
   `remark_visit` varchar(45) DEFAULT NULL,
-  `vis_ad_id` int(11) DEFAULT NULL,
+  `vis_ad_id` int(11) NOT NULL,
   `vis_date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idnum`),
   KEY `company_idx` (`coid`),
@@ -138,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-22 10:18:28
+-- Dump completed on 2017-07-22 11:52:31
