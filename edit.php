@@ -323,6 +323,25 @@ include("connect.php");
                                 <h2 class="head-title black titleFont">Practicum 2 Requirements</h2>
                                 <hr class="style-four">
 
+                                <div class="form-group text-center">
+                                    <div class="container-fluid">
+                                        <div class="row ">
+                                            <div class="col-sm-12 pdBottom"> 
+                                                <label class="control-label space">Requirement Status</label>
+                                                <?php
+                                                    if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
+                                                        echo "<span class='label label-success' style='font-size: 13px'>Complete</span>";
+                                                        echo  "<input type='hidden' name='status' value='Complete'>";
+                                                    } else {
+                                                        echo "<span class='label label-warning' style='font-size: 13px'>Incomplete</span>";
+                                                        echo  "<input type='hidden' name='status' value='Incomplete'>";
+                                                    }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <p class="subLabel"><strong>MOA</strong> <a class="editButton" href = "editcompany.php?coid=<?php echo $row ['coid']; ?>">(edit)</a></p>
@@ -463,12 +482,22 @@ include("connect.php");
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group text-center">
+                        </div> <!--End of practicum 2 requirements col-md-9-->
+                    
+
+                    <div class="col-md-2">
+                        <div class="row">
+                            
+                            <h2 class="head-title black titleFont">Visit</h2>
+                            <hr class="style-four">
+
+                            <div class="form-group text-center">
                                     <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-sm-12"> 
-                                                <label class="control-label space">Requirement Status</label>
+                                        <div class="row ">
+                                            <div class="col-sm-12 pdBottom"> 
+                                                <label class="control-label space">Visit Status</label>
                                                 <?php
                                                     if ($row ['endorsement'] == "yes" && $row ['waiver'] == "yes" && $row ['moa'] == "yes")  {
                                                         echo "<span class='label label-success' style='font-size: 13px'>Complete</span>";
@@ -483,38 +512,19 @@ include("connect.php");
                                     </div>
                                 </div>
 
-                            </div>
-
-                            <div class="form-group text-center">
-                                <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
-                                <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
-                            </div>
-
-                        </div> <!--End of practicum 2 requirements col-md-9-->
-                    
-
-                    <div class="col-md-2">
-                        <div class="row">
-                            
-                            <h2 class="head-title black titleFont">Visit</h2>
-                            <hr class="style-four">
                                 <div class="form-group">
                                 <p class="subLabel"><strong>Advisory Visit</strong></p>
                                     <div class="col">
                                         <?php
                                             echo  "<input type='hidden' name='vis_status' value='no'>";
-                                            
-                                            
+
                                             if ($row ['vis_status'] == 'yes') {
-                                                echo "<input type='checkbox' name='vis_status' value='yes' checked><span class='space'></span><strong>Visited</strong> <br>";
+                                                echo "<input type='checkbox' name='vis_status' value='yes' checked><span class='space'></span><strong>Visited</strong><br>";
                                             } 
-                                            
-                                            if($row ['vis_status'] == 'no') {
+                                            else if ($row ['vis_status'] == 'no') {
                                                 echo "<input type='checkbox' name='vis_status' value='yes'><span class='space'></span><strong>Visited</strong> <br>";
                                             }   
                                         ?>
-                                        <label class='control-label'> <span class='space'></span>Visited</label> 
-                                        <br>
                                         <label class='control-label'>Visiting Adviser</label>
                                         <select name="vis_ad_id" class="form-control touch">
                                             <?php
@@ -545,6 +555,10 @@ include("connect.php");
                     </div> <!--End of Visit col-md-2-->
 
                     </div> <!--End of row-->
+                    <div class="form-group text-center">
+                                <button type="submit" name="save" class="btn btn-md btn-success disableHighlight" value="Save"><span class="fa fa-save space"></span>Save</button>
+                                <a href="index.php" class="btn btn-md btn-danger disableHighlight"><span class="fa fa-times space"></span>Cancel</a>
+                            </div>
                 </form>
             </div> <!--End of Form Container Fluid-->
 
