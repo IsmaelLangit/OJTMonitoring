@@ -365,20 +365,20 @@ include("connect.php");
                                             <br>
                                             <label class='control-label'>Date Released</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control " name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control " readonly>
+                                                <input placeholder="Date of Release" type="text" class="form-control " name="release_moa" value="<?php echo $row ['release_moa']; ?>" class="form-control " readonly>
                                                 <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                             </div>
                                             <br>
 
                                             <label class='control-label'>Date Received</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
+                                                <input placeholder="Date Received" type="text" class="form-control" name="receive_moa" value="<?php echo $row ['receive_moa']; ?>" class="form-control" readonly>
                                                 <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                             </div>
                                             <br>
 
                                             <label class='control-label'>Remark/s</label>
-                                            <textarea maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
+                                            <textarea  maxlength = '200' rows="5" class="form-control" name="remark_moa" class="form-control" readonly> <?php echo strip_tags(htmlentities($row ['remark_moa'])); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -400,13 +400,13 @@ include("connect.php");
                                                 ?>
                                             <label class='control-label'>Date Released</label>
                                                 <div class='input-group date'>
-                                                    <input type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <input placeholder="Date of Release" type="text" name="release_endorsement" value="<?php echo $row ['release_endorsement']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement">
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
                                                 <div class='input-group date'>
-                                                    <input type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
+                                                    <input placeholder="Date Received" type="text" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement" value="<?php echo $row ['receive_endorsement']; ?>">
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
@@ -433,13 +433,13 @@ include("connect.php");
                                                 ?>
                                             <label class='control-label'>Date Released</label>
                                                 <div class='input-group date'>
-                                                    <input type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                    <input placeholder="Date of Release" type="text" name="release_waiver" value="<?php echo $row ['release_waiver']; ?>" class='input-group date form-control touch' date='' data-date-format='date_started' name="receive_endorsement"  >
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
                                                 <div class='input-group date'>
-                                                    <input type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
+                                                    <input placeholder="Date Received" type="text" name="receive_waiver" value="<?php echo $row ['receive_waiver']; ?>" class='input-group touch date form-control' date='' data-date-format='date_started' name="receive_endorsement"  >
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
@@ -467,13 +467,13 @@ include("connect.php");
                                                 ?>
                                             <label class='control-label'>Date Released</label>
                                                 <div class='input-group date'>
-                                                    <input type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <input placeholder="Date of Release" type="text" name="release_evaluation" value="<?php echo $row ['release_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
                                             <label class='control-label'>Date Received</label>
                                             <div class='input-group date'>
-                                                    <input type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
+                                                    <input placeholder="Date Received" type="text" name="receive_evaluation" value="<?php echo $row ['receive_evaluation']; ?>" class='touch input-group date form-control' date='' data-date-format='date_started' name="receive_endorsement">
                                                     <span class='input-group-addon touch'><span class='glyphicon glyphicon-calendar'></span>
                                                 </div>
                                             <br>
