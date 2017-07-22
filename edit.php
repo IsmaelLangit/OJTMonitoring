@@ -502,7 +502,7 @@ include("connect.php");
                                                     if ($row ['vis_status'] == "yes")  {
                                                         echo "<span class='label label-success' style='font-size: 13px'>Done</span>";
                                                     } else {
-                                                        echo "<span class='label label-warning' style='font-size: 13px'>Not Done</span>";
+                                                        echo "<span class='label label-warning' style='font-size: 13px'>Pending</span>";
                                                         echo  "<input type='hidden' name='status' value='Incomplete'>";
                                                     }
                                                 ?>
@@ -524,7 +524,6 @@ include("connect.php");
                                                 echo "<input type='checkbox' name='vis_status' value='yes'><span class='space'></span><strong>Visited</strong> <br>";
                                             }   
                                         ?>
-                                        <br>
                                         <label class='control-label'>Visiting Adviser</label>
                                         <select name="vis_ad_id" class="form-control touch">
                                             <?php
