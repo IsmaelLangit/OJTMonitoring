@@ -39,27 +39,27 @@ include("connect.php");
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
 
-                                <li class="dropdown">
+                                <li class="dropdown active">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="fa fa-user space blue"></span>View Students</a></li>
-                                    <li><a href="#"><span class="fa fa-user-plus space green"></span>Add Student</a></li>
+                                    <li><a href="index.php"><span class="fa fa-user space blue"></span>View Students</a></li>
+                                    <li><a href="add.php"><span class="fa fa-user-plus space green"></span>Add Student</a></li>
                                   </ul>
                                 </li>
 
                                 <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="fa fa-building blue space"></span>View Companies</a></li>
-                                    <li><a href="#"><span class="fa fa-plus green space"></span>Add Company</a></li>
+                                    <li><a href="company.php"><span class="fa fa-building blue space"></span>View Companies</a></li>
+                                    <li><a href="addcompany.php"><span class="fa fa-plus green space"></span>Add Company</a></li>
                                   </ul>
                                 </li>
 
                                 <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advisers <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
-                                    <li><a href="#"><span class="fa fa-user-plus green space"></span>Add Adviser</a></li>
+                                    <li><a href="adviser.php"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
+                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Advisoree</a></li>
                                   </ul>
                                 </li>
 
@@ -67,8 +67,8 @@ include("connect.php");
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="#"><span class="fa fa-upload green space"></span>Import Data</a></li>
-                                    <li><a href="#"><span class="fa fa-download orange space"></span>Export Data to CSV</a></li>
-                                    <li><a href="#"><span class="fa fa-repeat red space"></span>Master Reset</a></li>
+                                    <li><a href="export_csv.php"><span class="fa fa-download orange space"></span>Export Data to CSV</a></li>
+                                    <li><a href="reset.php"><span class="fa fa-repeat red space"></span>Master Reset</a></li>
                                   </ul>
                                 </li>
 
@@ -860,6 +860,7 @@ include("connect.php");
     <script src="js/bootstrap-notify.js"></script>
     <script src="js/alertFade.js"></script>
     <script src="js/preloader.js"></script>
+    <script src="js/dropdown.js"></script>
     <script src="js/dropdown.js"></script>
 
     <script>

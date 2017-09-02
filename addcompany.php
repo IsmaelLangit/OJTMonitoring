@@ -34,13 +34,38 @@ include("connect.php");
                         </div>
                         <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
                             <ul class="nav navbar-nav ">
-                                <li><a href="index.php"><span class="fa fa-user space"></span>Students</a></li>
-                                <li><a href="add.php"><span class="fa fa-plus space"></span>Add Student</a></li>
-                                <li><a href="company.php"><span class="fa fa-building space"></span>Companies</a></li>
-                                <li class="active"><a href="addcompany.php"><span class="fa fa-plus space"></span>Add Company</a></li>
-                                <li><a href="adviser.php"><span class="fa fa-address-book space"></span>Advisers</a></li>
-                                <li><a href="changeadviser.php"><span class="fa fa-exchange space"></span>Change Adviser</a></li>
-                                <li><a href="export_csv.php"><span class="fa fa-download space"></span>Export Data</a></li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="index.php"><span class="fa fa-user space blue"></span>View Students</a></li>
+                                    <li><a href="add.php"><span class="fa fa-user-plus space green"></span>Add Student</a></li>
+                                  </ul>
+                                </li>
+
+                                <li class="dropdown active">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="company.php"><span class="fa fa-building blue space"></span>View Companies</a></li>
+                                    <li><a href="addcompany.php"><span class="fa fa-plus green space"></span>Add Company</a></li>
+                                  </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advisers <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="adviser.php"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
+                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Advisoree</a></li>
+                                  </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="fa fa-upload green space"></span>Import Data</a></li>
+                                    <li><a href="export_csv.php"><span class="fa fa-download orange space"></span>Export Data to CSV</a></li>
+                                    <li><a href="reset.php"><span class="fa fa-repeat red space"></span>Master Reset</a></li>
+                                  </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -261,6 +286,7 @@ include("connect.php");
     <script src="js/jquery.are-you-sure.js"></script>
     <script src="js/bootstrap-notify.js"></script>
     <script src="js/alertFade.js"></script>
+    <script src="js/dropdown.js"></script>
 
     <script>
         $('form').areYouSure();
