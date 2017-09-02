@@ -88,7 +88,13 @@ include("connect.php");
 
                     <p class="resetInfo">You're about to reset the whole web application. All data entry in this application will be erased and only the name of the companies will remain. Please be advised to back-up all important data for future reference. </p>
 
-                    <button class="btn btn-md btn-warning">Continue</button>
+                    <a href="#" title="Reset" class="confirm btn btn-warning btn-md" 
+                            data-text="Are you sure you want to reset the whole web application?" data-confirm-button="Yes"
+                            data-cancel-button="No"
+                            data-confirm-button-class= "btn-success"
+                            data-cancel-button-class= "btn-danger"
+                            data-title="Master Reset">Continue
+                    </a>
             </div>
 
 
