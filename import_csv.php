@@ -40,7 +40,7 @@ include("connect.php");
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
 
-                                <li class="dropdown active">
+                                <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="index.php"><span class="fa fa-user space blue"></span>View Students</a></li>
@@ -96,8 +96,10 @@ include("connect.php");
             <div class="row">
             	<div class="col-md-offset-3 col-md-6 text-center">
 
+                    <img class="importIcon" src="img/import.png">
+
                     <div class="col">
-                        <p class="resetInfo">As for now, this feature only accepts data files for Students. Please import your CSV data file below to fill up the students data</p>
+                        <p class="resetInfo">Please import your CSV data file below to fill up the students data</p>
                     </div>
 
 					<form class="form-inline" action="" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
