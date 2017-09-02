@@ -6,21 +6,27 @@ include("connect.php");
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Advisers</title>
+        <title>Import Data</title>
+        <link rel="icon" href="img/scisLogo.png">
+
         <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/hover.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
-        <link rel="icon" href="img/scisLogo.png">
+        <link rel="stylesheet" type="text/css" href="css/preloader.css">
+
     </head>
+
 <body>
 
-    <div class="main-container">
+<div class="main-container">
 
     <header class="main-header" id="header">
         <div class="bg-color wrapper">
+
             <!--nav-->
             <nav class="nav navbar-default navbar-fixed-top stroke">
                 <div class="container-fluid">
@@ -31,9 +37,10 @@ include("connect.php");
                         </button>
                             <a href="index.php" class="navbar-brand"><img class="logoNav img-responsive" src="img/NewLogo.png"></a>
                         </div>
-                        <div class="collapse navbar-collapse navbar-right borderXwidth" id="mynavbar">
-                            <ul class="nav navbar-nav ">
-                                <li class="dropdown">
+                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                            <ul class="nav navbar-nav">
+
+                                <li class="dropdown active">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="index.php"><span class="fa fa-user space blue"></span>View Students</a></li>
@@ -66,6 +73,7 @@ include("connect.php");
                                     <li><a href="reset.php"><span class="fa fa-repeat red space"></span>Master Reset</a></li>
                                   </ul>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -75,75 +83,64 @@ include("connect.php");
         </div>
     </header>
     <!--/ header-->
+
     <section class="section-padding">
-    <?php
-    if(isset($_GET['reset'])){
-        $reset  = $_GET['reset'];
-        $reset_query = mysqli_query($connect, "TRUNCATE TABLE students");
-        $sql = mysqli_query($connect, "SELECT * from students");
+        <div class="container-fluid">
 
-        if(mysqli_num_rows($sql) == 0){
-            echo '<div class="alert alert-success" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have updated the information.
-                </div>';
-
-        }
-    }
-    ?>
-        <div class="container">
             <div class="col text-center">
-                <h1 class="top-title">Practicum Monitoring <span class="title">Master Reset </span></h1>  
+                <h1 class="top-title">Import<span class="title"> CSV File</span></h1>
             </div>
 
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="row">
-                <div class="col-md-offset-3 col-md-6 text-center">
-                    <img class="resetIcon" src="img/reset.png">
+            	<div class="col-md-offset-3 col-md-6 text-center">
 
-                    <p class="resetInfo">You're about to reset the whole web application. All data entry in this application will be erased and only the name of the companies will remain. Please be advised to back-up all important data for future reference. </p>
+                    <div class="col">
+                        <p class="resetInfo">As for now, this feature only accepts data files for Students. Please import your CSV data file below to fill up the students data</p>
+                    </div>
 
+					<form class="form-inline" action="" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
+                        <div class="form-group">
+    					   <input name="csv" type="file" class="btn btn-primary" id="csv"/> 
+                        </div>
+                        <div class="form-group">
+    					  <input type="submit" name="Submit" class="btn btn-md btn-success" value="Submit"/>
+                        </div> 
+					</form> 
 
-                        <a href="reset.php?reset=confirm" title="Reset" class="confirm btn btn-warning btn-md" 
-                                data-text="Are you sure you want to reset the whole web application?" data-confirm-button="Yes"
-                                data-cancel-button="No"
-                                data-confirm-button-class= "btn-success"
-                                data-cancel-button-class= "btn-danger"
-                                data-title="Master Reset">Continue
-                        </a>
-                    </form>
+				</div>
             </div>
 
+		</div>
+	</section>
 
-        </div> <!--End of Container Fluid-->
-    </section>
-    <!---->
-    <!---->
-    <footer class="footer">
+	<footer class="footer">
         <div class="row text-center">
             <img class="footerLogo" src="img/newLogo.png">
             <p class="credits">Designed and Developed by OJT2 2016-2017</p>
         </div>
     </footer>
+    </div> <!--End of main-container-->
     <!---->
-    </div>
-    <!-- end-->
+    <!--contact ends-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/smoothScroll.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/jquery.confirm.js"></script>
+    <script src="js/bootstrap-notify.js"></script>
     <script src="js/alertFade.js"></script>
-    <script src="js/alertFade.js"></script>
+    <script src="js/preloader.js"></script>
     <script src="js/dropdown.js"></script>
-    
+    <script src="js/dropdown.js"></script>
+
     <script>
         $(".confirm").confirm();
     </script>
-  
+    
   </body>
 </html>

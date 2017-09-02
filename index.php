@@ -60,13 +60,14 @@ include("connect.php");
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="adviser.php"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
                                     <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Advisoree</a></li>
+                                    <li><a href="editvisit.php"><span class="fa fa-pencil-square-o orange space"></span>Edit Visitation</a></li>
                                   </ul>
                                 </li>
 
                                 <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="fa fa-upload green space"></span>Import Data</a></li>
+                                    <li><a href="import_csv.php"><span class="fa fa-upload green space"></span>Import Data</a></li>
                                     <li><a href="export_csv.php"><span class="fa fa-download orange space"></span>Export Data to CSV</a></li>
                                     <li><a href="reset.php"><span class="fa fa-repeat red space"></span>Master Reset</a></li>
                                   </ul>
@@ -647,7 +648,7 @@ include("connect.php");
                             }
 
                                     if($total == 0){
-                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NOTHING TO DISPLAY <a href="index.php"> <span class="fa fa-arrow-circle-left"></span> Go Back</a></td></tr>';
+                                        echo '<tr class="nothingToDisplay text-center"><td colspan="22">NOTHING TO DISPLAY</td></tr>';
                                     }else{
                                         if($id == 1) {
                                             $no = 1;

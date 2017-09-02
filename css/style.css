@@ -597,6 +597,14 @@ span.indexIcon{
   background-color: #c0392b;
   border-color: #e74c3c;
 }
+.btn-gray{
+  background-color: #e5e5e5;
+  border-color: #bfbfbf;
+}
+.btn-gray:hover{
+  background-color: #d8d8d8;
+  border-color: #b2b2b2;
+}
 .date {
   z-index: 100000 !important;
 }
