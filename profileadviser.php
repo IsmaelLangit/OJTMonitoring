@@ -91,7 +91,9 @@ include("connect.php");
 
                     $update = mysqli_query($connect, "UPDATE students SET vis_status ='$vis_status',remark_visit='$remark_visit',vis_date='$vis_date',vis_ad_id='$vis_ad_id' WHERE idnum='$idnum'") or die(mysqli_error());
                     if($update){
-                        header("Location: profileadviser.php?ad_id=".$ad_id."&student=success");
+                        echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
+                        </div>';
                     }else{
                         echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                     }
@@ -103,24 +105,14 @@ include("connect.php");
 
                     $updateadviser = mysqli_query($connect, "UPDATE advisers SET adviser ='$adviser' WHERE ad_id= '$ad_id'") or die(mysqli_error());
                     if($updateadviser){
-                        header("Location: profileadviser.php?ad_id=".$ad_id."&adviser=success");
+                        echo '<div class="alert alert-success" role="alert">
+                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The display name of this adviser has been updated
+                        </div>';
                     }else{
                         echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                     }
                 }
                 
-                if(isset($_GET['student']) == 'success'){
-                    echo '<div class="alert alert-success" role="alert">
-                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated
-                        </div>';
-                }
-
-                 if(isset($_GET['adviser']) == 'success'){
-                    echo '<div class="alert alert-success" role="alert">
-                          <strong><span class = "fa fa-check-circle"></span> Success!</strong> The display name of this adviser has been updated
-                        </div>';
-                }
-
                 if(isset($_GET['action']) == 'remove'){
                     $idnum = $_GET['idnum'];
                     $remove = mysqli_query($connect, "UPDATE students SET ad_id = 1 WHERE idnum=$idnum");

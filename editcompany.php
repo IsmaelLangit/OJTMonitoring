@@ -132,17 +132,15 @@ include("connect.php");
                 $update = mysqli_query($connect, "UPDATE company SET coname ='$coname',coaddress='$coaddress', company_head='$company_head', position='$position', contact_person='$contact_person', cp_position='$cp_position' ,typeofcompany='$typeofcompany', release_moa='$release_moa', receive_moa='$receive_moa', remark_moa='$remark_moa',  moa='$moa' WHERE coid='$coid'") or die(mysqli_error());
 
                 if($update && $update2){
-                    header("Location: editcompany.php?coid=".$coid."&message=success");
+                    echo '<div class="alert alert-success" role="alert">
+                                  <strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
+                                </div>';
                 }else{
                     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                 }
             }
             
-            if(isset($_GET['message']) == 'success'){
-                echo '<div class="alert alert-success" role="alert">
-                                  <strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have successfully updated the information on this company.  <a href="company.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of companies.</a>.
-                                </div>';
-            }
+
             ?>
 
             <form action="" method="post">

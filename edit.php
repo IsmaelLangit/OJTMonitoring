@@ -145,17 +145,14 @@ include("connect.php");
                 
                 $update = mysqli_query($connect, "UPDATE students SET first_name ='$first_name',last_name='$last_name', courseyear='$courseyear', mobile_number='$mobile_number', email='$email', vis_status='$vis_status', remark_visit='$remark_visit', release_evaluation='$release_evaluation', receive_evaluation='$receive_evaluation', remark_evaluation='$remark_evaluation', evaluation='$evaluation', release_endorsement='$release_endorsement', receive_endorsement='$receive_endorsement', remark_endorsement='$remark_endorsement', endorsement='$endorsement', release_waiver='$release_waiver', receive_waiver='$receive_waiver', remark_waiver='$remark_waiver', waiver ='$waiver', coid='$coid', status='$status', idnum='$idnum', ad_id='$ad_id', vis_ad_id='$vis_ad_id', vis_status='$vis_status', vis_date='$vis_date', remark_visit='$remark_visit' WHERE idnum='$idnum'") or die(mysqli_error());
                 if($update){
-                    header("Location: edit.php?idnum=".$idnum."&message=success");
+                    echo '<div class="alert alert-success" role="alert">
+                      <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
+                    </div>';
                 }else{
                     echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data could not be saved, please try again.</div>';
                 }
             }
             
-            if(isset($_GET['message']) == 'success'){
-                echo '<div class="alert alert-success" role="alert">
-                      <strong><span class = "fa fa-check-circle"></span> Success!</strong> The information on this student has been updated. <a href="index.php" class="alert-link"><span class="fa fa-arrow-circle-left"></span> Go back to list of students.</a>.
-                    </div>';
-            }
             ?>
             
             <div class="container-fluid">

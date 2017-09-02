@@ -1,6 +1,50 @@
 <?php
 include("connect.php");
-?>
+
+if(isset($_POST['import'])){
+        
+        $filename=$_FILES["file"]["tmp_name"];      
+ 
+ 
+         if($_FILES["file"]["size"] > 0)
+         {
+            $file = fopen($filename, "r");
+            while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
+             {
+ 
+ 
+               $sql = mysqli_query($connect,"INSERT INTO students (idnum, last_name, first_name, courseyear, mobile_number,email) VALUES 
+                ( 
+                    '".$getData[0]."', 
+                    '".$getData[1]."', 
+                    '".$getData[2]."', 
+                    '".$getData[3]."',
+                    '".$getData[4]."',
+                    '".$getData[5]."'
+                ) 
+            "); 
+                if(!isset($sql))
+                {
+                    echo "<script type=\"text/javascript\">
+                            alert(\"Invalid File:Please Upload CSV File.\");
+                            window.location = \"index.php\"
+                          </script>";       
+                }
+                else {
+                      echo "<script type=\"text/javascript\">
+                        alert(\"CSV File has been successfully Imported.\");
+                        window.location = \"index.php\"
+                    </script>";
+                }
+             }
+            
+             fclose($file); 
+         }
+    }    
+ 
+ 
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,6 +61,7 @@ include("connect.php");
         <link rel="stylesheet" type="text/css" href="css/hover.css">
         <link rel="stylesheet" type="text/css" href="css/footer.css">
         <link rel="stylesheet" type="text/css" href="css/preloader.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
     </head>
 
@@ -102,12 +147,14 @@ include("connect.php");
                         <p class="resetInfo">Please import your CSV data file below to fill up the students data</p>
                     </div>
 
-					<form class="form-inline" action="" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
+
+
+					<form class="form-inline" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
                         <div class="form-group">
-    					   <input name="csv" type="file" class="btn btn-primary" id="csv"/> 
+    					   <input type="file" name="file" id="file" class="btn btn-primary" id="csv"/> 
                         </div>
                         <div class="form-group">
-    					  <input type="submit" name="Submit" class="btn btn-md btn-success" value="Submit"/>
+    					  <button type="submit" name="import" class="btn btn-md btn-success"><span>Import</span></button>
                         </div> 
 					</form> 
 
