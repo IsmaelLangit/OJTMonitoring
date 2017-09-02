@@ -192,6 +192,21 @@ a:hover{
   font-style: italic;
 }
 
+.green{
+  color: #1cb23f !important;
+}
+
+.blue{
+  color: #1c91b2 !important;
+}
+
+.orange{
+  color: #b2761c !important;
+}
+
+.red{
+  color: #b21c1c !important;
+}
 /**--------------------------MEDIA QUERIES--------------------------------**/
 @media (min-width: 10px) and (max-width: 500px){
     .section-title{
