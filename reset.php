@@ -84,7 +84,7 @@ include("connect.php");
 
         if(mysqli_num_rows($sql) == 0){
             echo '<div class="alert alert-success" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> You have updated the information.
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong> <span class = "fa fa-check-circle"></span> Success!</strong> Practicum Monitoring is now ready to use for another batch of trainees.
                 </div>';
 
         }
@@ -100,6 +100,8 @@ include("connect.php");
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 text-center">
                     <img class="resetIcon" src="img/reset.png">
+
+                    <h1 class="title">Warning</h1>
 
                     <p class="resetInfo">You're about to reset the whole web application. All data entry in this application will be erased and only the name of the companies will remain. Please be advised to back-up all important data for future reference. </p>
 

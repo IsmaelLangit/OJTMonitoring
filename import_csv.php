@@ -185,7 +185,6 @@ if(isset($_POST['import'])){
     <script src="js/alertFade.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/dropdown.js"></script>
 
     <script>
         $(".confirm").confirm();
