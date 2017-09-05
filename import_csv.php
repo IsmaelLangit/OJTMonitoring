@@ -105,8 +105,8 @@ if(isset($_POST['import'])){
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advisers <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="adviser.php"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
-                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Advisoree</a></li>
-                                    <li><a href="editvisit.php"><span class="fa fa-pencil-square-o orange space"></span>Edit Visitation</a></li>
+                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Adviser</a></li>
+                                    <li><a href="editvisit.php"><span class="fa fa-pencil-square-o orange space"></span>Edit Visit Status</a></li>
                                   </ul>
                                 </li>
 
@@ -139,12 +139,39 @@ if(isset($_POST['import'])){
             <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
 
             <div class="row">
-            	<div class="col-md-offset-3 col-md-6 text-center">
+            	<div class="col-md-offset-2 col-md-8 text-center">
 
                     <img class="importIcon" src="img/import.png">
 
                     <div class="col">
-                        <p class="resetInfo">Please import your CSV data file below to fill up the students data</p>
+                        <p class="resetInfo">Please import your CSV data file below to fill up the students data. Sample data is shown below for reference.</p>
+
+                        <table class="table table-hover text-center">
+                            <tr class="info">
+                                <th class="text-center">ID Number</th>
+                                <th class="text-center">Last Name</th>
+                                <th class="text-center">First Name</th>
+                                <th class="text-center">Coure and Year</th>
+                                <th class="text-center">Mobile Number</th>
+                                <th class="text-center">Email</th>
+                            </tr>
+                            <tr>
+                                <td>2100001</td>
+                                <td>Rivera</td>
+                                <td>George</td>
+                                <td>BSIT 3</td>
+                                <td>09123456789</td>
+                                <td>georgerivera@slu.edu.ph</td>
+                            </tr>
+                            <tr>
+                                <td>2110002</td>
+                                <td>Reyes</td>
+                                <td>Laura Mae</td>
+                                <td>BSCS 4</td>
+                                <td>09987654321</td>
+                                <td>laurareyes@gmail.com</td>
+                            </tr>
+                        </table>
                     </div>
 
 

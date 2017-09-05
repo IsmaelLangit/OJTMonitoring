@@ -53,8 +53,8 @@ include("connect.php");
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advisers <span class="caret"></span></a>
                                   <ul class="dropdown-menu" role="menu">
                                     <li><a href="adviser.php"><span class="fa fa-vcard blue space"></span>View Advisers</a></li>
-                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Advisoree</a></li>
-                                    <li><a href="editvisit.php"><span class="fa fa-pencil-square-o orange space"></span>Edit Visitation</a></li>
+                                    <li><a href="changeadviser.php"><span class="fa fa-user-plus green space"></span>Change Adviser</a></li>
+                                    <li><a href="editvisit.php"><span class="fa fa-pencil-square-o orange space"></span>Edit Visit Status</a></li>
                                   </ul>
                                 </li>
 
@@ -116,7 +116,7 @@ include("connect.php");
 
                         ?>
 
-                    <h1 class="top-title">Edit <span class="title">Visitation </span></h1>  
+                    <h1 class="top-title">Edit <span class="title">Visit Status</span></h1>  
                 </div>
                 <?php               
                 $sql1 =mysqli_query($connect,"SELECT idnum, vis_status, concat(last_name, ', ', first_name) as Name, coname, adviser, coid, ad_id from company NATURAL JOIN students NATURAL JOIN advisers ORDER BY last_name, first_name");
