@@ -160,7 +160,7 @@
                                         <div class="col-sm-4">
                                             <label class="control-label">ID Number</label>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-8">
                                             <input type="number" name="idnum" class="form-control" placeholder="2100000" size="7" required>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                         <div class="col-sm-4">
                                             <label class="control-label">Course & Year</label>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-7">
                                             <select name="courseyear" class="form-control touch">
                                                 <option value="BSIT 3">BSIT-3</option>
                                                 <option value="BSIT 4">BSIT-4</option>

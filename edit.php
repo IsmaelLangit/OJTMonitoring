@@ -168,7 +168,7 @@ include("connect.php");
                                         <div class="col-sm-4">
                                             <label class="control-label">ID Number</label>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-8">
                                             <input type="number" class="form-control" name="idnum" value="<?php echo $row ['idnum']; ?>" class="form-control" placeholder="ID no." required>
                                         </div>
                                     </div>
@@ -207,7 +207,7 @@ include("connect.php");
                                         <div class="col-sm-4">
                                             <label class="control-label">Course & Year</label>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-7">
                                             <select name="courseyear" class="form-control touch">
                                             <?php
                                                 echo "<option value='BSIT 3' ";
