@@ -107,7 +107,7 @@ include("connect.php");
 
 
                         <a href="reset.php?reset=confirm" title="Reset" class="confirm btn btn-warning btn-md" 
-                                data-text="Are you sure you want to reset the whole web application?" data-confirm-button="Yes"
+                                data-text="Are you sure you want to reset the whole web application? Resetting this will erase all of the data." data-confirm-button="Yes"
                                 data-cancel-button="No"
                                 data-confirm-button-class= "btn-success"
                                 data-cancel-button-class= "btn-danger"
@@ -124,7 +124,7 @@ include("connect.php");
     <footer class="footer">
         <div class="row text-center">
             <img class="footerLogo" src="img/newLogo.png">
-            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
+            <p class="credits">Copyright © 2018 - Developed by Ismael Langit and Designed by John Allen Basco</p>
         </div>
     </footer>
     <!---->

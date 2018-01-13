@@ -396,7 +396,7 @@ include("connect.php");
     <footer id="footer" class="footer">
         <div class="row text-center">
             <img class="footerLogo" src="img/newLogo.png">
-            <p class="credits">Designed and Developed by OJT2 2016-2017</p>
+            <p class="credits">Copyright © 2018 - Developed by Ismael Langit and Designed by John Allen Basco</p>
         </div>
     </footer>
 
